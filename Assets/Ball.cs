@@ -29,7 +29,7 @@ public class Ball : MonoBehaviour
 
     private void UpdateBallVelocity()
     {
-        //rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y);
-        rb.AddForce(new Vector2( 5, 10f), ForceMode2D.Impulse);
+        rb.velocity = new Vector2(rb.velocity.x + 5, rb.velocity.y + 5);
+       // rb.AddForce(new Vector2( 5, 10f), ForceMode2D.Impulse);
     }
 }

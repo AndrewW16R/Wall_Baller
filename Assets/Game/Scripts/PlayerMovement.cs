@@ -8,7 +8,8 @@ public class PlayerMovement : MonoBehaviour
     private BoxCollider2D coll;
 
     //left/right input
-    float dirX;
+    public float dirX;
+    public float dirY;
 
     [SerializeField] private float movementSpeed;
     [SerializeField] private float jumpStrength;
@@ -30,6 +31,9 @@ public class PlayerMovement : MonoBehaviour
     //How much the default gravity is multiplied by within the process of fast falling
     [SerializeField] public float fastfallGravMultiplier;
 
+    public float verInputGatePositive = 0.35f; //How far up the vertical input needs to be counted as an "Up" input
+    public float verInputGateNegative = 0.35f; //How far down the vertical input needs to be counted as an "Down" input
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,10 +49,15 @@ public class PlayerMovement : MonoBehaviour
     {
         //Walking movement
         dirX = Input.GetAxisRaw("Horizontal");
-        rb.velocity = new Vector2(dirX * movementSpeed, rb.velocity.y);
+        dirY = Input.GetAxisRaw("Vertical");
 
         //Checks for jump input and executes jump in under proper conditions
         UpdateJump();
+    }
+
+    void FixedUpdate()
+    {
+        rb.velocity = new Vector2(dirX * movementSpeed, rb.velocity.y);
     }
 
     private void UpdateJump()
@@ -101,4 +110,5 @@ public class PlayerMovement : MonoBehaviour
     {
         return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
     }
+
 }
