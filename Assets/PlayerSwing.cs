@@ -11,6 +11,7 @@ public class PlayerSwing : MonoBehaviour
     public bool stopJumpInput; //set to true when a move should stop Jump/prevent input
     private string currentSwingName; //this variable is not currently utilized but could be implemented to indicate which attack is being used
     [SerializeField] private int currentSwingDuration;
+    public bool isAirSwing;
 
     //PlayerMovement class on Player GameObject
     PlayerMovement playerMovement;
@@ -32,6 +33,8 @@ public class PlayerSwing : MonoBehaviour
         swingDurationUpdateQued = false;
         stopHorizontalVel = false;
         stopHorizontalInput = false;
+        stopJumpInput = false;
+        isAirSwing = false;
     }
 
     // Update is called once per frame
@@ -42,7 +45,8 @@ public class PlayerSwing : MonoBehaviour
 
     private void FixedUpdate()
     {
-
+        UpdateSwingHitbox();
+        UpdateSwingDuration();
     }
 
     private void UpdateSwing()
@@ -73,27 +77,12 @@ public class PlayerSwing : MonoBehaviour
                 //Swing light grounded middle
                 FetchSwingCollision(swingHitbox_LGM);
                 currentSwingName = "L_Grounded_Middle";
-
+                isAirSwing = false;
                 currentSwingDuration = swingCollision.swingTotalDuration;
-
-                if (currentSwingDuration > 0 && playerMovement.IsGrounded()) //if the swing animation is currently playing, wait subtract one from its duration
-                {
-                    swingDurationUpdateQued = true;
-
-                }
-                else
-                {
-                    isSwinging = false;
-                    currentSwingDuration = 0; //ensures that Swing duration is set back to 0 if player jumps and press s button at the same time
-                    UpdateHorizontalInputPrevention(false);
-                    UpdateHorizontalVelocityPrevention(false);
-                    UpdateJumpInputPrevention(false);
-                    currentSwingName = "";
-                    swingCollision = null;
-                }
+                Debug.Log(swingCollision.swingTotalDuration);
 
             }
-            
+
         }
         else if (Input.GetButtonDown("Fire2") && playerMovement.IsGrounded()) //Heavy Grounded Swings
         {
@@ -153,12 +142,40 @@ public class PlayerSwing : MonoBehaviour
 
     private void UpdateSwingHitbox()
     {
-
+        if (currentSwingName == "L_Grounded_Middle")
+        {
+            if (currentSwingDuration <= (swingCollision.swingTotalDuration - swingCollision.swingStartupDuration) && (currentSwingDuration > swingCollision.swingEndlagDuration))
+            {
+                Debug.Log("Hitbox active");
+                swingHitbox_LGM.gameObject.SetActive(true);
+            }
+            else
+            {
+                swingHitbox_LGM.gameObject.SetActive(false);
+            }
+        }
     }
 
     private void UpdateSwingDuration()
     {
+        if  (currentSwingDuration > 0)
+        {
+            if (isAirSwing == false && playerMovement.IsGrounded() || isAirSwing == true && playerMovement.IsGrounded()==false)
+            swingDurationUpdateQued = true;
+        }
+        else
+        {
+            swingDurationUpdateQued = false;
+            if (isSwinging == true)
+            {
+                EndSwing();
+            }
+        }
 
+        if (swingDurationUpdateQued == true)
+        {
+            currentSwingDuration = currentSwingDuration - 1;
+        }
     }
 
     public void UpdateHorizontalInputPrevention(bool isPrevented)
@@ -185,5 +202,17 @@ public class PlayerSwing : MonoBehaviour
             swingCollision = swingCollisionObject.GetComponent<SwingCollision>(); // Assigns SwingCollision class from the retrieved swing collision game object as the currently active swing collision
             Debug.Log("Swing Collision class found!");
         }
+    }
+
+    public void EndSwing()
+    {
+        isSwinging = false;
+        currentSwingDuration = 0; //ensures that Swing duration is set back to 0 if player jumps and press s button at the same time
+        UpdateHorizontalInputPrevention(false);
+        UpdateHorizontalVelocityPrevention(false);
+        UpdateJumpInputPrevention(false);
+        currentSwingName = "";
+        isAirSwing = false;
+        swingCollision = null;
     }
 }

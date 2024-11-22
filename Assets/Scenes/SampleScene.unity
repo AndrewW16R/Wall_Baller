@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &246757842
 Transform:
   m_ObjectHideFlags: 0
@@ -265,9 +265,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98a8ecf90e30a464bb20d9deb231de6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swingTotalDuration: 15
+  swingTotalDuration: 60
   swingStartupDuration: 5
-  swingActiveDuration: 5
+  swingActiveDuration: 50
   swingEndlagDuration: 5
 --- !u!1 &284278375
 GameObject:
@@ -1560,6 +1560,7 @@ MonoBehaviour:
   jumpableGround:
     serializedVersion: 2
     m_Bits: 64
+  playerSwing: {fileID: 1992696001}
   jumpsAvailable: 2
   maxJumps: 0
   fastFalling: 0
@@ -1584,6 +1585,7 @@ MonoBehaviour:
   stopHorizontalInput: 0
   stopJumpInput: 0
   currentSwingDuration: 0
+  isAirSwing: 0
   swingHitbox_LGM: {fileID: 246757841}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

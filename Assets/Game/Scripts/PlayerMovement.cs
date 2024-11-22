@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private LayerMask jumpableGround;
 
+    public PlayerSwing playerSwing;
+
     //How many jumps the player can do before needing to be grounded again
     [SerializeField] public int jumpsAvailable = 2;
     //Player is assigned the number of Jumps available from frame 1, used to determine how many jumps the player gets when jumps refresh
@@ -48,7 +50,16 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         //Walking movement
-        dirX = Input.GetAxisRaw("Horizontal");
+        if (playerSwing.stopHorizontalInput == true)
+        {
+            dirX = 0;
+        }
+        else
+        {
+            dirX = Input.GetAxisRaw("Horizontal");
+        }
+        
+
         dirY = Input.GetAxisRaw("Vertical");
 
         //Checks for jump input and executes jump in under proper conditions
@@ -72,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //jumping
-        if (Input.GetButtonDown("Jump") && IsGrounded())
+        if (Input.GetButtonDown("Jump") && IsGrounded() && playerSwing.stopJumpInput == false)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpStrength);
             jumpsAvailable = jumpsAvailable - 1;
