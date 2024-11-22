@@ -265,10 +265,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98a8ecf90e30a464bb20d9deb231de6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swingTotalDuration: 0
-  swingStartupDuration: 0
-  swingActiveDuration: 0
-  swingEndlagDuration: 0
+  swingTotalDuration: 15
+  swingStartupDuration: 5
+  swingActiveDuration: 5
+  swingEndlagDuration: 5
 --- !u!1 &284278375
 GameObject:
   m_ObjectHideFlags: 0
@@ -1584,6 +1584,7 @@ MonoBehaviour:
   stopHorizontalInput: 0
   stopJumpInput: 0
   currentSwingDuration: 0
+  swingHitbox_LGM: {fileID: 246757841}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -17,6 +17,8 @@ public class PlayerSwing : MonoBehaviour
 
     //PlayerAnimation playerAnimation; //Add this in when animation script is ready
 
+    public GameObject swingHitbox_LGM;
+
     //SwingCollision class on the swing hitbox object of the currently active swing
     SwingCollision swingCollision; 
 
@@ -38,6 +40,11 @@ public class PlayerSwing : MonoBehaviour
         UpdateSwing();
     }
 
+    private void FixedUpdate()
+    {
+
+    }
+
     private void UpdateSwing()
     {
         if (isSwinging == true)
@@ -46,7 +53,6 @@ public class PlayerSwing : MonoBehaviour
         }
         else if (Input.GetButtonDown("Fire1") && playerMovement.IsGrounded()) //Light grounded swings
         {
-            Debug.Log("Light Swing");
             if (playerMovement.dirY >= playerMovement.verInputGatePositive)
             {
                 //Swing light grounded up
@@ -65,10 +71,29 @@ public class PlayerSwing : MonoBehaviour
                 UpdateHorizontalVelocityPrevention(true);
                 UpdateJumpInputPrevention(true);
                 //Swing light grounded middle
-                FetchSwingCollision("Hitbox_Swing_L_Grounded_Middle");
+                FetchSwingCollision(swingHitbox_LGM);
                 currentSwingName = "L_Grounded_Middle";
-                Debug.Log(currentSwingName);
+
+                currentSwingDuration = swingCollision.swingTotalDuration;
+
+                if (currentSwingDuration > 0 && playerMovement.IsGrounded()) //if the swing animation is currently playing, wait subtract one from its duration
+                {
+                    swingDurationUpdateQued = true;
+
+                }
+                else
+                {
+                    isSwinging = false;
+                    currentSwingDuration = 0; //ensures that Swing duration is set back to 0 if player jumps and press s button at the same time
+                    UpdateHorizontalInputPrevention(false);
+                    UpdateHorizontalVelocityPrevention(false);
+                    UpdateJumpInputPrevention(false);
+                    currentSwingName = "";
+                    swingCollision = null;
+                }
+
             }
+            
         }
         else if (Input.GetButtonDown("Fire2") && playerMovement.IsGrounded()) //Heavy Grounded Swings
         {
@@ -151,10 +176,9 @@ public class PlayerSwing : MonoBehaviour
         stopJumpInput = isPrevented;
     }
 
-    public void FetchSwingCollision(string swingName)
+    public void FetchSwingCollision(GameObject swing)
     {
-        GameObject swingCollisionObject = null;
-        swingCollisionObject = GameObject.Find(swingName); //Finds transform of specified swing collision game object
+        GameObject swingCollisionObject = swing; //assigns the referenced game object as the swing collision object currently being used
 
         if (swingCollisionObject != null)
         {
