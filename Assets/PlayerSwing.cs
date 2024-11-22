@@ -17,6 +17,9 @@ public class PlayerSwing : MonoBehaviour
 
     //PlayerAnimation playerAnimation; //Add this in when animation script is ready
 
+    //SwingCollision class on the swing hitbox object of the currently active swing
+    SwingCollision swingCollision; 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +46,7 @@ public class PlayerSwing : MonoBehaviour
         }
         else if (Input.GetButtonDown("Fire1") && playerMovement.IsGrounded()) //Light grounded swings
         {
+            Debug.Log("Light Swing");
             if (playerMovement.dirY >= playerMovement.verInputGatePositive)
             {
                 //Swing light grounded up
@@ -55,11 +59,18 @@ public class PlayerSwing : MonoBehaviour
             }
             else
             {
+                Debug.Log("Middle Swing");
+                isSwinging = true;
+                UpdateHorizontalInputPrevention(true);
+                UpdateHorizontalVelocityPrevention(true);
+                UpdateJumpInputPrevention(true);
                 //Swing light grounded middle
+                FetchSwingCollision("Hitbox_Swing_L_Grounded_Middle");
                 currentSwingName = "L_Grounded_Middle";
+                Debug.Log(currentSwingName);
             }
         }
-        else if (Input.GetButtonDown("Fire2") && playerMovement.IsGrounded())
+        else if (Input.GetButtonDown("Fire2") && playerMovement.IsGrounded()) //Heavy Grounded Swings
         {
             if (playerMovement.dirY >= playerMovement.verInputGatePositive)
             {
@@ -77,7 +88,7 @@ public class PlayerSwing : MonoBehaviour
                 currentSwingName = "H_Grounded_Middle";
             }
         }
-        else if (Input.GetButtonDown("Fire1") && playerMovement.IsGrounded() == false)
+        else if (Input.GetButtonDown("Fire1") && playerMovement.IsGrounded() == false) //Light Airborne Swings
         {
             if (playerMovement.dirY >= playerMovement.verInputGatePositive)
             {
@@ -95,7 +106,7 @@ public class PlayerSwing : MonoBehaviour
                 currentSwingName = "L_Airborne_Middle";
             }
         }
-        else if (Input.GetButtonDown("Fire2") && playerMovement.IsGrounded() == false)
+        else if (Input.GetButtonDown("Fire2") && playerMovement.IsGrounded() == false) //Heavy Airborne Swings
         {
             if (playerMovement.dirY >= playerMovement.verInputGatePositive)
             {
@@ -123,5 +134,32 @@ public class PlayerSwing : MonoBehaviour
     private void UpdateSwingDuration()
     {
 
+    }
+
+    public void UpdateHorizontalInputPrevention(bool isPrevented)
+    {
+        stopHorizontalInput = isPrevented;
+    }
+
+    public void UpdateHorizontalVelocityPrevention(bool isPrevented)
+    {
+        stopHorizontalVel = isPrevented;
+    }
+
+    public void UpdateJumpInputPrevention(bool isPrevented)
+    {
+        stopJumpInput = isPrevented;
+    }
+
+    public void FetchSwingCollision(string swingName)
+    {
+        GameObject swingCollisionObject = null;
+        swingCollisionObject = GameObject.Find(swingName); //Finds transform of specified swing collision game object
+
+        if (swingCollisionObject != null)
+        {
+            swingCollision = swingCollisionObject.GetComponent<SwingCollision>(); // Assigns SwingCollision class from the retrieved swing collision game object as the currently active swing collision
+            Debug.Log("Swing Collision class found!");
+        }
     }
 }

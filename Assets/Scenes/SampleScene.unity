@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 246757842}
   - component: {fileID: 246757844}
   - component: {fileID: 246757843}
+  - component: {fileID: 246757845}
   m_Layer: 0
   m_Name: Hitbox_Swing_L_Grounded_Middle
   m_TagString: PlayerHitbox
@@ -252,6 +253,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &246757845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 246757841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98a8ecf90e30a464bb20d9deb231de6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swingTotalDuration: 0
+  swingStartupDuration: 0
+  swingActiveDuration: 0
+  swingEndlagDuration: 0
 --- !u!1 &284278375
 GameObject:
   m_ObjectHideFlags: 0
@@ -1535,6 +1552,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4613ae6bd8d96804b8cbe7dd5382aa21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dirX: 0
+  dirY: 0
   movementSpeed: 5.5
   jumpStrength: 10
   doubleJumpStrength: 9
@@ -1545,6 +1564,8 @@ MonoBehaviour:
   maxJumps: 0
   fastFalling: 0
   fastfallGravMultiplier: 1.5
+  verInputGatePositive: 0.35
+  verInputGateNegative: -0.35
 --- !u!114 &1992696001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1558,7 +1579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSwinging: 0
-  SwingDurationUpdateQued: 0
+  swingDurationUpdateQued: 0
   stopHorizontalVel: 0
   stopHorizontalInput: 0
   stopJumpInput: 0
