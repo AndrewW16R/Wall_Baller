@@ -9,8 +9,9 @@ public class Ball : MonoBehaviour
     public float ballSpeed;
     public int ballLevel;
     public int ballExp;
-    public int speedCap;
-    public int speedMin;
+    public float speedCap;
+    public float speedMin;
+    public float speedCapIncreasePerLevel;
     Transform ballTransform;
 
     Vector3 vel;
@@ -26,8 +27,8 @@ public class Ball : MonoBehaviour
 
         ballTransform = GetComponent<Transform>();
 
-        ballSpeed = 1f; //the ball's current speed
-        ballLevel = 0; //The Ball's current level
+        //ballSpeed = 1f; //the ball's current speed
+        ballLevel = 1; //The Ball's current level
         ballExp = 0; //How much experience the ball has, ball levels up once reaching 10 exp and then 10 exp from ballExp is subtracted
     }
 
@@ -52,10 +53,18 @@ public class Ball : MonoBehaviour
         rb.velocityX = rb.velocity.x + xVel;
         */
 
-        vel = rb.velocity;
-        vel.x = ballSpeed + xVel;
+        vel = rb.velocity; //vector 3 vairable is set to velocity
+        vel.x = ballSpeed + xVel; //set x velocity to ball speed + added ball power
+
+        if(vel.x >= speedCap) //if the ball speed would exceed the current speed cap when the new velocity is applied, set the new velocity to apply to equal the speed cap.
+        {
+            vel.x = speedCap;
+        }
+
         vel.y = yVel;
         rb.velocity = vel;
+
+        ballSpeed = vel.x;
         
     }
 
@@ -63,16 +72,23 @@ public class Ball : MonoBehaviour
     {
         ballExp = ballExp + expAmount;
         Debug.Log("Ball EXP = " + ballExp);
+
+        if (ballExp >= 10)
+        {
+            LevelUpBall();
+        }
     }
 
     public void LevelUpBall()
     {
-
+        ballLevel = ballLevel + 1;
+        ballExp = ballExp - 10;
+        UpdateSpeedCap();
     }
 
     public void UpdateSpeedCap()
     {
-
+        speedCap = speedCap + speedCapIncreasePerLevel;
     }
 
     public void LaunchBallDirection()

@@ -271,7 +271,7 @@ MonoBehaviour:
   swingActiveDuration: 10
   swingEndlagDuration: 5
   ballExpGain: 0
-  horizontalPower: 2
+  horizontalPower: 0.1
   verticlePower: 5
   collidedBall: 0
   ballObject: {fileID: 0}
@@ -1376,11 +1376,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
-  ballSpeed: 20
-  ballLevel: 0
+  ballSpeed: 2
+  ballLevel: 1
   ballExp: 0
-  speedCap: 0
+  speedCap: 3
   speedMin: 0
+  speedCapIncreasePerLevel: 1
 --- !u!1 &1302720872
 GameObject:
   m_ObjectHideFlags: 0
