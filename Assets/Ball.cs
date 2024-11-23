@@ -6,20 +6,13 @@ public class Ball : MonoBehaviour
     [HideInInspector] public Rigidbody2D rb;
     private CircleCollider2D coll;
 
+    public float initialBallSpeed;
     public float ballSpeed;
     public int ballLevel;
     public int ballExp;
-    public float speedCap;
-    public float speedMin;
     public float speedCapIncreasePerLevel;
     Transform ballTransform;
 
-    public float launchAngle;
-    float angleInRadians;
-    float xForce;
-    float yForce;
-
-    Vector3 vel;
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +25,7 @@ public class Ball : MonoBehaviour
 
         ballTransform = GetComponent<Transform>();
 
-        //ballSpeed = 1f; //the ball's current speed
+        ballSpeed = initialBallSpeed;
         ballLevel = 1; //The Ball's current level
         ballExp = 0; //How much experience the ball has, ball levels up once reaching 10 exp and then 10 exp from ballExp is subtracted
     }
@@ -40,47 +33,13 @@ public class Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //rb.velocity = ballSpeed * (rb.velocity.normalized);
+ 
     }
 
     public void UpdateBallVelocity(float xVel, float yVel)
     {
-        //rb.velocity = new Vector2(rb.velocity.x + xVel, rb.velocity.y + yVel);
-        //transform.eulerAngles = Vector3.forward * 20;
-        //rb.SetRotation(20f);
-        //rb.AddForce(new Vector3( 0, 0, 5), ForceMode2D.Force);
-        //rb.velocity = ballSpeed * (rb.velocity.normalized);
 
-        /*if(rb.velocity.x < 0)
-        {
-            rb.velocityX = rb.velocity.x * -1;
-        }
-        rb.velocityX = rb.velocity.x + xVel;
-        */
-
-
-        /*
-        vel = rb.velocity; //vector 3 vairable is set to velocity
-        vel.x = ballSpeed + xVel; //set x velocity to ball speed + added ball power
-
-        if(vel.x >= speedCap) //if the ball speed would exceed the current speed cap when the new velocity is applied, set the new velocity to apply to equal the speed cap.
-        {
-            vel.x = speedCap;
-        }
-
-        vel.y = yVel;
-        rb.velocity = vel;
-
-        ballSpeed = vel.x;
-        */
-        ballSpeed = ballSpeed + xVel;
-
-        angleInRadians = launchAngle * Mathf.Deg2Rad;
-        xForce = ballSpeed * Mathf.Cos(angleInRadians);
-        yForce = ballSpeed * Mathf.Sin(angleInRadians);
-
-        rb.AddForce(new Vector2(xForce, yForce), ForceMode2D.Impulse);
-        
+            rb.velocity = new Vector2(ballSpeed + xVel, yVel);   
     }
 
     public void AddBallExp(int expAmount)
@@ -98,16 +57,13 @@ public class Ball : MonoBehaviour
     {
         ballLevel = ballLevel + 1;
         ballExp = ballExp - 10;
-        UpdateSpeedCap();
+        UpdateBallSpeed();
     }
 
-    public void UpdateSpeedCap()
+    public void UpdateBallSpeed()
     {
-        speedCap = speedCap + speedCapIncreasePerLevel;
+         ballSpeed = ballSpeed + speedCapIncreasePerLevel;
     }
 
-    public void LaunchBallDirection()
-    {
-        
-    }
+
 }
