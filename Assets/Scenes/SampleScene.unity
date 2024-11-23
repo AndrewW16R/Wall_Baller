@@ -1382,6 +1382,7 @@ MonoBehaviour:
   speedCap: 3
   speedMin: 0
   speedCapIncreasePerLevel: 1
+  launchAngle: 20
 --- !u!1 &1302720872
 GameObject:
   m_ObjectHideFlags: 0

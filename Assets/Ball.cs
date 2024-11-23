@@ -14,6 +14,11 @@ public class Ball : MonoBehaviour
     public float speedCapIncreasePerLevel;
     Transform ballTransform;
 
+    public float launchAngle;
+    float angleInRadians;
+    float xForce;
+    float yForce;
+
     Vector3 vel;
 
     // Start is called before the first frame update
@@ -53,6 +58,8 @@ public class Ball : MonoBehaviour
         rb.velocityX = rb.velocity.x + xVel;
         */
 
+
+        /*
         vel = rb.velocity; //vector 3 vairable is set to velocity
         vel.x = ballSpeed + xVel; //set x velocity to ball speed + added ball power
 
@@ -65,6 +72,14 @@ public class Ball : MonoBehaviour
         rb.velocity = vel;
 
         ballSpeed = vel.x;
+        */
+        ballSpeed = ballSpeed + xVel;
+
+        angleInRadians = launchAngle * Mathf.Deg2Rad;
+        xForce = ballSpeed * Mathf.Cos(angleInRadians);
+        yForce = ballSpeed * Mathf.Sin(angleInRadians);
+
+        rb.AddForce(new Vector2(xForce, yForce), ForceMode2D.Impulse);
         
     }
 
