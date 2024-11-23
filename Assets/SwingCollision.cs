@@ -30,6 +30,7 @@ public class SwingCollision : MonoBehaviour
 
         ballObject = GameObject.FindWithTag("Ball");
         activeBall = ballObject.GetComponent<Ball>();
+        gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -40,6 +41,7 @@ public class SwingCollision : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
+
         Debug.Log("Ball collision recognized!");
         if (col.gameObject == ballObject)
         {
