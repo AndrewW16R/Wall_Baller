@@ -21,15 +21,12 @@ public class Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Jump"))
-        {
-            UpdateBallVelocity();
-        }
+        
     }
 
-    private void UpdateBallVelocity()
+    public void UpdateBallVelocity(float xVel, float yVel)
     {
-        rb.velocity = new Vector2(rb.velocity.x + 5, rb.velocity.y + 5);
-       // rb.AddForce(new Vector2( 5, 10f), ForceMode2D.Impulse);
+        rb.velocity = new Vector2(rb.velocity.x + xVel, rb.velocity.y + yVel);
+       rb.AddForce(new Vector2( 5, 10f), ForceMode2D.Impulse);
     }
 }

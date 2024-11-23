@@ -79,7 +79,6 @@ public class PlayerSwing : MonoBehaviour
                 currentSwingName = "L_Grounded_Middle";
                 isAirSwing = false;
                 currentSwingDuration = swingCollision.swingTotalDuration;
-                Debug.Log(swingCollision.swingTotalDuration);
 
             }
 
@@ -146,7 +145,6 @@ public class PlayerSwing : MonoBehaviour
         {
             if (currentSwingDuration <= (swingCollision.swingTotalDuration - swingCollision.swingStartupDuration) && (currentSwingDuration > swingCollision.swingEndlagDuration))
             {
-                Debug.Log("Hitbox active");
                 swingHitbox_LGM.gameObject.SetActive(true);
             }
             else
@@ -200,7 +198,6 @@ public class PlayerSwing : MonoBehaviour
         if (swingCollisionObject != null)
         {
             swingCollision = swingCollisionObject.GetComponent<SwingCollision>(); // Assigns SwingCollision class from the retrieved swing collision game object as the currently active swing collision
-            Debug.Log("Swing Collision class found!");
         }
     }
 

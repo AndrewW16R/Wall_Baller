@@ -9,15 +9,48 @@ public class SwingCollision : MonoBehaviour
     public int swingStartupDuration;
     public int swingActiveDuration;
     public int swingEndlagDuration;
+
+    public float horizontalPower;
+    public float verticlePower;
+
+    public bool collidedBall;
+
+    public GameObject ballObject;
+    public Ball activeBall;
     // Start is called before the first frame update
+    void Awake()
+    {
+       
+    }
+    
     void Start()
     {
-        
+        collidedBall = false;
+
+        ballObject = GameObject.FindWithTag("Ball");
+        activeBall = ballObject.GetComponent<Ball>();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        Debug.Log("Ball collision recognized!");
+        if (col.gameObject == ballObject)
+        {
+            
+            ballObject = col.gameObject;
+            activeBall.UpdateBallVelocity(horizontalPower, verticlePower);
+            collidedBall = true;
+
+            if (collidedBall == false)
+            {
+                
+            }
+        }
     }
 }
