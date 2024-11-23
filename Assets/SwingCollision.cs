@@ -9,6 +9,7 @@ public class SwingCollision : MonoBehaviour
     public int swingStartupDuration;
     public int swingActiveDuration;
     public int swingEndlagDuration;
+    public int ballExpGain;
 
     public float horizontalPower;
     public float verticlePower;
@@ -45,6 +46,7 @@ public class SwingCollision : MonoBehaviour
             
             ballObject = col.gameObject;
             activeBall.UpdateBallVelocity(horizontalPower, verticlePower);
+            activeBall.AddBallExp(1);
             collidedBall = true;
 
             if (collidedBall == false)
