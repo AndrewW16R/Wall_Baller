@@ -21,7 +21,7 @@ public class DebugCanvasUIManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         textBallXvel.text = "Ball X Vel: " + activeBall.rb.velocity.x.ToString();
         textBallYvel.text = "Ball Y Vel: " + activeBall.rb.velocity.y.ToString();
