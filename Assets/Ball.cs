@@ -26,7 +26,7 @@ public class Ball : MonoBehaviour
 
         ballTransform = GetComponent<Transform>();
 
-        ballSpeed = 5f; //the ball's current speed
+        ballSpeed = 1f; //the ball's current speed
         ballLevel = 0; //The Ball's current level
         ballExp = 0; //How much experience the ball has, ball levels up once reaching 10 exp and then 10 exp from ballExp is subtracted
     }
@@ -54,6 +54,7 @@ public class Ball : MonoBehaviour
 
         vel = rb.velocity;
         vel.x = ballSpeed + xVel;
+        vel.y = yVel;
         rb.velocity = vel;
         
     }

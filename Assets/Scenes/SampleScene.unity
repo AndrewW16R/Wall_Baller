@@ -271,7 +271,7 @@ MonoBehaviour:
   swingActiveDuration: 10
   swingEndlagDuration: 5
   ballExpGain: 0
-  horizontalPower: 5
+  horizontalPower: 2
   verticlePower: 5
   collidedBall: 0
   ballObject: {fileID: 0}
@@ -785,7 +785,7 @@ GameObject:
   m_Component:
   - component: {fileID: 449802260}
   - component: {fileID: 449802261}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ball_Art
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1278,7 +1278,7 @@ GameObject:
   - component: {fileID: 1272693812}
   - component: {fileID: 1272693814}
   - component: {fileID: 1272693815}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ball
   m_TagString: Ball
   m_Icon: {fileID: 0}
@@ -2324,7 +2324,7 @@ Rigidbody2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
