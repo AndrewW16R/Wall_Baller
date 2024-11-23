@@ -1376,7 +1376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
-  ballSpeed: 0
+  ballSpeed: 20
   ballLevel: 0
   ballExp: 0
   speedCap: 0
