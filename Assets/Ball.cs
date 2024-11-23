@@ -6,10 +6,11 @@ public class Ball : MonoBehaviour
     [HideInInspector] public Rigidbody2D rb;
     private CircleCollider2D coll;
 
-    public int ballSpeed;
+    public float ballSpeed;
     public int ballLevel;
     public int ballExp;
-    public int speedcap;
+    public int speedCap;
+    public int speedMin;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +21,7 @@ public class Ball : MonoBehaviour
         //Gets CircleCollider2D component from gameobject
         coll = GetComponent<CircleCollider2D>();
 
-        ballSpeed = 0; //the ball's current speed
+        ballSpeed = 0f; //the ball's current speed
         ballLevel = 0; //The Ball's current level
         ballExp = 0; //How much experience the ball has, ball levels up once reaching 10 exp and then 10 exp from ballExp is subtracted
     }
