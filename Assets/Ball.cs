@@ -45,7 +45,6 @@ public class Ball : MonoBehaviour
     public void AddBallExp(int expAmount)
     {
         ballExp = ballExp + expAmount;
-        Debug.Log("Ball EXP = " + ballExp);
 
         if (ballExp >= 10)
         {
