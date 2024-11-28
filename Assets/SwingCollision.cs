@@ -49,13 +49,13 @@ public class SwingCollision : MonoBehaviour
         {
             
             ballObject = col.gameObject;
-            activeBall.UpdateBallVelocity(horizontalPower, verticlePower, isHorizontalPowerMulplicative);
-            activeBall.AddBallExp(ballExpGain);
-            collidedBall = true;
+           
 
-            if (collidedBall == false)
+            if (collidedBall == false) //if the ball has not already collided with this hitbox
             {
-                
+                activeBall.UpdateBallVelocity(horizontalPower, verticlePower, isHorizontalPowerMulplicative);
+                activeBall.AddBallExp(ballExpGain);
+                collidedBall = true;
             }
         }
     }

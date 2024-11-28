@@ -159,18 +159,42 @@ public class PlayerSwing : MonoBehaviour
         {
             if (playerMovement.dirY >= playerMovement.verInputGatePositive)
             {
-                //Swing light air up
+                Debug.Log("Up Swing");
+                isSwinging = true;
+                UpdateHorizontalInputPrevention(false);
+                UpdateHorizontalVelocityPrevention(true);
+                UpdateJumpInputPrevention(true);
+                //Swing light airborne down
+                FetchSwingCollision(swingHitbox_LAU);
                 currentSwingName = "L_Airborne_Up";
+                isAirSwing = true;
+                currentSwingDuration = swingCollision.swingTotalDuration;
             }
             else if (playerMovement.dirY <= playerMovement.verInputGateNegative)
             {
-                //Swing light air down
+                Debug.Log("Down Swing");
+                isSwinging = true;
+                UpdateHorizontalInputPrevention(false);
+                UpdateHorizontalVelocityPrevention(true);
+                UpdateJumpInputPrevention(true);
+                //Swing light airborne down
+                FetchSwingCollision(swingHitbox_LAD);
                 currentSwingName = "L_Airborne_Down";
+                isAirSwing = true;
+                currentSwingDuration = swingCollision.swingTotalDuration;
             }
             else
             {
-                //Swing light air middle
+                Debug.Log("Middle Swing");
+                isSwinging = true;
+                UpdateHorizontalInputPrevention(false);
+                UpdateHorizontalVelocityPrevention(true);
+                UpdateJumpInputPrevention(true);
+                //Swing light airborne middle
+                FetchSwingCollision(swingHitbox_LAM);
                 currentSwingName = "L_Airborne_Middle";
+                isAirSwing = true;
+                currentSwingDuration = swingCollision.swingTotalDuration;
             }
         }
         else if (Input.GetButtonDown("Fire2") && playerMovement.IsGrounded() == false) //Heavy Airborne Swings
@@ -195,70 +219,151 @@ public class PlayerSwing : MonoBehaviour
 
     private void UpdateSwingHitbox()
     {
-        if (currentSwingName == "L_Grounded_Middle")
+      /*
+        if(isAirSwing = true && playerMovement.IsGrounded() == true)
         {
-            if (currentSwingDuration <= (swingCollision.swingTotalDuration - swingCollision.swingStartupDuration) && (currentSwingDuration > swingCollision.swingEndlagDuration))
+            EndSwing();
+        }
+      */
+
+
+        if (isAirSwing == false)
+        {
+            if (currentSwingName == "L_Grounded_Middle")
             {
-                swingHitbox_LGM.gameObject.SetActive(true);
+                if (currentSwingDuration <= (swingCollision.swingTotalDuration - swingCollision.swingStartupDuration) && (currentSwingDuration > swingCollision.swingEndlagDuration))
+                {
+                    swingHitbox_LGM.gameObject.SetActive(true);
+                }
+                else
+                {
+                    swingHitbox_LGM.gameObject.SetActive(false);
+                }
             }
-            else
+            else if (currentSwingName == "L_Grounded_Up")
             {
-                swingHitbox_LGM.gameObject.SetActive(false);
+                if (currentSwingDuration <= (swingCollision.swingTotalDuration - swingCollision.swingStartupDuration) && (currentSwingDuration > swingCollision.swingEndlagDuration))
+                {
+                    swingHitbox_LGU.gameObject.SetActive(true);
+                }
+                else
+                {
+                    swingHitbox_LGU.gameObject.SetActive(false);
+                }
+            }
+            else if (currentSwingName == "L_Grounded_Down")
+            {
+                if (currentSwingDuration <= (swingCollision.swingTotalDuration - swingCollision.swingStartupDuration) && (currentSwingDuration > swingCollision.swingEndlagDuration))
+                {
+                    swingHitbox_LGD.gameObject.SetActive(true);
+                }
+                else
+                {
+                    swingHitbox_LGD.gameObject.SetActive(false);
+                }
+            }
+            else if (currentSwingName == "H_Grounded_Middle")
+            {
+                if (currentSwingDuration <= (swingCollision.swingTotalDuration - swingCollision.swingStartupDuration) && (currentSwingDuration > swingCollision.swingEndlagDuration))
+                {
+                    swingHitbox_HGM.gameObject.SetActive(true);
+                }
+                else
+                {
+                    swingHitbox_HGM.gameObject.SetActive(false);
+                }
+            }
+            else if (currentSwingName == "H_Grounded_Up")
+            {
+                if (currentSwingDuration <= (swingCollision.swingTotalDuration - swingCollision.swingStartupDuration) && (currentSwingDuration > swingCollision.swingEndlagDuration)) //if swing is currently within its active frames
+                {
+                    swingHitbox_HGU.gameObject.SetActive(true); //set corresponding hitbox to active
+                }
+                else
+                {
+                    swingHitbox_HGU.gameObject.SetActive(false); //turns off corresponding hitbox
+                }
+            }
+            else if (currentSwingName == "H_Grounded_Down")
+            {
+                if (currentSwingDuration <= (swingCollision.swingTotalDuration - swingCollision.swingStartupDuration) && (currentSwingDuration > swingCollision.swingEndlagDuration)) //if swing is currently within its active frames
+                {
+                    swingHitbox_HGD.gameObject.SetActive(true); //set corresponding hitbox to active
+                }
+                else
+                {
+                    swingHitbox_HGD.gameObject.SetActive(false); //turns off corresponding hitbox
+                }
             }
         }
-        else if (currentSwingName == "L_Grounded_Up")
+
+        if (isAirSwing == true)
         {
-            if (currentSwingDuration <= (swingCollision.swingTotalDuration - swingCollision.swingStartupDuration) && (currentSwingDuration > swingCollision.swingEndlagDuration))
+            if (currentSwingName == "L_Airborne_Middle")
             {
-                swingHitbox_LGU.gameObject.SetActive(true);
+                if (currentSwingDuration <= (swingCollision.swingTotalDuration - swingCollision.swingStartupDuration) && (currentSwingDuration > swingCollision.swingEndlagDuration))
+                {
+                    swingHitbox_LAM.gameObject.SetActive(true);
+                }
+                else
+                {
+                    swingHitbox_LAM.gameObject.SetActive(false);
+                }
             }
-            else
+            else if (currentSwingName == "L_Airborne_Up")
             {
-                swingHitbox_LGU.gameObject.SetActive(false);
+                if (currentSwingDuration <= (swingCollision.swingTotalDuration - swingCollision.swingStartupDuration) && (currentSwingDuration > swingCollision.swingEndlagDuration))
+                {
+                    swingHitbox_LAU.gameObject.SetActive(true);
+                }
+                else
+                {
+                    swingHitbox_LAU.gameObject.SetActive(false);
+                }
             }
-        }
-        else if (currentSwingName == "L_Grounded_Down")
-        {
-            if (currentSwingDuration <= (swingCollision.swingTotalDuration - swingCollision.swingStartupDuration) && (currentSwingDuration > swingCollision.swingEndlagDuration))
+            else if (currentSwingName == "L_Airborne_Down")
             {
-                swingHitbox_LGD.gameObject.SetActive(true);
+                if (currentSwingDuration <= (swingCollision.swingTotalDuration - swingCollision.swingStartupDuration) && (currentSwingDuration > swingCollision.swingEndlagDuration))
+                {
+                    swingHitbox_LAD.gameObject.SetActive(true);
+                }
+                else
+                {
+                    swingHitbox_LAD.gameObject.SetActive(false);
+                }
             }
-            else
+            else if (currentSwingName == "H_Airborne_Middle")
             {
-                swingHitbox_LGD.gameObject.SetActive(false);
+                if (currentSwingDuration <= (swingCollision.swingTotalDuration - swingCollision.swingStartupDuration) && (currentSwingDuration > swingCollision.swingEndlagDuration))
+                {
+                    swingHitbox_HAM.gameObject.SetActive(true);
+                }
+                else
+                {
+                    swingHitbox_HAM.gameObject.SetActive(false);
+                }
             }
-        }
-        else if (currentSwingName == "H_Grounded_Middle")
-        {
-            if (currentSwingDuration <= (swingCollision.swingTotalDuration - swingCollision.swingStartupDuration) && (currentSwingDuration > swingCollision.swingEndlagDuration))
+            else if (currentSwingName == "H_Airborne_Up")
             {
-                swingHitbox_HGM.gameObject.SetActive(true);
+                if (currentSwingDuration <= (swingCollision.swingTotalDuration - swingCollision.swingStartupDuration) && (currentSwingDuration > swingCollision.swingEndlagDuration)) //if swing is currently within its active frames
+                {
+                    swingHitbox_HAU.gameObject.SetActive(true); //set corresponding hitbox to active
+                }
+                else
+                {
+                    swingHitbox_HAU.gameObject.SetActive(false); //turns off corresponding hitbox
+                }
             }
-            else
+            else if (currentSwingName == "H_Airborne_Down")
             {
-                swingHitbox_HGM.gameObject.SetActive(false);
-            }
-        }
-        else if (currentSwingName == "H_Grounded_Up")
-        {
-            if (currentSwingDuration <= (swingCollision.swingTotalDuration - swingCollision.swingStartupDuration) && (currentSwingDuration > swingCollision.swingEndlagDuration)) //if swing is currently within its active frames
-            {
-                swingHitbox_HGU.gameObject.SetActive(true); //set corresponding hitbox to active
-            }
-            else
-            {
-                swingHitbox_HGU.gameObject.SetActive(false); //turns off corresponding hitbox
-            }
-        }
-        else if (currentSwingName == "H_Grounded_Down")
-        {
-            if (currentSwingDuration <= (swingCollision.swingTotalDuration - swingCollision.swingStartupDuration) && (currentSwingDuration > swingCollision.swingEndlagDuration)) //if swing is currently within its active frames
-            {
-                swingHitbox_HGD.gameObject.SetActive(true); //set corresponding hitbox to active
-            }
-            else
-            {
-                swingHitbox_HGD.gameObject.SetActive(false); //turns off corresponding hitbox
+                if (currentSwingDuration <= (swingCollision.swingTotalDuration - swingCollision.swingStartupDuration) && (currentSwingDuration > swingCollision.swingEndlagDuration)) //if swing is currently within its active frames
+                {
+                    swingHitbox_HAD.gameObject.SetActive(true); //set corresponding hitbox to active
+                }
+                else
+                {
+                    swingHitbox_HAD.gameObject.SetActive(false); //turns off corresponding hitbox
+                }
             }
         }
     }
@@ -319,6 +424,7 @@ public class PlayerSwing : MonoBehaviour
         UpdateJumpInputPrevention(false);
         currentSwingName = "";
         isAirSwing = false;
+        swingCollision.collidedBall = false; //signals that the swing is over and the swing hitbox can now collide with the ball again
         swingCollision = null;
     }
 }
