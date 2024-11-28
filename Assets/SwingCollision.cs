@@ -13,6 +13,7 @@ public class SwingCollision : MonoBehaviour
 
     public float horizontalPower;
     public float verticlePower;
+    public bool isHorizontalPowerMulplicative;
 
     public bool collidedBall;
 
@@ -31,6 +32,8 @@ public class SwingCollision : MonoBehaviour
         ballObject = GameObject.FindWithTag("Ball");
         activeBall = ballObject.GetComponent<Ball>();
         gameObject.SetActive(false);
+
+        swingTotalDuration = swingStartupDuration + swingActiveDuration + swingEndlagDuration;
     }
 
     // Update is called once per frame
@@ -42,13 +45,12 @@ public class SwingCollision : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
 
-        Debug.Log("Ball collision recognized!");
         if (col.gameObject == ballObject)
         {
             
             ballObject = col.gameObject;
-            activeBall.UpdateBallVelocity(horizontalPower, verticlePower);
-            activeBall.AddBallExp(1);
+            activeBall.UpdateBallVelocity(horizontalPower, verticlePower, isHorizontalPowerMulplicative);
+            activeBall.AddBallExp(ballExpGain);
             collidedBall = true;
 
             if (collidedBall == false)

@@ -19,6 +19,20 @@ public class PlayerSwing : MonoBehaviour
     //PlayerAnimation playerAnimation; //Add this in when animation script is ready
 
     public GameObject swingHitbox_LGM;
+    public GameObject swingHitbox_LGU;
+    public GameObject swingHitbox_LGD;
+
+    public GameObject swingHitbox_HGM;
+    public GameObject swingHitbox_HGU;
+    public GameObject swingHitbox_HGD;
+
+    public GameObject swingHitbox_LAM;
+    public GameObject swingHitbox_LAU;
+    public GameObject swingHitbox_LAD;
+
+    public GameObject swingHitbox_HAM;
+    public GameObject swingHitbox_HAU;
+    public GameObject swingHitbox_HAD;
 
     //SwingCollision class on the swing hitbox object of the currently active swing
     SwingCollision swingCollision; 
@@ -59,13 +73,29 @@ public class PlayerSwing : MonoBehaviour
         {
             if (playerMovement.dirY >= playerMovement.verInputGatePositive)
             {
+                Debug.Log("Up Swing");
+                isSwinging = true;
+                UpdateHorizontalInputPrevention(true);
+                UpdateHorizontalVelocityPrevention(true);
+                UpdateJumpInputPrevention(true);
                 //Swing light grounded up
+                FetchSwingCollision(swingHitbox_LGU);
                 currentSwingName = "L_Grounded_Up";
+                isAirSwing = false;
+                currentSwingDuration = swingCollision.swingTotalDuration;
             }
             else if (playerMovement.dirY <= playerMovement.verInputGateNegative)
             {
-                //Swing light grounded down
+                Debug.Log("Down Swing");
+                isSwinging = true;
+                UpdateHorizontalInputPrevention(true);
+                UpdateHorizontalVelocityPrevention(true);
+                UpdateJumpInputPrevention(true);
+                //Swing light grounded dwon
+                FetchSwingCollision(swingHitbox_LGD);
                 currentSwingName = "L_Grounded_Down";
+                isAirSwing = false;
+                currentSwingDuration = swingCollision.swingTotalDuration;
             }
             else
             {
@@ -87,18 +117,42 @@ public class PlayerSwing : MonoBehaviour
         {
             if (playerMovement.dirY >= playerMovement.verInputGatePositive)
             {
-                //Swing Heavy grounded up
+                Debug.Log("Up Swing");
+                isSwinging = true;
+                UpdateHorizontalInputPrevention(true);
+                UpdateHorizontalVelocityPrevention(true);
+                UpdateJumpInputPrevention(true);
+                //Swing heavy grounded Up
+                FetchSwingCollision(swingHitbox_HGU);
                 currentSwingName = "H_Grounded_Up";
+                isAirSwing = false;
+                currentSwingDuration = swingCollision.swingTotalDuration;
             }
             else if (playerMovement.dirY <= playerMovement.verInputGateNegative)
             {
-                //Swing Heavy grounded down
+                Debug.Log("Down Swing");
+                isSwinging = true;
+                UpdateHorizontalInputPrevention(true);
+                UpdateHorizontalVelocityPrevention(true);
+                UpdateJumpInputPrevention(true);
+                //Swing heavy grounded Up
+                FetchSwingCollision(swingHitbox_HGD);
                 currentSwingName = "H_Grounded_Down";
+                isAirSwing = false;
+                currentSwingDuration = swingCollision.swingTotalDuration;
             }
             else
             {
-                //Swing Heavy grounded middle
+                Debug.Log("Middle Swing");
+                isSwinging = true;
+                UpdateHorizontalInputPrevention(true);
+                UpdateHorizontalVelocityPrevention(true);
+                UpdateJumpInputPrevention(true);
+                //Swing heavy grounded middle
+                FetchSwingCollision(swingHitbox_HGM);
                 currentSwingName = "H_Grounded_Middle";
+                isAirSwing = false;
+                currentSwingDuration = swingCollision.swingTotalDuration;
             }
         }
         else if (Input.GetButtonDown("Fire1") && playerMovement.IsGrounded() == false) //Light Airborne Swings
@@ -150,6 +204,61 @@ public class PlayerSwing : MonoBehaviour
             else
             {
                 swingHitbox_LGM.gameObject.SetActive(false);
+            }
+        }
+        else if (currentSwingName == "L_Grounded_Up")
+        {
+            if (currentSwingDuration <= (swingCollision.swingTotalDuration - swingCollision.swingStartupDuration) && (currentSwingDuration > swingCollision.swingEndlagDuration))
+            {
+                swingHitbox_LGU.gameObject.SetActive(true);
+            }
+            else
+            {
+                swingHitbox_LGU.gameObject.SetActive(false);
+            }
+        }
+        else if (currentSwingName == "L_Grounded_Down")
+        {
+            if (currentSwingDuration <= (swingCollision.swingTotalDuration - swingCollision.swingStartupDuration) && (currentSwingDuration > swingCollision.swingEndlagDuration))
+            {
+                swingHitbox_LGD.gameObject.SetActive(true);
+            }
+            else
+            {
+                swingHitbox_LGD.gameObject.SetActive(false);
+            }
+        }
+        else if (currentSwingName == "H_Grounded_Middle")
+        {
+            if (currentSwingDuration <= (swingCollision.swingTotalDuration - swingCollision.swingStartupDuration) && (currentSwingDuration > swingCollision.swingEndlagDuration))
+            {
+                swingHitbox_HGM.gameObject.SetActive(true);
+            }
+            else
+            {
+                swingHitbox_HGM.gameObject.SetActive(false);
+            }
+        }
+        else if (currentSwingName == "H_Grounded_Up")
+        {
+            if (currentSwingDuration <= (swingCollision.swingTotalDuration - swingCollision.swingStartupDuration) && (currentSwingDuration > swingCollision.swingEndlagDuration)) //if swing is currently within its active frames
+            {
+                swingHitbox_HGU.gameObject.SetActive(true); //set corresponding hitbox to active
+            }
+            else
+            {
+                swingHitbox_HGU.gameObject.SetActive(false); //turns off corresponding hitbox
+            }
+        }
+        else if (currentSwingName == "H_Grounded_Down")
+        {
+            if (currentSwingDuration <= (swingCollision.swingTotalDuration - swingCollision.swingStartupDuration) && (currentSwingDuration > swingCollision.swingEndlagDuration)) //if swing is currently within its active frames
+            {
+                swingHitbox_HGD.gameObject.SetActive(true); //set corresponding hitbox to active
+            }
+            else
+            {
+                swingHitbox_HGD.gameObject.SetActive(false); //turns off corresponding hitbox
             }
         }
     }
