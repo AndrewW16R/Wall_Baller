@@ -36,10 +36,17 @@ public class Ball : MonoBehaviour
  
     }
 
-    public void UpdateBallVelocity(float xVel, float yVel)
+    public void UpdateBallVelocity(float xVel, float yVel, bool xMult)
     {
-
-            rb.velocity = new Vector2(ballSpeed + xVel, yVel);   
+        if(xMult == false)
+        {
+            rb.velocity = new Vector2(ballSpeed + xVel, yVel);
+        }
+        else
+        {
+            rb.velocity = new Vector2(ballSpeed * xVel, yVel);
+        }
+            
     }
 
     public void AddBallExp(int expAmount)

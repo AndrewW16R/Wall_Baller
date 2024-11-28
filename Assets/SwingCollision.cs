@@ -13,6 +13,7 @@ public class SwingCollision : MonoBehaviour
 
     public float horizontalPower;
     public float verticlePower;
+    public bool isHorizontalPowerMulplicative;
 
     public bool collidedBall;
 
@@ -48,7 +49,7 @@ public class SwingCollision : MonoBehaviour
         {
             
             ballObject = col.gameObject;
-            activeBall.UpdateBallVelocity(horizontalPower, verticlePower);
+            activeBall.UpdateBallVelocity(horizontalPower, verticlePower, isHorizontalPowerMulplicative);
             activeBall.AddBallExp(ballExpGain);
             collidedBall = true;
 
