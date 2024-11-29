@@ -201,18 +201,42 @@ public class PlayerSwing : MonoBehaviour
         {
             if (playerMovement.dirY >= playerMovement.verInputGatePositive)
             {
-                //Swing heavy air up
+                Debug.Log("Up Swing");
+                isSwinging = true;
+                UpdateHorizontalInputPrevention(false);
+                UpdateHorizontalVelocityPrevention(true);
+                UpdateJumpInputPrevention(true);
+                //Swing Heavy airborne up
+                FetchSwingCollision(swingHitbox_HAU);
                 currentSwingName = "H_Airborne_Up";
+                isAirSwing = true;
+                currentSwingDuration = swingCollision.swingTotalDuration;
             }
             else if (playerMovement.dirY <= playerMovement.verInputGateNegative)
             {
-                //Swing heavy air down
+                 Debug.Log("Down Swing");
+                isSwinging = true;
+                UpdateHorizontalInputPrevention(false);
+                UpdateHorizontalVelocityPrevention(true);
+                UpdateJumpInputPrevention(true);
+                //Swing Heavy airborne down
+                FetchSwingCollision(swingHitbox_HAD);
                 currentSwingName = "H_Airborne_Down";
+                isAirSwing = true;
+                currentSwingDuration = swingCollision.swingTotalDuration;
             }
             else
             {
-                //Swing heavy air middle
+                Debug.Log("Middle Swing");
+                isSwinging = true;
+                UpdateHorizontalInputPrevention(false);
+                UpdateHorizontalVelocityPrevention(true);
+                UpdateJumpInputPrevention(true);
+                //Swing Heavy airborne middle
+                FetchSwingCollision(swingHitbox_HAM);
                 currentSwingName = "H_Airborne_Middle";
+                isAirSwing = true;
+                currentSwingDuration = swingCollision.swingTotalDuration;
             }
         }
     }
