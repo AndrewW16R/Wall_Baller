@@ -73,7 +73,6 @@ public class PlayerSwing : MonoBehaviour
         {
             if (playerMovement.dirY >= playerMovement.verInputGatePositive)
             {
-                Debug.Log("Up Swing");
                 isSwinging = true;
                 UpdateHorizontalInputPrevention(true);
                 UpdateHorizontalVelocityPrevention(true);
@@ -86,7 +85,6 @@ public class PlayerSwing : MonoBehaviour
             }
             else if (playerMovement.dirY <= playerMovement.verInputGateNegative)
             {
-                Debug.Log("Down Swing");
                 isSwinging = true;
                 UpdateHorizontalInputPrevention(true);
                 UpdateHorizontalVelocityPrevention(true);
@@ -99,7 +97,6 @@ public class PlayerSwing : MonoBehaviour
             }
             else
             {
-                Debug.Log("Middle Swing");
                 isSwinging = true;
                 UpdateHorizontalInputPrevention(true);
                 UpdateHorizontalVelocityPrevention(true);
@@ -117,11 +114,10 @@ public class PlayerSwing : MonoBehaviour
         {
             if (playerMovement.dirY >= playerMovement.verInputGatePositive)
             {
-                Debug.Log("Up Swing");
                 isSwinging = true;
                 UpdateHorizontalInputPrevention(true);
                 UpdateHorizontalVelocityPrevention(true);
-                UpdateJumpInputPrevention(true);
+                UpdateJumpInputPrevention(false);
                 //Swing heavy grounded Up
                 FetchSwingCollision(swingHitbox_HGU);
                 currentSwingName = "H_Grounded_Up";
@@ -130,7 +126,6 @@ public class PlayerSwing : MonoBehaviour
             }
             else if (playerMovement.dirY <= playerMovement.verInputGateNegative)
             {
-                Debug.Log("Down Swing");
                 isSwinging = true;
                 UpdateHorizontalInputPrevention(true);
                 UpdateHorizontalVelocityPrevention(true);
@@ -143,7 +138,6 @@ public class PlayerSwing : MonoBehaviour
             }
             else
             {
-                Debug.Log("Middle Swing");
                 isSwinging = true;
                 UpdateHorizontalInputPrevention(true);
                 UpdateHorizontalVelocityPrevention(true);
@@ -159,7 +153,6 @@ public class PlayerSwing : MonoBehaviour
         {
             if (playerMovement.dirY >= playerMovement.verInputGatePositive)
             {
-                Debug.Log("Up Swing");
                 isSwinging = true;
                 UpdateHorizontalInputPrevention(false);
                 UpdateHorizontalVelocityPrevention(true);
@@ -172,7 +165,6 @@ public class PlayerSwing : MonoBehaviour
             }
             else if (playerMovement.dirY <= playerMovement.verInputGateNegative)
             {
-                Debug.Log("Down Swing");
                 isSwinging = true;
                 UpdateHorizontalInputPrevention(false);
                 UpdateHorizontalVelocityPrevention(true);
@@ -185,7 +177,6 @@ public class PlayerSwing : MonoBehaviour
             }
             else
             {
-                Debug.Log("Middle Swing");
                 isSwinging = true;
                 UpdateHorizontalInputPrevention(false);
                 UpdateHorizontalVelocityPrevention(true);
@@ -201,7 +192,6 @@ public class PlayerSwing : MonoBehaviour
         {
             if (playerMovement.dirY >= playerMovement.verInputGatePositive)
             {
-                Debug.Log("Up Swing");
                 isSwinging = true;
                 UpdateHorizontalInputPrevention(false);
                 UpdateHorizontalVelocityPrevention(true);
@@ -214,7 +204,6 @@ public class PlayerSwing : MonoBehaviour
             }
             else if (playerMovement.dirY <= playerMovement.verInputGateNegative)
             {
-                 Debug.Log("Down Swing");
                 isSwinging = true;
                 UpdateHorizontalInputPrevention(false);
                 UpdateHorizontalVelocityPrevention(true);
@@ -227,7 +216,6 @@ public class PlayerSwing : MonoBehaviour
             }
             else
             {
-                Debug.Log("Middle Swing");
                 isSwinging = true;
                 UpdateHorizontalInputPrevention(false);
                 UpdateHorizontalVelocityPrevention(true);
@@ -248,7 +236,7 @@ public class PlayerSwing : MonoBehaviour
         {
             EndSwing();
         }
-      */
+        */
 
 
         if (isAirSwing == false)

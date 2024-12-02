@@ -49,6 +49,9 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        dirY = Input.GetAxisRaw("Vertical");
+
         //Walking movement
         if (playerSwing.stopHorizontalInput == true)
         {
@@ -60,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
         }
         
 
-        dirY = Input.GetAxisRaw("Vertical");
+        
 
         //Checks for jump input and executes jump in under proper conditions
         UpdateJump();
