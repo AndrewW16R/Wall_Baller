@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 
     //public GameObject playerObject;
     //public PlayerMovement playerMovement;
+    //public PlayerSwing playerSwing;
 
     
 
@@ -40,6 +41,7 @@ public class GameManager : MonoBehaviour
 
         //playerObject = GameObject.FindWithTag("Player");
         //playerMovement = playerObject.GetComponent<PlayerMovement>();
+        //playerSwing = playerObject.GetComponent<PlayerSwing>();
 
         gameOverZoneObject = GameObject.FindWithTag("GameOverZone");
         gameOverZone = gameOverZoneObject.GetComponent<GameOverZone>();

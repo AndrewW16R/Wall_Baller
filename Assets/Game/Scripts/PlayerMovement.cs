@@ -36,6 +36,9 @@ public class PlayerMovement : MonoBehaviour
     public float verInputGatePositive = 0.35f; //How far up the vertical input needs to be counted as an "Up" input
     public float verInputGateNegative = 0.35f; //How far down the vertical input needs to be counted as an "Down" input
 
+    private GameObject gameManagerObject;
+    public GameManager gameManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,7 +49,8 @@ public class PlayerMovement : MonoBehaviour
         maxJumps = jumpsAvailable;
         initialGravity = rb.gravityScale;
 
-    
+        gameManagerObject = GameObject.Find("GameManager");
+        gameManager = gameManagerObject.GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -89,14 +93,14 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //jumping
-        if (Input.GetButtonDown("Jump") && IsGrounded() && playerSwing.stopJumpInput == false)
+        if (Input.GetButtonDown("Jump") && IsGrounded() && playerSwing.stopJumpInput == false && gameManager.isGamePaused == false)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpStrength);
             jumpsAvailable = jumpsAvailable - 1;
             initialJumpUsed = true;
 
         }//if player is already not grounded before the intial jump is used up, both the intial jump and the first addition jump are used up.
-        else if (Input.GetButtonDown("Jump") && initialJumpUsed == false && jumpsAvailable > 0 && !IsGrounded())
+        else if (Input.GetButtonDown("Jump") && initialJumpUsed == false && jumpsAvailable > 0 && !IsGrounded() && playerSwing.stopJumpInput == false && gameManager.isGamePaused == false)
         {
             rb.gravityScale = initialGravity;
             fastFalling = false;
@@ -105,7 +109,7 @@ public class PlayerMovement : MonoBehaviour
             initialJumpUsed = true;
 
         } //When double jump is used
-        else if (Input.GetButtonDown("Jump") && jumpsAvailable > 0 && !IsGrounded())
+        else if (Input.GetButtonDown("Jump") && jumpsAvailable > 0 && !IsGrounded() && playerSwing.stopJumpInput == false && gameManager.isGamePaused == false)
         {
             rb.gravityScale = initialGravity;
             fastFalling = false;
