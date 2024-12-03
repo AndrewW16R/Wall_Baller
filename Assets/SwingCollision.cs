@@ -19,6 +19,7 @@ public class SwingCollision : MonoBehaviour
 
     public GameObject ballObject;
     public Ball activeBall;
+
     // Start is called before the first frame update
     void Awake()
     {

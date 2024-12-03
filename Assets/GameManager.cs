@@ -6,9 +6,12 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public bool isGameOver;
+    public bool isGamePaused;
 
-    public GameObject playerObject;
-    public PlayerMovement playerMovement;
+    //public GameObject playerObject;
+    //public PlayerMovement playerMovement;
+
+    
 
     public GameObject gameOverZoneObject;
     public GameOverZone gameOverZone;
@@ -16,22 +19,36 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverMenu;
     private string currentSceneName;
 
+    public GameObject menuCanvasGroup;
+    public MenuManager menuManager;
+
+    public GameObject ballObject;
+    public Ball activeBall; //getting ball info to share with UI elements
+
+    public float ballSpeed;
+    public int ballLevel;
+    public int ballExp;
+
     // Start is called before the first frame update
     void Start()
     {
         SetTimeScale(1);
 
         isGameOver = false;
-        Cursor.visible = false;
+        UpdateGamePausedFlag(false);
+        UpdateCursorVisibility(false);
 
-        playerObject = GameObject.FindWithTag("Player");
-        playerMovement = playerObject.GetComponent<PlayerMovement>();
+        //playerObject = GameObject.FindWithTag("Player");
+        //playerMovement = playerObject.GetComponent<PlayerMovement>();
 
         gameOverZoneObject = GameObject.FindWithTag("GameOverZone");
         gameOverZone = gameOverZoneObject.GetComponent<GameOverZone>();
 
-        gameOverMenu = GameObject.Find("GameOverCanvas");
-        gameOverMenu.SetActive(false);
+        menuCanvasGroup = GameObject.Find("MenuCanvasGroup");
+        menuManager = menuCanvasGroup.GetComponent<MenuManager>();
+
+        ballObject = GameObject.FindWithTag("Ball");
+        activeBall = ballObject.GetComponent<Ball>();
 
         currentSceneName = SceneManager.GetActiveScene().name;
 
@@ -41,7 +58,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        PauseGameCheck();
     }
 
     public void ReloadScene()
@@ -57,7 +74,54 @@ public class GameManager : MonoBehaviour
     public void ActivateGameOver()
     {
         Cursor.visible = true;
-        gameOverMenu.SetActive(true);
+        menuManager.ToggleGameOverMenu(true);
+        isGameOver = true;
         SetTimeScale(0);
+    }
+
+    public void PauseGameCheck()
+    {
+        if(isGameOver == true)
+        {
+            return;
+        }
+
+        if (Input.GetButtonDown("Pause"))
+        {
+            if(isGamePaused == false)
+            {
+                menuManager.TogglePauseMenu(true);
+                UpdateCursorVisibility(true);
+                UpdateGamePausedFlag(true);
+                SetTimeScale(0);
+            }
+            else
+            {
+                SetTimeScale(1);
+                UpdateCursorVisibility(false);
+                menuManager.ClearPauseMenus();
+                UpdateGamePausedFlag(false);
+                
+            }
+        }
+
+
+    }
+
+    public void UpdateGamePausedFlag(bool gamePausedUpdate)
+    {
+        isGamePaused = gamePausedUpdate;
+    }
+
+    public void GetBallInfo()
+    {
+        ballSpeed = activeBall.rb.velocity.x;
+        ballLevel = activeBall.ballLevel;
+        ballExp = activeBall.ballExp;
+    }
+
+    public void UpdateCursorVisibility(bool isCursorVisible)
+    {
+        Cursor.visible = isCursorVisible;
     }
 }
