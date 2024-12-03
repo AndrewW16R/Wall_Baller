@@ -39,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         rb = GetComponent<Rigidbody2D>();
         coll = GetComponent<BoxCollider2D>();
 
@@ -125,11 +126,6 @@ public class PlayerMovement : MonoBehaviour
     public bool IsGrounded()
     {
         return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
-    }
-
-    public void SetTimeScale(float timescale)
-    {
-        Time.timeScale = timescale;
     }
 
 }

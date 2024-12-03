@@ -2614,7 +2614,7 @@ Transform:
   m_GameObject: {fileID: 969042262}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.58, y: -0.03, z: 0}
+  m_LocalPosition: {x: -10.5, y: -0.03, z: 0}
   m_LocalScale: {x: 1, y: 9.748477, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4266,6 +4266,16 @@ Tilemap:
   m_GameObject: {fileID: 1529400652}
   m_Enabled: 1
   m_Tiles:
+  - first: {x: -10, y: -5, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: -9, y: -5, z: 0}
     second:
       serializedVersion: 2
@@ -4437,6 +4447,16 @@ Tilemap:
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
   - first: {x: 8, y: -5, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: -10, y: 4, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 0
@@ -4628,13 +4648,13 @@ Tilemap:
       m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 36
+  - m_RefCount: 38
     m_Data: {fileID: 11400000, guid: b32c8ec00658bfc468bff4ecb4f99bc7, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 36
+  - m_RefCount: 38
     m_Data: {fileID: -1964800742, guid: 229a4659c1a82a04a8dc6b72d5bd4238, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 36
+  - m_RefCount: 38
     m_Data:
       e00: 1
       e01: 0
@@ -4653,13 +4673,13 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 36
+  - m_RefCount: 38
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Origin: {x: -9, y: -5, z: 0}
-  m_Size: {x: 18, y: 10, z: 1}
+  m_Origin: {x: -10, y: -5, z: 0}
+  m_Size: {x: 19, y: 10, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
@@ -4720,17 +4740,17 @@ CompositeCollider2D:
     m_ColliderPaths:
     - - X: 90000000
         Y: 50000000
-      - X: -90000000
+      - X: -100000000
         Y: 50000000
-      - X: -90000000
+      - X: -100000000
         Y: 40000000
       - X: 90000000
         Y: 40000000
     - - X: 90000000
         Y: -40000000
-      - X: -90000000
+      - X: -100000000
         Y: -40000000
-      - X: -90000000
+      - X: -100000000
         Y: -50000000
       - X: 90000000
         Y: -50000000
@@ -4738,12 +4758,12 @@ CompositeCollider2D:
     m_Paths:
     - - {x: 8.99997, y: 4}
       - {x: 8.99997, y: 5}
-      - {x: -9, y: 4.999971}
-      - {x: -8.99997, y: 4}
+      - {x: -10, y: 4.999971}
+      - {x: -9.99997, y: 4}
     - - {x: 8.99997, y: -5}
       - {x: 8.99997, y: -4}
-      - {x: -9, y: -4.000029}
-      - {x: -8.99997, y: -5}
+      - {x: -10, y: -4.000029}
+      - {x: -9.99997, y: -5}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
@@ -4912,7 +4932,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1529930823}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 433090232}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ReloadScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1529930823
 MonoBehaviour:
   m_ObjectHideFlags: 0

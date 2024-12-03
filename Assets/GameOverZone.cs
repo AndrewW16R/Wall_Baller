@@ -42,6 +42,7 @@ public class GameOverZone : MonoBehaviour
             if (collidedBall == false) //if the ball has not already collided with this hitbox
             {
                 Debug.Log("Game Over!");
+                SignalGameOver();
                 collidedBall = true;
             }
         }

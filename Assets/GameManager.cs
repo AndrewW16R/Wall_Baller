@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,11 +14,15 @@ public class GameManager : MonoBehaviour
     public GameOverZone gameOverZone;
 
     public GameObject gameOverMenu;
+    private string currentSceneName;
 
     // Start is called before the first frame update
     void Start()
     {
+        SetTimeScale(1);
+
         isGameOver = false;
+        Cursor.visible = false;
 
         playerObject = GameObject.FindWithTag("Player");
         playerMovement = playerObject.GetComponent<PlayerMovement>();
@@ -28,6 +33,8 @@ public class GameManager : MonoBehaviour
         gameOverMenu = GameObject.Find("GameOverCanvas");
         gameOverMenu.SetActive(false);
 
+        currentSceneName = SceneManager.GetActiveScene().name;
+
 
     }
 
@@ -37,8 +44,20 @@ public class GameManager : MonoBehaviour
         
     }
 
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(currentSceneName);
+    }
+
+    public void SetTimeScale(float timescale)
+    {
+        Time.timeScale = timescale;
+    }
+
     public void ActivateGameOver()
     {
-        playerMovement.SetTimeScale(0);
+        Cursor.visible = true;
+        gameOverMenu.SetActive(true);
+        SetTimeScale(0);
     }
 }
