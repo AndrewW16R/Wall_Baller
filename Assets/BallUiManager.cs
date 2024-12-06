@@ -33,7 +33,7 @@ public class BallUiManager : MonoBehaviour
         textBallSpeed.text = "BALL SPEED: " + displayBallSpeed.ToString();
     }
 
-    public void CalculateDisplaySpeed()
+    public void CalculateDisplaySpeed() //Takes the actual Ball horizontal speed and converts it to a cleaner whole number to be displayed in the UI
     {
         actualBallSpeed = activeBall.rb.velocity.x;
         actualBallSpeed = Mathf.Round(actualBallSpeed * 10.0f) * 0.1f;
