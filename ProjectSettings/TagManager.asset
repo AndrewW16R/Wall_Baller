@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PlayerHitbox
   - Ball
+  - GameOverZone
   layers:
   - Default
   - TransparentFX
@@ -15,8 +16,8 @@ TagManager:
   - UI
   - Ground
   - Ball
-  - 
-  - 
+  - Barrier
+  - Player
   - 
   - 
   - 
