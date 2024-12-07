@@ -68,6 +68,11 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(currentSceneName);
     }
 
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene("MainMenuAlpha");
+    }
+
     public void SetTimeScale(float timescale)
     {
         Time.timeScale = timescale;
