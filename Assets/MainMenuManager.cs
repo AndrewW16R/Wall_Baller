@@ -9,6 +9,7 @@ public class MainMenuManager : MonoBehaviour
     public GameObject playButton;
     public GameObject howToPlayButton;
     public GameObject controlsButton;
+    public GameObject settingsButton;
     public GameObject quitButton;
 
     public GameObject howToPlayPg01;
@@ -17,6 +18,12 @@ public class MainMenuManager : MonoBehaviour
 
     public GameObject howToPlayCanvas;
     public GameObject controlsCanvas;
+
+    public GameObject settingsCanvas;
+    public GameObject gameSettingsPg;
+    public GameObject videoSettingsPg;
+    public GameObject audioSettingsPg;
+
     public Scene sceneToLoad;
 
     // Start is called before the first frame update
@@ -25,6 +32,7 @@ public class MainMenuManager : MonoBehaviour
         ButtonsEnabled(true);
         ToggleHowToPlayCanvas(false);
         ToggleControlsCanvas(false);
+        ToggleSettingsCanvas(false);
 
     }
 
@@ -76,5 +84,25 @@ public class MainMenuManager : MonoBehaviour
     public void ToggleControlsCanvas(bool isEnabled)
     {
         controlsCanvas.SetActive(isEnabled);
+    }
+
+    public void ToggleSettingsCanvas(bool isEnabled)
+    {
+        settingsCanvas.SetActive(isEnabled);
+    }
+
+    public void ToggleGameSettingsPg(bool isEnabled)
+    {
+        gameSettingsPg.SetActive(isEnabled);
+    }
+
+    public void ToggleVideoSettingsPg(bool isEnabled)
+    {
+        videoSettingsPg.SetActive(isEnabled);
+    }
+
+    public void ToggleAudioSettingsPg(bool isEnabled)
+    {
+        audioSettingsPg.SetActive(isEnabled);
     }
 }
