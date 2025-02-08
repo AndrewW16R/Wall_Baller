@@ -9,7 +9,7 @@ public class PlayerSwing : MonoBehaviour
     public bool stopHorizontalVel; //set to true when a move should stop/prevent horizontal vel
     public bool stopHorizontalInput; //set to true when a move should stop/prevent horizontal input
     public bool stopJumpInput; //set to true when a move should stop Jump/prevent input
-    private string currentSwingName; //this variable is not currently utilized but could be implemented to indicate which attack is being used
+    public string currentSwingName; //this variable is not currently utilized but could be implemented to indicate which attack is being used
     [SerializeField] private int currentSwingDuration;
     public bool isAirSwing;
 
