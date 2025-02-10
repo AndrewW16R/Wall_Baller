@@ -11,7 +11,9 @@ public class SwingStaleness : MonoBehaviour
     public string loggedSwingE; //fifth swing in log
 
     public int staleRating;
+    public int prevStaleRating;
     public float staleMult;
+    public string prevSwing;
 
     public float lv1StaleMult;
     public float lv2StaleMult;
@@ -63,7 +65,8 @@ public class SwingStaleness : MonoBehaviour
                 swingLogFull = true;
             }
         }
-        else if(swingLogFull == true)
+         
+        if(swingLogFull == true)
         {
             loggedSwingA = loggedSwingB;
             loggedSwingB = loggedSwingC;
@@ -102,6 +105,11 @@ public class SwingStaleness : MonoBehaviour
             staleRating = staleRating + 1;
         }
 
+        if ((prevStaleRating >= 3 && staleRating <= 2) && playerSwing.currentSwingName != loggedSwingA)
+        {
+            staleRating = prevStaleRating - 1;
+        }
+
         if (staleRating == 3)
         {
             staleMult = lv1StaleMult;
@@ -118,6 +126,8 @@ public class SwingStaleness : MonoBehaviour
         {
             staleMult = 1.0f;
         }
+
+        prevStaleRating = staleRating;
 
     }
 }

@@ -58,9 +58,13 @@ public class BallUiManager : MonoBehaviour
 
     public void CalculateStyle()
     {
-        if (swingStaleness.staleRating == 1 || swingStaleness.staleRating == 2)
+        if (swingStaleness.staleRating == 1)
         {
             textStyle.text = "STYLE: FRESH!!!";
+        }
+        else if (swingStaleness.staleRating == 2)
+        {
+            textStyle.text = "STYLE: FRESH!";
         }
         else if (swingStaleness.staleRating == 3)
         {

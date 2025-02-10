@@ -1993,10 +1993,12 @@ MonoBehaviour:
   loggedSwingD: 
   loggedSwingE: 
   staleRating: 0
+  prevStaleRating: 0
   staleMult: 0
+  prevSwing: 
   lv1StaleMult: 1.1
   lv2StaleMult: 1.2
-  lv3StaleMult: 1.3
+  lv3StaleMult: 1.35
   swingLogFull: 0
 --- !u!1001 &152275584288945857
 PrefabInstance:
