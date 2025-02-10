@@ -20,6 +20,9 @@ public class SwingCollision : MonoBehaviour
     public GameObject ballObject;
     public Ball activeBall;
 
+    public GameObject swingStalenessObject;
+    public SwingStaleness swingStaleness;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -32,6 +35,10 @@ public class SwingCollision : MonoBehaviour
 
         ballObject = GameObject.FindWithTag("Ball");
         activeBall = ballObject.GetComponent<Ball>();
+
+        swingStalenessObject = GameObject.FindWithTag("Player");
+        swingStaleness = swingStalenessObject.GetComponent<SwingStaleness>();
+
         gameObject.SetActive(false);
 
         swingTotalDuration = swingStartupDuration + swingActiveDuration + swingEndlagDuration;
@@ -54,7 +61,10 @@ public class SwingCollision : MonoBehaviour
 
             if (collidedBall == false) //if the ball has not already collided with this hitbox
             {
-                activeBall.UpdateBallVelocity(horizontalPower, verticlePower, isHorizontalPowerMulplicative);
+                swingStaleness.SwingLogUpdate(); //Updates log of previous 3 swings
+                swingStaleness.CalculateStaleness(); //determines what the staleness multiplier for the next collision will be
+
+                activeBall.UpdateBallVelocity(horizontalPower, verticlePower, isHorizontalPowerMulplicative, swingStaleness.staleMult);
                 activeBall.AddBallExp(ballExpGain);
                 collidedBall = true;
             }

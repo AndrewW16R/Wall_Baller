@@ -40,11 +40,11 @@ public class PlayerSwing : MonoBehaviour
     private GameObject gameManagerObject;
     private GameManager gameManager;
 
+
     // Start is called before the first frame update
     void Start()
     {
         playerMovement = gameObject.GetComponent<PlayerMovement>();
-        //playerAnimation = gameObject.GetComponent<PlayerAnimation>(); //Add this in when animation script is ready
 
         isSwinging = false;
         swingDurationUpdateQued = false;
@@ -55,6 +55,7 @@ public class PlayerSwing : MonoBehaviour
 
         gameManagerObject = GameObject.Find("GameManager");
         gameManager = gameManagerObject.GetComponent<GameManager>();
+
     }
 
     // Update is called once per frame
@@ -87,8 +88,8 @@ public class PlayerSwing : MonoBehaviour
                 UpdateHorizontalVelocityPrevention(true);
                 UpdateJumpInputPrevention(true);
                 //Swing light grounded up
-                FetchSwingCollision(swingHitbox_LGU);
                 currentSwingName = "L_Grounded_Up";
+                FetchSwingCollision(swingHitbox_LGU);
                 isAirSwing = false;
                 currentSwingDuration = swingCollision.swingTotalDuration;
             }
@@ -98,9 +99,9 @@ public class PlayerSwing : MonoBehaviour
                 UpdateHorizontalInputPrevention(true);
                 UpdateHorizontalVelocityPrevention(true);
                 UpdateJumpInputPrevention(true);
-                //Swing light grounded dwon
-                FetchSwingCollision(swingHitbox_LGD);
+                //Swing light grounded down
                 currentSwingName = "L_Grounded_Down";
+                FetchSwingCollision(swingHitbox_LGD);
                 isAirSwing = false;
                 currentSwingDuration = swingCollision.swingTotalDuration;
             }
@@ -111,8 +112,8 @@ public class PlayerSwing : MonoBehaviour
                 UpdateHorizontalVelocityPrevention(true);
                 UpdateJumpInputPrevention(true);
                 //Swing light grounded middle
-                FetchSwingCollision(swingHitbox_LGM);
                 currentSwingName = "L_Grounded_Middle";
+                FetchSwingCollision(swingHitbox_LGM);
                 isAirSwing = false;
                 currentSwingDuration = swingCollision.swingTotalDuration;
 
@@ -128,8 +129,8 @@ public class PlayerSwing : MonoBehaviour
                 UpdateHorizontalVelocityPrevention(true);
                 UpdateJumpInputPrevention(false);
                 //Swing heavy grounded Up
-                FetchSwingCollision(swingHitbox_HGU);
                 currentSwingName = "H_Grounded_Up";
+                FetchSwingCollision(swingHitbox_HGU);
                 isAirSwing = false;
                 currentSwingDuration = swingCollision.swingTotalDuration;
             }
@@ -140,8 +141,8 @@ public class PlayerSwing : MonoBehaviour
                 UpdateHorizontalVelocityPrevention(true);
                 UpdateJumpInputPrevention(true);
                 //Swing heavy grounded Up
-                FetchSwingCollision(swingHitbox_HGD);
                 currentSwingName = "H_Grounded_Down";
+                FetchSwingCollision(swingHitbox_HGD);
                 isAirSwing = false;
                 currentSwingDuration = swingCollision.swingTotalDuration;
             }
@@ -152,8 +153,8 @@ public class PlayerSwing : MonoBehaviour
                 UpdateHorizontalVelocityPrevention(true);
                 UpdateJumpInputPrevention(true);
                 //Swing heavy grounded middle
-                FetchSwingCollision(swingHitbox_HGM);
                 currentSwingName = "H_Grounded_Middle";
+                FetchSwingCollision(swingHitbox_HGM);
                 isAirSwing = false;
                 currentSwingDuration = swingCollision.swingTotalDuration;
             }
@@ -167,8 +168,8 @@ public class PlayerSwing : MonoBehaviour
                 UpdateHorizontalVelocityPrevention(true);
                 UpdateJumpInputPrevention(true);
                 //Swing light airborne down
-                FetchSwingCollision(swingHitbox_LAU);
                 currentSwingName = "L_Airborne_Up";
+                FetchSwingCollision(swingHitbox_LAU);
                 isAirSwing = true;
                 currentSwingDuration = swingCollision.swingTotalDuration;
             }
@@ -179,8 +180,8 @@ public class PlayerSwing : MonoBehaviour
                 UpdateHorizontalVelocityPrevention(true);
                 UpdateJumpInputPrevention(true);
                 //Swing light airborne down
-                FetchSwingCollision(swingHitbox_LAD);
                 currentSwingName = "L_Airborne_Down";
+                FetchSwingCollision(swingHitbox_LAD);
                 isAirSwing = true;
                 currentSwingDuration = swingCollision.swingTotalDuration;
             }
@@ -191,8 +192,8 @@ public class PlayerSwing : MonoBehaviour
                 UpdateHorizontalVelocityPrevention(true);
                 UpdateJumpInputPrevention(true);
                 //Swing light airborne middle
-                FetchSwingCollision(swingHitbox_LAM);
                 currentSwingName = "L_Airborne_Middle";
+                FetchSwingCollision(swingHitbox_LAM);
                 isAirSwing = true;
                 currentSwingDuration = swingCollision.swingTotalDuration;
             }
@@ -206,8 +207,8 @@ public class PlayerSwing : MonoBehaviour
                 UpdateHorizontalVelocityPrevention(true);
                 UpdateJumpInputPrevention(true);
                 //Swing Heavy airborne up
-                FetchSwingCollision(swingHitbox_HAU);
                 currentSwingName = "H_Airborne_Up";
+                FetchSwingCollision(swingHitbox_HAU);
                 isAirSwing = true;
                 currentSwingDuration = swingCollision.swingTotalDuration;
             }
@@ -218,8 +219,8 @@ public class PlayerSwing : MonoBehaviour
                 UpdateHorizontalVelocityPrevention(true);
                 UpdateJumpInputPrevention(true);
                 //Swing Heavy airborne down
-                FetchSwingCollision(swingHitbox_HAD);
                 currentSwingName = "H_Airborne_Down";
+                FetchSwingCollision(swingHitbox_HAD);
                 isAirSwing = true;
                 currentSwingDuration = swingCollision.swingTotalDuration;
             }
@@ -230,8 +231,8 @@ public class PlayerSwing : MonoBehaviour
                 UpdateHorizontalVelocityPrevention(true);
                 UpdateJumpInputPrevention(true);
                 //Swing Heavy airborne middle
-                FetchSwingCollision(swingHitbox_HAM);
                 currentSwingName = "H_Airborne_Middle";
+                FetchSwingCollision(swingHitbox_HAM);
                 isAirSwing = true;
                 currentSwingDuration = swingCollision.swingTotalDuration;
             }

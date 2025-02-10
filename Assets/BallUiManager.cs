@@ -10,9 +10,13 @@ public class BallUiManager : MonoBehaviour
     public Ball activeBall;
     public GameObject ballObject;
 
+    private SwingStaleness swingStaleness;
+    private GameObject swingStalenessObject;
+
     public Text textBallSpeed;
     public Text textBallLevel;
     public Text textBallExp;
+    public Text textStyle;
 
     public float actualBallSpeed;
     public int displayBallSpeed;
@@ -20,8 +24,13 @@ public class BallUiManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ballObject = GameObject.Find("Ball");
+        ballObject = GameObject.FindWithTag("Ball");
         activeBall = ballObject.GetComponent<Ball>();
+
+        swingStalenessObject = GameObject.FindWithTag("Player");
+        swingStaleness = swingStalenessObject.GetComponent<SwingStaleness>();
+
+        textStyle.text = "STYLE: TBD";
     }
 
     // Update is called once per frame
@@ -31,6 +40,8 @@ public class BallUiManager : MonoBehaviour
         textBallExp.text = "BALL EXP: " + activeBall.ballExp.ToString();
         CalculateDisplaySpeed();
         textBallSpeed.text = "BALL SPEED: " + displayBallSpeed.ToString();
+        CalculateStyle();
+
     }
 
     public void CalculateDisplaySpeed() //Takes the actual Ball horizontal speed and converts it to a cleaner whole number to be displayed in the UI
@@ -43,5 +54,25 @@ public class BallUiManager : MonoBehaviour
             actualBallSpeed = actualBallSpeed * -1;
         }
         displayBallSpeed = (int)actualBallSpeed;
+    }
+
+    public void CalculateStyle()
+    {
+        if (swingStaleness.staleRating == 1 || swingStaleness.staleRating == 2)
+        {
+            textStyle.text = "STYLE: FRESH!!!";
+        }
+        else if (swingStaleness.staleRating == 3)
+        {
+            textStyle.text = "STYLE: COOL!";
+        }
+        else if (swingStaleness.staleRating == 4)
+        {
+            textStyle.text = "STYLE: MEH...";
+        }
+        else if (swingStaleness.staleRating == 5)
+        {
+            textStyle.text = "STYLE: STALE";
+        }
     }
 }
