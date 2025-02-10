@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
     public float verInputGateNegative = 0.35f; //How far down the vertical input needs to be counted as an "Down" input
 
     private GameObject gameManagerObject;
-    public GameManager gameManager;
+    private GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
@@ -68,10 +68,13 @@ public class PlayerMovement : MonoBehaviour
         {
             dirX = Input.GetAxisRaw("Horizontal");
         }
-        
+
 
         //Checks for jump input and executes jump in under proper conditions
-        UpdateJump();
+        if (gameManager.isGamePaused == false && gameManager.isGameOver == false)
+        {
+            UpdateJump();
+        }
     }
 
     void FixedUpdate()
@@ -90,29 +93,32 @@ public class PlayerMovement : MonoBehaviour
             initialJumpUsed = false;
         }
 
-        //jumping
-        if (Input.GetButtonDown("Jump") && IsGrounded() && playerSwing.stopJumpInput == false && gameManager.isGamePaused == false)
+        if (gameManager.isGamePaused == false && gameManager.isGameOver == false)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpStrength);
-            jumpsAvailable = jumpsAvailable - 1;
-            initialJumpUsed = true;
+            //jumping
+            if (Input.GetButtonDown("Jump") && IsGrounded() && playerSwing.stopJumpInput == false && gameManager.isGamePaused == false)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, jumpStrength);
+                jumpsAvailable = jumpsAvailable - 1;
+                initialJumpUsed = true;
 
-        }//if player is already not grounded before the intial jump is used up, both the intial jump and the first addition jump are used up.
-        else if (Input.GetButtonDown("Jump") && initialJumpUsed == false && jumpsAvailable > 0 && !IsGrounded() && playerSwing.stopJumpInput == false && gameManager.isGamePaused == false)
-        {
-            rb.gravityScale = initialGravity;
-            fastFalling = false;
-            rb.velocity = new Vector2(rb.velocity.x, doubleJumpStrength);
-            jumpsAvailable = jumpsAvailable - 2;
-            initialJumpUsed = true;
+            }//if player is already not grounded before the intial jump is used up, both the intial jump and the first addition jump are used up.
+            else if (Input.GetButtonDown("Jump") && initialJumpUsed == false && jumpsAvailable > 0 && !IsGrounded() && playerSwing.stopJumpInput == false && gameManager.isGamePaused == false)
+            {
+                rb.gravityScale = initialGravity;
+                fastFalling = false;
+                rb.velocity = new Vector2(rb.velocity.x, doubleJumpStrength);
+                jumpsAvailable = jumpsAvailable - 2;
+                initialJumpUsed = true;
 
-        } //When double jump is used
-        else if (Input.GetButtonDown("Jump") && jumpsAvailable > 0 && !IsGrounded() && playerSwing.stopJumpInput == false && gameManager.isGamePaused == false)
-        {
-            rb.gravityScale = initialGravity;
-            fastFalling = false;
-            rb.velocity = new Vector2(rb.velocity.x, doubleJumpStrength);
-            jumpsAvailable = jumpsAvailable - 1;
+            } //When double jump is used
+            else if (Input.GetButtonDown("Jump") && jumpsAvailable > 0 && !IsGrounded() && playerSwing.stopJumpInput == false && gameManager.isGamePaused == false)
+            {
+                rb.gravityScale = initialGravity;
+                fastFalling = false;
+                rb.velocity = new Vector2(rb.velocity.x, doubleJumpStrength);
+                jumpsAvailable = jumpsAvailable - 1;
+            }
         }
 
         if (rb.velocity.y < -.1f && !IsGrounded() && fastFalling == false)

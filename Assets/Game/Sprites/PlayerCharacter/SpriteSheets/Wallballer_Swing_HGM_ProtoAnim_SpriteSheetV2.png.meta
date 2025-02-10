@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: cbf923b5c0f78be439d009e464c013ec
+guid: a6c2e1be86239934ba82291bfdee57b2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WallBaller_MoveBackward_ProtoAnim_SpriteSheet_0
+      name: Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_0
       rect:
         serializedVersion: 2
         x: 0
@@ -111,14 +111,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 47b72e9c016eb5248897af368d0e4861
-      internalID: 748693540
+      spriteID: 3d3f48b6319398040aeca19a390a331f
+      internalID: -960864393
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBaller_MoveBackward_ProtoAnim_SpriteSheet_1
+      name: Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_1
       rect:
         serializedVersion: 2
         x: 64
@@ -132,14 +132,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 61fcf128d7fc53b4a8bf2f018adfbf3a
-      internalID: -1089246847
+      spriteID: 2a7f72b26b5e45a4f8221c70a788e7e1
+      internalID: -1220987507
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBaller_MoveBackward_ProtoAnim_SpriteSheet_2
+      name: Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_2
       rect:
         serializedVersion: 2
         x: 128
@@ -153,14 +153,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 84d2d36313f21c0419784f8a4ec9f992
-      internalID: 1919469344
+      spriteID: 9abac1f9706b1b84086d2bd4425f438e
+      internalID: -1700864698
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBaller_MoveBackward_ProtoAnim_SpriteSheet_3
+      name: Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_3
       rect:
         serializedVersion: 2
         x: 192
@@ -174,14 +174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 952e483e5c521724bbaa01aeaecd3b7e
-      internalID: 287200853
+      spriteID: 78e229d1c10e3494a95f626a6906f6d0
+      internalID: -718998373
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBaller_MoveBackward_ProtoAnim_SpriteSheet_4
+      name: Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_4
       rect:
         serializedVersion: 2
         x: 256
@@ -195,14 +195,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ffa39f8b13f15e4c86db64ffa01342b
-      internalID: -1436410126
+      spriteID: f030e0feb2311754583b2aa8baa04815
+      internalID: 330582082
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBaller_MoveBackward_ProtoAnim_SpriteSheet_5
+      name: Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_5
       rect:
         serializedVersion: 2
         x: 320
@@ -216,14 +216,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60c82a5977022614d82f887561eb5583
-      internalID: 1392732382
+      spriteID: deff395b1736f3944996880351b3a4b8
+      internalID: 2018549129
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBaller_MoveBackward_ProtoAnim_SpriteSheet_6
+      name: Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_6
       rect:
         serializedVersion: 2
         x: 384
@@ -237,14 +237,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bcaca848a11fc654aa1ce4fd6b38cd26
-      internalID: -1410560887
+      spriteID: 968db7df738e2cf43a3ad17e5d06d29c
+      internalID: -1553809584
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBaller_MoveBackward_ProtoAnim_SpriteSheet_7
+      name: Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_7
       rect:
         serializedVersion: 2
         x: 448
@@ -258,14 +258,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 967a267996fedb141bbbcacc8346801c
-      internalID: 1287051425
+      spriteID: c4be489b371e0fe4cba23320d81202bb
+      internalID: -191616418
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBaller_MoveBackward_ProtoAnim_SpriteSheet_8
+      name: Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_8
       rect:
         serializedVersion: 2
         x: 512
@@ -279,14 +279,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c0ca6de2223fa349b39ddb89beae0af
-      internalID: -908394527
+      spriteID: d808d25a9581365409ef1c238808f1aa
+      internalID: -224270168
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBaller_MoveBackward_ProtoAnim_SpriteSheet_9
+      name: Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_9
       rect:
         serializedVersion: 2
         x: 576
@@ -300,14 +300,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a1db4ff10ce1a54fb4250fe66b71e45
-      internalID: 1010485185
+      spriteID: 78972acb7ed30a74197cbfe1448e3b23
+      internalID: 1821586877
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBaller_MoveBackward_ProtoAnim_SpriteSheet_10
+      name: Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_10
       rect:
         serializedVersion: 2
         x: 640
@@ -321,14 +321,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 80bcf5261db20a341a341ad0792560a0
-      internalID: -2052996893
+      spriteID: 1dd9fd543f95c874c818a67681f47264
+      internalID: 1541598666
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBaller_MoveBackward_ProtoAnim_SpriteSheet_11
+      name: Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_11
       rect:
         serializedVersion: 2
         x: 704
@@ -342,14 +342,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3adb0e0febada0445bca0700cc5477dc
-      internalID: -1835907300
+      spriteID: b0db5c30b1d5d1b41abb96e05ac4678c
+      internalID: 974590020
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBaller_MoveBackward_ProtoAnim_SpriteSheet_12
+      name: Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_12
       rect:
         serializedVersion: 2
         x: 768
@@ -363,14 +363,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 53ada6a322828854a9c09510b635334c
-      internalID: 1514550242
+      spriteID: 84843b9339051f441b386bbcf7c7ff25
+      internalID: -1628419063
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBaller_MoveBackward_ProtoAnim_SpriteSheet_13
+      name: Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_13
       rect:
         serializedVersion: 2
         x: 832
@@ -384,14 +384,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b155569279b27204089314392248eaf7
-      internalID: -887854294
+      spriteID: 665556279be11a14ea0c8adc9dab0962
+      internalID: 492024728
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBaller_MoveBackward_ProtoAnim_SpriteSheet_14
+      name: Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_14
       rect:
         serializedVersion: 2
         x: 896
@@ -405,14 +405,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f8a24d8d452c6a45b7a9c919c33937b
-      internalID: -1925994571
+      spriteID: 9c4940ce2a2bc364a8ae376e42f78f00
+      internalID: -1732115959
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBaller_MoveBackward_ProtoAnim_SpriteSheet_15
+      name: Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_15
       rect:
         serializedVersion: 2
         x: 960
@@ -426,14 +426,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 281ced33df6d13d46b21447ee835f9f3
-      internalID: -1697173849
+      spriteID: 0f59809ae8d4ca543a070d89142443ca
+      internalID: 1252224896
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBaller_MoveBackward_ProtoAnim_SpriteSheet_16
+      name: Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_16
       rect:
         serializedVersion: 2
         x: 1024
@@ -447,14 +447,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 80f43fd46841095479c03293094f485c
-      internalID: 1909063837
+      spriteID: 2f7658d560afd4c4da75aa48241d11f3
+      internalID: -801038209
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBaller_MoveBackward_ProtoAnim_SpriteSheet_17
+      name: Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_17
       rect:
         serializedVersion: 2
         x: 1088
@@ -468,14 +468,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6458da885af509e478a7a3a8d941045e
-      internalID: 1829087381
+      spriteID: c1708a6f412953444a21ba206e0e9f49
+      internalID: -515784854
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBaller_MoveBackward_ProtoAnim_SpriteSheet_18
+      name: Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_18
       rect:
         serializedVersion: 2
         x: 1152
@@ -489,14 +489,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a954dd1aec5fb3a4eab710f7dc570e80
-      internalID: 1444679447
+      spriteID: 4d04a10b9fd6ee042bb09376b0c62d80
+      internalID: -2047063388
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBaller_MoveBackward_ProtoAnim_SpriteSheet_19
+      name: Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_19
       rect:
         serializedVersion: 2
         x: 1216
@@ -510,14 +510,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f6af54ba723bca42957a2babdc71aa9
-      internalID: -1813939253
+      spriteID: b5e0bbe0d1a5d1e45940e8e940286d7f
+      internalID: 1391180743
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBaller_MoveBackward_ProtoAnim_SpriteSheet_20
+      name: Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_20
       rect:
         serializedVersion: 2
         x: 1280
@@ -531,14 +531,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5fe7495c63d58dd40824c3283398fb24
-      internalID: -1295103252
+      spriteID: 425da4bc72b7ddf4599db16785781583
+      internalID: 1028948738
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBaller_MoveBackward_ProtoAnim_SpriteSheet_21
+      name: Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_21
       rect:
         serializedVersion: 2
         x: 1344
@@ -552,14 +552,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 021748c8d8713c34586f64ba79243c33
-      internalID: -1016618165
+      spriteID: 0d37348b322b16444beba3f3426163d0
+      internalID: 1629716067
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBaller_MoveBackward_ProtoAnim_SpriteSheet_22
+      name: Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_22
       rect:
         serializedVersion: 2
         x: 1408
@@ -573,14 +573,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba48e19de67ea3c4296280b1bb6c7404
-      internalID: 46982632
+      spriteID: afe44868e26a6ed499d7ba38d43d17ed
+      internalID: 12929340
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBaller_MoveBackward_ProtoAnim_SpriteSheet_23
+      name: Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_23
       rect:
         serializedVersion: 2
         x: 1472
@@ -594,14 +594,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9863d1a0ad47cb64092a3cd3a34d89d6
-      internalID: 2005295085
+      spriteID: e6d831cdf89631d4c8725416a2892875
+      internalID: -1830896609
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBaller_MoveBackward_ProtoAnim_SpriteSheet_24
+      name: Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_24
       rect:
         serializedVersion: 2
         x: 1536
@@ -615,14 +615,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d3b9df9b28de054e81222715753661c
-      internalID: 1714445968
+      spriteID: e1b5bdb1a62fd7c43bd6df0bd73a03e8
+      internalID: 663601406
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBaller_MoveBackward_ProtoAnim_SpriteSheet_25
+      name: Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_25
       rect:
         serializedVersion: 2
         x: 1600
@@ -636,71 +636,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e620b2dc29c68a4c870734ea704cdfd
-      internalID: -197048988
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WallBaller_MoveBackward_ProtoAnim_SpriteSheet_26
-      rect:
-        serializedVersion: 2
-        x: 1664
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3d22e0c3d80a2aa47b9d37a50df8bb75
-      internalID: 50117201
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WallBaller_MoveBackward_ProtoAnim_SpriteSheet_27
-      rect:
-        serializedVersion: 2
-        x: 1728
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 224986666711e4d40bda37e682efca6c
-      internalID: -1538406444
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WallBaller_MoveBackward_ProtoAnim_SpriteSheet_28
-      rect:
-        serializedVersion: 2
-        x: 1792
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 53ffaba1033e1444ea27ba34844701cc
-      internalID: -1091773681
+      spriteID: 7883c20cf285b0e40aa30c6c5f7dd144
+      internalID: 43318401
       vertices: []
       indices: 
       edges: []
@@ -716,35 +653,32 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      WallBaller_MoveBackward_ProtoAnim_SpriteSheet_0: 748693540
-      WallBaller_MoveBackward_ProtoAnim_SpriteSheet_1: -1089246847
-      WallBaller_MoveBackward_ProtoAnim_SpriteSheet_10: -2052996893
-      WallBaller_MoveBackward_ProtoAnim_SpriteSheet_11: -1835907300
-      WallBaller_MoveBackward_ProtoAnim_SpriteSheet_12: 1514550242
-      WallBaller_MoveBackward_ProtoAnim_SpriteSheet_13: -887854294
-      WallBaller_MoveBackward_ProtoAnim_SpriteSheet_14: -1925994571
-      WallBaller_MoveBackward_ProtoAnim_SpriteSheet_15: -1697173849
-      WallBaller_MoveBackward_ProtoAnim_SpriteSheet_16: 1909063837
-      WallBaller_MoveBackward_ProtoAnim_SpriteSheet_17: 1829087381
-      WallBaller_MoveBackward_ProtoAnim_SpriteSheet_18: 1444679447
-      WallBaller_MoveBackward_ProtoAnim_SpriteSheet_19: -1813939253
-      WallBaller_MoveBackward_ProtoAnim_SpriteSheet_2: 1919469344
-      WallBaller_MoveBackward_ProtoAnim_SpriteSheet_20: -1295103252
-      WallBaller_MoveBackward_ProtoAnim_SpriteSheet_21: -1016618165
-      WallBaller_MoveBackward_ProtoAnim_SpriteSheet_22: 46982632
-      WallBaller_MoveBackward_ProtoAnim_SpriteSheet_23: 2005295085
-      WallBaller_MoveBackward_ProtoAnim_SpriteSheet_24: 1714445968
-      WallBaller_MoveBackward_ProtoAnim_SpriteSheet_25: -197048988
-      WallBaller_MoveBackward_ProtoAnim_SpriteSheet_26: 50117201
-      WallBaller_MoveBackward_ProtoAnim_SpriteSheet_27: -1538406444
-      WallBaller_MoveBackward_ProtoAnim_SpriteSheet_28: -1091773681
-      WallBaller_MoveBackward_ProtoAnim_SpriteSheet_3: 287200853
-      WallBaller_MoveBackward_ProtoAnim_SpriteSheet_4: -1436410126
-      WallBaller_MoveBackward_ProtoAnim_SpriteSheet_5: 1392732382
-      WallBaller_MoveBackward_ProtoAnim_SpriteSheet_6: -1410560887
-      WallBaller_MoveBackward_ProtoAnim_SpriteSheet_7: 1287051425
-      WallBaller_MoveBackward_ProtoAnim_SpriteSheet_8: -908394527
-      WallBaller_MoveBackward_ProtoAnim_SpriteSheet_9: 1010485185
+      Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_0: -960864393
+      Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_1: -1220987507
+      Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_10: 1541598666
+      Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_11: 974590020
+      Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_12: -1628419063
+      Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_13: 492024728
+      Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_14: -1732115959
+      Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_15: 1252224896
+      Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_16: -801038209
+      Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_17: -515784854
+      Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_18: -2047063388
+      Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_19: 1391180743
+      Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_2: -1700864698
+      Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_20: 1028948738
+      Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_21: 1629716067
+      Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_22: 12929340
+      Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_23: -1830896609
+      Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_24: 663601406
+      Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_25: 43318401
+      Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_3: -718998373
+      Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_4: 330582082
+      Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_5: 2018549129
+      Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_6: -1553809584
+      Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_7: -191616418
+      Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_8: -224270168
+      Wallballer_Swing_HGM_ProtoAnim_SpriteSheetV2_9: 1821586877
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

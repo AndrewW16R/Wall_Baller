@@ -35,7 +35,10 @@ public class PlayerSwing : MonoBehaviour
     public GameObject swingHitbox_HAD;
 
     //SwingCollision class on the swing hitbox object of the currently active swing
-    SwingCollision swingCollision; 
+    SwingCollision swingCollision;
+
+    private GameObject gameManagerObject;
+    private GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
@@ -49,12 +52,18 @@ public class PlayerSwing : MonoBehaviour
         stopHorizontalInput = false;
         stopJumpInput = false;
         isAirSwing = false;
+
+        gameManagerObject = GameObject.Find("GameManager");
+        gameManager = gameManagerObject.GetComponent<GameManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        UpdateSwing();
+        if (gameManager.isGamePaused == false && gameManager.isGameOver == false)
+        {
+            UpdateSwing();
+        }
     }
 
     private void FixedUpdate()

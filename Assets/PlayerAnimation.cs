@@ -9,6 +9,8 @@ public class PlayerAnimation : MonoBehaviour
     private Animator anim;
     private PlayerMovement playerMovement;
     private PlayerSwing playerSwing;
+    private GameObject gameManagerObject;
+    private GameManager gameManager;
    public string currentAnim;
 
     // Start is called before the first frame update
@@ -18,6 +20,9 @@ public class PlayerAnimation : MonoBehaviour
         anim = GetComponent<Animator>();
         playerMovement = gameObject.GetComponent<PlayerMovement>();
         playerSwing = gameObject.GetComponent<PlayerSwing>();
+
+        gameManagerObject = GameObject.Find("GameManager");
+        gameManager = gameManagerObject.GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -28,88 +33,91 @@ public class PlayerAnimation : MonoBehaviour
 
     public void AnimationUpdate()
     {
-        if (playerSwing.isSwinging == true)
+        if (gameManager.isGamePaused == false && gameManager.isGameOver == false)
         {
 
-            if (playerSwing.currentSwingName == "L_Grounded_Up")
+
+            if (playerSwing.isSwinging == true)
             {
-                SetAnimationState("Player_SwingLGU");
+
+                if (playerSwing.currentSwingName == "L_Grounded_Up")
+                {
+                    SetAnimationState("Player_SwingLGU");
+                }
+                else if (playerSwing.currentSwingName == "L_Grounded_Down")
+                {
+                    SetAnimationState("Player_SwingLGD");
+                }
+                else if (playerSwing.currentSwingName == "L_Grounded_Middle")
+                {
+                    SetAnimationState("Player_SwingLGM");
+                }
+                else if (playerSwing.currentSwingName == "H_Grounded_Up")
+                {
+                    SetAnimationState("Player_SwingHGU");
+                }
+                else if (playerSwing.currentSwingName == "H_Grounded_Down")
+                {
+                    SetAnimationState("Player_SwingHGD");
+                }
+                else if (playerSwing.currentSwingName == "H_Grounded_Middle")
+                {
+                    SetAnimationState("Player_SwingHGM");
+                }
+                else if (playerSwing.currentSwingName == "L_Airborne_Up")
+                {
+                    SetAnimationState("Player_SwingLAU");
+                }
+                else if (playerSwing.currentSwingName == "L_Airborne_Down")
+                {
+                    SetAnimationState("Player_SwingLAD");
+                }
+                else if (playerSwing.currentSwingName == "L_Airborne_Middle")
+                {
+                    SetAnimationState("Player_SwingLAM");
+                }
+                else if (playerSwing.currentSwingName == "H_Airborne_Up")
+                {
+                    SetAnimationState("Player_SwingHAU");
+                }
+                else if (playerSwing.currentSwingName == "H_Airborne_Down")
+                {
+                    SetAnimationState("Player_SwingHAD");
+                }
+                else if (playerSwing.currentSwingName == "H_Airborne_Middle")
+                {
+                    SetAnimationState("Player_SwingHAM");
+                }
+                else
+                {
+                    return;
+                }
+            }//insert else/if checks for dashing here before or after jump/falling checks (once mechanic is implemented)
+            else if (playerMovement.rb.velocity.y > .1f && !playerMovement.IsGrounded() && playerMovement.jumpsAvailable == playerMovement.maxJumps - 1)
+            {
+                SetAnimationState("Player_Jump");
             }
-            else if (playerSwing.currentSwingName == "L_Grounded_Down")
+            else if (playerMovement.rb.velocity.y > .1f && !playerMovement.IsGrounded() && playerMovement.jumpsAvailable < playerMovement.maxJumps - 1) //so jump animation plays again with double jump
             {
-                SetAnimationState("Player_SwingLGD");
+                SetAnimationState("Player_SecondJump");
             }
-            else if (playerSwing.currentSwingName == "L_Grounded_Middle")
+            else if (playerMovement.rb.velocity.y < .1f && !playerMovement.IsGrounded())
             {
-                SetAnimationState("Player_SwingLGM");
+                SetAnimationState("Player_Fall");
             }
-            else if (playerSwing.currentSwingName == "H_Grounded_Up")
+            else if (playerMovement.dirX > 0.5f && playerMovement.dirX > 0f && playerMovement.IsGrounded())
             {
-                SetAnimationState("Player_SwingHGU");
+                SetAnimationState("Player_MoveForward");
             }
-            else if (playerSwing.currentSwingName == "H_Grounded_Down")
+            else if (playerMovement.dirX < -0.5f && playerMovement.dirX < 0f && playerMovement.IsGrounded())
             {
-                SetAnimationState("Player_SwingHGD");
-            }
-            else if (playerSwing.currentSwingName == "H_Grounded_Middle")
-            {
-                SetAnimationState("Player_SwingHGM");
-            }
-            else if (playerSwing.currentSwingName == "L_Airborne_Up")
-            {
-                SetAnimationState("Player_SwingLAU");
-            }
-            else if (playerSwing.currentSwingName == "L_Airborne_Down")
-            {
-                SetAnimationState("Player_SwingLAD");
-            }
-            else if (playerSwing.currentSwingName == "L_Airborne_Middle")
-            {
-                SetAnimationState("Player_SwingLAM");
-            }
-            else if (playerSwing.currentSwingName == "H_Airborne_Up")
-            {
-                SetAnimationState("Player_SwingHAU");
-            }
-            else if (playerSwing.currentSwingName == "H_Airborne_Down")
-            {
-                SetAnimationState("Player_SwingHAD");
-            }
-            else if (playerSwing.currentSwingName == "H_Airborne_Middle")
-            {
-                Debug.Log("HAM anim code reached");
-                SetAnimationState("Player_SwingHAM");
+                SetAnimationState("Player_MoveBackward");
             }
             else
             {
-                return;
+                SetAnimationState("Player_Idle");
             }
-        }//insert else/if checks for dashing here before or after jump/falling checks (once mechanic is implemented)
-        else if (playerMovement.rb.velocity.y > .1f && !playerMovement.IsGrounded() && playerMovement.jumpsAvailable == playerMovement.maxJumps - 1)
-        {
-            SetAnimationState("Player_Jump");
         }
-        else if (playerMovement.rb.velocity.y > .1f && !playerMovement.IsGrounded() && playerMovement.jumpsAvailable < playerMovement.maxJumps - 1) //so jump animation plays again with double jump
-        {
-            SetAnimationState("Player_Jump");
-        }
-        else if (playerMovement.rb.velocity.y < .1f && !playerMovement.IsGrounded())
-        {
-            SetAnimationState("Player_Fall");
-        }
-        else if (playerMovement.dirX > 0.5f && playerMovement.dirX > 0f && playerMovement.IsGrounded())
-        {
-            SetAnimationState("Player_MoveForward");
-        }
-        else if (playerMovement.dirX < -0.5f && playerMovement.dirX > 0f && playerMovement.IsGrounded())
-        {
-            SetAnimationState("Player_MoveBackward");
-        }
-        else
-        {
-            SetAnimationState("Player_Idle");
-        }
-
 
 
 
