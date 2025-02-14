@@ -1997,8 +1997,10 @@ MonoBehaviour:
   staleMult: 0
   prevSwing: 
   lv1StaleMult: 1.1
-  lv2StaleMult: 1.2
-  lv3StaleMult: 1.35
+  lv2StaleMult: 1.25
+  lv3StaleMult: 1.5
+  swingLGMLogCount: 0
+  swingLGMLogSearchTimer: 0
   swingLogFull: 0
 --- !u!1001 &152275584288945857
 PrefabInstance:
