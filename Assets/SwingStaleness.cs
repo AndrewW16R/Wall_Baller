@@ -11,6 +11,7 @@ public class SwingStaleness : MonoBehaviour
     public string loggedSwingC; //third swing in log
     public string loggedSwingD; //fourth swing in log
     public string loggedSwingE; //fifth swing in log
+    public string loggedSwingF; //fifth swing in log
 
     public int staleRating;
     public int prevStaleRating;
@@ -20,6 +21,7 @@ public class SwingStaleness : MonoBehaviour
     public float lv1StaleMult;
     public float lv2StaleMult;
     public float lv3StaleMult;
+    public float lv4StaleMult;
 
     public int swingLGMLogCount;
     public int swingLGMLogSearchTimer;
@@ -91,6 +93,10 @@ public class SwingStaleness : MonoBehaviour
             {
                 loggedSwingE = playerSwing.currentSwingName;
             }
+            else if (loggedSwingF == "")
+            {
+                loggedSwingF = playerSwing.currentSwingName;
+            }
             else
             {
                 swingLogFull = true;
@@ -103,7 +109,8 @@ public class SwingStaleness : MonoBehaviour
             loggedSwingB = loggedSwingC;
             loggedSwingC = loggedSwingD;
             loggedSwingD = loggedSwingE;
-            loggedSwingE = playerSwing.currentSwingName;
+            loggedSwingE = loggedSwingF;
+            loggedSwingF = playerSwing.currentSwingName;
         }
     }
 
@@ -123,6 +130,10 @@ public class SwingStaleness : MonoBehaviour
         {
             staleMult = lv3StaleMult;
         }
+        else if (staleRating == 5)
+        {
+            staleMult = lv4StaleMult;
+        }
         else
         {
             staleMult = 1.0f;
@@ -139,7 +150,7 @@ public class SwingStaleness : MonoBehaviour
     {
         if (playerSwing.currentSwingName == "L_Grounded_Middle") //LGM
         {
-            swingLGMLogSearchTimer = 5;
+            swingLGMLogSearchTimer = 6;
         }
 
         if (swingLGMLogSearchTimer > 0)
@@ -150,7 +161,7 @@ public class SwingStaleness : MonoBehaviour
 
         if (playerSwing.currentSwingName == "L_Grounded_Up") //LGU
         {
-            swingLGULogSearchTimer = 5;
+            swingLGULogSearchTimer = 6;
         }
 
         if (swingLGULogSearchTimer > 0)
@@ -161,7 +172,7 @@ public class SwingStaleness : MonoBehaviour
 
         if (playerSwing.currentSwingName == "L_Grounded_Down") //LGD
         {
-            swingLGDLogSearchTimer = 5;
+            swingLGDLogSearchTimer = 6;
         }
 
         if (swingLGDLogSearchTimer > 0)
@@ -173,7 +184,7 @@ public class SwingStaleness : MonoBehaviour
 
         if (playerSwing.currentSwingName == "L_Airborne_Middle") //LAM
         {
-            swingLAMLogSearchTimer = 5;
+            swingLAMLogSearchTimer = 6;
         }
 
         if (swingLAMLogSearchTimer > 0)
@@ -184,7 +195,7 @@ public class SwingStaleness : MonoBehaviour
 
         if (playerSwing.currentSwingName == "L_Airborne_Up") //LAU
         {
-            swingLAULogSearchTimer = 5;
+            swingLAULogSearchTimer = 6;
         }
 
         if (swingLAULogSearchTimer > 0)
@@ -195,7 +206,7 @@ public class SwingStaleness : MonoBehaviour
 
         if (playerSwing.currentSwingName == "L_Airborne_Down") //LAD
         {
-            swingLADLogSearchTimer = 5;
+            swingLADLogSearchTimer = 6;
         }
 
         if (swingLADLogSearchTimer > 0)
@@ -207,7 +218,7 @@ public class SwingStaleness : MonoBehaviour
 
         if (playerSwing.currentSwingName == "H_Grounded_Middle")
         {
-            swingHGMLogSearchTimer = 5;
+            swingHGMLogSearchTimer = 6;
         }
 
         if (swingHGMLogSearchTimer > 0)
@@ -218,7 +229,7 @@ public class SwingStaleness : MonoBehaviour
 
         if (playerSwing.currentSwingName == "H_Grounded_Up")
         {
-            swingHGULogSearchTimer = 5;
+            swingHGULogSearchTimer = 6;
         }
 
         if (swingHGULogSearchTimer > 0)
@@ -229,7 +240,7 @@ public class SwingStaleness : MonoBehaviour
 
         if (playerSwing.currentSwingName == "H_Grounded_Down")
         {
-            swingHGDLogSearchTimer = 5;
+            swingHGDLogSearchTimer = 6;
         }
 
         if (swingHGDLogSearchTimer > 0)
@@ -241,7 +252,7 @@ public class SwingStaleness : MonoBehaviour
 
         if (playerSwing.currentSwingName == "H_Airborne_Middle")
         {
-            swingHAMLogSearchTimer = 5;
+            swingHAMLogSearchTimer = 6;
         }
 
         if (swingHAMLogSearchTimer > 0)
@@ -252,7 +263,7 @@ public class SwingStaleness : MonoBehaviour
 
         if (playerSwing.currentSwingName == "H_Airborne_Up")
         {
-            swingHAULogSearchTimer = 5;
+            swingHAULogSearchTimer = 6;
         }
 
         if (swingHAULogSearchTimer > 0)
@@ -263,7 +274,7 @@ public class SwingStaleness : MonoBehaviour
 
         if (playerSwing.currentSwingName == "H_Airborne_Down")
         {
-            swingHADLogSearchTimer = 5;
+            swingHADLogSearchTimer = 6;
         }
 
         if (swingHADLogSearchTimer > 0)
@@ -296,6 +307,11 @@ public class SwingStaleness : MonoBehaviour
         }
 
         if (swingName == loggedSwingE)
+        {
+            swingLogCount = swingLogCount + 1;
+        }
+
+        if (swingName == loggedSwingF)
         {
             swingLogCount = swingLogCount + 1;
         }

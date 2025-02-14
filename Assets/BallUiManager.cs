@@ -58,7 +58,7 @@ public class BallUiManager : MonoBehaviour
 
     public void CalculateStyle()
     {
-        if (swingStaleness.prevStaleRating == 1)
+        if (swingStaleness.prevStaleRating <= 1)
         {
             textStyle.text = "STYLE: FRESH!!!";
         }
@@ -76,7 +76,7 @@ public class BallUiManager : MonoBehaviour
         }
         else if (swingStaleness.prevStaleRating == 5)
         {
-            textStyle.text = "STYLE: STALE";
+            textStyle.text = "STYLE: WACK";
         }
     }
 }
