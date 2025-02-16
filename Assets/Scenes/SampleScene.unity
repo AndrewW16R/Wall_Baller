@@ -1992,13 +1992,17 @@ MonoBehaviour:
   loggedSwingC: 
   loggedSwingD: 
   loggedSwingE: 
+  loggedSwingF: 
   staleRating: 0
   prevStaleRating: 0
   staleMult: 0
   prevSwing: 
   lv1StaleMult: 1.1
-  lv2StaleMult: 1.2
-  lv3StaleMult: 1.35
+  lv2StaleMult: 1.25
+  lv3StaleMult: 1.5
+  lv4StaleMult: 2.5
+  swingLGMLogCount: 0
+  swingLGMLogSearchTimer: 0
   swingLogFull: 0
 --- !u!1001 &152275584288945857
 PrefabInstance:
@@ -2660,6 +2664,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 300215779637406432, guid: 10d485d6aa330374981de0a8c7adf1e5, type: 3}
+      propertyPath: initialBallSpeed
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 300215779637406432, guid: 10d485d6aa330374981de0a8c7adf1e5, type: 3}
+      propertyPath: speedCapIncreasePerLevel
+      value: 1.25
+      objectReference: {fileID: 0}
     - target: {fileID: 3592153727472513479, guid: 10d485d6aa330374981de0a8c7adf1e5, type: 3}
       propertyPath: m_Name
       value: Ball

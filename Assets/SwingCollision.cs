@@ -61,7 +61,8 @@ public class SwingCollision : MonoBehaviour
 
             if (collidedBall == false) //if the ball has not already collided with this hitbox
             {
-                swingStaleness.SwingLogUpdate(); //Updates log of previous 3 swings
+                swingStaleness.SwingLogUpdate(); //Updates log of previous 5 swings
+                swingStaleness.SwingLogCheck(); //Counts reoccurences of swings for the past 5 swings to inform swing staleness
                 swingStaleness.CalculateStaleness(); //determines what the staleness multiplier for the next collision will be
 
                 activeBall.UpdateBallVelocity(horizontalPower, verticlePower, isHorizontalPowerMulplicative, swingStaleness.staleMult);
