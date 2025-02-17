@@ -62,6 +62,8 @@ public class PlayerMovement : MonoBehaviour
         maxJumps = jumpsAvailable;
         initialGravity = rb.gravityScale;
 
+        dashRefilling = false;
+
         gameManagerObject = GameObject.Find("GameManager");
         gameManager = gameManagerObject.GetComponent<GameManager>();
     }
@@ -73,27 +75,16 @@ public class PlayerMovement : MonoBehaviour
         dirY = Input.GetAxisRaw("Vertical");
 
         //Walking movement
-        if (isDashing == false && playerSwing.stopHorizontalInput == false)
+        if (playerSwing.stopHorizontalInput == true)
         {
-            dirX = Input.GetAxisRaw("Horizontal");
+            dirX = 0;
         }
         else
         {
-            //dirX = 0;
+            dirX = Input.GetAxisRaw("Horizontal");
         }
 
-        if (dirX > 0)
-        {
-            heldDirection = 1;
-        }
-        else if (dirX < 0)
-        {
-            heldDirection = -1;
-        }
-        else if (dirX == 0)
-        {
-            //heldDirection = 0;
-        }
+       
 
 
         //Checks for jump input and executes jump in under proper conditions
@@ -114,9 +105,39 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (isDashing == false && playerSwing.stopHorizontalVel == false && playerSwing.stopHorizontalInput == false)
+        if (isDashing == false && playerSwing.stopHorizontalInput == false && playerSwing.stopHorizontalVel == false)
         {
             rb.velocity = new Vector2(dirX * movementSpeed, rb.velocity.y);
+        }
+
+        if (dirX > 0)
+        {
+            heldDirection = 1;
+        }
+        else if (dirX < 0)
+        {
+            heldDirection = -1;
+        }
+        else if (dirX == 0)
+        {
+            //heldDirection = 0;
+        }
+
+        if(playerSwing.stopHorizontalVel == true)
+        {
+            //rb.velocity = new Vector2(0, rb.velocity.y);
+        }
+
+
+        if (gameManager.isGamePaused == false && gameManager.isGameOver == false)
+        {
+           
+            //Refills player's available dashes
+            if (dashesAvailable < maxDashes && dashRefilling == false)
+            {
+                StartCoroutine(RefillDash(timeToRefillOneDash));
+
+            }
         }
 
     }
@@ -170,7 +191,7 @@ public class PlayerMovement : MonoBehaviour
    
    private void UpdateDash()
     {
-        if (Input.GetButtonDown("Dash") && isDashing == false && dashesAvailable > 0 && playerSwing.stopDashing == false)
+        if (Input.GetButtonDown("Dash") && isDashing == false && dashesAvailable > 0 && playerSwing.stopDashing == false && playerSwing.stopHorizontalVel == false)
         {
             if(IsGrounded())
             {
@@ -227,6 +248,7 @@ public class PlayerMovement : MonoBehaviour
         return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
     }
 
+
     private IEnumerator Dash(float direction)
     {
         isDashing = true;
@@ -257,6 +279,7 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(timeToRefillOneDash);
         dashRefilling = false;
         dashesAvailable = dashesAvailable + 1;
+        rb.velocity = new Vector2(dirX * movementSpeed, rb.velocity.y);
     }
 
 }

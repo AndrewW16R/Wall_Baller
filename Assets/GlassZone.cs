@@ -65,7 +65,7 @@ public class GlassZone : MonoBehaviour
             if (glassHealth == 0)
             {
                 glassCrackedSprite.SetActive(false);
-                Invoke("DisableGlassCollision", 0.01f);
+                Invoke("DisableGlassCollision", 0.1f);
                 glassWallDown = true;
             }
         }

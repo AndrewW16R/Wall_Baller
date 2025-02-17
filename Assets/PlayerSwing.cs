@@ -173,7 +173,7 @@ public class PlayerSwing : MonoBehaviour
             {
                 isSwinging = true;
                 UpdateHorizontalInputPrevention(false);
-                UpdateHorizontalVelocityPrevention(true);
+                UpdateHorizontalVelocityPrevention(false);
                 UpdateDashingPrevention(true);
                 UpdateJumpInputPrevention(true);
                 //Swing light airborne down
@@ -186,7 +186,7 @@ public class PlayerSwing : MonoBehaviour
             {
                 isSwinging = true;
                 UpdateHorizontalInputPrevention(false);
-                UpdateHorizontalVelocityPrevention(true);
+                UpdateHorizontalVelocityPrevention(false);
                 UpdateDashingPrevention(true);
                 UpdateJumpInputPrevention(true);
                 //Swing light airborne down
@@ -199,7 +199,7 @@ public class PlayerSwing : MonoBehaviour
             {
                 isSwinging = true;
                 UpdateHorizontalInputPrevention(false);
-                UpdateHorizontalVelocityPrevention(true);
+                UpdateHorizontalVelocityPrevention(false);
                 UpdateDashingPrevention(true);
                 UpdateJumpInputPrevention(true);
                 //Swing light airborne middle
@@ -215,7 +215,7 @@ public class PlayerSwing : MonoBehaviour
             {
                 isSwinging = true;
                 UpdateHorizontalInputPrevention(false);
-                UpdateHorizontalVelocityPrevention(true);
+                UpdateHorizontalVelocityPrevention(false);
                 UpdateDashingPrevention(true);
                 UpdateJumpInputPrevention(true);
                 //Swing Heavy airborne up
@@ -228,7 +228,7 @@ public class PlayerSwing : MonoBehaviour
             {
                 isSwinging = true;
                 UpdateHorizontalInputPrevention(false);
-                UpdateHorizontalVelocityPrevention(true);
+                UpdateHorizontalVelocityPrevention(false);
                 UpdateDashingPrevention(true);
                 UpdateJumpInputPrevention(true);
                 //Swing Heavy airborne down
@@ -241,7 +241,7 @@ public class PlayerSwing : MonoBehaviour
             {
                 isSwinging = true;
                 UpdateHorizontalInputPrevention(false);
-                UpdateHorizontalVelocityPrevention(true);
+                UpdateHorizontalVelocityPrevention(false);
                 UpdateDashingPrevention(true);
                 UpdateJumpInputPrevention(true);
                 //Swing Heavy airborne middle
