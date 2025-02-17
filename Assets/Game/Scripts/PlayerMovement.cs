@@ -114,7 +114,11 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.velocity = new Vector2(dirX * movementSpeed, rb.velocity.y);
+        if (isDashing == false && playerSwing.stopHorizontalVel == false && playerSwing.stopHorizontalInput == false)
+        {
+            rb.velocity = new Vector2(dirX * movementSpeed, rb.velocity.y);
+        }
+
     }
 
     private void UpdateJump()
