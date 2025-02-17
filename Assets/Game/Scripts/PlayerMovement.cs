@@ -33,6 +33,19 @@ public class PlayerMovement : MonoBehaviour
     //How much the default gravity is multiplied by within the process of fast falling
     [SerializeField] public float fastfallGravMultiplier;
 
+
+    [HideInInspector] public bool isDashing = false;
+    [SerializeField] public int dashesAvailable;
+    private int maxDashes;
+    private bool dashRefilling = false;
+    [SerializeField] private float dashDuration;
+    [SerializeField] private float dashSpeed;
+    [SerializeField] private int timeToRefillOneDash = 1;
+    public float dashDir; //Stores value of which driection player is air dashing to inform animator which air dash animation to play
+    public bool isAirDash = false;
+
+    [SerializeField] private float heldDirection;
+
     public float verInputGatePositive = 0.35f; //How far up the vertical input needs to be counted as an "Up" input
     public float verInputGateNegative = 0.35f; //How far down the vertical input needs to be counted as an "Down" input
 
@@ -60,13 +73,26 @@ public class PlayerMovement : MonoBehaviour
         dirY = Input.GetAxisRaw("Vertical");
 
         //Walking movement
-        if (playerSwing.stopHorizontalInput == true)
+        if (isDashing == false && playerSwing.stopHorizontalInput == false)
         {
-            dirX = 0;
+            dirX = Input.GetAxisRaw("Horizontal");
         }
         else
         {
-            dirX = Input.GetAxisRaw("Horizontal");
+            //dirX = 0;
+        }
+
+        if (dirX > 0)
+        {
+            heldDirection = 1;
+        }
+        else if (dirX < 0)
+        {
+            heldDirection = -1;
+        }
+        else if (dirX == 0)
+        {
+            //heldDirection = 0;
         }
 
 
@@ -74,6 +100,15 @@ public class PlayerMovement : MonoBehaviour
         if (gameManager.isGamePaused == false && gameManager.isGameOver == false)
         {
             UpdateJump();
+
+            //Refills player's available dashes
+            if (dashesAvailable < maxDashes && dashRefilling == false)
+            {
+                StartCoroutine(RefillDash(timeToRefillOneDash));
+                
+            }
+
+            UpdateDash();
         }
     }
 
@@ -129,11 +164,95 @@ public class PlayerMovement : MonoBehaviour
     }
 
    
-   
+   private void UpdateDash()
+    {
+        if (Input.GetButtonDown("Dash") && isDashing == false && dashesAvailable > 0 && playerSwing.stopDashing == false)
+        {
+            if(IsGrounded())
+            {
+                if (heldDirection >= 0)
+                {
+                    dashDir = 1;
+                    isAirDash = false;
+                    StartCoroutine(Dash(1.0f));
+                }
+                else if (heldDirection < 0)
+                {
+                    dashDir = -1;
+                    isAirDash = false;
+                    StartCoroutine(Dash(heldDirection));
+                }
+                else if (dirX == 0)
+                {
+                    dashDir = 1;
+                    isAirDash = true;
+                    StartCoroutine(Dash(1.0f));
+                }
+
+            }
+
+            if (IsGrounded() == false)
+            {
+                if (heldDirection >= 0 )
+                {
+                    dashDir = 1;
+                    isAirDash = true;
+                    StartCoroutine(Dash(1.0f));
+                }
+                else if (heldDirection < 0)
+                {
+                    dashDir = -1;
+                    isAirDash = true;
+                    StartCoroutine(Dash(heldDirection));
+                }
+                else if (dirX == 0)
+                {
+                    dashDir = 1;
+                    isAirDash = true;
+                    StartCoroutine(Dash(1.0f));
+                }
+
+            }
+
+        }
+    }
+
 
     public bool IsGrounded()
     {
         return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
+    }
+
+    private IEnumerator Dash(float direction)
+    {
+        isDashing = true;
+        //Debug.Log("dash detected");
+        rb.velocity = new Vector2(rb.velocity.x, 0f);
+        rb.AddForce(new Vector2(dashSpeed * direction, 0f), ForceMode2D.Impulse);
+        //below if statement implemented since above Added dash speed to move speed. It felt pretty good though
+
+        /*
+        if (rb.velocity.x != dashSpeed * direction)
+        {
+            rb.velocity = new Vector2(dashSpeed * direction, 0f);
+        }
+        */
+
+        rb.gravityScale = 0;
+        yield return new WaitForSeconds(dashDuration);
+        isDashing = false;
+        rb.gravityScale = initialGravity;
+        dashesAvailable = dashesAvailable - 1;
+
+    }
+
+    //Refills players available dashes
+    private IEnumerator RefillDash(int amount)
+    {
+        dashRefilling = true;
+        yield return new WaitForSeconds(timeToRefillOneDash);
+        dashRefilling = false;
+        dashesAvailable = dashesAvailable + 1;
     }
 
 }

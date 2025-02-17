@@ -8,6 +8,7 @@ public class PlayerSwing : MonoBehaviour
     public bool swingDurationUpdateQued;
     public bool stopHorizontalVel; //set to true when a move should stop/prevent horizontal vel
     public bool stopHorizontalInput; //set to true when a move should stop/prevent horizontal input
+    public bool stopDashing; //set to true when a move should stop/prevent dashing
     public bool stopJumpInput; //set to true when a move should stop Jump/prevent input
     public string currentSwingName; //this variable is not currently utilized but could be implemented to indicate which attack is being used
     [SerializeField] private int currentSwingDuration;
@@ -50,6 +51,7 @@ public class PlayerSwing : MonoBehaviour
         swingDurationUpdateQued = false;
         stopHorizontalVel = false;
         stopHorizontalInput = false;
+        stopDashing = false;
         stopJumpInput = false;
         isAirSwing = false;
 
@@ -86,6 +88,7 @@ public class PlayerSwing : MonoBehaviour
                 isSwinging = true;
                 UpdateHorizontalInputPrevention(true);
                 UpdateHorizontalVelocityPrevention(true);
+                UpdateDashingPrevention(true);
                 UpdateJumpInputPrevention(true);
                 //Swing light grounded up
                 currentSwingName = "L_Grounded_Up";
@@ -98,6 +101,7 @@ public class PlayerSwing : MonoBehaviour
                 isSwinging = true;
                 UpdateHorizontalInputPrevention(true);
                 UpdateHorizontalVelocityPrevention(true);
+                UpdateDashingPrevention(true);
                 UpdateJumpInputPrevention(true);
                 //Swing light grounded down
                 currentSwingName = "L_Grounded_Down";
@@ -110,6 +114,7 @@ public class PlayerSwing : MonoBehaviour
                 isSwinging = true;
                 UpdateHorizontalInputPrevention(true);
                 UpdateHorizontalVelocityPrevention(true);
+                UpdateDashingPrevention(true);
                 UpdateJumpInputPrevention(true);
                 //Swing light grounded middle
                 currentSwingName = "L_Grounded_Middle";
@@ -127,6 +132,7 @@ public class PlayerSwing : MonoBehaviour
                 isSwinging = true;
                 UpdateHorizontalInputPrevention(true);
                 UpdateHorizontalVelocityPrevention(true);
+                UpdateDashingPrevention(true);
                 UpdateJumpInputPrevention(false);
                 //Swing heavy grounded Up
                 currentSwingName = "H_Grounded_Up";
@@ -139,6 +145,7 @@ public class PlayerSwing : MonoBehaviour
                 isSwinging = true;
                 UpdateHorizontalInputPrevention(true);
                 UpdateHorizontalVelocityPrevention(true);
+                UpdateDashingPrevention(true);
                 UpdateJumpInputPrevention(true);
                 //Swing heavy grounded Up
                 currentSwingName = "H_Grounded_Down";
@@ -151,6 +158,7 @@ public class PlayerSwing : MonoBehaviour
                 isSwinging = true;
                 UpdateHorizontalInputPrevention(true);
                 UpdateHorizontalVelocityPrevention(true);
+                UpdateDashingPrevention(true);
                 UpdateJumpInputPrevention(true);
                 //Swing heavy grounded middle
                 currentSwingName = "H_Grounded_Middle";
@@ -166,6 +174,7 @@ public class PlayerSwing : MonoBehaviour
                 isSwinging = true;
                 UpdateHorizontalInputPrevention(false);
                 UpdateHorizontalVelocityPrevention(true);
+                UpdateDashingPrevention(true);
                 UpdateJumpInputPrevention(true);
                 //Swing light airborne down
                 currentSwingName = "L_Airborne_Up";
@@ -178,6 +187,7 @@ public class PlayerSwing : MonoBehaviour
                 isSwinging = true;
                 UpdateHorizontalInputPrevention(false);
                 UpdateHorizontalVelocityPrevention(true);
+                UpdateDashingPrevention(true);
                 UpdateJumpInputPrevention(true);
                 //Swing light airborne down
                 currentSwingName = "L_Airborne_Down";
@@ -190,6 +200,7 @@ public class PlayerSwing : MonoBehaviour
                 isSwinging = true;
                 UpdateHorizontalInputPrevention(false);
                 UpdateHorizontalVelocityPrevention(true);
+                UpdateDashingPrevention(true);
                 UpdateJumpInputPrevention(true);
                 //Swing light airborne middle
                 currentSwingName = "L_Airborne_Middle";
@@ -205,6 +216,7 @@ public class PlayerSwing : MonoBehaviour
                 isSwinging = true;
                 UpdateHorizontalInputPrevention(false);
                 UpdateHorizontalVelocityPrevention(true);
+                UpdateDashingPrevention(true);
                 UpdateJumpInputPrevention(true);
                 //Swing Heavy airborne up
                 currentSwingName = "H_Airborne_Up";
@@ -217,6 +229,7 @@ public class PlayerSwing : MonoBehaviour
                 isSwinging = true;
                 UpdateHorizontalInputPrevention(false);
                 UpdateHorizontalVelocityPrevention(true);
+                UpdateDashingPrevention(true);
                 UpdateJumpInputPrevention(true);
                 //Swing Heavy airborne down
                 currentSwingName = "H_Airborne_Down";
@@ -229,6 +242,7 @@ public class PlayerSwing : MonoBehaviour
                 isSwinging = true;
                 UpdateHorizontalInputPrevention(false);
                 UpdateHorizontalVelocityPrevention(true);
+                UpdateDashingPrevention(true);
                 UpdateJumpInputPrevention(true);
                 //Swing Heavy airborne middle
                 currentSwingName = "H_Airborne_Middle";
@@ -422,6 +436,11 @@ public class PlayerSwing : MonoBehaviour
         stopHorizontalVel = isPrevented;
     }
 
+    public void UpdateDashingPrevention(bool isPrevented)
+    {
+        stopDashing = isPrevented;
+    }
+
     public void UpdateJumpInputPrevention(bool isPrevented)
     {
         stopJumpInput = isPrevented;
@@ -443,6 +462,7 @@ public class PlayerSwing : MonoBehaviour
         currentSwingDuration = 0; //ensures that Swing duration is set back to 0 if player jumps and press s button at the same time
         UpdateHorizontalInputPrevention(false);
         UpdateHorizontalVelocityPrevention(false);
+        UpdateDashingPrevention(false);
         UpdateJumpInputPrevention(false);
         currentSwingName = "";
         isAirSwing = false;
