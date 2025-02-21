@@ -36,6 +36,37 @@ public class PlayerAnimation : MonoBehaviour
         if (gameManager.isGamePaused == false && gameManager.isGameOver == false)
         {
 
+            if (playerMovement.isDashing == true)
+            {
+                if(playerMovement.dashDir == 1)
+                {
+                    if(playerMovement.isAirDash == true)
+                    {
+                        SetAnimationState("Player_DashForwardAir");
+                        return;
+                    }
+                    else if(playerMovement.isAirDash == false)
+                    {
+                        SetAnimationState("Player_DashForwardGround");
+                        return;
+                    }
+                }
+
+                if(playerMovement.dashDir == -1)
+                {
+                    if (playerMovement.isAirDash == true)
+                    {
+                        SetAnimationState("Player_DashBackward");
+                        return;
+                    }
+                    else if (playerMovement.isAirDash == false)
+                    {
+                        SetAnimationState("Player_DashBackward");
+                        return;
+                    }
+                }
+            }
+
 
             if (playerSwing.isSwinging == true)
             {

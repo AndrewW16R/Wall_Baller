@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
     private bool dashRefilling = false;
     [SerializeField] private float dashDuration;
     [SerializeField] private float dashSpeed;
-    [SerializeField] private int timeToRefillOneDash = 1;
+    [SerializeField] private float timeToRefillOneDash;
     public float dashDir; //Stores value of which driection player is air dashing to inform animator which air dash animation to play
     public bool isAirDash = false;
 
@@ -48,6 +48,8 @@ public class PlayerMovement : MonoBehaviour
 
     public float verInputGatePositive = 0.35f; //How far up the vertical input needs to be counted as an "Up" input
     public float verInputGateNegative = 0.35f; //How far down the vertical input needs to be counted as an "Down" input
+
+    public string movementType;
 
     private GameObject gameManagerObject;
     private GameManager gameManager;
@@ -59,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         coll = GetComponent<BoxCollider2D>();
 
+        maxDashes = dashesAvailable;
         maxJumps = jumpsAvailable;
         initialGravity = rb.gravityScale;
 
@@ -123,9 +126,9 @@ public class PlayerMovement : MonoBehaviour
             //heldDirection = 0;
         }
 
-        if(playerSwing.stopHorizontalVel == true)
+        if(playerSwing.stopHorizontalVel == true && movementType == "Stable")
         {
-            //rb.velocity = new Vector2(0, rb.velocity.y);
+            rb.velocity = new Vector2(0, rb.velocity.y);
         }
 
 
@@ -273,7 +276,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     //Refills players available dashes
-    private IEnumerator RefillDash(int amount)
+    private IEnumerator RefillDash(float amount)
     {
         dashRefilling = true;
         yield return new WaitForSeconds(timeToRefillOneDash);

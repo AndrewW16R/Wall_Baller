@@ -24,6 +24,8 @@ public class MainMenuManager : MonoBehaviour
     public GameObject videoSettingsPg;
     public GameObject audioSettingsPg;
 
+    public GameObject movementTypePg;
+
     public Scene sceneToLoad;
 
     // Start is called before the first frame update
@@ -33,6 +35,7 @@ public class MainMenuManager : MonoBehaviour
         ToggleHowToPlayCanvas(false);
         ToggleControlsCanvas(false);
         ToggleSettingsCanvas(false);
+        ToggleMovementTypePg(false);
 
     }
 
@@ -104,5 +107,10 @@ public class MainMenuManager : MonoBehaviour
     public void ToggleAudioSettingsPg(bool isEnabled)
     {
         audioSettingsPg.SetActive(isEnabled);
+    }
+
+    public void ToggleMovementTypePg(bool isEnabled)
+    {
+        movementTypePg.SetActive(isEnabled);
     }
 }
