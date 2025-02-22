@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float doubleJumpStrength;
 
     [SerializeField] private LayerMask jumpableGround;
+    [SerializeField] private LayerMask Barrier;
+    [SerializeField] private LayerMask Glass;
 
     public PlayerSwing playerSwing;
 
@@ -39,8 +41,11 @@ public class PlayerMovement : MonoBehaviour
     private int maxDashes;
     private bool dashRefilling = false;
     [SerializeField] private float dashDuration;
+    [SerializeField] private float dashWallCheckfrquency;
+    [SerializeField] private float dashProgress;
     [SerializeField] private float dashSpeed;
     [SerializeField] private float timeToRefillOneDash;
+    [SerializeField] private bool spendDash;
     public float dashDir; //Stores value of which driection player is air dashing to inform animator which air dash animation to play
     public bool isAirDash = false;
 
@@ -69,6 +74,8 @@ public class PlayerMovement : MonoBehaviour
 
         gameManagerObject = GameObject.Find("GameManager");
         gameManager = gameManagerObject.GetComponent<GameManager>();
+
+        spendDash = true;
     }
 
     // Update is called once per frame
@@ -164,6 +171,7 @@ public class PlayerMovement : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, jumpStrength);
                 jumpsAvailable = jumpsAvailable - 1;
                 initialJumpUsed = true;
+                Debug.Log(IsAgainstBackWall());
 
             }//if player is already not grounded before the intial jump is used up, both the intial jump and the first addition jump are used up.
             else if (Input.GetButtonDown("Jump") && initialJumpUsed == false && jumpsAvailable > 0 && !IsGrounded() && playerSwing.stopJumpInput == false && gameManager.isGamePaused == false)
@@ -251,6 +259,16 @@ public class PlayerMovement : MonoBehaviour
         return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
     }
 
+    public bool IsAgainstForwardWall()
+    {
+        return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.right, .3f, Barrier);
+    }
+
+    public bool IsAgainstBackWall()
+    {
+        return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.left, .3f, Glass);
+    }
+
 
     private IEnumerator Dash(float direction)
     {
@@ -268,10 +286,56 @@ public class PlayerMovement : MonoBehaviour
         */
 
         rb.gravityScale = 0;
-        yield return new WaitForSeconds(dashDuration);
+
+        dashProgress = 0.0f;
+
+            for(dashProgress=0;dashProgress<=dashDuration;dashProgress=dashProgress+dashWallCheckfrquency)
+        {
+            if(dashDir == 1)
+            {
+                if(IsAgainstForwardWall())
+                {
+                    if(dashProgress==0)
+                    {
+                        spendDash = false; //dash will not be spent if player starts a dash right next to the wall they would be dashing torwards 
+                    }
+                    rb.velocity = new Vector2(0, rb.velocity.y);
+                    Debug.Log("Cancel Dash");
+                    dashProgress = dashDuration;
+                }
+                else
+                {
+                    yield return new WaitForSeconds(dashWallCheckfrquency);
+                }
+            }
+            else if(dashDir==-1)
+            {
+                if(IsAgainstBackWall())
+                {
+                    if (dashProgress == 0)
+                    {
+                        spendDash = false; //dash will not be spent if player starts a dash right next to the wall they would be dashing torwards 
+                    }
+                    Debug.Log("Cancel Dash");
+                    dashProgress = dashDuration;
+                }
+                else
+                {
+                    yield return new WaitForSeconds(dashWallCheckfrquency);
+                }
+            }
+        }
+
+        //yield return new WaitForSeconds(dashDuration);
         isDashing = false;
         rb.gravityScale = initialGravity;
-        dashesAvailable = dashesAvailable - 1;
+
+        if(spendDash == true)
+        {
+            dashesAvailable = dashesAvailable - 1;
+        }
+
+        spendDash = true;
 
     }
 
