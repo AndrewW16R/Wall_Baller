@@ -12,6 +12,9 @@ public class GlassZone : MonoBehaviour
     public GameObject gameManagerObject;
     public GameManager gameManager;
 
+    public GameObject cameraObject;
+    public Shake cameraShake;
+
     public GameObject glassSprite;
     public GameObject glassCrackedSprite;
     public GameObject glassCollision;
@@ -29,6 +32,9 @@ public class GlassZone : MonoBehaviour
 
         gameManagerObject = GameObject.Find("GameManager");
         gameManager = gameManagerObject.GetComponent<GameManager>();
+
+        cameraObject = GameObject.Find("Main Camera");
+        cameraShake = cameraObject.GetComponent<Shake>();
 
         glassSprite = GameObject.Find("Tilemap_Glass");
         glassCrackedSprite = GameObject.Find("Tilemap_GlassCracked");
@@ -67,6 +73,7 @@ public class GlassZone : MonoBehaviour
                 {
                     glassSprite.SetActive(false);
                     glassCrackedSprite.SetActive(true);
+                    cameraShake.ActivateShake01();
                     gameManager.ApplyHitStop(firstCollisionHitStop);
                 }
 
@@ -74,6 +81,7 @@ public class GlassZone : MonoBehaviour
 
             if (glassHealth == 0)
             {
+                cameraShake.ActivateShake02();
                 gameManager.ApplyHitStop(secondCollisionHitStop);
                 glassCrackedSprite.SetActive(false);
                 Invoke("DisableGlassCollision", 0.1f);
