@@ -9,9 +9,15 @@ public class GlassZone : MonoBehaviour
     public GameObject ballObject;
     public Ball activeBall;
 
+    public GameObject gameManagerObject;
+    public GameManager gameManager;
+
     public GameObject glassSprite;
     public GameObject glassCrackedSprite;
     public GameObject glassCollision;
+
+    public float firstCollisionHitStop;
+    public float secondCollisionHitStop;
 
     public bool glassWallDown;
 
@@ -20,6 +26,9 @@ public class GlassZone : MonoBehaviour
     {
         ballObject = GameObject.FindWithTag("Ball");
         activeBall = ballObject.GetComponent<Ball>();
+
+        gameManagerObject = GameObject.Find("GameManager");
+        gameManager = gameManagerObject.GetComponent<GameManager>();
 
         glassSprite = GameObject.Find("Tilemap_Glass");
         glassCrackedSprite = GameObject.Find("Tilemap_GlassCracked");
@@ -58,15 +67,18 @@ public class GlassZone : MonoBehaviour
                 {
                     glassSprite.SetActive(false);
                     glassCrackedSprite.SetActive(true);
+                    gameManager.ApplyHitStop(firstCollisionHitStop);
                 }
 
             }
 
             if (glassHealth == 0)
             {
+                gameManager.ApplyHitStop(secondCollisionHitStop);
                 glassCrackedSprite.SetActive(false);
                 Invoke("DisableGlassCollision", 0.1f);
                 glassWallDown = true;
+                glassHealth = glassHealth - 1;
             }
         }
 

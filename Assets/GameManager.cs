@@ -29,6 +29,12 @@ public class GameManager : MonoBehaviour
     public float ballSpeed;
     public int ballLevel;
     public int ballExp;
+    public float ballHitStop;
+    
+    public float levelHitStop;
+    public float totalHitStop;
+
+    public bool hitStopActive;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +44,8 @@ public class GameManager : MonoBehaviour
         isGameOver = false;
         UpdateGamePausedFlag(false);
         UpdateCursorVisibility(false);
+
+        hitStopActive = false;
 
         //playerObject = GameObject.FindWithTag("Player");
         //playerMovement = playerObject.GetComponent<PlayerMovement>();
@@ -125,10 +133,64 @@ public class GameManager : MonoBehaviour
         ballSpeed = activeBall.rb.velocity.x;
         ballLevel = activeBall.ballLevel;
         ballExp = activeBall.ballExp;
+        ballHitStop = activeBall.currentBallHitStop;
     }
 
     public void UpdateCursorVisibility(bool isCursorVisible)
     {
         Cursor.visible = isCursorVisible;
+    }
+
+    public void CalculateHitStop()
+    {
+        totalHitStop = 0.0f;
+        if (ballLevel >= 1 && ballLevel <= 3)
+        {
+            levelHitStop = 0.0f;
+        }
+        else if (ballLevel >= 4 && ballLevel <= 5)
+        {
+            levelHitStop = 0.05f;
+        }
+        else if(ballLevel >= 6 && ballLevel <= 8)
+        {
+            levelHitStop = 0.1f;
+        }
+        else if(ballLevel >= 9 && ballLevel <= 10)
+        {
+            levelHitStop = 0.15f;
+        }
+        else if (ballLevel >= 11)
+        {
+            levelHitStop = 0.2f;
+        }
+
+        totalHitStop = ballHitStop + levelHitStop; 
+        ApplyHitStop(totalHitStop);
+    }
+
+    public void ApplyHitStop(float duration)
+    {
+
+        if (hitStopActive == true)//HitStop will not be applied if it is already active.
+        {
+            return;
+        }
+
+        if (isGamePaused == false && isGameOver == false)
+        {
+
+        }
+
+        SetTimeScale(0.0f); //stops time
+        StartCoroutine(HitStopWait(duration));
+    }
+
+    IEnumerator HitStopWait(float duration)
+    {
+        hitStopActive = true;
+        yield return new WaitForSecondsRealtime(duration);
+        SetTimeScale(1.0f);
+        hitStopActive = false;
     }
 }

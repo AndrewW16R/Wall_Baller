@@ -10,6 +10,7 @@ public class SwingCollision : MonoBehaviour
     public int swingActiveDuration;
     public int swingEndlagDuration;
     public int ballExpGain;
+    public float hitStopPower;
 
     public float horizontalPower;
     public float verticlePower;
@@ -65,9 +66,13 @@ public class SwingCollision : MonoBehaviour
                 swingStaleness.SwingLogCheck(); //Counts reoccurences of swings for the past 5 swings to inform swing staleness
                 swingStaleness.CalculateStaleness(); //determines what the staleness multiplier for the next collision will be
 
+                activeBall.currentBallHitStop = hitStopPower;
                 activeBall.UpdateBallVelocity(horizontalPower, verticlePower, isHorizontalPowerMulplicative, swingStaleness.staleMult);
                 activeBall.AddBallExp(ballExpGain);
+                activeBall.HitStopProcess();
                 collidedBall = true;
+
+                
             }
         }
     }

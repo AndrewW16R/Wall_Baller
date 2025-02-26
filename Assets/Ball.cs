@@ -13,6 +13,10 @@ public class Ball : MonoBehaviour
     public float speedCapIncreasePerLevel;
     Transform ballTransform;
 
+    public float currentBallHitStop;
+
+    public GameManager gameManager;
+    public GameObject gameManagerObject;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +32,9 @@ public class Ball : MonoBehaviour
         ballSpeed = initialBallSpeed;
         ballLevel = 1; //The Ball's current level
         ballExp = 0; //How much experience the ball has, ball levels up once reaching 10 exp and then 10 exp from ballExp is subtracted
+
+         gameManagerObject = GameObject.Find("GameManager");
+        gameManager = gameManagerObject.GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -69,6 +76,12 @@ public class Ball : MonoBehaviour
     public void UpdateBallSpeed()
     {
          ballSpeed = ballSpeed + speedCapIncreasePerLevel;
+    }
+
+    public void HitStopProcess()
+    {
+        gameManager.GetBallInfo();
+        gameManager.CalculateHitStop();
     }
 
 
