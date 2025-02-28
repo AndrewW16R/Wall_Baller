@@ -69,6 +69,7 @@ public class SwingCollision : MonoBehaviour
                 activeBall.currentBallHitStop = hitStopPower;
                 activeBall.UpdateBallVelocity(horizontalPower, verticlePower, isHorizontalPowerMulplicative, swingStaleness.staleMult);
                 activeBall.AddBallExp(ballExpGain);
+                activeBall.BallShakeProcess();
                 activeBall.HitStopProcess();
                 collidedBall = true;
 

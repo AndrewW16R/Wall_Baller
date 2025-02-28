@@ -18,6 +18,9 @@ public class Ball : MonoBehaviour
     public GameManager gameManager;
     public GameObject gameManagerObject;
 
+    public GameObject ballArtObject;
+    public BallShake ballShake;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +38,9 @@ public class Ball : MonoBehaviour
 
          gameManagerObject = GameObject.Find("GameManager");
         gameManager = gameManagerObject.GetComponent<GameManager>();
+
+        ballArtObject = GameObject.Find("Ball");
+        ballShake = ballArtObject.GetComponent<BallShake>();
     }
 
     // Update is called once per frame
@@ -84,5 +90,19 @@ public class Ball : MonoBehaviour
         gameManager.CalculateHitStop();
     }
 
+    public void BallShakeProcess()
+    {
+        gameManager.GetBallInfo();
+        ballShake.duration = gameManager.totalHitStop; //the duration of the ballshake will be the same duration of the hitstop
 
+            if (gameManager.ballHitStop < ballShake.heavySwingHitStopThreshold) //uses shake curve for light swings
+        {
+
+            ballShake.ActivateShake01();
+        }
+            else if (gameManager.ballHitStop >= ballShake.heavySwingHitStopThreshold) //uses shake curve for heavy swings
+        {
+            ballShake.ActivateShake02();
+        }
+    }
 }
