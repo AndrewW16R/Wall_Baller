@@ -40,6 +40,9 @@ public class AudioManager : MonoBehaviour
     public GameObject audioSourceObject04;
     public AudioSource audioSource04;
 
+    public GameObject audioSourceObject05;
+    public AudioSource audioSource05;
+
     public int soundRngResult;
 
 
@@ -57,6 +60,9 @@ public class AudioManager : MonoBehaviour
 
         audioSourceObject04 = GameObject.Find("AudioSource04");
         audioSource04 = audioSourceObject04.GetComponent<AudioSource>();
+
+        audioSourceObject05 = GameObject.Find("AudioSource05");
+        audioSource05 = audioSourceObject05.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -77,12 +83,12 @@ public class AudioManager : MonoBehaviour
         if (soundRngResult >= 0 && soundRngResult <= 4)
         {
             audioSource01.clip = swingHitLight01;
-            Debug.Log("Sound 1");
+            //Debug.Log("Sound 1");
         }
         else if (soundRngResult >= 5 && soundRngResult <= 9)
         {
             audioSource01.clip = swingHitLight02;
-            Debug.Log("Sound 2");
+            //Debug.Log("Sound 2");
         }
 
         audioSource01.Play();
@@ -102,5 +108,47 @@ public class AudioManager : MonoBehaviour
         }
 
         audioSource01.Play();
+    }
+
+    public void PlayGlassFirstHitSFX()
+    {
+        audioSource04.clip = glassFirstHit;
+        audioSource04.Play();
+    }
+
+    public void PlayGlassSecondHitSFX()
+    {
+        audioSource04.clip = glassSecondHit;
+        audioSource04.Play();
+    }
+
+    public void PlayBallBounceSFX()
+    {
+        SoundRngRoll();
+        if (soundRngResult >= 0 && soundRngResult <= 4)
+        {
+            audioSource03.clip = ballBounce01;
+        }
+        else if (soundRngResult >= 5 && soundRngResult <= 9)
+        {
+            audioSource03.clip = ballBounce02;
+        }
+
+        audioSource03.Play();
+    }
+
+    public void PlayBallBounceHighSpeedSFX()
+    {
+        SoundRngRoll();
+        if (soundRngResult >= 0 && soundRngResult <= 4)
+        {
+            audioSource03.clip = ballBounceHighSpeed01;
+        }
+        else if (soundRngResult >= 5 && soundRngResult <= 9)
+        {
+            audioSource03.clip = ballBounceHighSpeed02;
+        }
+
+        audioSource03.Play();
     }
 }

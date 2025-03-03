@@ -38,7 +38,7 @@ public class Shake : MonoBehaviour
 
         while (elapsedTime < duration01)
         {
-            Debug.Log(elapsedTime);
+            //Debug.Log(elapsedTime);
             elapsedTime += Time.deltaTime;
 
             float strength = curve01.Evaluate(elapsedTime / duration01);

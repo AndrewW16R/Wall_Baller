@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GlassZone : MonoBehaviour
 {
@@ -23,6 +24,10 @@ public class GlassZone : MonoBehaviour
     public float secondCollisionHitStop;
 
     public bool glassWallDown;
+
+    public UnityEvent onFirstHitEvent;
+
+    public UnityEvent onSecondHitEvent;
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +52,17 @@ public class GlassZone : MonoBehaviour
         glassCollision.SetActive(true);
 
         glassWallDown = false;
+
+
+        if (onFirstHitEvent == null)
+        {
+            onFirstHitEvent = new UnityEvent();
+        }
+
+        if (onSecondHitEvent == null)
+        {
+            onSecondHitEvent = new UnityEvent();
+        }
     }
 
     // Update is called once per frame
@@ -73,6 +89,7 @@ public class GlassZone : MonoBehaviour
                 {
                     glassSprite.SetActive(false);
                     glassCrackedSprite.SetActive(true);
+                    onFirstHitEvent.Invoke();
                     cameraShake.ActivateShake01();
                     gameManager.ApplyHitStop(firstCollisionHitStop);
                 }
@@ -84,7 +101,8 @@ public class GlassZone : MonoBehaviour
                 cameraShake.ActivateShake02();
                 gameManager.ApplyHitStop(secondCollisionHitStop);
                 glassCrackedSprite.SetActive(false);
-                Invoke("DisableGlassCollision", 0.1f);
+                onSecondHitEvent.Invoke();
+                Invoke("DisableGlassCollision", 0.02f);
                 glassWallDown = true;
                 glassHealth = glassHealth - 1;
             }
