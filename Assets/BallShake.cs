@@ -40,7 +40,7 @@ public class BallShake : MonoBehaviour
 
         while (elapsedTime < duration)
         {
-            Debug.Log(elapsedTime);
+            //Debug.Log(elapsedTime);
             elapsedTime += Time.deltaTime;
 
             float strength = curve01.Evaluate(elapsedTime / duration);

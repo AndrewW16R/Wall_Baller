@@ -1,0 +1,106 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using static UnityEngine.Random;
+
+public class AudioManager : MonoBehaviour
+{
+
+    public AudioClip swingHitLight01;
+    public AudioClip swingHitLight02;
+    public AudioClip swingHitHeavy01;
+    public AudioClip swingHitHeavy02;
+
+    public AudioClip ballBounce01;
+    public AudioClip ballBounce02;
+    public AudioClip ballBounceHighSpeed01;
+    public AudioClip ballBounceHighSpeed02;
+
+    public AudioClip glassFirstHit;
+    public AudioClip glassSecondHit;
+
+    public AudioClip jumpGround;
+    public AudioClip jumpAir;
+    public AudioClip dash;
+
+    public AudioClip ballLevelUp;
+
+    public AudioClip bigHitStop;
+    public AudioClip gameOver;
+
+    public GameObject audioSourceObject01;
+    public AudioSource audioSource01;
+
+    public GameObject audioSourceObject02;
+    public AudioSource audioSource02;
+
+    public GameObject audioSourceObject03;
+    public AudioSource audioSource03;
+
+    public GameObject audioSourceObject04;
+    public AudioSource audioSource04;
+
+    public int soundRngResult;
+
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        audioSourceObject01 = GameObject.Find("AudioSource01");
+        audioSource01= audioSourceObject01.GetComponent<AudioSource>();
+
+        audioSourceObject02 = GameObject.Find("AudioSource02");
+        audioSource02 = audioSourceObject02.GetComponent<AudioSource>();
+
+        audioSourceObject03 = GameObject.Find("AudioSource03");
+        audioSource03 = audioSourceObject03.GetComponent<AudioSource>();
+
+        audioSourceObject04 = GameObject.Find("AudioSource04");
+        audioSource04 = audioSourceObject04.GetComponent<AudioSource>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    public void SoundRngRoll()
+    {
+        soundRngResult = 0;
+        soundRngResult = Random.Range(0, 10);
+    }
+
+    public void PlayLightSwingSFX()
+    {
+        SoundRngRoll();
+        if (soundRngResult >= 0 && soundRngResult <= 4)
+        {
+            audioSource01.clip = swingHitLight01;
+            Debug.Log("Sound 1");
+        }
+        else if (soundRngResult >= 5 && soundRngResult <= 9)
+        {
+            audioSource01.clip = swingHitLight02;
+            Debug.Log("Sound 2");
+        }
+
+        audioSource01.Play();
+    }
+
+
+    public void PlayHeavySwingSFX()
+    {
+        SoundRngRoll();
+        if (soundRngResult >= 0 && soundRngResult <= 4)
+        {
+            audioSource01.clip = swingHitHeavy01;
+        }
+        else if (soundRngResult >= 5 && soundRngResult <= 9)
+        {
+            audioSource01.clip = swingHitHeavy02;
+        }
+
+        audioSource01.Play();
+    }
+}

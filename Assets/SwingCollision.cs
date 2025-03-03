@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SwingCollision : MonoBehaviour
 {
@@ -24,6 +25,8 @@ public class SwingCollision : MonoBehaviour
     public GameObject swingStalenessObject;
     public SwingStaleness swingStaleness;
 
+    public UnityEvent onCollisionEvent;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -43,6 +46,12 @@ public class SwingCollision : MonoBehaviour
         gameObject.SetActive(false);
 
         swingTotalDuration = swingStartupDuration + swingActiveDuration + swingEndlagDuration;
+
+        if(onCollisionEvent == null)
+        {
+            onCollisionEvent = new UnityEvent();
+        }
+
     }
 
     // Update is called once per frame
@@ -69,6 +78,9 @@ public class SwingCollision : MonoBehaviour
                 activeBall.currentBallHitStop = hitStopPower;
                 activeBall.UpdateBallVelocity(horizontalPower, verticlePower, isHorizontalPowerMulplicative, swingStaleness.staleMult);
                 activeBall.AddBallExp(ballExpGain);
+
+                onCollisionEvent.Invoke();
+
                 activeBall.BallShakeProcess();
                 activeBall.HitStopProcess();
                 collidedBall = true;

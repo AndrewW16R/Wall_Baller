@@ -171,7 +171,7 @@ public class PlayerMovement : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, jumpStrength);
                 jumpsAvailable = jumpsAvailable - 1;
                 initialJumpUsed = true;
-                Debug.Log(IsAgainstBackWall());
+               // Debug.Log(IsAgainstBackWall());
 
             }//if player is already not grounded before the intial jump is used up, both the intial jump and the first addition jump are used up.
             else if (Input.GetButtonDown("Jump") && initialJumpUsed == false && jumpsAvailable > 0 && !IsGrounded() && playerSwing.stopJumpInput == false && gameManager.isGamePaused == false)
@@ -300,7 +300,7 @@ public class PlayerMovement : MonoBehaviour
                         spendDash = false; //dash will not be spent if player starts a dash right next to the wall they would be dashing torwards 
                     }
                     rb.velocity = new Vector2(0, rb.velocity.y);
-                    Debug.Log("Cancel Dash");
+                   // Debug.Log("Cancel Dash");
                     dashProgress = dashDuration;
                 }
                 else
@@ -316,7 +316,7 @@ public class PlayerMovement : MonoBehaviour
                     {
                         spendDash = false; //dash will not be spent if player starts a dash right next to the wall they would be dashing torwards 
                     }
-                    Debug.Log("Cancel Dash");
+                    //Debug.Log("Cancel Dash");
                     dashProgress = dashDuration;
                 }
                 else
