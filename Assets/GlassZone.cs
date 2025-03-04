@@ -38,7 +38,7 @@ public class GlassZone : MonoBehaviour
         gameManagerObject = GameObject.Find("GameManager");
         gameManager = gameManagerObject.GetComponent<GameManager>();
 
-        cameraObject = GameObject.Find("Main Camera");
+        cameraObject = GameObject.Find("MainCamera");
         cameraShake = cameraObject.GetComponent<Shake>();
 
         glassSprite = GameObject.Find("Tilemap_Glass");
@@ -102,7 +102,7 @@ public class GlassZone : MonoBehaviour
                 gameManager.ApplyHitStop(secondCollisionHitStop);
                 glassCrackedSprite.SetActive(false);
                 onSecondHitEvent.Invoke();
-                Invoke("DisableGlassCollision", 0.02f);
+                Invoke("DisableGlassCollision", 0.1f);
                 glassWallDown = true;
                 glassHealth = glassHealth - 1;
             }

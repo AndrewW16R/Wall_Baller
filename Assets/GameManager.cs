@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
@@ -36,6 +37,10 @@ public class GameManager : MonoBehaviour
 
     public bool hitStopActive;
 
+    public float hitStopThreshHoldForExtraFX;
+
+    public UnityEvent onBigSwingHitStopEvent;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -62,7 +67,10 @@ public class GameManager : MonoBehaviour
 
         currentSceneName = SceneManager.GetActiveScene().name;
 
-
+        if (onBigSwingHitStopEvent == null)
+        {
+            onBigSwingHitStopEvent = new UnityEvent();
+        }
     }
 
     // Update is called once per frame
@@ -166,6 +174,12 @@ public class GameManager : MonoBehaviour
         }
 
         totalHitStop = ballHitStop + levelHitStop; 
+
+        if(totalHitStop >= hitStopThreshHoldForExtraFX) // if the total hitstop from a swing meets a certain amount, an extra sound effect will play to put emphasis on the impact
+        {
+            onBigSwingHitStopEvent.Invoke();
+        }
+
         ApplyHitStop(totalHitStop);
     }
 
@@ -181,6 +195,7 @@ public class GameManager : MonoBehaviour
         {
 
         }
+
 
         SetTimeScale(0.0f); //stops time
         StartCoroutine(HitStopWait(duration));

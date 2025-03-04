@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
 public class Ball : MonoBehaviour
 {
     [HideInInspector] public Rigidbody2D rb;
@@ -20,6 +22,8 @@ public class Ball : MonoBehaviour
 
     public GameObject ballArtObject;
     public BallShake ballShake;
+
+    public UnityEvent onLevelUpEvent;
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +45,11 @@ public class Ball : MonoBehaviour
 
         ballArtObject = GameObject.Find("Ball");
         ballShake = ballArtObject.GetComponent<BallShake>();
+
+        if (onLevelUpEvent == null)
+        {
+            onLevelUpEvent = new UnityEvent();
+        }
     }
 
     // Update is called once per frame
@@ -76,6 +85,7 @@ public class Ball : MonoBehaviour
     {
         ballLevel = ballLevel + 1;
         ballExp = ballExp - 10;
+        onLevelUpEvent.Invoke();
         UpdateBallSpeed();
     }
 

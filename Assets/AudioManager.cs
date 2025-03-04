@@ -151,4 +151,16 @@ public class AudioManager : MonoBehaviour
 
         audioSource03.Play();
     }
+
+    public void PlayBallLevelUpSFX()
+    {
+        audioSource03.clip = ballLevelUp;
+        audioSource03.Play();
+    }
+
+    public void PlayBigHitStopSFX()
+    {
+        audioSource05.clip = bigHitStop;
+        audioSource05.Play();
+    }
 }
