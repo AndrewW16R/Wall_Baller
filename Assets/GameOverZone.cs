@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameOverZone : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class GameOverZone : MonoBehaviour
     public GameObject gameManagerObject;
     public GameManager gameManager;
 
+    public UnityEvent onGameOverEvent;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +24,11 @@ public class GameOverZone : MonoBehaviour
 
         gameManagerObject = GameObject.Find("GameManager");
         gameManager = gameManagerObject.GetComponent<GameManager>(); //So that gameoverzone can send to trigger function within game manager
+
+        if (onGameOverEvent == null)
+        {
+            onGameOverEvent = new UnityEvent();
+        }
     }
 
     // Update is called once per frame
@@ -50,6 +57,7 @@ public class GameOverZone : MonoBehaviour
 
     public void SignalGameOver()
     {
+        onGameOverEvent.Invoke();
         gameManager.ActivateGameOver();
     }
 }

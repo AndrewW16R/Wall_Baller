@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -59,6 +60,10 @@ public class PlayerMovement : MonoBehaviour
     private GameObject gameManagerObject;
     private GameManager gameManager;
 
+    public UnityEvent onJumpEvent;
+    public UnityEvent onDoubleJumpEvent;
+    public UnityEvent onDashEvent;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -76,6 +81,21 @@ public class PlayerMovement : MonoBehaviour
         gameManager = gameManagerObject.GetComponent<GameManager>();
 
         spendDash = true;
+
+        if (onJumpEvent == null)
+        {
+            onJumpEvent = new UnityEvent();
+        }
+
+        if (onDoubleJumpEvent == null)
+        {
+            onDoubleJumpEvent = new UnityEvent();
+        }
+
+        if (onDashEvent == null)
+        {
+            onDashEvent = new UnityEvent();
+        }
     }
 
     // Update is called once per frame
@@ -170,6 +190,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 rb.velocity = new Vector2(rb.velocity.x, jumpStrength);
                 jumpsAvailable = jumpsAvailable - 1;
+                onJumpEvent.Invoke();
                 initialJumpUsed = true;
                // Debug.Log(IsAgainstBackWall());
 
@@ -180,6 +201,7 @@ public class PlayerMovement : MonoBehaviour
                 fastFalling = false;
                 rb.velocity = new Vector2(rb.velocity.x, doubleJumpStrength);
                 jumpsAvailable = jumpsAvailable - 2;
+                onDoubleJumpEvent.Invoke();
                 initialJumpUsed = true;
 
             } //When double jump is used
@@ -188,6 +210,7 @@ public class PlayerMovement : MonoBehaviour
                 rb.gravityScale = initialGravity;
                 fastFalling = false;
                 rb.velocity = new Vector2(rb.velocity.x, doubleJumpStrength);
+                onDoubleJumpEvent.Invoke();
                 jumpsAvailable = jumpsAvailable - 1;
             }
         }
@@ -210,18 +233,21 @@ public class PlayerMovement : MonoBehaviour
                 {
                     dashDir = 1;
                     isAirDash = false;
+                    onDashEvent.Invoke();
                     StartCoroutine(Dash(1.0f));
                 }
                 else if (heldDirection < 0)
                 {
                     dashDir = -1;
                     isAirDash = false;
+                    onDashEvent.Invoke();
                     StartCoroutine(Dash(heldDirection));
                 }
                 else if (dirX == 0)
                 {
                     dashDir = 1;
                     isAirDash = true;
+                    onDashEvent.Invoke();
                     StartCoroutine(Dash(1.0f));
                 }
 
@@ -233,18 +259,21 @@ public class PlayerMovement : MonoBehaviour
                 {
                     dashDir = 1;
                     isAirDash = true;
+                    onDashEvent.Invoke();
                     StartCoroutine(Dash(1.0f));
                 }
                 else if (heldDirection < 0)
                 {
                     dashDir = -1;
                     isAirDash = true;
+                    onDashEvent.Invoke();
                     StartCoroutine(Dash(heldDirection));
                 }
                 else if (dirX == 0)
                 {
                     dashDir = 1;
                     isAirDash = true;
+                    onDashEvent.Invoke();
                     StartCoroutine(Dash(1.0f));
                 }
 

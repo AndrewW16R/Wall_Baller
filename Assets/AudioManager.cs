@@ -163,4 +163,28 @@ public class AudioManager : MonoBehaviour
         audioSource05.clip = bigHitStop;
         audioSource05.Play();
     }
+
+    public void PlayJumpGroundSFX()
+    {
+        audioSource02.clip = jumpGround;
+        audioSource02.Play();
+    }
+
+    public void PlayJumpAirSFX()
+    {
+        audioSource02.clip = jumpAir;
+        audioSource02.Play();
+    }
+
+    public void PlayDashSFX()
+    {
+        audioSource02.clip = dash;
+        audioSource02.Play();
+    }
+
+    public void PlayGameOverSFX()
+    {
+        audioSource05.clip = gameOver;
+        audioSource05.Play();
+    }
 }
