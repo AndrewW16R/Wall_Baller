@@ -73,10 +73,10 @@ public class SwingCollision : MonoBehaviour
             {
                 swingStaleness.SwingLogUpdate(); //Updates log of previous 5 swings
                 swingStaleness.SwingLogCheck(); //Counts reoccurences of swings for the past 5 swings to inform swing staleness
-                swingStaleness.CalculateStaleness(); //determines what the staleness multiplier for the next collision will be
+                swingStaleness.CalculateStaleness(); //determines what the staleness multiplier for the next collision/levelup will be
 
                 activeBall.currentBallHitStop = hitStopPower;
-                activeBall.UpdateBallVelocity(horizontalPower, verticlePower, isHorizontalPowerMulplicative, swingStaleness.staleMult);
+                activeBall.UpdateBallVelocity(horizontalPower, verticlePower, isHorizontalPowerMulplicative, swingStaleness.staleMultSpeed);
                 activeBall.AddBallExp(ballExpGain);
 
                 onCollisionEvent.Invoke();

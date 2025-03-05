@@ -5192,6 +5192,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6df84e493ea6c5747b319637fec72eca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  styleModeSpeed: 0
+  styleModeTimer: 1
   loggedSwingA: 
   loggedSwingB: 
   loggedSwingC: 
@@ -5200,12 +5202,17 @@ MonoBehaviour:
   loggedSwingF: 
   staleRating: 0
   prevStaleRating: 0
-  staleMult: 0
+  staleMultSpeed: 0
+  staleMultTimer: 0
   prevSwing: 
-  lv1StaleMult: 1.1
-  lv2StaleMult: 1.25
-  lv3StaleMult: 1.5
-  lv4StaleMult: 2.5
+  speedLv1StaleMult: 0
+  speedLv2StaleMult: 0
+  speedLv3StaleMult: 0
+  speedLv4StaleMult: 0
+  timerLv1StaleMult: 0
+  timerLv2StaleMult: 0
+  timerLv3StaleMult: 0
+  timerLv4StaleMult: 0
   swingLGMLogCount: 0
   swingLGMLogSearchTimer: 0
   swingLogFull: 0
@@ -6392,6 +6399,8 @@ MonoBehaviour:
   timeAdditonFour: 8
   timeAdditonFive: 5
   gameManager: {fileID: 0}
+  playerObject: {fileID: 0}
+  swingStaleness: {fileID: 0}
 --- !u!1001 &4840482452366529861
 PrefabInstance:
   m_ObjectHideFlags: 0

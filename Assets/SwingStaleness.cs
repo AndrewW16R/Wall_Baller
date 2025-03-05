@@ -6,6 +6,9 @@ public class SwingStaleness : MonoBehaviour
 {
     //public string[] swingLog;
 
+    public bool styleModeSpeed; //If true, the ball gains more speed the higher the stale rating is
+    public bool styleModeTimer; //If true, the lower the stale rating, the more additional time is gained on the timer upon leveling up the ball 
+
     public string loggedSwingA; //first swing in log
     public string loggedSwingB; //second swing in log
     public string loggedSwingC; //third swing in log
@@ -15,13 +18,19 @@ public class SwingStaleness : MonoBehaviour
 
     public int staleRating;
     public int prevStaleRating;
-    public float staleMult;
+    public float staleMultSpeed;
+    public float staleMultTimer;
     public string prevSwing;
 
-    public float lv1StaleMult;
-    public float lv2StaleMult;
-    public float lv3StaleMult;
-    public float lv4StaleMult;
+    public float speedLv1StaleMult;
+    public float speedLv2StaleMult;
+    public float speedLv3StaleMult;
+    public float speedLv4StaleMult;
+
+    public float timerLv1StaleMult;
+    public float timerLv2StaleMult;
+    public float timerLv3StaleMult;
+    public float timerLv4StaleMult;
 
     public int swingLGMLogCount;
     public int swingLGMLogSearchTimer;
@@ -116,27 +125,63 @@ public class SwingStaleness : MonoBehaviour
 
     public void CalculateStaleness()
     {
-       
 
-        if (staleRating == 2)
+        if (styleModeSpeed == true)
         {
-            staleMult = lv1StaleMult;
-        }
-        else if (staleRating == 3)
-        {
-            staleMult = lv2StaleMult;
-        }
-        else if (staleRating == 4)
-        {
-            staleMult = lv3StaleMult;
-        }
-        else if (staleRating == 5)
-        {
-            staleMult = lv4StaleMult;
+            if (staleRating == 2)
+            {
+                staleMultSpeed = speedLv1StaleMult;
+            }
+            else if (staleRating == 3)
+            {
+                staleMultSpeed = speedLv2StaleMult;
+            }
+            else if (staleRating == 4)
+            {
+                staleMultSpeed = speedLv3StaleMult;
+            }
+            else if (staleRating == 5)
+            {
+                staleMultSpeed = speedLv4StaleMult;
+            }
+            else
+            {
+                staleMultSpeed = 1.0f;
+            }
         }
         else
         {
-            staleMult = 1.0f;
+            staleMultSpeed = 1.0f;
+        }
+        
+        
+        
+        if (styleModeTimer == true)
+        {
+            if (staleRating == 2)
+            {
+                staleMultTimer = speedLv1StaleMult;
+            }
+            else if (staleRating == 3)
+            {
+                staleMultTimer = speedLv2StaleMult;
+            }
+            else if (staleRating == 4)
+            {
+                staleMultTimer = speedLv3StaleMult;
+            }
+            else if (staleRating == 5)
+            {
+                staleMultTimer = speedLv4StaleMult;
+            }
+            else
+            {
+                staleMultTimer = 1.0f;
+            }
+        }
+        else
+        {
+            staleMultTimer = 1.0f;
         }
 
         prevStaleRating = staleRating;

@@ -19,12 +19,18 @@ public class Timer : MonoBehaviour
 
     public GameManager gameManager;
 
+    public GameObject playerObject;
+    public SwingStaleness swingStaleness;
+
     
 
     // Start is called before the first frame update
     void Start()
     {
         gameManager = GetComponent<GameManager>(); //This script should be on the GameManager GameObject
+
+        playerObject = GameObject.Find("Player");
+        swingStaleness = playerObject.GetComponent<SwingStaleness>();
 
         //timerStarted = false;
         timerOn = false;
@@ -62,7 +68,7 @@ public class Timer : MonoBehaviour
         
         if(gameManager.ballLevel >= 1 && gameManager.ballLevel <= 3)
         {
-            currentTime = currentTime + timeAdditonOne;
+            currentTime = currentTime + (timeAdditonOne * swingStaleness.staleMultTimer);
             if(currentTime > timeCap)
             {
                 currentTime = timeCap;
@@ -70,7 +76,7 @@ public class Timer : MonoBehaviour
         }
         else if (gameManager.ballLevel >= 4 && gameManager.ballLevel <= 5)
         {
-            currentTime = currentTime + timeAdditonTwo;
+            currentTime = (timeAdditonTwo * swingStaleness.staleMultTimer);
             if (currentTime > timeCap)
             {
                 currentTime = timeCap;
@@ -78,7 +84,7 @@ public class Timer : MonoBehaviour
         }
         else if (gameManager.ballLevel >= 6 && gameManager.ballLevel <= 8)
         {
-            currentTime = currentTime + timeAdditonThree;
+            currentTime = (timeAdditonThree * swingStaleness.staleMultTimer);
             if (currentTime > timeCap)
             {
                 currentTime = timeCap;
@@ -86,7 +92,7 @@ public class Timer : MonoBehaviour
         }
         else if (gameManager.ballLevel >= 9 && gameManager.ballLevel <= 10)
         {
-            currentTime = currentTime + timeAdditonFour;
+            currentTime = (timeAdditonFour * swingStaleness.staleMultTimer);
             if (currentTime > timeCap)
             {
                 currentTime = timeCap;
@@ -94,7 +100,7 @@ public class Timer : MonoBehaviour
         }
         else if (gameManager.ballLevel >= 11)
         {
-            currentTime = currentTime + timeAdditonFive;
+            currentTime = (timeAdditonFive * swingStaleness.staleMultTimer);
             if (currentTime > timeCap)
             {
                 currentTime = timeCap;
