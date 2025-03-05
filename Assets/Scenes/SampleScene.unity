@@ -5205,14 +5205,15 @@ MonoBehaviour:
   staleMultSpeed: 0
   staleMultTimer: 0
   prevSwing: 
-  speedLv1StaleMult: 0
-  speedLv2StaleMult: 0
-  speedLv3StaleMult: 0
-  speedLv4StaleMult: 0
-  timerLv1StaleMult: 0
-  timerLv2StaleMult: 0
-  timerLv3StaleMult: 0
-  timerLv4StaleMult: 0
+  speedLv1StaleMult: 1.1
+  speedLv2StaleMult: 1.25
+  speedLv3StaleMult: 1.5
+  speedLv4StaleMult: 2.5
+  timerLv0StaleMult: 1.5
+  timerLv1StaleMult: 1
+  timerLv2StaleMult: 0.75
+  timerLv3StaleMult: 0.5
+  timerLv4StaleMult: 0.25
   swingLGMLogCount: 0
   swingLGMLogSearchTimer: 0
   swingLogFull: 0
@@ -6390,17 +6391,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTime: 0
-  intialTime: 10
+  intialTime: 20
   timeCap: 99
   timerOn: 0
-  timeAdditonOne: 15
-  timeAdditonTwo: 12
-  timeAdditonThree: 10
-  timeAdditonFour: 8
-  timeAdditonFive: 5
+  timeAdditionOne: 15
+  timeAdditionTwo: 12
+  timeAdditionThree: 10
+  timeAdditionFour: 8
+  timeAdditionFive: 5
   gameManager: {fileID: 0}
   playerObject: {fileID: 0}
   swingStaleness: {fileID: 0}
+  timeAdded: 0
 --- !u!1001 &4840482452366529861
 PrefabInstance:
   m_ObjectHideFlags: 0

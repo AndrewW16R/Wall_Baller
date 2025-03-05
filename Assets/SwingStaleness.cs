@@ -27,6 +27,7 @@ public class SwingStaleness : MonoBehaviour
     public float speedLv3StaleMult;
     public float speedLv4StaleMult;
 
+    public float timerLv0StaleMult;
     public float timerLv1StaleMult;
     public float timerLv2StaleMult;
     public float timerLv3StaleMult;
@@ -158,21 +159,25 @@ public class SwingStaleness : MonoBehaviour
         
         if (styleModeTimer == true)
         {
-            if (staleRating == 2)
+            if (staleRating < 2)
             {
-                staleMultTimer = speedLv1StaleMult;
+                staleMultTimer = timerLv0StaleMult;
+            }
+            else if (staleRating == 2)
+            {
+                staleMultTimer = timerLv1StaleMult;
             }
             else if (staleRating == 3)
             {
-                staleMultTimer = speedLv2StaleMult;
+                staleMultTimer = timerLv2StaleMult;
             }
             else if (staleRating == 4)
             {
-                staleMultTimer = speedLv3StaleMult;
+                staleMultTimer = timerLv3StaleMult;
             }
             else if (staleRating == 5)
             {
-                staleMultTimer = speedLv4StaleMult;
+                staleMultTimer = timerLv4StaleMult;
             }
             else
             {

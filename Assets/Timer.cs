@@ -11,17 +11,18 @@ public class Timer : MonoBehaviour
     //public bool timerStarted; //Has the timer started counting for the first time within the scene
     public bool timerOn; //Is the timer currently counting down?
 
-    public float timeAdditonOne;// The amount of time added when leveling up to levels 2 and 3
-    public float timeAdditonTwo; // The amount of time added when leveling up to levels 4 and 5
-    public float timeAdditonThree; // The amount of time added when leveling up to levels 6, 7, or 8
-    public float timeAdditonFour; // The amount of time added when leveling up to levels 9 and 10
-    public float timeAdditonFive; // The amount of time added when leveling up to levels 11 and above
+    public float timeAdditionOne;// The amount of time added when leveling up to levels 2 and 3
+    public float timeAdditionTwo; // The amount of time added when leveling up to levels 4 and 5
+    public float timeAdditionThree; // The amount of time added when leveling up to levels 6, 7, or 8
+    public float timeAdditionFour; // The amount of time added when leveling up to levels 9 and 10
+    public float timeAdditionFive; // The amount of time added when leveling up to levels 11 and above
 
     public GameManager gameManager;
 
     public GameObject playerObject;
     public SwingStaleness swingStaleness;
 
+    public float timeAdded;
     
 
     // Start is called before the first frame update
@@ -68,15 +69,16 @@ public class Timer : MonoBehaviour
         
         if(gameManager.ballLevel >= 1 && gameManager.ballLevel <= 3)
         {
-            currentTime = currentTime + (timeAdditonOne * swingStaleness.staleMultTimer);
-            if(currentTime > timeCap)
+            currentTime = currentTime + (timeAdditionOne * swingStaleness.staleMultTimer);
+            timeAdded = timeAdditionOne * swingStaleness.staleMultTimer;
+            if (currentTime > timeCap)
             {
                 currentTime = timeCap;
             }
         }
         else if (gameManager.ballLevel >= 4 && gameManager.ballLevel <= 5)
         {
-            currentTime = (timeAdditonTwo * swingStaleness.staleMultTimer);
+            currentTime = currentTime + (timeAdditionTwo * swingStaleness.staleMultTimer);
             if (currentTime > timeCap)
             {
                 currentTime = timeCap;
@@ -84,7 +86,7 @@ public class Timer : MonoBehaviour
         }
         else if (gameManager.ballLevel >= 6 && gameManager.ballLevel <= 8)
         {
-            currentTime = (timeAdditonThree * swingStaleness.staleMultTimer);
+            currentTime = currentTime + (timeAdditionThree * swingStaleness.staleMultTimer);
             if (currentTime > timeCap)
             {
                 currentTime = timeCap;
@@ -92,7 +94,7 @@ public class Timer : MonoBehaviour
         }
         else if (gameManager.ballLevel >= 9 && gameManager.ballLevel <= 10)
         {
-            currentTime = (timeAdditonFour * swingStaleness.staleMultTimer);
+            currentTime = currentTime + (timeAdditionFour * swingStaleness.staleMultTimer);
             if (currentTime > timeCap)
             {
                 currentTime = timeCap;
@@ -100,7 +102,7 @@ public class Timer : MonoBehaviour
         }
         else if (gameManager.ballLevel >= 11)
         {
-            currentTime = (timeAdditonFive * swingStaleness.staleMultTimer);
+            currentTime = currentTime + (timeAdditionFive * swingStaleness.staleMultTimer);
             if (currentTime > timeCap)
             {
                 currentTime = timeCap;
