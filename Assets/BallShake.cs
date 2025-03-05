@@ -11,10 +11,15 @@ public class BallShake : MonoBehaviour
 
     public float heavySwingHitStopThreshold; // set this value to the lowest amount of hitstop power from all of the heavy swings
 
+    public GameManager gameManager;
+    public GameObject gameManagerObject;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameManagerObject = GameObject.Find("GameManager");
+        gameManager = gameManagerObject.GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -38,7 +43,7 @@ public class BallShake : MonoBehaviour
         Vector3 startPosition = transform.position; //saves starting position
         float elapsedTime = 0f; //sets elapsed time to zero
 
-        while (elapsedTime < duration)
+        while (elapsedTime < duration && gameManager.isGamePaused == false)
         {
             //Debug.Log(elapsedTime);
             elapsedTime += Time.deltaTime;
@@ -57,7 +62,7 @@ public class BallShake : MonoBehaviour
         Vector3 startPosition = transform.position; //saves starting position
         float elapsedTime = 0f; //sets elapsed time to zero
 
-        while (elapsedTime < duration)
+        while (elapsedTime < duration && gameManager.isGamePaused == false)
         {
             elapsedTime += Time.deltaTime;
             float strength = curve02.Evaluate(elapsedTime / duration);

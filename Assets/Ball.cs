@@ -53,9 +53,12 @@ public class Ball : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
- 
+        if(gameManager.isGamePaused == true)
+        {
+            Time.timeScale = 0; //After the ballshake and hitstop effects were added, there were cases when the ball would continue to move while the game was paused if the player paused during hitstop. This line of code fixes this issue
+        }
     }
 
     public void UpdateBallVelocity(float xVel, float yVel, bool xMult, float staleMult)
