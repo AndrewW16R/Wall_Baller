@@ -24,8 +24,13 @@ public class GameManager : MonoBehaviour
     public GameObject menuCanvasGroup;
     public MenuManager menuManager;
 
+    public GameObject ballUiCanvasObject;
+    public BallUiManager ballUiManager;
+
     public GameObject ballObject;
     public Ball activeBall; //getting ball info to share with UI elements
+
+    public Timer timer;
 
     public float ballSpeed;
     public int ballLevel;
@@ -40,6 +45,7 @@ public class GameManager : MonoBehaviour
     public float hitStopThreshHoldForExtraFX;
 
     public UnityEvent onBigSwingHitStopEvent;
+    public UnityEvent onGameOverEvent;
 
     // Start is called before the first frame update
     void Start()
@@ -62,14 +68,24 @@ public class GameManager : MonoBehaviour
         menuCanvasGroup = GameObject.Find("MenuCanvasGroup");
         menuManager = menuCanvasGroup.GetComponent<MenuManager>();
 
+        ballUiCanvasObject = GameObject.Find("BallUiCanvas");
+        ballUiManager = ballUiCanvasObject.GetComponent<BallUiManager>();
+
         ballObject = GameObject.FindWithTag("Ball");
         activeBall = ballObject.GetComponent<Ball>();
+
+        timer = GetComponent<Timer>(); //Timer script should be on the GameManager GameObject
 
         currentSceneName = SceneManager.GetActiveScene().name;
 
         if (onBigSwingHitStopEvent == null)
         {
             onBigSwingHitStopEvent = new UnityEvent();
+        }
+
+        if (onGameOverEvent == null)
+        {
+            onGameOverEvent = new UnityEvent();
         }
     }
 
@@ -99,6 +115,8 @@ public class GameManager : MonoBehaviour
         Cursor.visible = true;
         menuManager.ToggleGameOverMenu(true);
         isGameOver = true;
+        onGameOverEvent.Invoke();
+        ballUiManager.ManualSetTimer(0.0f);
         SetTimeScale(0);
     }
 

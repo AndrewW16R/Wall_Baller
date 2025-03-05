@@ -81,8 +81,10 @@ public class SwingCollision : MonoBehaviour
 
                 onCollisionEvent.Invoke();
 
+               
                 activeBall.BallShakeProcess();
                 activeBall.HitStopProcess();
+                activeBall.ActivateTimer();
                 collidedBall = true;
 
                 

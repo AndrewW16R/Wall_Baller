@@ -17,6 +17,9 @@ public class Ball : MonoBehaviour
 
     public float currentBallHitStop;
 
+    public bool timerStarted;
+
+    public Timer timer;
     public GameManager gameManager;
     public GameObject gameManagerObject;
 
@@ -42,6 +45,7 @@ public class Ball : MonoBehaviour
 
          gameManagerObject = GameObject.Find("GameManager");
         gameManager = gameManagerObject.GetComponent<GameManager>();
+        timer = gameManagerObject.GetComponent<Timer>();
 
         ballArtObject = GameObject.Find("Ball");
         ballShake = ballArtObject.GetComponent<BallShake>();
@@ -50,6 +54,8 @@ public class Ball : MonoBehaviour
         {
             onLevelUpEvent = new UnityEvent();
         }
+
+        timerStarted = false;
     }
 
     // Update is called once per frame
@@ -88,6 +94,7 @@ public class Ball : MonoBehaviour
     {
         ballLevel = ballLevel + 1;
         ballExp = ballExp - 10;
+        timer.AddTime();
         onLevelUpEvent.Invoke();
         UpdateBallSpeed();
     }
@@ -117,5 +124,14 @@ public class Ball : MonoBehaviour
         {
             ballShake.ActivateShake02();
         }
+    }
+
+    public void ActivateTimer()
+    {
+        if (timerStarted == false)
+        {
+            timerStarted = true;
+        }
+        timer.timerOn = true;
     }
 }

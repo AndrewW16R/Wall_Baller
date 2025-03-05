@@ -13,13 +13,20 @@ public class BallUiManager : MonoBehaviour
     private SwingStaleness swingStaleness;
     private GameObject swingStalenessObject;
 
+    public GameObject gameManagerObject;
+    public GameManager gameManager;
+    public Timer timer;
+
     public Text textBallSpeed;
     public Text textBallLevel;
     public Text textBallExp;
     public Text textStyle;
+    public Text textTimer;
 
     public float actualBallSpeed;
     public int displayBallSpeed;
+
+    public float displayTimer;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +36,10 @@ public class BallUiManager : MonoBehaviour
 
         swingStalenessObject = GameObject.FindWithTag("Player");
         swingStaleness = swingStalenessObject.GetComponent<SwingStaleness>();
+
+        gameManagerObject = GameObject.Find("GameManager");
+        gameManager = gameManagerObject.GetComponent<GameManager>();
+        timer = gameManagerObject.GetComponent<Timer>();
 
         textStyle.text = "STYLE: TBD";
     }
@@ -41,6 +52,9 @@ public class BallUiManager : MonoBehaviour
         CalculateDisplaySpeed();
         textBallSpeed.text = "BALL SPEED: " + displayBallSpeed.ToString();
         CalculateStyle();
+        //CalculateDisplayTime();
+        displayTimer = timer.currentTime;
+        textTimer.text = "TIME: " + displayTimer.ToString("##.##");
 
     }
 
@@ -79,4 +93,23 @@ public class BallUiManager : MonoBehaviour
             textStyle.text = "STYLE: WACK";
         }
     }
+
+     public void CalculateDisplayTime()
+    {
+        if (gameManager.isGameOver == false)
+        {
+            displayTimer = timer.currentTime;
+        }
+        else if (gameManager.isGameOver == true)
+        {
+            displayTimer = 0.0f;
+        }
+    }
+
+    public void ManualSetTimer(float seconds)
+    {
+        displayTimer = seconds;
+        textTimer.text = "TIME: " + displayTimer.ToString();
+    }
+
 }
