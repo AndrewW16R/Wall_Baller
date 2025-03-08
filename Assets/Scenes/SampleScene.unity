@@ -6391,7 +6391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTime: 0
-  intialTime: 20
+  intialTime: 25
   timeCap: 99
   timerOn: 0
   timeAdditionOne: 15
@@ -6417,7 +6417,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 300215779637406432, guid: 10d485d6aa330374981de0a8c7adf1e5, type: 3}
       propertyPath: speedCapIncreasePerLevel
-      value: 1.25
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 300215779637406432, guid: 10d485d6aa330374981de0a8c7adf1e5, type: 3}
       propertyPath: onLevelUpEvent.m_PersistentCalls.m_Calls.Array.size
