@@ -5735,6 +5735,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3255935009305155339, guid: 4cc4d66ed74f3b54cbcd59d873ddcd1f, type: 3}
+      propertyPath: highJumpStrength
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255935009305155339, guid: 4cc4d66ed74f3b54cbcd59d873ddcd1f, type: 3}
       propertyPath: timeToRefillOneDash
       value: 1.25
       objectReference: {fileID: 0}
@@ -5748,6 +5752,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3255935009305155339, guid: 4cc4d66ed74f3b54cbcd59d873ddcd1f, type: 3}
       propertyPath: onJumpEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255935009305155339, guid: 4cc4d66ed74f3b54cbcd59d873ddcd1f, type: 3}
+      propertyPath: onHighJumpEvent.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3255935009305155339, guid: 4cc4d66ed74f3b54cbcd59d873ddcd1f, type: 3}
@@ -5771,6 +5779,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 529988401}
     - target: {fileID: 3255935009305155339, guid: 4cc4d66ed74f3b54cbcd59d873ddcd1f, type: 3}
+      propertyPath: onHighJumpEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255935009305155339, guid: 4cc4d66ed74f3b54cbcd59d873ddcd1f, type: 3}
       propertyPath: onDashEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
@@ -5787,6 +5799,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3255935009305155339, guid: 4cc4d66ed74f3b54cbcd59d873ddcd1f, type: 3}
+      propertyPath: onHighJumpEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 529988401}
+    - target: {fileID: 3255935009305155339, guid: 4cc4d66ed74f3b54cbcd59d873ddcd1f, type: 3}
       propertyPath: onJumpEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: PlayJumpGroundSFX
       objectReference: {fileID: 0}
@@ -5794,6 +5810,14 @@ PrefabInstance:
       propertyPath: onDoubleJumpEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 529988401}
+    - target: {fileID: 3255935009305155339, guid: 4cc4d66ed74f3b54cbcd59d873ddcd1f, type: 3}
+      propertyPath: onHighJumpEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255935009305155339, guid: 4cc4d66ed74f3b54cbcd59d873ddcd1f, type: 3}
+      propertyPath: onHighJumpEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayJumpAirSFX
+      objectReference: {fileID: 0}
     - target: {fileID: 3255935009305155339, guid: 4cc4d66ed74f3b54cbcd59d873ddcd1f, type: 3}
       propertyPath: onDoubleJumpEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -5811,6 +5835,10 @@ PrefabInstance:
       value: AudioManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3255935009305155339, guid: 4cc4d66ed74f3b54cbcd59d873ddcd1f, type: 3}
+      propertyPath: onHighJumpEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: AudioManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255935009305155339, guid: 4cc4d66ed74f3b54cbcd59d873ddcd1f, type: 3}
       propertyPath: onDoubleJumpEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: AudioManager, Assembly-CSharp
       objectReference: {fileID: 0}
@@ -5820,6 +5848,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3255935009305155339, guid: 4cc4d66ed74f3b54cbcd59d873ddcd1f, type: 3}
       propertyPath: onJumpEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255935009305155339, guid: 4cc4d66ed74f3b54cbcd59d873ddcd1f, type: 3}
+      propertyPath: onHighJumpEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3255935009305155339, guid: 4cc4d66ed74f3b54cbcd59d873ddcd1f, type: 3}

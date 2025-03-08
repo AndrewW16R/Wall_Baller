@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float movementSpeed;
     [SerializeField] private float jumpStrength;
     [SerializeField] private float doubleJumpStrength;
+    [SerializeField] private float highJumpStrength;
 
     [SerializeField] private LayerMask jumpableGround;
     [SerializeField] private LayerMask Barrier;
@@ -62,6 +63,7 @@ public class PlayerMovement : MonoBehaviour
 
     public UnityEvent onJumpEvent;
     public UnityEvent onDoubleJumpEvent;
+    public UnityEvent onHighJumpEvent;
     public UnityEvent onDashEvent;
 
     // Start is called before the first frame update
@@ -90,6 +92,11 @@ public class PlayerMovement : MonoBehaviour
         if (onDoubleJumpEvent == null)
         {
             onDoubleJumpEvent = new UnityEvent();
+        }
+
+        if (onHighJumpEvent == null)
+        {
+            onHighJumpEvent = new UnityEvent();
         }
 
         if (onDashEvent == null)
@@ -185,17 +192,23 @@ public class PlayerMovement : MonoBehaviour
 
         if (gameManager.isGamePaused == false && gameManager.isGameOver == false)
         {
-            //jumping
-            if (Input.GetButtonDown("Jump") && IsGrounded() && playerSwing.stopJumpInput == false && gameManager.isGamePaused == false)
+            if (Input.GetButtonDown("Jump") && IsGrounded() && dirY <= verInputGateNegative && playerSwing.stopJumpInput == false && gameManager.isGamePaused == false)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, highJumpStrength);
+                jumpsAvailable = 0;
+                onHighJumpEvent.Invoke();
+                initialJumpUsed = true;
+
+            }
+            else if (Input.GetButtonDown("Jump") && IsGrounded() && playerSwing.stopJumpInput == false && gameManager.isGamePaused == false) //jumping
             {
                 rb.velocity = new Vector2(rb.velocity.x, jumpStrength);
                 jumpsAvailable = jumpsAvailable - 1;
                 onJumpEvent.Invoke();
                 initialJumpUsed = true;
-               // Debug.Log(IsAgainstBackWall());
 
             }//if player is already not grounded before the intial jump is used up, both the intial jump and the first addition jump are used up.
-            else if (Input.GetButtonDown("Jump") && initialJumpUsed == false && jumpsAvailable > 0 && !IsGrounded() && playerSwing.stopJumpInput == false && gameManager.isGamePaused == false)
+            else if (Input.GetButtonDown("Jump") && initialJumpUsed == false && jumpsAvailable > 0 && !IsGrounded() && !IsAgainstAboveWall() && playerSwing.stopJumpInput == false && gameManager.isGamePaused == false)
             {
                 rb.gravityScale = initialGravity;
                 fastFalling = false;
@@ -205,7 +218,7 @@ public class PlayerMovement : MonoBehaviour
                 initialJumpUsed = true;
 
             } //When double jump is used
-            else if (Input.GetButtonDown("Jump") && jumpsAvailable > 0 && !IsGrounded() && playerSwing.stopJumpInput == false && gameManager.isGamePaused == false)
+            else if (Input.GetButtonDown("Jump") && jumpsAvailable > 0 && !IsGrounded() && !IsAgainstAboveWall() && playerSwing.stopJumpInput == false && gameManager.isGamePaused == false)
             {
                 rb.gravityScale = initialGravity;
                 fastFalling = false;
@@ -286,6 +299,11 @@ public class PlayerMovement : MonoBehaviour
     public bool IsGrounded()
     {
         return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
+    }
+
+    public bool IsAgainstAboveWall()
+    {
+        return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.up, .2f, jumpableGround);
     }
 
     public bool IsAgainstForwardWall()
