@@ -10,6 +10,10 @@ public class PlayerSwing : MonoBehaviour
     public bool stopHorizontalInput; //set to true when a move should stop/prevent horizontal input
     public bool stopDashing; //set to true when a move should stop/prevent dashing
     public bool stopJumpInput; //set to true when a move should stop Jump/prevent input
+    public bool canJumpCancel; //set to true when a move can be jump canceled
+    public bool canDashCancel; //set to true when a move can be dash canceled
+    public bool jumpCancelAvailable; //set to true when a jump cancel is available
+    public bool dashCancelAvailable; //set to true when a jump cancel is available
     public string currentSwingName; //this variable is not currently utilized but could be implemented to indicate which attack is being used
     [SerializeField] private int currentSwingDuration;
     public bool isAirSwing;
@@ -54,6 +58,11 @@ public class PlayerSwing : MonoBehaviour
         stopDashing = false;
         stopJumpInput = false;
         isAirSwing = false;
+        canJumpCancel = false;
+        canDashCancel = false;
+        jumpCancelAvailable = false;
+        dashCancelAvailable = false;
+
 
         gameManagerObject = GameObject.Find("GameManager");
         gameManager = gameManagerObject.GetComponent<GameManager>();
@@ -83,39 +92,45 @@ public class PlayerSwing : MonoBehaviour
         }
         else if (Input.GetButtonDown("Fire1") && playerMovement.IsGrounded()) //Light grounded swings
         {
-            if (playerMovement.dirY >= playerMovement.verInputGatePositive)
+            if (playerMovement.dirY >= playerMovement.verInputGatePositive) //Light Grounded up
             {
                 isSwinging = true;
                 UpdateHorizontalInputPrevention(true);
                 UpdateHorizontalVelocityPrevention(true);
                 UpdateDashingPrevention(true);
                 UpdateJumpInputPrevention(true);
+                UpdateJumpCancelStatus(true);
+                UpdateDashCancelStatus(true);
                 //Swing light grounded up
                 currentSwingName = "L_Grounded_Up";
                 FetchSwingCollision(swingHitbox_LGU);
                 isAirSwing = false;
                 currentSwingDuration = swingCollision.swingTotalDuration;
             }
-            else if (playerMovement.dirY <= playerMovement.verInputGateNegative)
+            else if (playerMovement.dirY <= playerMovement.verInputGateNegative) //Light Grounded Down
             {
                 isSwinging = true;
                 UpdateHorizontalInputPrevention(true);
                 UpdateHorizontalVelocityPrevention(true);
                 UpdateDashingPrevention(true);
                 UpdateJumpInputPrevention(true);
+                UpdateJumpCancelStatus(false);
+                UpdateDashCancelStatus(true);
                 //Swing light grounded down
                 currentSwingName = "L_Grounded_Down";
                 FetchSwingCollision(swingHitbox_LGD);
                 isAirSwing = false;
                 currentSwingDuration = swingCollision.swingTotalDuration;
             }
-            else
+            else //Light Grounded Middle
             {
                 isSwinging = true;
                 UpdateHorizontalInputPrevention(true);
                 UpdateHorizontalVelocityPrevention(true);
                 UpdateDashingPrevention(true);
                 UpdateJumpInputPrevention(true);
+                UpdateJumpCancelStatus(false);
+                UpdateDashCancelStatus(true);
                 //Swing light grounded middle
                 currentSwingName = "L_Grounded_Middle";
                 FetchSwingCollision(swingHitbox_LGM);
@@ -127,39 +142,45 @@ public class PlayerSwing : MonoBehaviour
         }
         else if (Input.GetButtonDown("Fire2") && playerMovement.IsGrounded()) //Heavy Grounded Swings
         {
-            if (playerMovement.dirY >= playerMovement.verInputGatePositive)
+            if (playerMovement.dirY >= playerMovement.verInputGatePositive) //Heavy Grounded Up
             {
                 isSwinging = true;
                 UpdateHorizontalInputPrevention(true);
                 UpdateHorizontalVelocityPrevention(true);
                 UpdateDashingPrevention(true);
-                UpdateJumpInputPrevention(false);
+                UpdateJumpInputPrevention(true);
+                UpdateJumpCancelStatus(true);
+                UpdateDashCancelStatus(false);
                 //Swing heavy grounded Up
                 currentSwingName = "H_Grounded_Up";
                 FetchSwingCollision(swingHitbox_HGU);
                 isAirSwing = false;
                 currentSwingDuration = swingCollision.swingTotalDuration;
             }
-            else if (playerMovement.dirY <= playerMovement.verInputGateNegative)
+            else if (playerMovement.dirY <= playerMovement.verInputGateNegative) //Heavy Grounded Down
             {
                 isSwinging = true;
                 UpdateHorizontalInputPrevention(true);
                 UpdateHorizontalVelocityPrevention(true);
                 UpdateDashingPrevention(true);
                 UpdateJumpInputPrevention(true);
-                //Swing heavy grounded Up
+                UpdateJumpCancelStatus(false);
+                UpdateDashCancelStatus(false);
+                //Swing heavy grounded Down
                 currentSwingName = "H_Grounded_Down";
                 FetchSwingCollision(swingHitbox_HGD);
                 isAirSwing = false;
                 currentSwingDuration = swingCollision.swingTotalDuration;
             }
-            else
+            else //Heavy Grounded Middle
             {
                 isSwinging = true;
                 UpdateHorizontalInputPrevention(true);
                 UpdateHorizontalVelocityPrevention(true);
                 UpdateDashingPrevention(true);
                 UpdateJumpInputPrevention(true);
+                UpdateJumpCancelStatus(false);
+                UpdateDashCancelStatus(false);
                 //Swing heavy grounded middle
                 currentSwingName = "H_Grounded_Middle";
                 FetchSwingCollision(swingHitbox_HGM);
@@ -169,39 +190,45 @@ public class PlayerSwing : MonoBehaviour
         }
         else if (Input.GetButtonDown("Fire1") && playerMovement.IsGrounded() == false) //Light Airborne Swings
         {
-            if (playerMovement.dirY >= playerMovement.verInputGatePositive)
+            if (playerMovement.dirY >= playerMovement.verInputGatePositive) //Light Airborne Up
             {
                 isSwinging = true;
                 UpdateHorizontalInputPrevention(false);
                 UpdateHorizontalVelocityPrevention(false);
                 UpdateDashingPrevention(true);
                 UpdateJumpInputPrevention(true);
+                UpdateJumpCancelStatus(true);
+                UpdateDashCancelStatus(true);
                 //Swing light airborne down
                 currentSwingName = "L_Airborne_Up";
                 FetchSwingCollision(swingHitbox_LAU);
                 isAirSwing = true;
                 currentSwingDuration = swingCollision.swingTotalDuration;
             }
-            else if (playerMovement.dirY <= playerMovement.verInputGateNegative)
+            else if (playerMovement.dirY <= playerMovement.verInputGateNegative) //Light Airborne Down
             {
                 isSwinging = true;
                 UpdateHorizontalInputPrevention(false);
                 UpdateHorizontalVelocityPrevention(false);
                 UpdateDashingPrevention(true);
                 UpdateJumpInputPrevention(true);
+                UpdateJumpCancelStatus(false);
+                UpdateDashCancelStatus(true);
                 //Swing light airborne down
                 currentSwingName = "L_Airborne_Down";
                 FetchSwingCollision(swingHitbox_LAD);
                 isAirSwing = true;
                 currentSwingDuration = swingCollision.swingTotalDuration;
             }
-            else
+            else //Light Airborne Middle
             {
                 isSwinging = true;
                 UpdateHorizontalInputPrevention(false);
                 UpdateHorizontalVelocityPrevention(false);
                 UpdateDashingPrevention(true);
                 UpdateJumpInputPrevention(true);
+                UpdateJumpCancelStatus(false);
+                UpdateDashCancelStatus(true);
                 //Swing light airborne middle
                 currentSwingName = "L_Airborne_Middle";
                 FetchSwingCollision(swingHitbox_LAM);
@@ -211,39 +238,45 @@ public class PlayerSwing : MonoBehaviour
         }
         else if (Input.GetButtonDown("Fire2") && playerMovement.IsGrounded() == false) //Heavy Airborne Swings
         {
-            if (playerMovement.dirY >= playerMovement.verInputGatePositive)
+            if (playerMovement.dirY >= playerMovement.verInputGatePositive) //Heavy Airborne Up
             {
                 isSwinging = true;
                 UpdateHorizontalInputPrevention(false);
                 UpdateHorizontalVelocityPrevention(false);
                 UpdateDashingPrevention(true);
                 UpdateJumpInputPrevention(true);
+                UpdateJumpCancelStatus(true);
+                UpdateDashCancelStatus(false);
                 //Swing Heavy airborne up
                 currentSwingName = "H_Airborne_Up";
                 FetchSwingCollision(swingHitbox_HAU);
                 isAirSwing = true;
                 currentSwingDuration = swingCollision.swingTotalDuration;
             }
-            else if (playerMovement.dirY <= playerMovement.verInputGateNegative)
+            else if (playerMovement.dirY <= playerMovement.verInputGateNegative) //Heavy Airborne Down
             {
                 isSwinging = true;
                 UpdateHorizontalInputPrevention(false);
                 UpdateHorizontalVelocityPrevention(false);
                 UpdateDashingPrevention(true);
                 UpdateJumpInputPrevention(true);
+                UpdateJumpCancelStatus(false);
+                UpdateDashCancelStatus(false);
                 //Swing Heavy airborne down
                 currentSwingName = "H_Airborne_Down";
                 FetchSwingCollision(swingHitbox_HAD);
                 isAirSwing = true;
                 currentSwingDuration = swingCollision.swingTotalDuration;
             }
-            else
+            else //Heavy Airborne Middle
             {
                 isSwinging = true;
                 UpdateHorizontalInputPrevention(false);
                 UpdateHorizontalVelocityPrevention(false);
                 UpdateDashingPrevention(true);
                 UpdateJumpInputPrevention(true);
+                UpdateJumpCancelStatus(false);
+                UpdateDashCancelStatus(false);
                 //Swing Heavy airborne middle
                 currentSwingName = "H_Airborne_Middle";
                 FetchSwingCollision(swingHitbox_HAM);
@@ -408,6 +441,12 @@ public class PlayerSwing : MonoBehaviour
     {
         if  (currentSwingDuration > 0)
         {
+            if(playerMovement.isDashing == true)
+            {
+                swingDurationUpdateQued = false;
+                EndSwing();
+            }
+
             if (isAirSwing == false && playerMovement.IsGrounded() || isAirSwing == true && playerMovement.IsGrounded()==false)
             swingDurationUpdateQued = true;
         }
@@ -446,6 +485,26 @@ public class PlayerSwing : MonoBehaviour
         stopJumpInput = isPrevented;
     }
 
+    public void UpdateJumpCancelStatus(bool isAllowed)
+    {
+        canJumpCancel = isAllowed;
+    }
+
+    public void UpdateJumpCancelAvailability(bool isAvailable) //A jump cancel can only be used if the swing has collided with the ball
+    {
+        jumpCancelAvailable = isAvailable;
+    }
+
+    public void UpdateDashCancelStatus(bool isAllowed)
+    {
+        canDashCancel = isAllowed;
+    }
+
+    public void UpdateDashCancelAvailability(bool isAvailable) //A dash cancel can only be used if the swing has collided with the ball
+    {
+        dashCancelAvailable = isAvailable;
+    }
+
     public void FetchSwingCollision(GameObject swing)
     {
         GameObject swingCollisionObject = swing; //assigns the referenced game object as the swing collision object currently being used
@@ -456,6 +515,70 @@ public class PlayerSwing : MonoBehaviour
         }
     }
 
+
+    public void SwingCancel()
+    {
+        if (isAirSwing == false)
+        {
+            if (currentSwingName == "L_Grounded_Middle")
+            {
+                swingHitbox_LGM.gameObject.SetActive(false);
+            }
+            else if (currentSwingName == "L_Grounded_Up")
+            {
+                swingHitbox_LGU.gameObject.SetActive(false);
+            }
+            else if (currentSwingName == "L_Grounded_Down")
+            {
+                swingHitbox_LGD.gameObject.SetActive(false);
+            }
+            else if (currentSwingName == "H_Grounded_Middle")
+            {
+                swingHitbox_HGM.gameObject.SetActive(false);
+            }
+            else if (currentSwingName == "H_Grounded_Up")
+            {
+                swingHitbox_HGU.gameObject.SetActive(false);
+            }
+            else if (currentSwingName == "H_Grounded_Down")
+            {
+                swingHitbox_HGD.gameObject.SetActive(false);
+            }
+
+        }
+        
+        if(isAirSwing == true)
+        {
+            if (currentSwingName == "L_Airborne_Middle")
+            {
+                swingHitbox_LAM.gameObject.SetActive(false);
+            }
+            else if (currentSwingName == "L_Airborne_Up")
+            {
+                swingHitbox_LAU.gameObject.SetActive(false);
+            }
+            else if (currentSwingName == "L_Airborne_Down")
+            {
+                swingHitbox_LAD.gameObject.SetActive(false);
+            }
+            else if (currentSwingName == "H_Airborne_Middle")
+            {
+                swingHitbox_HAM.gameObject.SetActive(false);
+            }
+            else if (currentSwingName == "H_Airborne_Up")
+            {
+                swingHitbox_HAU.gameObject.SetActive(false);
+            }
+            else if (currentSwingName == "H_Airborne_Down")
+            {
+                swingHitbox_HAD.gameObject.SetActive(false);
+            }
+        }
+
+        EndSwing();
+
+    }
+
     public void EndSwing()
     {
         isSwinging = false;
@@ -464,6 +587,10 @@ public class PlayerSwing : MonoBehaviour
         UpdateHorizontalVelocityPrevention(false);
         UpdateDashingPrevention(false);
         UpdateJumpInputPrevention(false);
+        UpdateJumpCancelStatus(false);
+        UpdateDashCancelStatus(false);
+        UpdateJumpCancelAvailability(false);
+        UpdateDashCancelAvailability(false);
         currentSwingName = "";
         isAirSwing = false;
         swingCollision.collidedBall = false; //signals that the swing is over and the swing hitbox can now collide with the ball again

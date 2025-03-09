@@ -192,6 +192,13 @@ public class PlayerMovement : MonoBehaviour
 
         if (gameManager.isGamePaused == false && gameManager.isGameOver == false)
         {
+            if(Input.GetButtonDown("Jump") && playerSwing.canJumpCancel == true && playerSwing.jumpCancelAvailable == true && playerSwing.isSwinging)
+            {
+                playerSwing.UpdateJumpInputPrevention(false);
+                playerSwing.SwingCancel();
+            }
+
+
             if (Input.GetButtonDown("Jump") && IsGrounded() && dirY <= verInputGateNegative && playerSwing.stopJumpInput == false && gameManager.isGamePaused == false)
             {
                 rb.velocity = new Vector2(rb.velocity.x, highJumpStrength);
