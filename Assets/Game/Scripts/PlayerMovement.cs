@@ -157,7 +157,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (dirX == 0)
         {
-            //heldDirection = 0;
+            heldDirection = 0;
         }
 
         if(playerSwing.stopHorizontalVel == true && movementType == "Stable")
@@ -245,9 +245,18 @@ public class PlayerMovement : MonoBehaviour
    
    private void UpdateDash()
     {
+
+        if (Input.GetButtonDown("Dash") && playerSwing.canDashCancel == true && playerSwing.dashCancelAvailable == true && playerSwing.isSwinging)
+        {
+            playerSwing.UpdateDashingPrevention(false);
+            playerSwing.SwingCancel();
+        }
+
         if (Input.GetButtonDown("Dash") && isDashing == false && dashesAvailable > 0 && playerSwing.stopDashing == false && playerSwing.stopHorizontalVel == false)
         {
-            if(IsGrounded())
+
+
+            if (IsGrounded())
             {
                 if (heldDirection >= 0)
                 {
