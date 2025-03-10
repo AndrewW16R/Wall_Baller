@@ -25,6 +25,7 @@ public class MainMenuManager : MonoBehaviour
     public GameObject audioSettingsPg;
 
     public GameObject movementTypePg;
+    public GameObject difficultySelectPg;
 
     public Scene sceneToLoad;
 
@@ -36,7 +37,7 @@ public class MainMenuManager : MonoBehaviour
         ToggleControlsCanvas(false);
         ToggleSettingsCanvas(false);
         ToggleMovementTypePg(false);
-
+        ToggleDifficultySelectPg(false);
     }
 
     // Update is called once per frame
@@ -112,5 +113,10 @@ public class MainMenuManager : MonoBehaviour
     public void ToggleMovementTypePg(bool isEnabled)
     {
         movementTypePg.SetActive(isEnabled);
+    }
+
+    public void ToggleDifficultySelectPg(bool isEnabled)
+    {
+        difficultySelectPg.SetActive(isEnabled);
     }
 }
