@@ -103,6 +103,11 @@ public class PlayerMovement : MonoBehaviour
         {
             onDashEvent = new UnityEvent();
         }
+
+        if(movementType == null || movementType == "")//failsafe incase a movement type is not set
+        {
+            movementType = "Stable";
+        }
     }
 
     // Update is called once per frame

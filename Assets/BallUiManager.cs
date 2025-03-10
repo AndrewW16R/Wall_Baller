@@ -10,8 +10,9 @@ public class BallUiManager : MonoBehaviour
     public Ball activeBall;
     public GameObject ballObject;
 
+    private GameObject playerObject;
     private SwingStaleness swingStaleness;
-    private GameObject swingStalenessObject;
+    public PlayerMovement playerMovement;
 
     public GameObject gameManagerObject;
     public GameManager gameManager;
@@ -22,6 +23,7 @@ public class BallUiManager : MonoBehaviour
     public Text textBallExp;
     public Text textStyle;
     public Text textTimer;
+    public Text textDashAvailable;
 
     public float actualBallSpeed;
     public int displayBallSpeed;
@@ -34,8 +36,9 @@ public class BallUiManager : MonoBehaviour
         ballObject = GameObject.FindWithTag("Ball");
         activeBall = ballObject.GetComponent<Ball>();
 
-        swingStalenessObject = GameObject.FindWithTag("Player");
-        swingStaleness = swingStalenessObject.GetComponent<SwingStaleness>();
+        playerObject = GameObject.FindWithTag("Player");
+        swingStaleness = playerObject.GetComponent<SwingStaleness>();
+        playerMovement = playerObject.GetComponent<PlayerMovement>();
 
         gameManagerObject = GameObject.Find("GameManager");
         gameManager = gameManagerObject.GetComponent<GameManager>();
@@ -55,6 +58,7 @@ public class BallUiManager : MonoBehaviour
         //CalculateDisplayTime();
         displayTimer = timer.currentTime;
         textTimer.text = "TIME: " + displayTimer.ToString("##.##");
+        CalculateDashAvailability();
 
     }
 
@@ -110,6 +114,18 @@ public class BallUiManager : MonoBehaviour
     {
         displayTimer = seconds;
         textTimer.text = "TIME: " + displayTimer.ToString();
+    }
+
+    public void CalculateDashAvailability()
+    {
+        if(playerMovement.dashesAvailable >= 1)
+        {
+            textDashAvailable.text = "Dash Available: Yes"; 
+        }
+        else
+        {
+            textDashAvailable.text = "Dash Available: No";
+        }
     }
 
 }

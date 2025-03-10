@@ -18,17 +18,29 @@ public class MenuManager : MonoBehaviour
     public Text textPauseMenuBallExp;
     public Text textGameOverMenuBallLevel;
     public Text textGameOverMenuBallExp;
+    public Text textGameOverMenuDifficulty;
+    public Text textGameOverMenuMovement;
+
+    public Timer timer;
+
+    private GameObject playerObject;
+    public PlayerMovement playerMovement;
 
     // Start is called before the first frame update
     void Start()
     {
         gameManagerObject = GameObject.Find("GameManager");
         gameManager = gameManagerObject.GetComponent<GameManager>();
+        timer = gameManagerObject.GetComponent<Timer>();
+
+        playerObject = GameObject.Find("Player");
+        playerMovement = playerObject.GetComponent<PlayerMovement>();
 
         TogglePauseMenu(false);
         ToggleRestartConfirmMenu(false);
         ToggleMainMenuConfirmMenu(false);
         ToggleGameOverMenu(false);
+
     }
 
     // Update is called once per frame
@@ -96,5 +108,12 @@ public class MenuManager : MonoBehaviour
         TogglePauseMenu(false);
         ToggleRestartConfirmMenu(false);
         ToggleMainMenuConfirmMenu(false);
+    }
+
+    public void GetPrefSettingsText()
+    {
+        textGameOverMenuDifficulty.text = timer.difficulty + " Difficulty";
+
+        textGameOverMenuMovement.text = playerMovement.movementType + " Movement";
     }
 }
