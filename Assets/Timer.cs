@@ -63,13 +63,13 @@ public class Timer : MonoBehaviour
             currentTime = intialTimeHard;
             difficultyApplied = true;
         }
-        else
+       /* else
         {
             Debug.Log("Standard chosen (Failsafe)");
             currentTime = intialTime;
             difficultyApplied = true;
             difficulty = "Standard";
-        }
+        }*/
         
     }
 

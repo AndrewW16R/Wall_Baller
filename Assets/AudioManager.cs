@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,6 +19,7 @@ public class AudioManager : MonoBehaviour
 
     public AudioClip glassFirstHit;
     public AudioClip glassSecondHit;
+    public AudioClip swingCancel;
 
     public AudioClip jumpGround;
     public AudioClip jumpAir;
@@ -180,6 +182,12 @@ public class AudioManager : MonoBehaviour
     {
         audioSource02.clip = dash;
         audioSource02.Play();
+    }
+
+    public void PlaySwingCancelSFX()
+    {
+        audioSource04.clip = swingCancel;
+        audioSource04.Play();
     }
 
     public void PlayGameOverSFX()

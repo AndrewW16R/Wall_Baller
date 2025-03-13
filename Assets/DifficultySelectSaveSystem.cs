@@ -7,6 +7,8 @@ public class DifficultySelectSaveSystem : MonoBehaviour
     public GameObject timerObject;
     public Timer timer;
 
+    public string dif;
+
     // Start is called before the first frame update
     void Start()
     {

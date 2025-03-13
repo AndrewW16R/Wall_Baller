@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerSwing : MonoBehaviour
 {
@@ -45,6 +46,8 @@ public class PlayerSwing : MonoBehaviour
     private GameObject gameManagerObject;
     private GameManager gameManager;
 
+    public UnityEvent onSwingCancelEvent;
+
 
     // Start is called before the first frame update
     void Start()
@@ -66,6 +69,11 @@ public class PlayerSwing : MonoBehaviour
 
         gameManagerObject = GameObject.Find("GameManager");
         gameManager = gameManagerObject.GetComponent<GameManager>();
+
+        if (onSwingCancelEvent == null)
+        {
+            onSwingCancelEvent = new UnityEvent();
+        }
 
     }
 
@@ -574,7 +582,7 @@ public class PlayerSwing : MonoBehaviour
                 swingHitbox_HAD.gameObject.SetActive(false);
             }
         }
-
+        onSwingCancelEvent.Invoke();
         EndSwing();
 
     }
