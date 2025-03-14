@@ -350,7 +350,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &351719481
 RectTransform:
   m_ObjectHideFlags: 0
@@ -988,7 +988,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &675606060
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1389,7 +1389,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 785125763}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -1697,7 +1697,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &937590930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2197,7 +2197,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1018538062}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -3365,7 +3365,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1216998611
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3533,7 +3533,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1302720873
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4735,7 +4735,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1809698145}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -4963,7 +4963,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1810271392}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -6025,9 +6025,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 86476352512722985, guid: 4cc4d66ed74f3b54cbcd59d873ddcd1f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 454742179690194550, guid: 4cc4d66ed74f3b54cbcd59d873ddcd1f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 574762226452900220, guid: 4cc4d66ed74f3b54cbcd59d873ddcd1f, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 575549546685384841, guid: 4cc4d66ed74f3b54cbcd59d873ddcd1f, type: 3}
       propertyPath: hitStopPower
@@ -6171,7 +6179,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1237850934081775732, guid: 4cc4d66ed74f3b54cbcd59d873ddcd1f, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1379015020096188942, guid: 4cc4d66ed74f3b54cbcd59d873ddcd1f, type: 3}
       propertyPath: m_IsActive
@@ -6227,7 +6235,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2034112708979050226, guid: 4cc4d66ed74f3b54cbcd59d873ddcd1f, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2381591649243976501, guid: 4cc4d66ed74f3b54cbcd59d873ddcd1f, type: 3}
       propertyPath: m_IsActive
@@ -6665,6 +6673,10 @@ PrefabInstance:
       propertyPath: onCollisionEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5776687669432609593, guid: 4cc4d66ed74f3b54cbcd59d873ddcd1f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5786429075534621875, guid: 4cc4d66ed74f3b54cbcd59d873ddcd1f, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -6675,7 +6687,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5949530172797393662, guid: 4cc4d66ed74f3b54cbcd59d873ddcd1f, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6032814133337351582, guid: 4cc4d66ed74f3b54cbcd59d873ddcd1f, type: 3}
       propertyPath: hitStopPower
@@ -7055,7 +7067,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9192006112597888672, guid: 4cc4d66ed74f3b54cbcd59d873ddcd1f, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9211103308162109623, guid: 4cc4d66ed74f3b54cbcd59d873ddcd1f, type: 3}
       propertyPath: m_IsActive
