@@ -16,6 +16,9 @@ public class DebugCanvasUIManager : MonoBehaviour
     public Text textBallLevel;
     public Text textBallExp;
     public Text textYinput;
+    public Text textXinput;
+    public Text textLightSwingInput;
+    public Text textHeavySwingInput;
 
     // Start is called before the first frame update
     void Start()
@@ -35,5 +38,38 @@ public class DebugCanvasUIManager : MonoBehaviour
         textBallLevel.text = "Ball Lvl: " + activeBall.ballLevel.ToString();
         textBallExp.text = "Ball Exp: " + activeBall.ballExp.ToString();
         textYinput.text = "Y input: " + activePlayer.dirY.ToString();
+        textXinput.text = "X input: " + activePlayer.dirX.ToString();
+
+        if (Input.GetButtonDown("Fire2"))
+            {
+            textLightSwingInput.text = "Heavy Swing Input: Y";
+            }
+        else
+        {
+            textLightSwingInput.text = "Heavy Swing Input: N";
+        }
+    }
+
+    void Update()
+    {
+
+        if (Input.GetButtonDown("Fire1"))
+        {
+            textLightSwingInput.text = "Light Swing Input: True";
+        }
+        else
+        {
+            textLightSwingInput.text = "Light Swing Input:";
+        }
+
+
+        if (Input.GetButtonDown("Fire2"))
+        {
+            textHeavySwingInput.text = "Heavy Swing Input: True";
+        }
+        else
+        {
+            textHeavySwingInput.text = "Heavy Swing Input:";
+        }
     }
 }
