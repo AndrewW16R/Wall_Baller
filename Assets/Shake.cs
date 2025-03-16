@@ -9,10 +9,17 @@ public class Shake : MonoBehaviour
     public AnimationCurve curve01; //sets intensity of shake over time
     public AnimationCurve curve02;
 
+    public string shakeToggle;
+
+    public GameObject playerPrefManagerObject;
+    public GameSettingsSaveSystem gameSettingsSaveSystem;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerPrefManagerObject = GameObject.Find("PlayerPrefManager");
+        gameSettingsSaveSystem = playerPrefManagerObject.GetComponent<GameSettingsSaveSystem>();
+        GetScreenShakeToggle();
     }
 
     // Update is called once per frame
@@ -23,12 +30,18 @@ public class Shake : MonoBehaviour
 
     public void ActivateShake01()
     {
-        StartCoroutine(Shaking01());
+        if(shakeToggle == "On")
+        {
+            StartCoroutine(Shaking01());
+        }
     }
 
     public void ActivateShake02()
     {
-        StartCoroutine(Shaking02());
+        if (shakeToggle == "On")
+        {
+            StartCoroutine(Shaking02());
+        }
     }
 
     IEnumerator Shaking01()
@@ -63,5 +76,10 @@ public class Shake : MonoBehaviour
         }
 
         transform.position = startPosition;
+    }
+
+    public void GetScreenShakeToggle()
+    {
+        shakeToggle = gameSettingsSaveSystem.screenShakeToggle;
     }
 }

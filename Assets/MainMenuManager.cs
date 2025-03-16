@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
 {
@@ -27,7 +28,12 @@ public class MainMenuManager : MonoBehaviour
     public GameObject movementTypePg;
     public GameObject difficultySelectPg;
 
+    public Text textScreenShakeToggleButton;
+
     public Scene sceneToLoad;
+
+    public GameObject playerPrefManagerObject;
+    public GameSettingsSaveSystem gameSettingsSaveSystem;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +44,11 @@ public class MainMenuManager : MonoBehaviour
         ToggleSettingsCanvas(false);
         ToggleMovementTypePg(false);
         ToggleDifficultySelectPg(false);
+
+        playerPrefManagerObject = GameObject.Find("PlayerPrefManager");
+        gameSettingsSaveSystem = playerPrefManagerObject.GetComponent<GameSettingsSaveSystem>();
+
+        UpdateScreenShakeToggleDisplay();
     }
 
     // Update is called once per frame
@@ -118,5 +129,10 @@ public class MainMenuManager : MonoBehaviour
     public void ToggleDifficultySelectPg(bool isEnabled)
     {
         difficultySelectPg.SetActive(isEnabled);
+    }
+
+    public void UpdateScreenShakeToggleDisplay()
+    {
+        textScreenShakeToggleButton.text = gameSettingsSaveSystem.screenShakeToggle;
     }
 }
