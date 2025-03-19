@@ -6,31 +6,26 @@ using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
-    public bool isGameOver;
-    public bool isGamePaused;
-
-    //public GameObject playerObject;
-    //public PlayerMovement playerMovement;
-    //public PlayerSwing playerSwing;
-
+    public bool isGameOver; //True if in game over state
+    public bool isGamePaused; //True if game is paused
     
 
-    public GameObject gameOverZoneObject;
+    public GameObject gameOverZoneObject; //Trigger volume that initiates a game over if the ball collides with it
     public GameOverZone gameOverZone;
 
-    public GameObject gameOverMenu;
+    public GameObject gameOverMenu; //Menu that displays when the player reaches a game over
     private string currentSceneName;
 
     public GameObject menuCanvasGroup;
     public MenuManager menuManager;
 
-    public GameObject ballUiCanvasObject;
+    public GameObject ballUiCanvasObject; //Ui on top of screen that displays details about the status of the ball and the player
     public BallUiManager ballUiManager;
 
     public GameObject ballObject;
     public Ball activeBall; //getting ball info to share with UI elements
 
-    public Timer timer;
+    public Timer timer; //The timer which counts down to a game over
 
     public float ballSpeed;
     public int ballLevel;
@@ -40,12 +35,12 @@ public class GameManager : MonoBehaviour
     public float levelHitStop;
     public float totalHitStop;
 
-    public bool hitStopActive;
+    public bool hitStopActive; //if hitstop is currently active, set to true
 
-    public float hitStopThreshHoldForExtraFX;
+    public float hitStopThreshHoldForExtraFX; //If the total hitstop from a swing is greater than this float, the onBigSwingHitStopEvent is triggered
 
-    public UnityEvent onBigSwingHitStopEvent;
-    public UnityEvent onGameOverEvent;
+    public UnityEvent onBigSwingHitStopEvent; //Event triggers when a swing which causes a large amount of hitstop occurs
+    public UnityEvent onGameOverEvent; //Event triggers when a game over occurs
 
     // Start is called before the first frame update
     void Start()
@@ -57,10 +52,6 @@ public class GameManager : MonoBehaviour
         UpdateCursorVisibility(false);
 
         hitStopActive = false;
-
-        //playerObject = GameObject.FindWithTag("Player");
-        //playerMovement = playerObject.GetComponent<PlayerMovement>();
-        //playerSwing = playerObject.GetComponent<PlayerSwing>();
 
         gameOverZoneObject = GameObject.FindWithTag("GameOverZone");
         gameOverZone = gameOverZoneObject.GetComponent<GameOverZone>();
@@ -108,7 +99,7 @@ public class GameManager : MonoBehaviour
     public void SetTimeScale(float timescale)
     {
         Time.timeScale = timescale;
-    }
+    } //Sets the time scale of the game, usually to zero for hitstop and pausing the game
 
     public void ActivateGameOver()
     {
@@ -118,7 +109,7 @@ public class GameManager : MonoBehaviour
         onGameOverEvent.Invoke();
         ballUiManager.ManualSetTimer(0.0f);
         SetTimeScale(0);
-    }
+    }//Is called to initate a game over
 
     public void PauseGameCheck()
     {
@@ -147,27 +138,27 @@ public class GameManager : MonoBehaviour
         }
 
 
-    }
+    }//Called in Update, is actively checking to see if the player inputs the button to pause or unpause
 
-    public void UpdateGamePausedFlag(bool gamePausedUpdate)
+    public void UpdateGamePausedFlag(bool gamePausedUpdate)//Sets flag to let the rest of the code know if the game is currently paused or not
     {
         isGamePaused = gamePausedUpdate;
     }
 
-    public void GetBallInfo()
+    public void GetBallInfo() //Retrieves current info about the ball gameobject, this info is mostly used to calculate the proper amount of hitstop
     {
         ballSpeed = activeBall.rb.velocity.x;
         ballLevel = activeBall.ballLevel;
         ballExp = activeBall.ballExp;
-        ballHitStop = activeBall.currentBallHitStop;
+        ballHitStop = activeBall.currentBallHitStop; //Ball hitstop if determined from what swing collided with the ball
     }
 
-    public void UpdateCursorVisibility(bool isCursorVisible)
+    public void UpdateCursorVisibility(bool isCursorVisible) //Sets the cursor to visible or invisible, usually set to visible when menus (Pause,gameover,ect) are active and set to invisible during gameplay
     {
         Cursor.visible = isCursorVisible;
     }
 
-    public void CalculateHitStop()
+    public void CalculateHitStop() //Calculates the total amount of hitstop to apply based on the ball's current level and the swing which collided with it
     {
         totalHitStop = 0.0f;
         if (ballLevel >= 1 && ballLevel <= 3)
@@ -201,7 +192,7 @@ public class GameManager : MonoBehaviour
         ApplyHitStop(totalHitStop);
     }
 
-    public void ApplyHitStop(float duration)
+    public void ApplyHitStop(float duration) //Applies the hitstop which was previously calculated
     {
 
         if (hitStopActive == true)//HitStop will not be applied if it is already active.
@@ -219,7 +210,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(HitStopWait(duration));
     }
 
-    IEnumerator HitStopWait(float duration)
+    IEnumerator HitStopWait(float duration) //Time is stopped for the duration that is determined by the calculated hitstop
     {
         hitStopActive = true;
         yield return new WaitForSecondsRealtime(duration);

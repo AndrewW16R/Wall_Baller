@@ -7,7 +7,6 @@ public class DifficultySelectSaveSystem : MonoBehaviour
     public GameObject timerObject;
     public Timer timer;
 
-    public string dif;
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +16,7 @@ public class DifficultySelectSaveSystem : MonoBehaviour
         if (timerObject != null)
         {
             timer = timerObject.GetComponent<Timer>();
-            LoadDifficulty();
+            LoadDifficulty(); //Sets difficulty String in the timer script to whatever the difficulty PlayerPref is
         }
     }
 
@@ -27,17 +26,17 @@ public class DifficultySelectSaveSystem : MonoBehaviour
 
     }
 
-    public void SetDifficultyToStandard()
+    public void SetDifficultyToStandard() //Sets Difficulty PlayerPref to "Standard"
     {
         PlayerPrefs.SetString("Difficulty", "Standard");
     }
 
-    public void SetDifficultyToHard()
+    public void SetDifficultyToHard() //Sets Difficulty PlayerPref to "Hard"
     {
         PlayerPrefs.SetString("Difficulty", "Hard");
     }
 
-    public void LoadDifficulty()
+    public void LoadDifficulty() //Sets difficulty String in the timer script to whatever the difficulty PlayerPref is
     {
         timer.difficulty = PlayerPrefs.GetString("Difficulty");
     }

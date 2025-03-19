@@ -33,12 +33,12 @@ public class PlayerAnimation : MonoBehaviour
 
     public void AnimationUpdate()
     {
-        if (gameManager.isGamePaused == false && gameManager.isGameOver == false)
+        if (gameManager.isGamePaused == false && gameManager.isGameOver == false)//Animations are freezed/do not update while game is paused
         {
 
             if (playerMovement.isDashing == true)
             {
-                if(playerMovement.dashDir == 1)
+                if(playerMovement.dashDir == 1)//if dash to right
                 {
                     if(playerMovement.isAirDash == true)
                     {
@@ -52,14 +52,14 @@ public class PlayerAnimation : MonoBehaviour
                     }
                 }
 
-                if(playerMovement.dashDir == -1)
+                if(playerMovement.dashDir == -1)//if dash to left
                 {
-                    if (playerMovement.isAirDash == true)
+                    if (playerMovement.isAirDash == true)//is air dash
                     {
                         SetAnimationState("Player_DashBackward");
                         return;
                     }
-                    else if (playerMovement.isAirDash == false)
+                    else if (playerMovement.isAirDash == false)//is grounded dash
                     {
                         SetAnimationState("Player_DashBackward");
                         return;
@@ -68,7 +68,7 @@ public class PlayerAnimation : MonoBehaviour
             }
 
 
-            if (playerSwing.isSwinging == true)
+            if (playerSwing.isSwinging == true)//If swing is active, the current animation will be for a swing
             {
 
                 if (playerSwing.currentSwingName == "L_Grounded_Up")
@@ -124,7 +124,7 @@ public class PlayerAnimation : MonoBehaviour
                     return;
                 }
             }//insert else/if checks for dashing here before or after jump/falling checks (once mechanic is implemented)
-            else if (playerMovement.rb.velocity.y > .1f && !playerMovement.IsGrounded() && playerMovement.jumpsAvailable == playerMovement.maxJumps - 1)
+            else if (playerMovement.rb.velocity.y > .1f && !playerMovement.IsGrounded() && playerMovement.jumpsAvailable == playerMovement.maxJumps - 1)//Jump inputed and player moving upwards
             {
                 SetAnimationState("Player_Jump");
             }
@@ -132,15 +132,15 @@ public class PlayerAnimation : MonoBehaviour
             {
                 SetAnimationState("Player_SecondJump");
             }
-            else if (playerMovement.rb.velocity.y < .1f && !playerMovement.IsGrounded())
+            else if (playerMovement.rb.velocity.y < .1f && !playerMovement.IsGrounded())//Player falling
             {
                 SetAnimationState("Player_Fall");
             }
-            else if (playerMovement.dirX > 0.5f && playerMovement.dirX > 0f && playerMovement.IsGrounded())
+            else if (playerMovement.dirX > 0.5f && playerMovement.dirX > 0f && playerMovement.IsGrounded())//Moving forward
             {
                 SetAnimationState("Player_MoveForward");
             }
-            else if (playerMovement.dirX < -0.5f && playerMovement.dirX < 0f && playerMovement.IsGrounded())
+            else if (playerMovement.dirX < -0.5f && playerMovement.dirX < 0f && playerMovement.IsGrounded())//Moving backwards
             {
                 SetAnimationState("Player_MoveBackward");
             }
@@ -157,11 +157,11 @@ public class PlayerAnimation : MonoBehaviour
 
     void SetAnimationState(string newState)
     {
-        if (newState == currentAnim)
+        if (newState == currentAnim)//If the current set animation this frame is the same as the previous frame, continue the current animation
         {
             return;
         }
-        else
+        else//If the current set animation this frame is different from the previous frame, begin playing new animation
         {
             currentAnim = newState;
             anim.Play(newState);

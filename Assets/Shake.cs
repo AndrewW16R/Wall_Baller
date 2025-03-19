@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Shake : MonoBehaviour
 {
-    public float duration01 = 1f;
-    public float duration02 = 1f;
+    public float duration01 = 1f; //By modifying this field in the inspector, the duration for the light shake can be changed
+    public float duration02 = 1f; //By modifying this field in the inspector, the duration for the Heavy shake can be changed
     public AnimationCurve curve01; //sets intensity of shake over time
-    public AnimationCurve curve02;
+    public AnimationCurve curve02; //sets intensity of shake over time
 
     public string shakeToggle;
 
@@ -28,28 +28,28 @@ public class Shake : MonoBehaviour
         
     }
 
-    public void ActivateShake01()
+    public void ActivateShake01() //Light ScreenShake is activated 
     {
-        if(shakeToggle == "On")
+        if(shakeToggle == "On") //ScreenShake will only activate if ScreenShakeToggle is turned on
         {
             StartCoroutine(Shaking01());
         }
     }
 
-    public void ActivateShake02()
+    public void ActivateShake02() //Heavy ScreenShake is activated
     {
-        if (shakeToggle == "On")
+        if (shakeToggle == "On") //ScreenShake will only activate if ScreenShakeToggle is turned on
         {
             StartCoroutine(Shaking02());
         }
     }
 
-    IEnumerator Shaking01()
+    IEnumerator Shaking01() //Light ScreenShake takes place
     {
         Vector3 startPosition = transform.position; //saves starting position
         float elapsedTime = 0f; //sets elapsed time to zero
 
-        while (elapsedTime < duration01)
+        while (elapsedTime < duration01) //Shake occurs while the elapsed time is less than the set duration for the light screenshake
         {
             //Debug.Log(elapsedTime);
             elapsedTime += Time.deltaTime;
@@ -62,12 +62,12 @@ public class Shake : MonoBehaviour
         transform.position = startPosition;
     }
 
-    IEnumerator Shaking02()
+    IEnumerator Shaking02() //Heavy ScreenShake takes place
     {
         Vector3 startPosition = transform.position; //saves starting position
         float elapsedTime = 0f; //sets elapsed time to zero
 
-        while (elapsedTime < duration02)
+        while (elapsedTime < duration02) //Shake occurs while the elapsed time is less than the set duration for the heavy screenshake
         {
             elapsedTime += Time.deltaTime;
             float strength = curve02.Evaluate(elapsedTime / duration02);
@@ -75,10 +75,10 @@ public class Shake : MonoBehaviour
             yield return null;
         }
 
-        transform.position = startPosition;
+        transform.position = startPosition; //Sets Camera back to starting position from before the ScreenShake once the ScreenShake is over
     }
 
-    public void GetScreenShakeToggle()
+    public void GetScreenShakeToggle() //Gets screensShake Toggle setting from the GameSettingsSaveSystemScreen
     {
         shakeToggle = gameSettingsSaveSystem.screenShakeToggle;
     }

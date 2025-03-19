@@ -65,7 +65,7 @@ public class BallUiManager : MonoBehaviour
     public void CalculateDisplaySpeed() //Takes the actual Ball horizontal speed and converts it to a cleaner whole number to be displayed in the UI
     {
         actualBallSpeed = activeBall.rb.velocity.x;
-        actualBallSpeed = Mathf.Round(actualBallSpeed * 10.0f) * 0.1f;
+        actualBallSpeed = Mathf.Round(actualBallSpeed * 10.0f) * 0.1f;//Displayed ball speed is the actual ball speed multiplied by 10
         actualBallSpeed = actualBallSpeed * 10;
         if (actualBallSpeed < 0)
         {
@@ -76,23 +76,23 @@ public class BallUiManager : MonoBehaviour
 
     public void CalculateStyle()
     {
-        if (swingStaleness.prevStaleRating <= 1)
+        if (swingStaleness.prevStaleRating <= 1)//No more than 1 repeated swings within the swing log
         {
             textStyle.text = "STYLE: FRESH!!!";
         }
-        else if (swingStaleness.prevStaleRating == 2)
+        else if (swingStaleness.prevStaleRating == 2)//2 repeated swings within the swing log
         {
             textStyle.text = "STYLE: COOL!";
         }
-        else if (swingStaleness.prevStaleRating == 3)
+        else if (swingStaleness.prevStaleRating == 3)//3 repeated swings within the swing log
         {
             textStyle.text = "STYLE: MEH...";
         }
-        else if (swingStaleness.prevStaleRating == 4)
+        else if (swingStaleness.prevStaleRating == 4)//4 repeated swings within the swing log
         {
             textStyle.text = "STYLE: STALE";
         }
-        else if (swingStaleness.prevStaleRating == 5)
+        else if (swingStaleness.prevStaleRating == 5)//5 repeated swings within the swing log
         {
             textStyle.text = "STYLE: WACK";
         }

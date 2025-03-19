@@ -5,8 +5,8 @@ using UnityEngine.Events;
 
 public class PlayerSwing : MonoBehaviour
 {
-    public bool isSwinging;
-    public bool swingDurationUpdateQued;
+    public bool isSwinging; //Set to tru if the player character is currently in a swing action
+    public bool swingDurationUpdateQued; //Indicates if the current swing will still continue to be active on the next frame. Is checked before the swing ends
     public bool stopHorizontalVel; //set to true when a move should stop/prevent horizontal vel
     public bool stopHorizontalInput; //set to true when a move should stop/prevent horizontal input
     public bool stopDashing; //set to true when a move should stop/prevent dashing
@@ -15,16 +15,14 @@ public class PlayerSwing : MonoBehaviour
     public bool canDashCancel; //set to true when a move can be dash canceled
     public bool jumpCancelAvailable; //set to true when a jump cancel is available
     public bool dashCancelAvailable; //set to true when a jump cancel is available
-    public string currentSwingName; //this variable is not currently utilized but could be implemented to indicate which attack is being used
-    [SerializeField] private int currentSwingDuration;
-    public bool isAirSwing;
+    public string currentSwingName; //The name of the currently active swing. This is used to ensure the correct swing is being referenced within the code of this script and related scripts. The swing is assigned based on if the player character is airborne and what the player's vertical input is during the swing.
+    [SerializeField] private int currentSwingDuration; //The number of frames currently left for the active swing. Swing will end when this number reaches 0
+    public bool isAirSwing; //Set to true if the current swing is a swing that is performed in the air.
 
     //PlayerMovement class on Player GameObject
     PlayerMovement playerMovement;
 
-    //PlayerAnimation playerAnimation; //Add this in when animation script is ready
-
-    public GameObject swingHitbox_LGM;
+    public GameObject swingHitbox_LGM;//Gameobject of LGM swing hitbox
     public GameObject swingHitbox_LGU;
     public GameObject swingHitbox_LGD;
 
@@ -80,19 +78,19 @@ public class PlayerSwing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameManager.isGamePaused == false && gameManager.isGameOver == false)
+        if (gameManager.isGamePaused == false && gameManager.isGameOver == false) //Swings will freeze in place while the game is paused
         {
-            UpdateSwing();
+            UpdateSwing(); //checks for a swing input from the player while they are in an actionable state and not already swinging
         }
     }
 
     private void FixedUpdate()
     {
-        UpdateSwingHitbox();
-        UpdateSwingDuration();
+        UpdateSwingHitbox();//informs swing hitbox if it should be active depending on the current frame of the swing
+        UpdateSwingDuration();//updates which frame a currently active swing is on
     }
 
-    private void UpdateSwing()
+    private void UpdateSwing()//checks for a swing input from the player while they are in an actionable state and not already swinging
     {
         if (isSwinging == true)
         {
@@ -294,60 +292,54 @@ public class PlayerSwing : MonoBehaviour
         }
     }
 
-    private void UpdateSwingHitbox()
+    private void UpdateSwingHitbox()//informs swing hitbox if it should be active depending on the current frame of the swing
     {
-      /*
-        if(isAirSwing = true && playerMovement.IsGrounded() == true)
-        {
-            EndSwing();
-        }
-        */
 
 
         if (isAirSwing == false)
         {
             if (currentSwingName == "L_Grounded_Middle")
             {
-                if (currentSwingDuration <= (swingCollision.swingTotalDuration - swingCollision.swingStartupDuration) && (currentSwingDuration > swingCollision.swingEndlagDuration))
+                if (currentSwingDuration <= (swingCollision.swingTotalDuration - swingCollision.swingStartupDuration) && (currentSwingDuration > swingCollision.swingEndlagDuration))//if swing is currently within its active frames
                 {
-                    swingHitbox_LGM.gameObject.SetActive(true);
+                    swingHitbox_LGM.gameObject.SetActive(true); //set corresponding hitbox to active
                 }
                 else
                 {
-                    swingHitbox_LGM.gameObject.SetActive(false);
+                    swingHitbox_LGM.gameObject.SetActive(false); //turns off corresponding hitbox
                 }
             }
             else if (currentSwingName == "L_Grounded_Up")
             {
-                if (currentSwingDuration <= (swingCollision.swingTotalDuration - swingCollision.swingStartupDuration) && (currentSwingDuration > swingCollision.swingEndlagDuration))
+                if (currentSwingDuration <= (swingCollision.swingTotalDuration - swingCollision.swingStartupDuration) && (currentSwingDuration > swingCollision.swingEndlagDuration))//if swing is currently within its active frames
                 {
-                    swingHitbox_LGU.gameObject.SetActive(true);
+                    swingHitbox_LGU.gameObject.SetActive(true); //set corresponding hitbox to active
                 }
                 else
                 {
-                    swingHitbox_LGU.gameObject.SetActive(false);
+                    swingHitbox_LGU.gameObject.SetActive(false); //turns off corresponding hitbox
                 }
             }
             else if (currentSwingName == "L_Grounded_Down")
             {
-                if (currentSwingDuration <= (swingCollision.swingTotalDuration - swingCollision.swingStartupDuration) && (currentSwingDuration > swingCollision.swingEndlagDuration))
+                if (currentSwingDuration <= (swingCollision.swingTotalDuration - swingCollision.swingStartupDuration) && (currentSwingDuration > swingCollision.swingEndlagDuration))//if swing is currently within its active frames
                 {
-                    swingHitbox_LGD.gameObject.SetActive(true);
+                    swingHitbox_LGD.gameObject.SetActive(true); //set corresponding hitbox to active
                 }
                 else
                 {
-                    swingHitbox_LGD.gameObject.SetActive(false);
+                    swingHitbox_LGD.gameObject.SetActive(false); //turns off corresponding hitbox
                 }
             }
             else if (currentSwingName == "H_Grounded_Middle")
             {
-                if (currentSwingDuration <= (swingCollision.swingTotalDuration - swingCollision.swingStartupDuration) && (currentSwingDuration > swingCollision.swingEndlagDuration))
+                if (currentSwingDuration <= (swingCollision.swingTotalDuration - swingCollision.swingStartupDuration) && (currentSwingDuration > swingCollision.swingEndlagDuration))//if swing is currently within its active frames
                 {
-                    swingHitbox_HGM.gameObject.SetActive(true);
+                    swingHitbox_HGM.gameObject.SetActive(true); //set corresponding hitbox to active
                 }
                 else
                 {
-                    swingHitbox_HGM.gameObject.SetActive(false);
+                    swingHitbox_HGM.gameObject.SetActive(false); //turns off corresponding hitbox
                 }
             }
             else if (currentSwingName == "H_Grounded_Up")
@@ -378,46 +370,46 @@ public class PlayerSwing : MonoBehaviour
         {
             if (currentSwingName == "L_Airborne_Middle")
             {
-                if (currentSwingDuration <= (swingCollision.swingTotalDuration - swingCollision.swingStartupDuration) && (currentSwingDuration > swingCollision.swingEndlagDuration))
+                if (currentSwingDuration <= (swingCollision.swingTotalDuration - swingCollision.swingStartupDuration) && (currentSwingDuration > swingCollision.swingEndlagDuration))//if swing is currently within its active frames
                 {
-                    swingHitbox_LAM.gameObject.SetActive(true);
+                    swingHitbox_LAM.gameObject.SetActive(true); //set corresponding hitbox to active
                 }
                 else
                 {
-                    swingHitbox_LAM.gameObject.SetActive(false);
+                    swingHitbox_LAM.gameObject.SetActive(false); //turns off corresponding hitbox
                 }
             }
             else if (currentSwingName == "L_Airborne_Up")
             {
-                if (currentSwingDuration <= (swingCollision.swingTotalDuration - swingCollision.swingStartupDuration) && (currentSwingDuration > swingCollision.swingEndlagDuration))
+                if (currentSwingDuration <= (swingCollision.swingTotalDuration - swingCollision.swingStartupDuration) && (currentSwingDuration > swingCollision.swingEndlagDuration))//if swing is currently within its active frames
                 {
-                    swingHitbox_LAU.gameObject.SetActive(true);
+                    swingHitbox_LAU.gameObject.SetActive(true); //set corresponding hitbox to active
                 }
                 else
                 {
-                    swingHitbox_LAU.gameObject.SetActive(false);
+                    swingHitbox_LAU.gameObject.SetActive(false); //turns off corresponding hitbox
                 }
             }
             else if (currentSwingName == "L_Airborne_Down")
             {
-                if (currentSwingDuration <= (swingCollision.swingTotalDuration - swingCollision.swingStartupDuration) && (currentSwingDuration > swingCollision.swingEndlagDuration))
+                if (currentSwingDuration <= (swingCollision.swingTotalDuration - swingCollision.swingStartupDuration) && (currentSwingDuration > swingCollision.swingEndlagDuration))//if swing is currently within its active frames
                 {
-                    swingHitbox_LAD.gameObject.SetActive(true);
+                    swingHitbox_LAD.gameObject.SetActive(true); //set corresponding hitbox to active
                 }
                 else
                 {
-                    swingHitbox_LAD.gameObject.SetActive(false);
+                    swingHitbox_LAD.gameObject.SetActive(false); //turns off corresponding hitbox
                 }
             }
             else if (currentSwingName == "H_Airborne_Middle")
             {
-                if (currentSwingDuration <= (swingCollision.swingTotalDuration - swingCollision.swingStartupDuration) && (currentSwingDuration > swingCollision.swingEndlagDuration))
+                if (currentSwingDuration <= (swingCollision.swingTotalDuration - swingCollision.swingStartupDuration) && (currentSwingDuration > swingCollision.swingEndlagDuration))//if swing is currently within its active frames
                 {
-                    swingHitbox_HAM.gameObject.SetActive(true);
+                    swingHitbox_HAM.gameObject.SetActive(true); //set corresponding hitbox to active
                 }
                 else
                 {
-                    swingHitbox_HAM.gameObject.SetActive(false);
+                    swingHitbox_HAM.gameObject.SetActive(false); //turns off corresponding hitbox
                 }
             }
             else if (currentSwingName == "H_Airborne_Up")
@@ -445,7 +437,7 @@ public class PlayerSwing : MonoBehaviour
         }
     }
 
-    private void UpdateSwingDuration()
+    private void UpdateSwingDuration()//updates which frame a currently active swing is on
     {
         if  (currentSwingDuration > 0)
         {
@@ -473,47 +465,47 @@ public class PlayerSwing : MonoBehaviour
         }
     }
 
-    public void UpdateHorizontalInputPrevention(bool isPrevented)
+    public void UpdateHorizontalInputPrevention(bool isPrevented)//determines if left/right inputs are blocked from being recieved
     {
         stopHorizontalInput = isPrevented;
     }
 
-    public void UpdateHorizontalVelocityPrevention(bool isPrevented)
+    public void UpdateHorizontalVelocityPrevention(bool isPrevented)//determines if the player character is orevented from having any horizontal (Left/right) velocity
     {
         stopHorizontalVel = isPrevented;
     }
 
-    public void UpdateDashingPrevention(bool isPrevented)
+    public void UpdateDashingPrevention(bool isPrevented)//Determines if the player is prevented from dashing
     {
         stopDashing = isPrevented;
     }
 
-    public void UpdateJumpInputPrevention(bool isPrevented)
+    public void UpdateJumpInputPrevention(bool isPrevented)//Determines if the player is prevented from jumping
     {
         stopJumpInput = isPrevented;
     }
 
-    public void UpdateJumpCancelStatus(bool isAllowed)
+    public void UpdateJumpCancelStatus(bool isAllowed)//Determines if the player is allowed to jump cancel the current swing
     {
         canJumpCancel = isAllowed;
     }
 
-    public void UpdateJumpCancelAvailability(bool isAvailable) //A jump cancel can only be used if the swing has collided with the ball
+    public void UpdateJumpCancelAvailability(bool isAvailable)//Determines is the player has met the requiremenrs to perform a jump cancel (Swing has already collided with the ball)
     {
         jumpCancelAvailable = isAvailable;
     }
 
-    public void UpdateDashCancelStatus(bool isAllowed)
+    public void UpdateDashCancelStatus(bool isAllowed)//Determines if the player is allowed to jump cancel the current swing
     {
         canDashCancel = isAllowed;
     }
 
-    public void UpdateDashCancelAvailability(bool isAvailable) //A dash cancel can only be used if the swing has collided with the ball
+    public void UpdateDashCancelAvailability(bool isAvailable)//Determines is the player has met the requiremenrs to perform a dash cancel (Swing has already collided with the ball)
     {
         dashCancelAvailable = isAvailable;
     }
 
-    public void FetchSwingCollision(GameObject swing)
+    public void FetchSwingCollision(GameObject swing)//Retrieves information on which swing is the currently active active swing 
     {
         GameObject swingCollisionObject = swing; //assigns the referenced game object as the swing collision object currently being used
 
@@ -524,7 +516,7 @@ public class PlayerSwing : MonoBehaviour
     }
 
 
-    public void SwingCancel()
+    public void SwingCancel()//This is called when a jump cancel or dash cancel is performed. The hitbox for the active swing is disabled. The EndSwing method is the called afterwards within this method
     {
         if (isAirSwing == false)
         {
@@ -582,12 +574,12 @@ public class PlayerSwing : MonoBehaviour
                 swingHitbox_HAD.gameObject.SetActive(false);
             }
         }
-        onSwingCancelEvent.Invoke();
+        onSwingCancelEvent.Invoke();//Event for when a swing cancel occurs, primarily used to initiate any SFX and/or VFX that would accompany a swing cancel
         EndSwing();
 
     }
 
-    public void EndSwing()
+    public void EndSwing()//This method is called at the end of a swing. All statuses/values associated with the process of a swing occuring is set back to default in preparation for the next swing
     {
         isSwinging = false;
         currentSwingDuration = 0; //ensures that Swing duration is set back to 0 if player jumps and press s button at the same time
