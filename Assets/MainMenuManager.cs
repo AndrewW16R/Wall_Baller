@@ -29,6 +29,7 @@ public class MainMenuManager : MonoBehaviour
     public GameObject difficultySelectPg;
 
     public Text textScreenShakeToggleButton;
+    public Text textHitboxDisplayToggleButton;
 
     public Scene sceneToLoad;
 
@@ -49,6 +50,7 @@ public class MainMenuManager : MonoBehaviour
         gameSettingsSaveSystem = playerPrefManagerObject.GetComponent<GameSettingsSaveSystem>();
 
         UpdateScreenShakeToggleDisplay();
+        UpdateHitboxDisplayToggleDisplay();
     }
 
     // Update is called once per frame
@@ -131,8 +133,13 @@ public class MainMenuManager : MonoBehaviour
         difficultySelectPg.SetActive(isEnabled);
     }
 
-    public void UpdateScreenShakeToggleDisplay()
+    public void UpdateScreenShakeToggleDisplay() //Setting up string in GameSettingSaveSysten to modify the text in the toggle button to match the current ScreenShake setting
     {
         textScreenShakeToggleButton.text = gameSettingsSaveSystem.screenShakeToggle;
+    }
+
+    public void UpdateHitboxDisplayToggleDisplay() //Setting up string in GameSettingSaveSysten to modify the text in the toggle button to match the current HitboxDisplay setting
+    {
+        textHitboxDisplayToggleButton.text = gameSettingsSaveSystem.hitboxDisplayToggle;
     }
 }

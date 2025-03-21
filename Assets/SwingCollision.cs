@@ -26,6 +26,11 @@ public class SwingCollision : MonoBehaviour
     public GameObject swingStalenessObject;
     public SwingStaleness swingStaleness;
 
+    public GameObject playerPrefManagerObject;
+    public GameSettingsSaveSystem gameSettingsSaveSystem;
+
+    public SpriteRenderer spriteRenderer;
+
     public UnityEvent onCollisionEvent;//Event that is called upon the ball colliding with this swing. Usally used to activate SFX/VFX and update the availability of a swing cancel
 
     // Start is called before the first frame update
@@ -41,8 +46,14 @@ public class SwingCollision : MonoBehaviour
         ballObject = GameObject.FindWithTag("Ball");
         activeBall = ballObject.GetComponent<Ball>();
 
+        playerPrefManagerObject = GameObject.Find("PlayerPrefManager");
+        gameSettingsSaveSystem = playerPrefManagerObject.GetComponent<GameSettingsSaveSystem>();
+
         swingStalenessObject = GameObject.FindWithTag("Player");
         swingStaleness = swingStalenessObject.GetComponent<SwingStaleness>();
+
+        spriteRenderer = GetComponent<SpriteRenderer>(); //SpriteRenderer component should be on the GameManager GameObject
+        SetHitboxDisplay();
 
         gameObject.SetActive(false);
 
@@ -90,6 +101,18 @@ public class SwingCollision : MonoBehaviour
 
                 
             }
+        }
+    }
+
+    public void SetHitboxDisplay()
+    {
+        if(gameSettingsSaveSystem.hitboxDisplayToggle == "On")
+        {
+            spriteRenderer.enabled = true;
+        }
+        else
+        {
+            spriteRenderer.enabled = false;
         }
     }
 }
