@@ -13,11 +13,7 @@ public class MainMenuManager : MonoBehaviour
     public GameObject settingsButton;
     public GameObject quitButton;
 
-    public GameObject howToPlayPg01;
-    public GameObject howToPlayPg02;
-    public GameObject howToPlayPg03;
-
-    public GameObject howToPlayCanvas;
+    
     public GameObject controlsCanvas;
 
     public GameObject settingsCanvas;
@@ -31,6 +27,12 @@ public class MainMenuManager : MonoBehaviour
     public Text textScreenShakeToggleButton;
     public Text textHitboxDisplayToggleButton;
 
+    public GameObject howToPlayCanvas;
+    public GameObject tutorialSelectCanvas;
+    public GameObject tutorialBasicCanvas;
+    public GameObject tutorialIntermediateCanvas;
+    public GameObject tutorialAdvancedCanvas;
+
     public Scene sceneToLoad;
 
     public GameObject playerPrefManagerObject;
@@ -41,6 +43,10 @@ public class MainMenuManager : MonoBehaviour
     {
         ButtonsEnabled(true);
         ToggleHowToPlayCanvas(false);
+        ToggleTutorialSelectCanvas(false);
+        ToggleTutorialBasicCanvas(false);
+        ToggleTutorialIntermediateCanvas(false);
+        ToggleTutorialAdvancedCanvas(false);
         ToggleControlsCanvas(false);
         ToggleSettingsCanvas(false);
         ToggleMovementTypePg(false);
@@ -78,25 +84,6 @@ public class MainMenuManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void ToggleHowToPlayCanvas(bool isEnabled)
-    {
-        howToPlayCanvas.SetActive(isEnabled);
-    }
-
-    public void ToggleHowToPlayPg01(bool isEnabled)
-    {
-        howToPlayPg01.SetActive(isEnabled);
-    }
-
-    public void ToggleHowToPlayPg02(bool isEnabled)
-    {
-        howToPlayPg02.SetActive(isEnabled);
-    }
-
-    public void ToggleHowToPlayPg03(bool isEnabled)
-    {
-        howToPlayPg03.SetActive(isEnabled);
-    }
 
     public void ToggleControlsCanvas(bool isEnabled)
     {
@@ -141,5 +128,30 @@ public class MainMenuManager : MonoBehaviour
     public void UpdateHitboxDisplayToggleDisplay() //Setting up string in GameSettingSaveSysten to modify the text in the toggle button to match the current HitboxDisplay setting
     {
         textHitboxDisplayToggleButton.text = gameSettingsSaveSystem.hitboxDisplayToggle;
+    }
+
+    public void ToggleHowToPlayCanvas(bool isEnabled)
+    {
+        howToPlayCanvas.SetActive(isEnabled);
+    }
+
+    public void ToggleTutorialSelectCanvas(bool isEnabled)
+    {
+        tutorialSelectCanvas.SetActive(isEnabled);
+    }
+
+    public void ToggleTutorialBasicCanvas(bool isEnabled)
+    {
+        tutorialBasicCanvas.SetActive(isEnabled);
+    }
+
+    public void ToggleTutorialIntermediateCanvas(bool isEnabled)
+    {
+        tutorialIntermediateCanvas.SetActive(isEnabled);
+    }
+
+    public void ToggleTutorialAdvancedCanvas(bool isEnabled)
+    {
+        tutorialAdvancedCanvas.SetActive(isEnabled);
     }
 }
