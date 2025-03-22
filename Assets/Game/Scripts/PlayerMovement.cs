@@ -247,7 +247,7 @@ public class PlayerMovement : MonoBehaviour
    private void UpdateDash()
     {
 
-        if (Input.GetButtonDown("Dash") && playerSwing.canDashCancel == true && playerSwing.dashCancelAvailable == true && playerSwing.isSwinging)//If the player inputs dash during a dash-cancelable swing that has already collided with the ball. A dash cancel occurs
+        if (Input.GetButtonDown("Dash") && playerSwing.canDashCancel == true && playerSwing.dashCancelAvailable == true && playerSwing.isSwinging && dashesAvailable > 0)//If the player inputs dash during a dash-cancelable swing that has already collided with the ball. A dash cancel occurs
         {
             playerSwing.UpdateDashingPrevention(false);
             playerSwing.SwingCancel();
