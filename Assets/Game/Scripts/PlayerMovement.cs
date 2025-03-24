@@ -57,6 +57,9 @@ public class PlayerMovement : MonoBehaviour
     private GameObject gameManagerObject;
     private GameManager gameManager;
 
+    private GameObject playerVfxObject;
+    private PlayerVfx playerVfx;
+
     public UnityEvent onJumpEvent;
     public UnityEvent onDoubleJumpEvent;
     public UnityEvent onHighJumpEvent;
@@ -77,6 +80,9 @@ public class PlayerMovement : MonoBehaviour
 
         gameManagerObject = GameObject.Find("GameManager");
         gameManager = gameManagerObject.GetComponent<GameManager>();
+
+        playerVfxObject = GameObject.Find("VfxGroup");
+        playerVfx = playerVfxObject.GetComponent<PlayerVfx>();
 
         spendDash = true;
 
@@ -196,6 +202,7 @@ public class PlayerMovement : MonoBehaviour
             if(Input.GetButtonDown("Jump") && playerSwing.canJumpCancel == true && playerSwing.jumpCancelAvailable == true && playerSwing.isSwinging)//If the player inputs jump during a jump-cancelable swing that has already collided with the ball. A jump cancel occurs
             {
                 playerSwing.UpdateJumpInputPrevention(false);//Allow for jump inputs
+                playerVfx.ActivateJumpCancelVFX(); //Plays VFX for Jump canceling
                 playerSwing.SwingCancel();//cancel the current swing
             }
 
@@ -250,6 +257,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Dash") && playerSwing.canDashCancel == true && playerSwing.dashCancelAvailable == true && playerSwing.isSwinging && dashesAvailable > 0)//If the player inputs dash during a dash-cancelable swing that has already collided with the ball. A dash cancel occurs
         {
             playerSwing.UpdateDashingPrevention(false);
+            playerVfx.ActivateDashCancelVFX(); //Plays VFX for Dash canceling
             playerSwing.SwingCancel();
         }
 

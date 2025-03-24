@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class MainMenuManager : MonoBehaviour
 {
@@ -38,9 +39,17 @@ public class MainMenuManager : MonoBehaviour
     public GameObject playerPrefManagerObject;
     public GameSettingsSaveSystem gameSettingsSaveSystem;
 
+    public UnityEvent onDisableHowToPlayCanvas; //Event used to ensure allcanvases withint the How to play Menus are disabled
+
     // Start is called before the first frame update
     void Start()
     {
+
+        if (onDisableHowToPlayCanvas == null)
+        {
+            onDisableHowToPlayCanvas = new UnityEvent();
+        }
+        
         ButtonsEnabled(true);
         ToggleHowToPlayCanvas(false);
         ToggleTutorialSelectCanvas(false);
@@ -133,6 +142,11 @@ public class MainMenuManager : MonoBehaviour
     public void ToggleHowToPlayCanvas(bool isEnabled)
     {
         howToPlayCanvas.SetActive(isEnabled);
+
+        if(isEnabled==false)
+        {
+            onDisableHowToPlayCanvas.Invoke();
+        }
     }
 
     public void ToggleTutorialSelectCanvas(bool isEnabled)

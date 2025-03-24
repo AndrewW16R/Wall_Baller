@@ -104,6 +104,7 @@ public class GameManager : MonoBehaviour
     public void ActivateGameOver()
     {
         Cursor.visible = true;
+        menuManager.GetPrefSettingsText();
         menuManager.ToggleGameOverMenu(true);
         isGameOver = true;
         onGameOverEvent.Invoke();

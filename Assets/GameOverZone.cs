@@ -12,6 +12,9 @@ public class GameOverZone : MonoBehaviour
     public GameObject gameManagerObject;
     public GameManager gameManager;
 
+    public GameObject menuManagerObject;
+    public MenuManager menuManager;
+
     public UnityEvent onGameOverEvent;
 
     // Start is called before the first frame update
@@ -21,6 +24,9 @@ public class GameOverZone : MonoBehaviour
 
         ballObject = GameObject.FindWithTag("Ball");
         activeBall = ballObject.GetComponent<Ball>();
+
+        gameManagerObject = GameObject.Find("GameManager");
+        gameManager = gameManagerObject.GetComponent<GameManager>(); //So that gameoverzone can send to trigger function within game manager
 
         gameManagerObject = GameObject.Find("GameManager");
         gameManager = gameManagerObject.GetComponent<GameManager>(); //So that gameoverzone can send to trigger function within game manager
@@ -58,6 +64,8 @@ public class GameOverZone : MonoBehaviour
     public void SignalGameOver()
     {
         onGameOverEvent.Invoke();
+        menuManager.GetPrefSettingsText();
         gameManager.ActivateGameOver();
+        
     }
 }
