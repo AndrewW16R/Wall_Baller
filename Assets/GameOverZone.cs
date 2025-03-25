@@ -28,8 +28,8 @@ public class GameOverZone : MonoBehaviour
         gameManagerObject = GameObject.Find("GameManager");
         gameManager = gameManagerObject.GetComponent<GameManager>(); //So that gameoverzone can send to trigger function within game manager
 
-        gameManagerObject = GameObject.Find("GameManager");
-        gameManager = gameManagerObject.GetComponent<GameManager>(); //So that gameoverzone can send to trigger function within game manager
+        menuManagerObject = GameObject.Find("MenuCanvasGroup");
+        menuManager = menuManagerObject.GetComponent<MenuManager>(); //So that gameoverzone can send to trigger function within game manager
 
         if (onGameOverEvent == null)
         {
