@@ -27,6 +27,7 @@ public class Ball : MonoBehaviour
     public BallShake ballShake;//Script that causes the ball to visually shake upon colliding with a swing
 
     public UnityEvent onLevelUpEvent;
+    public UnityEvent onTimerStartEvent;
 
     // Start is called before the first frame update
     void Start()
@@ -53,6 +54,11 @@ public class Ball : MonoBehaviour
         if (onLevelUpEvent == null)
         {
             onLevelUpEvent = new UnityEvent();//Event called when ball levels up. Used to activate level up SFX
+        }
+
+        if (onTimerStartEvent == null)
+        {
+            onTimerStartEvent = new UnityEvent();//Event called when the timer is started. Ususually started by the ball being hit for the first timein a run.
         }
 
         timerStarted = false;
@@ -131,6 +137,7 @@ public class Ball : MonoBehaviour
         if (timerStarted == false)
         {
             timerStarted = true;
+            onTimerStartEvent.Invoke();
         }
         timer.timerOn = true;
     }
