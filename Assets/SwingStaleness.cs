@@ -63,10 +63,17 @@ public class SwingStaleness : MonoBehaviour
 
     private PlayerSwing playerSwing;
     // Start is called before the first frame update
+
+    public GameObject backgroundManagerObject;
+    public LevelBackgroundManager levelBackgroundManager; //Background sprite will be updated accordingly depending on style level each time the swing log is updated
+
     void Start()
     {
         playerSwing = gameObject.GetComponent<PlayerSwing>();
         swingLogFull = false;
+
+        backgroundManagerObject = GameObject.Find("LevelBackgroundGroup");
+        levelBackgroundManager = backgroundManagerObject.GetComponent<LevelBackgroundManager>();
 
     }
 
@@ -159,22 +166,27 @@ public class SwingStaleness : MonoBehaviour
             if (staleRating < 2)
             {
                 staleMultTimer = timerLv0StaleMult;
+                levelBackgroundManager.BackgroundUpdate("Fresh");
             }
             else if (staleRating == 2)
             {
                 staleMultTimer = timerLv1StaleMult;
+                levelBackgroundManager.BackgroundUpdate("Cool");
             }
             else if (staleRating == 3)
             {
                 staleMultTimer = timerLv2StaleMult;
+                levelBackgroundManager.BackgroundUpdate("Ok");
             }
             else if (staleRating == 4)
             {
                 staleMultTimer = timerLv3StaleMult;
+                levelBackgroundManager.BackgroundUpdate("Meh");
             }
             else if (staleRating == 5)
             {
                 staleMultTimer = timerLv4StaleMult;
+                levelBackgroundManager.BackgroundUpdate("Wack");
             }
             else
             {
