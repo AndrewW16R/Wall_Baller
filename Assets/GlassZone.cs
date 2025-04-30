@@ -20,6 +20,8 @@ public class GlassZone : MonoBehaviour
 
     public GameObject glassSprite;
     public GameObject glassCrackedSprite;
+    public GameObject glassBrokenSprite01;
+    public GameObject glassBrokenSprite02;
     public GameObject glassCollision;
 
     public float firstCollisionHitStop;
@@ -43,14 +45,16 @@ public class GlassZone : MonoBehaviour
         cameraObject = GameObject.Find("MainCamera");
         cameraShake = cameraObject.GetComponent<Shake>();
 
-        glassSprite = GameObject.Find("Tilemap_Glass");
-        glassCrackedSprite = GameObject.Find("Tilemap_GlassCracked");
+      //  glassSprite = GameObject.Find("Tilemap_Glass"); These are now assigned manually in the inspector
+       // glassCrackedSprite = GameObject.Find("Tilemap_GlassCracked");
         glassCollision = GameObject.Find("Tilemap_GlassCollision");
 
         glassMaxHealth = glassHealth;
 
         glassSprite.SetActive(true);
         glassCrackedSprite.SetActive(false);
+        glassBrokenSprite01.SetActive(false);
+        glassBrokenSprite02.SetActive(false);
         glassCollision.SetActive(true);
 
         glassWallDown = false;
@@ -105,6 +109,8 @@ public class GlassZone : MonoBehaviour
                 cameraShake.ActivateShake02();
                 gameManager.ApplyHitStop(secondCollisionHitStop);
                 glassCrackedSprite.SetActive(false);
+                glassBrokenSprite01.SetActive(true);
+                glassBrokenSprite02.SetActive(true);
                 onSecondHitEvent.Invoke();
                 Invoke("DisableGlassCollision", 0.1f);
                 glassWallDown = true;
