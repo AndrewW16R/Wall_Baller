@@ -67,6 +67,9 @@ public class SwingStaleness : MonoBehaviour
     public GameObject backgroundManagerObject;
     public LevelBackgroundManager levelBackgroundManager; //Background sprite will be updated accordingly depending on style level each time the swing log is updated
 
+    public GameObject gameUiManagerObject;
+    public GameUiManager gameUiManager;//Ui 'styleDisplay' element will update depending on the current style level
+
     void Start()
     {
         playerSwing = gameObject.GetComponent<PlayerSwing>();
@@ -74,6 +77,9 @@ public class SwingStaleness : MonoBehaviour
 
         backgroundManagerObject = GameObject.Find("LevelBackgroundGroup");
         levelBackgroundManager = backgroundManagerObject.GetComponent<LevelBackgroundManager>();
+
+        gameUiManagerObject = GameObject.Find("GameUiCanvas");
+        gameUiManager = gameUiManagerObject.GetComponent<GameUiManager>();
 
     }
 
@@ -167,26 +173,31 @@ public class SwingStaleness : MonoBehaviour
             {
                 staleMultTimer = timerLv0StaleMult;
                 levelBackgroundManager.BackgroundUpdate("Fresh");
+                gameUiManager.StyleDisplaySetToFresh();
             }
             else if (staleRating == 2)
             {
                 staleMultTimer = timerLv1StaleMult;
                 levelBackgroundManager.BackgroundUpdate("Cool");
+                gameUiManager.StyleDisplaySetToCool();
             }
             else if (staleRating == 3)
             {
                 staleMultTimer = timerLv2StaleMult;
                 levelBackgroundManager.BackgroundUpdate("Ok");
+                gameUiManager.StyleDisplaySetToOk();
             }
             else if (staleRating == 4)
             {
                 staleMultTimer = timerLv3StaleMult;
                 levelBackgroundManager.BackgroundUpdate("Meh");
+                gameUiManager.StyleDisplaySetToMeh();
             }
             else if (staleRating == 5)
             {
                 staleMultTimer = timerLv4StaleMult;
                 levelBackgroundManager.BackgroundUpdate("Wack");
+                gameUiManager.StyleDisplaySetToWack();
             }
             else
             {

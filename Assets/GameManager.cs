@@ -22,6 +22,9 @@ public class GameManager : MonoBehaviour
     public GameObject ballUiCanvasObject; //Ui on top of screen that displays details about the status of the ball and the player
     public BallUiManager ballUiManager;
 
+    public GameObject gameUiCanvasObject; //Ui on top of screen that displays details about the status of the ball and the player
+    public GameUiManager gameUiManager;
+
     public GameObject ballObject;
     public Ball activeBall; //getting ball info to share with UI elements
 
@@ -61,6 +64,9 @@ public class GameManager : MonoBehaviour
 
         ballUiCanvasObject = GameObject.Find("BallUiCanvas");
         ballUiManager = ballUiCanvasObject.GetComponent<BallUiManager>();
+
+        gameUiCanvasObject = GameObject.Find("GameUiCanvas");
+        gameUiManager = gameUiCanvasObject.GetComponent<GameUiManager>();
 
         ballObject = GameObject.FindWithTag("Ball");
         activeBall = ballObject.GetComponent<Ball>();
@@ -109,6 +115,7 @@ public class GameManager : MonoBehaviour
         isGameOver = true;
         onGameOverEvent.Invoke();
         ballUiManager.ManualSetTimer(0.0f);
+        gameUiManager.ManualSetTimer(0.0f);
         SetTimeScale(0);
     }//Is called to initate a game over
 

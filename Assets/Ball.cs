@@ -26,6 +26,9 @@ public class Ball : MonoBehaviour
     public GameObject ballArtObject;//The gameobject which serves as a the art/visual for the ball
     public BallShake ballShake;//Script that causes the ball to visually shake upon colliding with a swing
 
+    public GameObject gameUiManagerObject;
+    public GameUiManager gameUiManager;
+
     public UnityEvent onLevelUpEvent;
     public UnityEvent onTimerStartEvent;
 
@@ -50,6 +53,9 @@ public class Ball : MonoBehaviour
 
         ballArtObject = GameObject.Find("Ball");
         ballShake = ballArtObject.GetComponent<BallShake>();
+
+        gameUiManagerObject = GameObject.Find("GameUiCanvas");
+        gameUiManager = gameUiManagerObject.GetComponent<GameUiManager>();
 
         if (onLevelUpEvent == null)
         {
@@ -90,10 +96,13 @@ public class Ball : MonoBehaviour
     {
         ballExp = ballExp + expAmount;
 
+
         if (ballExp >= 10) //If the ball's exp reaches 10, it levels up
         {
             LevelUpBall();
         }
+
+        gameUiManager.UpdateExpBarDisplay();
     }
 
     public void LevelUpBall()//Increases the ball level by 1

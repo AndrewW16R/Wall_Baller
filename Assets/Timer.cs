@@ -7,6 +7,7 @@ public class Timer : MonoBehaviour
     public float currentTime; //how many seconds the timer currently has
     public float intialTime; //how many seconds the timer starts at
     public float timeCap; //The maximum amount of time the timer can go up to
+    public float timeAdded; //The previous amount of added time is stored for the Ui to reference when displaying the time added
 
     public float intialTimeHard; //how many seconds the timer starts at, is used if hard dificulty is selected
     public float timeCapHard; //The maximum amount of time the timer can go up to, is used if hard dificulty is selected
@@ -34,8 +35,6 @@ public class Timer : MonoBehaviour
 
     public GameObject playerObject;
     public SwingStaleness swingStaleness; //Style rank/staleness adds a multiplier to how much time is gained whenever the ball levels up
-
-    public float timeAdded;
 
     public bool difficultyApplied; //Indicates that if the difficulty setting has been determined and applied to the timer
     
@@ -108,8 +107,8 @@ public class Timer : MonoBehaviour
         {
             if (gameManager.ballLevel >= 1 && gameManager.ballLevel <= 3) //Time added for levels 1-3
             {
-                currentTime = currentTime + (timeAdditionOne * swingStaleness.staleMultTimer);//Time for addition for these ball levels, multiplied by the indicated value by the current style rating
                 timeAdded = timeAdditionOne * swingStaleness.staleMultTimer;
+                currentTime = currentTime + (timeAdditionOne * swingStaleness.staleMultTimer);//Time for addition for these ball levels, multiplied by the indicated value by the current style rating
                 if (currentTime > timeCap)
                 {
                     currentTime = timeCap;
@@ -117,6 +116,7 @@ public class Timer : MonoBehaviour
             }
             else if (gameManager.ballLevel >= 4 && gameManager.ballLevel <= 5) //Time added for levels 4-5
             {
+                timeAdded = timeAdditionTwo * swingStaleness.staleMultTimer;
                 currentTime = currentTime + (timeAdditionTwo * swingStaleness.staleMultTimer); //Time for addition for these ball levels, multiplied by the indicated value by the current style rating
                 if (currentTime > timeCap)
                 {
@@ -125,6 +125,7 @@ public class Timer : MonoBehaviour
             }
             else if (gameManager.ballLevel >= 6 && gameManager.ballLevel <= 8) //Time added for levels 6-8
             {
+                timeAdded = timeAdditionThree * swingStaleness.staleMultTimer;
                 currentTime = currentTime + (timeAdditionThree * swingStaleness.staleMultTimer); //Time for addition for these ball levels, multiplied by the indicated value by the current style rating
                 if (currentTime > timeCap)
                 {
@@ -133,6 +134,7 @@ public class Timer : MonoBehaviour
             }
             else if (gameManager.ballLevel >= 9 && gameManager.ballLevel <= 10)//Time added for levels 9-10
             {
+                timeAdded = timeAdditionFour * swingStaleness.staleMultTimer;
                 currentTime = currentTime + (timeAdditionFour * swingStaleness.staleMultTimer); //Time for addition for these ball levels, multiplied by the indicated value by the current style rating
                 if (currentTime > timeCap)
                 {
@@ -141,6 +143,7 @@ public class Timer : MonoBehaviour
             }
             else if (gameManager.ballLevel >= 11) //Time added for levels 11+
             {
+                timeAdded = timeAdditionFive * swingStaleness.staleMultTimer;
                 currentTime = currentTime + (timeAdditionFive * swingStaleness.staleMultTimer); //Time for addition for these ball levels, multiplied by the indicated value by the current style rating
                 if (currentTime > timeCap)
                 {
@@ -152,8 +155,8 @@ public class Timer : MonoBehaviour
         {
             if (gameManager.ballLevel >= 1 && gameManager.ballLevel <= 3) //Time added for levels 1-3
             {
-                currentTime = currentTime + (timeAdditionOneHard * swingStaleness.staleMultTimer); //Time for addition for these ball levels, multiplied by the indicated value by the current style rating
                 timeAdded = timeAdditionOne * swingStaleness.staleMultTimer;
+                currentTime = currentTime + (timeAdditionOneHard * swingStaleness.staleMultTimer); //Time for addition for these ball levels, multiplied by the indicated value by the current style rating
                 if (currentTime > timeCap)
                 {
                     currentTime = timeCap;
@@ -161,6 +164,7 @@ public class Timer : MonoBehaviour
             }
             else if (gameManager.ballLevel >= 4 && gameManager.ballLevel <= 5) //Time added for levels 4-5
             {
+                timeAdded = timeAdditionTwoHard * swingStaleness.staleMultTimer;
                 currentTime = currentTime + (timeAdditionTwoHard * swingStaleness.staleMultTimer); //Time for addition for these ball levels, multiplied by the indicated value by the current style rating
                 if (currentTime > timeCap)
                 {
@@ -169,6 +173,7 @@ public class Timer : MonoBehaviour
             }
             else if (gameManager.ballLevel >= 6 && gameManager.ballLevel <= 8) //Time added for levels 6-8
             {
+                timeAdded = timeAdditionThreeHard * swingStaleness.staleMultTimer;
                 currentTime = currentTime + (timeAdditionThreeHard * swingStaleness.staleMultTimer); //Time for addition for these ball levels, multiplied by the indicated value by the current style rating
                 if (currentTime > timeCap)
                 {
@@ -177,6 +182,7 @@ public class Timer : MonoBehaviour
             }
             else if (gameManager.ballLevel >= 9 && gameManager.ballLevel <= 10) //Time added for levels 9-10
             {
+                timeAdded = timeAdditionFourHard * swingStaleness.staleMultTimer;
                 currentTime = currentTime + (timeAdditionFourHard * swingStaleness.staleMultTimer); //Time for addition for these ball levels, multiplied by the indicated value by the current style rating
                 if (currentTime > timeCap)
                 {
@@ -185,6 +191,7 @@ public class Timer : MonoBehaviour
             }
             else if (gameManager.ballLevel >= 11) //Time added for levels 11+
             {
+                timeAdded = timeAdditionFiveHard * swingStaleness.staleMultTimer;
                 currentTime = currentTime + (timeAdditionFiveHard * swingStaleness.staleMultTimer); //Time for addition for these ball levels, multiplied by the indicated value by the current style rating
                 if (currentTime > timeCap)
                 {
