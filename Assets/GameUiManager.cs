@@ -55,6 +55,9 @@ public class GameUiManager : MonoBehaviour
     public GameObject styleDisplayMeh;
     public GameObject styleDisplayWack;
 
+    public float timeAddedDisplayDuration;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -71,6 +74,7 @@ public class GameUiManager : MonoBehaviour
 
         //textStyle.text = "STYLE: TBD";
         StyleDisplaySetToFresh();
+        StopDisplayTimeAdded();
 
     }
 
@@ -204,6 +208,40 @@ public class GameUiManager : MonoBehaviour
         else if (activeBall.ballExp == 10)
         {
             ExpBarSetTo100();
+        }
+    }
+
+    public void DisplayAddedTime()
+    {
+        if (swingStaleness.prevStaleRating <= 1)//No more than 1 repeated swings within the swing log
+        {
+            textTimeAddedFresh.text = ("+" + timer.timeAdded.ToString());
+            StartCoroutine(TimeAddedDisplayProcess());
+            textStyle.text = "STYLE: FRESH!!!";
+        }
+        else if (swingStaleness.prevStaleRating == 2)//2 repeated swings within the swing log
+        {
+            textTimeAddedCool.text = ("+" + timer.timeAdded.ToString());
+            StartCoroutine(TimeAddedDisplayProcess());
+            textStyle.text = "STYLE: COOL!";
+        }
+        else if (swingStaleness.prevStaleRating == 3)//3 repeated swings within the swing log
+        {
+            textTimeAddedOk.text = ("+" + timer.timeAdded.ToString());
+            StartCoroutine(TimeAddedDisplayProcess());
+            textStyle.text = "STYLE: MEH...";
+        }
+        else if (swingStaleness.prevStaleRating == 4)//4 repeated swings within the swing log
+        {
+            textTimeAddedMeh.text = ("+" + timer.timeAdded.ToString());
+            StartCoroutine(TimeAddedDisplayProcess());
+            textStyle.text = "STYLE: STALE";
+        }
+        else if (swingStaleness.prevStaleRating == 5)//5 repeated swings within the swing log
+        {
+            textTimeAddedWack.text = ("+" + timer.timeAdded.ToString());
+            StartCoroutine(TimeAddedDisplayProcess());
+            textStyle.text = "STYLE: WACK";
         }
     }
 
@@ -415,5 +453,20 @@ public class GameUiManager : MonoBehaviour
         styleDisplayOk.SetActive(false);
         styleDisplayMeh.SetActive(false);
         styleDisplayWack.SetActive(true);
+    }
+
+    public void StopDisplayTimeAdded()
+    {
+        textTimeAddedFresh.text = ("");
+        textTimeAddedCool.text = ("");
+        textTimeAddedOk.text = ("");
+        textTimeAddedMeh.text = ("");
+        textTimeAddedWack.text = ("");
+    }
+
+    private IEnumerator TimeAddedDisplayProcess()
+    {
+        yield return new WaitForSeconds(timeAddedDisplayDuration);
+        StopDisplayTimeAdded();
     }
 }

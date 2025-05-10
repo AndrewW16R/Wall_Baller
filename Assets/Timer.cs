@@ -36,6 +36,9 @@ public class Timer : MonoBehaviour
     public GameObject playerObject;
     public SwingStaleness swingStaleness; //Style rank/staleness adds a multiplier to how much time is gained whenever the ball levels up
 
+    public GameObject gameUiManagerObject;
+    public GameUiManager gameUiManager;
+
     public bool difficultyApplied; //Indicates that if the difficulty setting has been determined and applied to the timer
     
 
@@ -46,6 +49,9 @@ public class Timer : MonoBehaviour
 
         playerObject = GameObject.Find("Player");
         swingStaleness = playerObject.GetComponent<SwingStaleness>();
+
+        gameUiManagerObject = GameObject.Find("GameUiCanvas");
+        gameUiManager = gameUiManagerObject.GetComponent<GameUiManager>();
 
         timerOn = false;
         difficultyApplied = false;
@@ -199,7 +205,8 @@ public class Timer : MonoBehaviour
                 }
             }
         }
-        
+
+        gameUiManager.DisplayAddedTime();
         
     }
 }
