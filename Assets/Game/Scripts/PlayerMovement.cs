@@ -128,13 +128,13 @@ public class PlayerMovement : MonoBehaviour
             dirX = Input.GetAxisRaw("Horizontal");
         }
 
-       
+       UpdateJump();
 
 
         //Checks for jump input and executes jump in under proper conditions
         if (gameManager.isGamePaused == false && gameManager.isGameOver == false)
         {
-            UpdateJump();
+            //UpdateJump();
 
             //Refills player's available dashes
             if (dashesAvailable < maxDashes && dashRefilling == false)
@@ -207,13 +207,13 @@ public class PlayerMovement : MonoBehaviour
             }
 
 
-            if (Input.GetButtonDown("Jump") && IsGrounded() && dirY <= verInputGateNegative && playerSwing.stopJumpInput == false && gameManager.isGamePaused == false)//If player jumps on ground while holding down, perform a high jump
+            if (Input.GetButtonDown("Jump") && IsGrounded() && dirY <= verInputGateNegative && playerSwing.stopJumpInput == false && gameManager.isGamePaused == false && jumpsAvailable > 0)//If player jumps on ground while holding down, perform a high jump
             {
                 rb.velocity = new Vector2(rb.velocity.x, highJumpStrength);
                 jumpsAvailable = 0;//Player can not double jump from a high jump
                 onHighJumpEvent.Invoke();//used to activate SFX
                 initialJumpUsed = true;
-
+                //Debug.Log("high jump");
             }
             else if (Input.GetButtonDown("Jump") && IsGrounded() && playerSwing.stopJumpInput == false && gameManager.isGamePaused == false) //Player uses first jump
             {
