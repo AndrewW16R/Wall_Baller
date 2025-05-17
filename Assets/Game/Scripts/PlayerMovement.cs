@@ -60,6 +60,11 @@ public class PlayerMovement : MonoBehaviour
     private GameObject playerVfxObject;
     private PlayerVfx playerVfx;
 
+    private GameObject dashAvailabilityGroup;
+    private DashIconManager dashIconManager;
+
+    public bool dashReadyNotifPlayed;
+
     public UnityEvent onJumpEvent;
     public UnityEvent onDoubleJumpEvent;
     public UnityEvent onHighJumpEvent;
@@ -84,7 +89,11 @@ public class PlayerMovement : MonoBehaviour
         playerVfxObject = GameObject.Find("VfxGroup");
         playerVfx = playerVfxObject.GetComponent<PlayerVfx>();
 
+        dashAvailabilityGroup = GameObject.Find("DashAvailabilityIcon");
+        dashIconManager = dashAvailabilityGroup.GetComponent<DashIconManager>();
+
         spendDash = true;
+        dashReadyNotifPlayed = false;
 
         if (onJumpEvent == null)
         {
@@ -141,6 +150,11 @@ public class PlayerMovement : MonoBehaviour
             {
                 StartCoroutine(RefillDash(timeToRefillOneDash));
                 
+            }
+            else if (dashesAvailable == maxDashes && dashReadyNotifPlayed == false) //when all dashes are available for use, notify the player
+            {
+                dashIconManager.DisplayDashAvailable();
+                dashReadyNotifPlayed = true;
             }
 
             UpdateDash();
@@ -254,6 +268,11 @@ public class PlayerMovement : MonoBehaviour
    private void UpdateDash()
     {
 
+        if ((Input.GetButtonDown("Dash01") || (Input.GetButtonDown("Dash02"))) && dashesAvailable < 1)
+        {
+            dashIconManager.DisplayDashRecharging();
+        }
+
         if ((Input.GetButtonDown("Dash01") || (Input.GetButtonDown("Dash02"))) && playerSwing.canDashCancel == true && playerSwing.dashCancelAvailable == true && playerSwing.isSwinging && dashesAvailable > 0)//If the player inputs dash during a dash-cancelable swing that has already collided with the ball. A dash cancel occurs
         {
             playerSwing.UpdateDashingPrevention(false);
@@ -316,7 +335,7 @@ public class PlayerMovement : MonoBehaviour
                 }
 
             }
-
+             
         }
     }
 
@@ -406,6 +425,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         spendDash = true;
+        dashReadyNotifPlayed = false;
 
     }
 

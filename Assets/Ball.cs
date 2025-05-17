@@ -9,13 +9,16 @@ public class Ball : MonoBehaviour
     private CircleCollider2D coll;
 
     public float initialBallSpeed; //The speed the ball starts out at
-    public float ballSpeed; //The ball's current base speed
+    public float ballBaseSpeed; //The ball's current base speed
     public int ballLevel; //The ball's current level
     public int ballExp; //How much exp the ball currently has (0/10)
     public float speedCapIncreasePerLevel; //How much the ball's base speed increases by with each level up
     Transform ballTransform;
 
     public float currentBallHitStop;//The amount of hitstop power which the ball has inherited from the swing it collided with
+
+    public float ballCurrentSpeed;
+    public float ballTrailSpeedRequirement;
 
     public bool timerStarted;//Has the timer started? Timer waits until the ball has collided with a swing at least one time before starting
 
@@ -25,6 +28,8 @@ public class Ball : MonoBehaviour
 
     public GameObject ballArtObject;//The gameobject which serves as a the art/visual for the ball
     public BallShake ballShake;//Script that causes the ball to visually shake upon colliding with a swing
+
+    public GameObject ballTrail;
 
     public GameObject gameUiManagerObject;
     public GameUiManager gameUiManager;
@@ -43,7 +48,7 @@ public class Ball : MonoBehaviour
 
         ballTransform = GetComponent<Transform>();
 
-        ballSpeed = initialBallSpeed;
+        ballBaseSpeed = initialBallSpeed;
         ballLevel = 1; //The Ball's current level
         ballExp = 0; //How much experience the ball has, ball levels up once reaching 10 exp and then 10 exp from ballExp is subtracted
 
@@ -68,6 +73,8 @@ public class Ball : MonoBehaviour
         }
 
         timerStarted = false;
+
+        UpdateBallTrail();
     }
 
     // Update is called once per frame
@@ -83,13 +90,14 @@ public class Ball : MonoBehaviour
     {
         if(xMult == false)
         {
-            rb.velocity = new Vector2((ballSpeed + xVel) * staleMult, yVel*staleMult);
+            rb.velocity = new Vector2((ballBaseSpeed + xVel) * staleMult, yVel*staleMult);
         }
         else
         {
-            rb.velocity = new Vector2((ballSpeed * xVel) * staleMult, yVel*staleMult);
+            rb.velocity = new Vector2((ballBaseSpeed * xVel) * staleMult, yVel*staleMult);
         }
-            
+
+        UpdateBallTrail();
     }
 
     public void AddBallExp(int expAmount) //Experience is added to the ball, amount is determined by collided swing
@@ -116,7 +124,7 @@ public class Ball : MonoBehaviour
 
     public void UpdateBallSpeed()//Increases the ball's base speed
     {
-         ballSpeed = ballSpeed + speedCapIncreasePerLevel;
+         ballBaseSpeed = ballBaseSpeed + speedCapIncreasePerLevel;
     }
 
     public void HitStopProcess()//The GameManager gets info of the ball's current state and calculates the hitstop to be applied
@@ -150,4 +158,21 @@ public class Ball : MonoBehaviour
         }
         timer.timerOn = true;
     }
+
+    public void UpdateBallTrail()
+    {
+        ballCurrentSpeed = rb.velocity.x;
+        //ballCurrentSpeed = Mathf.Round(ballCurrentSpeed * 10.0f) * 0.1f;
+        //ballCurrentSpeed = ballCurrentSpeed * 10;
+
+        if (ballCurrentSpeed >= ballTrailSpeedRequirement)
+        {
+            ballTrail.SetActive(true);
+        }
+        else
+        {
+            ballTrail.SetActive(false);
+        }
+    }
 }
+
