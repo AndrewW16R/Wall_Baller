@@ -24,6 +24,9 @@ public class GlassZone : MonoBehaviour
     public GameObject glassBrokenSprite02;
     public GameObject glassCollision;
 
+    public GameObject glassParticle01;
+    public GameObject glassParticle02;
+
     public float firstCollisionHitStop;
     public float secondCollisionHitStop;
 
@@ -56,6 +59,8 @@ public class GlassZone : MonoBehaviour
         glassBrokenSprite01.SetActive(false);
         glassBrokenSprite02.SetActive(false);
         glassCollision.SetActive(true);
+        glassParticle01.SetActive(false);
+        glassParticle02.SetActive(false);
 
         glassWallDown = false;
         isVulnerable = true;
@@ -96,6 +101,7 @@ public class GlassZone : MonoBehaviour
                 {
                     glassSprite.SetActive(false);
                     glassCrackedSprite.SetActive(true);
+                    glassParticle01.SetActive(true);
                     SetGlassVulnerability(false);//ensures that ball will not damage glass a second time until the ball passes the barrier on the right side of the screen.
                     onFirstHitEvent.Invoke();
                     cameraShake.ActivateShake01();
@@ -111,6 +117,7 @@ public class GlassZone : MonoBehaviour
                 glassCrackedSprite.SetActive(false);
                 glassBrokenSprite01.SetActive(true);
                 glassBrokenSprite02.SetActive(true);
+                glassParticle02.SetActive(true);
                 onSecondHitEvent.Invoke();
                 Invoke("DisableGlassCollision", 0.1f);
                 glassWallDown = true;

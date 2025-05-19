@@ -53,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
     public float verInputGateNegative = 0.35f; //How far down the vertical input needs to be counted as an "Down" input
 
     public string movementType;
+    
 
     private GameObject gameManagerObject;
     private GameManager gameManager;
@@ -60,8 +61,8 @@ public class PlayerMovement : MonoBehaviour
     private GameObject playerVfxObject;
     private PlayerVfx playerVfx;
 
-    private GameObject dashAvailabilityGroup;
-    private DashIconManager dashIconManager;
+    public GameObject dashAvailabilityGroup;
+    public DashIconManager dashIconManager;
 
     public bool dashReadyNotifPlayed;
 
@@ -273,14 +274,20 @@ public class PlayerMovement : MonoBehaviour
             dashIconManager.DisplayDashRecharging();
         }
 
-        if ((Input.GetButtonDown("Dash01") || (Input.GetButtonDown("Dash02"))) && playerSwing.canDashCancel == true && playerSwing.dashCancelAvailable == true && playerSwing.isSwinging && dashesAvailable > 0)//If the player inputs dash during a dash-cancelable swing that has already collided with the ball. A dash cancel occurs
+        if ((Input.GetButtonDown("Dash01") || (Input.GetButtonDown("Dash02"))) && playerSwing.canDashCancel == true && playerSwing.dashCancelAvailable == true && playerSwing.isSwinging && dashesAvailable > 0 && playerSwing.requireBallCollisionForDashCancel)//If the player inputs dash during a dash-cancelable swing that has already collided with the ball. A dash cancel occurs
+        {
+            playerSwing.UpdateDashingPrevention(false);
+            playerVfx.ActivateDashCancelVFX(); //Plays VFX for Dash canceling
+            playerSwing.SwingCancel();
+        }
+        else if ((Input.GetButtonDown("Dash01") || (Input.GetButtonDown("Dash02"))) && playerSwing.canDashCancel == true && playerSwing.isSwinging && dashesAvailable > 0 && playerSwing.requireBallCollisionForDashCancel == false)
         {
             playerSwing.UpdateDashingPrevention(false);
             playerVfx.ActivateDashCancelVFX(); //Plays VFX for Dash canceling
             playerSwing.SwingCancel();
         }
 
-        if ((Input.GetButtonDown("Dash01") || (Input.GetButtonDown("Dash02"))) && isDashing == false && dashesAvailable > 0 && playerSwing.stopDashing == false && playerSwing.stopHorizontalVel == false)//Start dash if the button is inputed, the player is not already dashing, dashing and horizontal movement are not being prevented
+            if ((Input.GetButtonDown("Dash01") || (Input.GetButtonDown("Dash02"))) && isDashing == false && dashesAvailable > 0 && playerSwing.stopDashing == false && playerSwing.stopHorizontalVel == false)//Start dash if the button is inputed, the player is not already dashing, dashing and horizontal movement are not being prevented
         {
 
 

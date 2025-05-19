@@ -19,6 +19,8 @@ public class PlayerSwing : MonoBehaviour
     [SerializeField] private int currentSwingDuration; //The number of frames currently left for the active swing. Swing will end when this number reaches 0
     public bool isAirSwing; //Set to true if the current swing is a swing that is performed in the air.
 
+    public bool requireBallCollisionForDashCancel; // if set to true, a swing can only be dash canceled if the swing has collided with the ball
+
     //PlayerMovement class on Player GameObject
     PlayerMovement playerMovement;
 
@@ -101,7 +103,7 @@ public class PlayerSwing : MonoBehaviour
             if (playerMovement.dirY >= playerMovement.verInputGatePositive) //Light Grounded up
             {
                 isSwinging = true;
-                UpdateHorizontalInputPrevention(true);
+                UpdateHorizontalInputPrevention(false);
                 UpdateHorizontalVelocityPrevention(true);
                 UpdateDashingPrevention(true);
                 UpdateJumpInputPrevention(true);
@@ -116,7 +118,7 @@ public class PlayerSwing : MonoBehaviour
             else if (playerMovement.dirY <= playerMovement.verInputGateNegative) //Light Grounded Down
             {
                 isSwinging = true;
-                UpdateHorizontalInputPrevention(true);
+                UpdateHorizontalInputPrevention(false);
                 UpdateHorizontalVelocityPrevention(true);
                 UpdateDashingPrevention(true);
                 UpdateJumpInputPrevention(true);
@@ -131,7 +133,7 @@ public class PlayerSwing : MonoBehaviour
             else //Light Grounded Middle
             {
                 isSwinging = true;
-                UpdateHorizontalInputPrevention(true);
+                UpdateHorizontalInputPrevention(false);
                 UpdateHorizontalVelocityPrevention(true);
                 UpdateDashingPrevention(true);
                 UpdateJumpInputPrevention(true);
