@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DashIconManager : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class DashIconManager : MonoBehaviour
 
     public float iconDisplayDuration;
 
+    public UnityEvent onDashReadyEvent;
+    public UnityEvent onDashChargingEvent;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +27,16 @@ public class DashIconManager : MonoBehaviour
 
         playerObject = GameObject.Find("Player");
         playerMovement = playerObject.GetComponent<PlayerMovement>();
+
+        if (onDashReadyEvent == null)
+        {
+            onDashReadyEvent = new UnityEvent();
+        }
+
+        if (onDashChargingEvent == null)
+        {
+            onDashChargingEvent = new UnityEvent();
+        }
     }
 
     // Update is called once per frame
@@ -33,13 +47,13 @@ public class DashIconManager : MonoBehaviour
 
     public void DisplayDashAvailable()
     {
-        //play SFX here
+        onDashReadyEvent.Invoke();
         StartCoroutine(DashReadyDisplayProcess());
     }
 
     public void DisplayDashRecharging()
     {
-        //play SFX here
+        onDashChargingEvent.Invoke();
         StartCoroutine(DashRechargingDisplayProcess());
     }
 
