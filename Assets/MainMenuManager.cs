@@ -39,6 +39,8 @@ public class MainMenuManager : MonoBehaviour
     public GameObject playerPrefManagerObject;
     public GameSettingsSaveSystem gameSettingsSaveSystem;
 
+    public bool enableCursorOnStart;
+
     public UnityEvent onDisableHowToPlayCanvas; //Event used to ensure allcanvases withint the How to play Menus are disabled
 
     // Start is called before the first frame update
@@ -66,6 +68,8 @@ public class MainMenuManager : MonoBehaviour
 
         UpdateScreenShakeToggleDisplay();
         UpdateHitboxDisplayToggleDisplay();
+
+        ToggleCursor(enableCursorOnStart);
     }
 
     // Update is called once per frame
@@ -85,6 +89,20 @@ public class MainMenuManager : MonoBehaviour
         howToPlayButton.SetActive(isEnabled);
         controlsButton.SetActive(isEnabled);
         quitButton.SetActive(isEnabled);
+    }
+
+    public void ToggleCursor(bool isEnabled)
+    {
+        if (isEnabled == true)
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
     }
 
     public void QuitGame()
