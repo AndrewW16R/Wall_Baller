@@ -28,6 +28,7 @@ public class MainMenuManager : MonoBehaviour
     public Text textScreenShakeToggleButton;
     public Text textHitboxDisplayToggleButton;
 
+    public GameObject trainingModesCanvas;
     public GameObject howToPlayCanvas;
     public GameObject tutorialSelectCanvas;
     public GameObject tutorialBasicCanvas;
@@ -41,15 +42,15 @@ public class MainMenuManager : MonoBehaviour
 
     public bool enableCursorOnStart;
 
-    public UnityEvent onDisableHowToPlayCanvas; //Event used to ensure allcanvases withint the How to play Menus are disabled
+    public UnityEvent onDisableTrainingModesCanvas; //Event used to ensure allcanvases withint the How to play Menus are disabled
 
     // Start is called before the first frame update
     void Start()
     {
 
-        if (onDisableHowToPlayCanvas == null)
+        if (onDisableTrainingModesCanvas == null)
         {
-            onDisableHowToPlayCanvas = new UnityEvent();
+            onDisableTrainingModesCanvas = new UnityEvent();
         }
         
         ButtonsEnabled(true);
@@ -160,12 +161,18 @@ public class MainMenuManager : MonoBehaviour
     public void ToggleHowToPlayCanvas(bool isEnabled)
     {
         howToPlayCanvas.SetActive(isEnabled);
+    }
 
-        if(isEnabled==false)
+    public void ToggleTrainingModesCanvas(bool isEnabled)
+    {
+        trainingModesCanvas.SetActive(isEnabled);
+
+        if (isEnabled == false)
         {
-            onDisableHowToPlayCanvas.Invoke();
+            onDisableTrainingModesCanvas.Invoke();
         }
     }
+
 
     public void ToggleTutorialSelectCanvas(bool isEnabled)
     {
