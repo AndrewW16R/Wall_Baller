@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using TMPro;
 
 public class MainMenuManager : MonoBehaviour
 {
@@ -25,8 +26,10 @@ public class MainMenuManager : MonoBehaviour
     public GameObject movementTypePg;
     public GameObject difficultySelectPg;
 
-    public Text textScreenShakeToggleButton;
-    public Text textHitboxDisplayToggleButton;
+    public TMP_Text textScreenShakeToggleButton;
+    public TMP_Text textHitboxDisplayToggleButton;
+    public TMP_Text textAimIndicatorToggleButton;
+    public TMP_Text textRightWallAnimationToggleButton;
 
     public GameObject trainingModesCanvas;
     public GameObject howToPlayCanvas;
@@ -150,12 +153,52 @@ public class MainMenuManager : MonoBehaviour
 
     public void UpdateScreenShakeToggleDisplay() //Setting up string in GameSettingSaveSysten to modify the text in the toggle button to match the current ScreenShake setting
     {
-        textScreenShakeToggleButton.text = gameSettingsSaveSystem.screenShakeToggle;
+        if (gameSettingsSaveSystem.screenShakeToggle == "On")
+        {
+            textScreenShakeToggleButton.text = "ON";
+        }
+        else
+        {
+            textScreenShakeToggleButton.text = "OFF";
+        }
+        //textScreenShakeToggleButton.text = gameSettingsSaveSystem.screenShakeToggle;
     }
 
     public void UpdateHitboxDisplayToggleDisplay() //Setting up string in GameSettingSaveSysten to modify the text in the toggle button to match the current HitboxDisplay setting
     {
-        textHitboxDisplayToggleButton.text = gameSettingsSaveSystem.hitboxDisplayToggle;
+        if(gameSettingsSaveSystem.hitboxDisplayToggle == "On")
+        {
+            textHitboxDisplayToggleButton.text = "ON";
+        }
+        else
+        {
+            textHitboxDisplayToggleButton.text = "OFF";
+        }
+        //textHitboxDisplayToggleButton.text = gameSettingsSaveSystem.hitboxDisplayToggle;
+    }
+
+    public void UpdateAimIndicatorToggleDisplay() //Setting up string in GameSettingSaveSysten to modify the text in the toggle button to match the current AimIndicator setting
+    {
+        if (gameSettingsSaveSystem.aimIndicatorToggle == "On")
+        {
+            textAimIndicatorToggleButton.text = "ON";
+        }
+        else
+        {
+            textAimIndicatorToggleButton.text = "OFF";
+        }
+    }
+
+    public void UpdateRightWallAnimationToggleDisplay() //Setting up string in GameSettingSaveSysten to modify the text in the toggle button to match the current RightWallAnimation setting
+    {
+        if (gameSettingsSaveSystem.rightWallAnimationToggle == "On")
+        {
+            textRightWallAnimationToggleButton.text = "ON";
+        }
+        else
+        {
+            textRightWallAnimationToggleButton.text = "OFF";
+        }
     }
 
     public void ToggleHowToPlayCanvas(bool isEnabled)
