@@ -31,11 +31,21 @@ public class MusicPlayerLevel : MonoBehaviour
     public GameObject audioSourceObjectResultsLoop;
     public AudioSource audioSourceResultsLoop;
 
+    public GameObject audioManagerObject;
+    public AudioManager audioManager;
+
+    public float assignedMusicVolume; //Volume is retrieved from playedMusicVolume int the AudioManager script
+
     // Start is called before the first frame update
     void Start()
     {
         GetAudioSources();
         GetMusicClips();
+
+        audioManagerObject = GameObject.Find("AudioManager");
+        audioManager = audioManagerObject.GetComponent<AudioManager>();
+
+        UpdateMusicVolume();
     }
 
     public void GetAudioSources()
@@ -70,6 +80,21 @@ public class MusicPlayerLevel : MonoBehaviour
         audioSourceResultsIntro.clip = resultsMusicIntro;
         audioSourceResultsLoop.clip = resultsMusicLoop;
     }
+
+    public void UpdateMusicVolume()
+    {
+        audioManager.UpdateVolumeLevels(); //Updates volume settings
+
+        assignedMusicVolume = PlayerPrefs.GetFloat("PlayedMusicVolume");
+
+        audioSourceMainIntro.volume = assignedMusicVolume;
+        audioSourceMainLoop.volume = assignedMusicVolume;
+        audioSourceLastChanceIntro.volume = assignedMusicVolume;
+        audioSourceLastChanceLoop.volume = assignedMusicVolume;
+        audioSourceResultsIntro.volume = assignedMusicVolume;
+        audioSourceResultsLoop.volume = assignedMusicVolume;
+    }
+
 
     public void StopAllMusic()
     {

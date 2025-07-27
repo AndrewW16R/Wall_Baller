@@ -21,6 +21,8 @@ public class MainMenuManager : MonoBehaviour
     public GameObject settingsCanvas;
     public GameObject gameSettingsPg;
     public GameObject videoSettingsPg;
+    //public GameObject videoSettingsPgbase;
+    //public GameObject videoSettingsScreenResPg;
     public GameObject audioSettingsPg;
 
     public GameObject movementTypePg;
@@ -30,6 +32,10 @@ public class MainMenuManager : MonoBehaviour
     public TMP_Text textHitboxDisplayToggleButton;
     public TMP_Text textAimIndicatorToggleButton;
     public TMP_Text textRightWallAnimationToggleButton;
+
+    public TMP_Text textFullScreenToggleButton;
+    public TMP_Text textResolutionSelectButton;
+    public TMP_Text textSelectedScreenResolution;
 
     public GameObject trainingModesCanvas;
     public GameObject howToPlayCanvas;
@@ -42,6 +48,9 @@ public class MainMenuManager : MonoBehaviour
 
     public GameObject playerPrefManagerObject;
     public GameSettingsSaveSystem gameSettingsSaveSystem;
+
+    public GameObject videoSettingsManagerObject;
+    public VideoSettingsManagerV2 videoSettingsManagerV2;
 
     public bool enableCursorOnStart;
 
@@ -70,8 +79,15 @@ public class MainMenuManager : MonoBehaviour
         playerPrefManagerObject = GameObject.Find("PlayerPrefManager");
         gameSettingsSaveSystem = playerPrefManagerObject.GetComponent<GameSettingsSaveSystem>();
 
+        //videoSettingsManagerObject = GameObject.Find("Settings_VideoPage");
+        videoSettingsManagerV2 = videoSettingsManagerObject.GetComponent<VideoSettingsManagerV2>();
+
         UpdateScreenShakeToggleDisplay();
         UpdateHitboxDisplayToggleDisplay();
+        UpdateAimIndicatorToggleDisplay();
+        UpdateRightWallAnimationToggleDisplay();
+        UpdateFullScreenToggleDisplay();
+        UpdateResolutionSelectButtonDisplay();
 
         ToggleCursor(enableCursorOnStart);
     }
@@ -199,6 +215,28 @@ public class MainMenuManager : MonoBehaviour
         {
             textRightWallAnimationToggleButton.text = "OFF";
         }
+    }
+
+    public void UpdateFullScreenToggleDisplay() //Setting up string in GameSettingSaveSysten to modify the text in the toggle button to match the current FullScreen setting
+    {
+        if (videoSettingsManagerV2.isFullScreen == true)
+        {
+            textFullScreenToggleButton.text = "ON";
+        }
+        else
+        {
+            textFullScreenToggleButton.text = "OFF";
+        }
+    }
+
+    public void UpdateResolutionSelectButtonDisplay() //Setting up string in GameSettingSaveSysten to modify the text in the tesolution select button to match the current screen Resolution setting
+    {
+        textResolutionSelectButton.text = PlayerPrefs.GetString("SelectedScreenRes");
+    }
+
+    public void UpdateSelectedResolutionDisplay() //Setting up string in GameSettingSaveSysten to modify the text in the tesolution select button to match the current screen Resolution setting
+    {
+        textSelectedScreenResolution.text = PlayerPrefs.GetString("SelectedScreenRes");
     }
 
     public void ToggleHowToPlayCanvas(bool isEnabled)

@@ -78,6 +78,12 @@ public class AudioManager : MonoBehaviour
     public int soundRngResult;
     public int soundRngResultEight;
 
+    public float masterVolume;
+    public float musicVolume;
+    public float effectsVolume;
+    public float playedMusicVolume;
+    public float playedEffectsVolume;
+
 
     // Start is called before the first frame update
     void Start()
@@ -108,12 +114,33 @@ public class AudioManager : MonoBehaviour
 
         audioSourceObject09 = GameObject.Find("AudioSource09");
         audioSource09 = audioSourceObject09.GetComponent<AudioSource>();
+
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void UpdateVolumeLevels()
+    {
+        masterVolume = PlayerPrefs.GetFloat("MasterVolume");
+        musicVolume = PlayerPrefs.GetFloat("MusicVolume");
+        effectsVolume = PlayerPrefs.GetFloat("EffectsVolume");
+        playedMusicVolume = PlayerPrefs.GetFloat("PlayedMusicVolume");
+        playedEffectsVolume = PlayerPrefs.GetFloat("PlayedEffectsVolume");
+
+        audioSource01.volume = playedEffectsVolume;
+        audioSource02.volume = playedEffectsVolume;
+        audioSource03.volume = playedEffectsVolume;
+        audioSource04.volume = playedEffectsVolume;
+        audioSource05.volume = playedEffectsVolume;
+        audioSource06.volume = playedEffectsVolume;
+        audioSource07.volume = playedEffectsVolume;
+        audioSource08.volume = playedEffectsVolume;
+        audioSource09.volume = playedEffectsVolume;
     }
 
     public void SoundRngRoll()
