@@ -45,7 +45,7 @@ public class MusicPlayerLevel : MonoBehaviour
         audioManagerObject = GameObject.Find("AudioManager");
         audioManager = audioManagerObject.GetComponent<AudioManager>();
 
-        UpdateMusicVolume();
+        //UpdateMusicVolume();
     }
 
     public void GetAudioSources()
@@ -81,7 +81,7 @@ public class MusicPlayerLevel : MonoBehaviour
         audioSourceResultsLoop.clip = resultsMusicLoop;
     }
 
-    public void UpdateMusicVolume()
+   /* public void UpdateMusicVolume()
     {
         audioManager.UpdateVolumeLevels(); //Updates volume settings
 
@@ -93,7 +93,7 @@ public class MusicPlayerLevel : MonoBehaviour
         audioSourceLastChanceLoop.volume = assignedMusicVolume;
         audioSourceResultsIntro.volume = assignedMusicVolume;
         audioSourceResultsLoop.volume = assignedMusicVolume;
-    }
+    } */
 
 
     public void StopAllMusic()

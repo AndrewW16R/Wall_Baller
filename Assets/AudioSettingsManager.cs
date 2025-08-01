@@ -1,14 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioSettingsManager : MonoBehaviour
 {
+    public AudioMixer audioMixer;
+
     public float masterVolume;
     public float musicVolume;
     public float effectsVolume;
     public float playedMusicVolume;
     public float playedEffectsVolume;
+
+    public string hasVisitedAudioSettings;
 
     public GameObject masterVolumeBar0;
     public GameObject masterVolumeBar10;
@@ -46,18 +51,29 @@ public class AudioSettingsManager : MonoBehaviour
     public GameObject effectsVolumeBar90;
     public GameObject effectsVolumeBar100;
 
+    public GameObject universalAudioManagerObject;
+    public UniversalAudioManager universalAudioManager;
+
+    void Awake()
+    {
+        hasVisitedAudioSettings = PlayerPrefs.GetString("HasVisitedAudioSettings");
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-       // PlayerPrefs.SetString("HasVisitedAudioSettings", "");   Used for testing if the initializing of the audio settings works as intended. indicates that player has not visited audio settings
+        universalAudioManagerObject = GameObject.Find("UniversalAudioManager");
+        universalAudioManager = universalAudioManagerObject.GetComponent<UniversalAudioManager>();
+
+        //PlayerPrefs.SetString("HasVisitedAudioSettings", "");  // Used for testing if the initializing of the audio settings works as intended. indicates that player has not visited audio settings
+        
         InitializeAudioSettings();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void GetPlayedVolumes()
@@ -82,6 +98,12 @@ public class AudioSettingsManager : MonoBehaviour
 
         PlayerPrefs.SetFloat("PlayedMusicVolume", playedMusicVolume);
         PlayerPrefs.SetFloat("PlayedEffectsVolume", playedEffectsVolume);
+
+        masterVolume = PlayerPrefs.GetFloat("MasterVolume");
+        musicVolume = PlayerPrefs.GetFloat("MusicVolume");
+        effectsVolume = PlayerPrefs.GetFloat("EffectsVolume");
+
+        PlayerPrefs.Save();
     }
 
     public void IncreaseMasterVolume()
@@ -91,23 +113,33 @@ public class AudioSettingsManager : MonoBehaviour
             masterVolume = masterVolume + 0.1f;
         }
 
-        masterVolume = Mathf.Round(masterVolume*10.0f) *0.1f; // Rounds volume setting to the Tenths place
+
+        masterVolume = Mathf.Round(masterVolume * 10.0f) * 0.1f; // Rounds volume setting to the Tenths place
 
         PlayerPrefs.SetFloat("MasterVolume", masterVolume);
+
+        PlayerPrefs.Save();
 
         UpdateMasterVolumeDisplayBar();
     }
 
     public void DecreaseMasterVolume()
     {
-        if (masterVolume > 0.0f && masterVolume > 0.1f)
+        if (masterVolume > 0.0f)
         {
             masterVolume = masterVolume - 0.1f;
         }
 
         masterVolume = Mathf.Round(masterVolume * 10.0f) * 0.1f; // Rounds volume setting to the Tenths place
 
+        if (masterVolume <= 0.0)
+        {
+            masterVolume = 0.0001f; //Volume value must be set very low as opposed absolute zero in order to cooperate with the audio mixer
+        }
+
         PlayerPrefs.SetFloat("MasterVolume", masterVolume);
+
+        PlayerPrefs.Save();
 
         UpdateMasterVolumeDisplayBar();
     }
@@ -123,6 +155,8 @@ public class AudioSettingsManager : MonoBehaviour
 
         PlayerPrefs.SetFloat("MusicVolume", musicVolume);
 
+        PlayerPrefs.Save();
+
         UpdateMusicVolumeDisplayBar();
     }
 
@@ -135,7 +169,14 @@ public class AudioSettingsManager : MonoBehaviour
 
         musicVolume = Mathf.Round(musicVolume * 10.0f) * 0.1f; // Rounds volume setting to the Tenths place
 
+        if (musicVolume <= 0.0)
+        {
+            musicVolume = 0.0001f; //Volume value must be set very low as opposed absolute zero in order to cooperate with the audio mixer
+        }
+
         PlayerPrefs.SetFloat("MusicVolume", musicVolume);
+
+        PlayerPrefs.Save();
 
         UpdateMusicVolumeDisplayBar();
     }
@@ -151,6 +192,8 @@ public class AudioSettingsManager : MonoBehaviour
 
         PlayerPrefs.SetFloat("EffectsVolume", effectsVolume);
 
+        PlayerPrefs.Save();
+
         UpdateEffectsVolumeDisplayBar();
     }
 
@@ -163,7 +206,15 @@ public class AudioSettingsManager : MonoBehaviour
 
         effectsVolume = Mathf.Round(effectsVolume * 10.0f) * 0.1f; // Rounds volume setting to the Tenths place
 
+        if (effectsVolume <= 0.0)
+        {
+            effectsVolume = 0.0001f; //Volume value must be set very low as opposed absolute zero in order to cooperate with the audio mixer
+        }
+
         PlayerPrefs.SetFloat("EffectsVolume", effectsVolume);
+
+
+        PlayerPrefs.Save();
 
         UpdateEffectsVolumeDisplayBar();
     }
@@ -182,7 +233,7 @@ public class AudioSettingsManager : MonoBehaviour
         masterVolumeBar90.SetActive(false);
         masterVolumeBar100.SetActive(false);
 
-        if (masterVolume == 0.0f)
+        if (masterVolume == 0.0f || masterVolume == 0.0001f)
         {
             masterVolumeBar0.SetActive(true);
         }
@@ -218,7 +269,7 @@ public class AudioSettingsManager : MonoBehaviour
         {
             masterVolumeBar80.SetActive(true);
         }
-        else if (masterVolume >= 0.89f && masterVolume <+ 0.91f)
+        else if (masterVolume >= 0.89f && masterVolume <= 0.91f)
         {
             masterVolumeBar90.SetActive(true);
         }
@@ -244,7 +295,7 @@ public class AudioSettingsManager : MonoBehaviour
         musicVolumeBar90.SetActive(false);
         musicVolumeBar100.SetActive(false);
 
-        if (musicVolume == 0.0f)
+        if (musicVolume == 0.0f || musicVolume == 0.0001f)
         {
             musicVolumeBar0.SetActive(true);
         }
@@ -306,7 +357,7 @@ public class AudioSettingsManager : MonoBehaviour
         effectsVolumeBar90.SetActive(false);
         effectsVolumeBar100.SetActive(false);
 
-        if (effectsVolume == 0.0f)
+        if (effectsVolume == 0.0f || effectsVolume == 0.0001f)
         {
             effectsVolumeBar0.SetActive(true);
         }
@@ -358,12 +409,17 @@ public class AudioSettingsManager : MonoBehaviour
     {
 
 
-        if(PlayerPrefs.GetString("HasVisitedAudioSettings") == "")
+        if(PlayerPrefs.GetString("HasVisitedAudioSettings") == "" && hasVisitedAudioSettings == "")
         {
             SetAudioSettingsToDefault();
+
+            HasVisitedAudioSettingsFlag();
         }
 
-        GetPlayedVolumes();
+        PlayerPrefs.Save();
+
+        //GetPlayedVolumes();
+
     }
 
     public void SetAudioSettingsToDefault()
@@ -380,7 +436,9 @@ public class AudioSettingsManager : MonoBehaviour
         effectsVolume = PlayerPrefs.GetFloat("EffectsVolume");
         UpdateEffectsVolumeDisplayBar();
 
-        GetPlayedVolumes();
+        PlayerPrefs.Save();
+
+        //GetPlayedVolumes();
     }
 
     public void UpdateAllAudioDisplayBars()
@@ -393,5 +451,6 @@ public class AudioSettingsManager : MonoBehaviour
     public void HasVisitedAudioSettingsFlag() //Signals that the player has visited the audio settings page before. This information is needed to determine if the audio settings need to be initialized
     {
         PlayerPrefs.SetString("HasVisitedAudioSettings","True");
+        hasVisitedAudioSettings = PlayerPrefs.GetString("HasVisitedAudioSettings");
     }
 }

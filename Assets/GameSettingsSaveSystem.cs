@@ -12,6 +12,8 @@ public class GameSettingsSaveSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //PlayerPrefs.Get();
+
         InitializeGameSettings(); //when game is first opened (sets default settings)
         LoadScreenShakeToggle(); //sets the screenShakeToggle string to whatever the ScreenShake PlayerPref is.
         LoadHitboxDisplayToggle(); //sets the hitboxDisplay Toggle string to whatever the HitboxDisplay PlayerPref is.
@@ -26,12 +28,14 @@ public class GameSettingsSaveSystem : MonoBehaviour
 
     public void SetScreenShakeToOn() //Sets the screenshake PlayerPref to "On"
     {
-        PlayerPrefs.SetString("ScreenShake", "On"); 
+        PlayerPrefs.SetString("ScreenShake", "On");
+        PlayerPrefs.Save();
     }
 
     public void SetScreenShakeToOff() //Sets the screenshake PlayerPref to "Off"
     {
         PlayerPrefs.SetString("ScreenShake", "Off");
+        PlayerPrefs.Save();
     }
 
     public void ToggleScreenShake() //Makes the ScreenShake PlayerPref toggle between "On" or "Off", this method is called whenever the ScreenShake toggle button is pressed in the settings menu
@@ -44,7 +48,11 @@ public class GameSettingsSaveSystem : MonoBehaviour
         {
             PlayerPrefs.SetString("ScreenShake", "On");
         }
+
+        PlayerPrefs.Save();
+
         LoadScreenShakeToggle();
+
     }
 
     public void LoadScreenShakeToggle() //sets the screenShakeToggle string to whatever the ScreenShake PlayerPref is.
@@ -56,11 +64,13 @@ public class GameSettingsSaveSystem : MonoBehaviour
     public void SetHitboxDisplayToOn() //Sets the HitboxDisplay PlayerPref to "On"
     {
         PlayerPrefs.SetString("HitboxDisplay", "On");
+        PlayerPrefs.Save();
     }
 
     public void SetHitboxDisplayToOff() //Sets the HitboxDisplay PlayerPref to "Off"
     {
         PlayerPrefs.SetString("HitboxDisplay", "Off");
+        PlayerPrefs.Save();
     }
 
     public void ToggleHitboxDisplay() //Makes the HitboxDisplay PlayerPref toggle between "On" or "Off", this method is called whenever the HitboxDisplay toggle button is pressed in the settings menu
@@ -73,6 +83,9 @@ public class GameSettingsSaveSystem : MonoBehaviour
         {
             PlayerPrefs.SetString("HitboxDisplay", "On");
         }
+
+        PlayerPrefs.Save();
+
         LoadHitboxDisplayToggle();
     }
 
@@ -85,11 +98,13 @@ public class GameSettingsSaveSystem : MonoBehaviour
     public void SetAimIndicatorToOn() //Sets the AimIndicator PlayerPref to "On"
     {
         PlayerPrefs.SetString("AimIndicator", "On");
+        PlayerPrefs.Save();
     }
 
     public void SetAimIndicatorToOff() //Sets the AimIndicator PlayerPref to "Off"
     {
         PlayerPrefs.SetString("AimIndicator", "Off");
+        PlayerPrefs.Save();
     }
 
     public void ToggleAimIndicator() //Makes the AimIndicator PlayerPref toggle between "On" or "Off", this method is called whenever the AimIndicator toggle button is pressed in the settings menu
@@ -102,6 +117,9 @@ public class GameSettingsSaveSystem : MonoBehaviour
         {
             PlayerPrefs.SetString("AimIndicator", "On");
         }
+
+        PlayerPrefs.Save();
+
         LoadAimIndicatorToggle();
     }
 
@@ -114,11 +132,13 @@ public class GameSettingsSaveSystem : MonoBehaviour
     public void SetRightWallAnimationToOn() //Sets the RightWallAnimation PlayerPref to "On"
     {
         PlayerPrefs.SetString("RightWallAnimation", "On");
+        PlayerPrefs.Save();
     }
 
     public void SetRightWallAnimationToOff() //Sets the RightWallAnimation PlayerPref to "Off"
     {
         PlayerPrefs.SetString("RightWallAnimation", "Off");
+        PlayerPrefs.Save();
     }
 
     public void ToggleRightWallAnimation() //Makes the RightWallAnimation PlayerPref toggle between "On" or "Off", this method is called whenever the RightWallAnimation toggle button is pressed in the settings menu
@@ -131,6 +151,9 @@ public class GameSettingsSaveSystem : MonoBehaviour
         {
             PlayerPrefs.SetString("RightWallAnimation", "On");
         }
+
+        PlayerPrefs.Save();
+
         LoadRightWallAnimationToggle();
     }
 
@@ -164,6 +187,7 @@ public class GameSettingsSaveSystem : MonoBehaviour
             PlayerPrefs.SetString("RightWallAnimation", "On");
             LoadHitboxDisplayToggle();
         }
+        PlayerPrefs.Save();
     }
 
     public void SetToDefaultSettings()
@@ -179,5 +203,7 @@ public class GameSettingsSaveSystem : MonoBehaviour
 
         PlayerPrefs.SetString("RightWallAnimation", "On");
         LoadRightWallAnimationToggle();
+
+        PlayerPrefs.Save();
     }
 }

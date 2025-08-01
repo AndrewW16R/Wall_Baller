@@ -6,6 +6,9 @@ using static UnityEngine.Random;
 
 public class AudioManager : MonoBehaviour
 {
+    //public float masterVolume;
+    //public float musicVolume;
+    //public float effectsVolume;
 
     public AudioClip swingHitLight01;
     public AudioClip swingHitLight02;
@@ -124,7 +127,7 @@ public class AudioManager : MonoBehaviour
         
     }
 
-    public void UpdateVolumeLevels()
+   /* public void UpdateVolumeLevels()
     {
         masterVolume = PlayerPrefs.GetFloat("MasterVolume");
         musicVolume = PlayerPrefs.GetFloat("MusicVolume");
@@ -141,7 +144,7 @@ public class AudioManager : MonoBehaviour
         audioSource07.volume = playedEffectsVolume;
         audioSource08.volume = playedEffectsVolume;
         audioSource09.volume = playedEffectsVolume;
-    }
+    }*/
 
     public void SoundRngRoll()
     {
