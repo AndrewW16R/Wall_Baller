@@ -14,7 +14,13 @@ public class VideoSettingsManagerV2 : MonoBehaviour
     public int selectedHeight;
 
     public bool isFullScreen;
-    
+
+
+    public GameObject audioSourceObjectSfxOn;
+    public AudioSource audioSourceSfxOn; //plays when setting a game setting to on
+    public GameObject audioSourceObjectSfxOff;
+    public AudioSource audioSourceSfxOff;  //Plays when setting a game setting to off
+
     /*Resolution[] AllResolutions;
     int selectedResolution;
     List<Resolution> SelectedResolutionList = new List<Resolution>();*/
@@ -24,23 +30,29 @@ public class VideoSettingsManagerV2 : MonoBehaviour
     {
         InitializeVideoSettings();
 
+        audioSourceObjectSfxOn = GameObject.Find("AudioSource_SfxConfirm");
+        audioSourceSfxOn = audioSourceObjectSfxOn.GetComponent<AudioSource>();
+
+        audioSourceObjectSfxOff = GameObject.Find("AudioSource_SfxBack");
+        audioSourceSfxOff = audioSourceObjectSfxOff.GetComponent<AudioSource>();
+
         //isFullScreen = true;
-      /*  AllResolutions = Screen.resolutions;
+        /*  AllResolutions = Screen.resolutions;
 
-        List<string> resolutionStringList = new List<string>();
-        string newRes;
-        foreach (Resolution res in AllResolutions)
-        {
-            newRes = res.width.ToString() + " x " + res.height.ToString();
-            if(!resolutionStringList.Contains(newRes))
-            {
-                resolutionStringList.Add(newRes);
-                SelectedResolutionList.Add(res);
-            }
-            
-        }
+          List<string> resolutionStringList = new List<string>();
+          string newRes;
+          foreach (Resolution res in AllResolutions)
+          {
+              newRes = res.width.ToString() + " x " + res.height.ToString();
+              if(!resolutionStringList.Contains(newRes))
+              {
+                  resolutionStringList.Add(newRes);
+                  SelectedResolutionList.Add(res);
+              }
 
-        resDropDown.AddOptions(resolutionStringList); */
+          }
+
+          resDropDown.AddOptions(resolutionStringList); */
     }
 
     
@@ -86,6 +98,7 @@ public class VideoSettingsManagerV2 : MonoBehaviour
     {
         isFullScreen = true;
         PlayerPrefs.SetString("FullScreen", "On");
+        PlaySfxPositive();
         UpdateScreenDisplay();
     }
 
@@ -93,6 +106,7 @@ public class VideoSettingsManagerV2 : MonoBehaviour
     {
         isFullScreen = false;
         PlayerPrefs.SetString("FullScreen", "Off");
+        PlaySfxNegative();
         UpdateScreenDisplay();
     }
 
@@ -247,5 +261,15 @@ public class VideoSettingsManagerV2 : MonoBehaviour
         }
 
         UpdateScreenDisplay();
+    }
+
+    public void PlaySfxPositive()
+    {
+        audioSourceSfxOn.Play();
+    }
+
+    public void PlaySfxNegative()
+    {
+        audioSourceSfxOff.Play();
     }
 }

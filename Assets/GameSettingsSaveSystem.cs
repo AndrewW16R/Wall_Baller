@@ -9,14 +9,25 @@ public class GameSettingsSaveSystem : MonoBehaviour
     public string aimIndicatorToggle;
     public string rightWallAnimationToggle;
 
+    public GameObject audioSourceObjectSfxOn;
+    public AudioSource audioSourceSfxOn; //plays when setting a game setting to on
+    public GameObject audioSourceObjectSfxOff;
+    public AudioSource audioSourceSfxOff;  //Plays when setting a game setting to off
+
     // Start is called before the first frame update
     void Start()
     {
-        //PlayerPrefs.Get();
+        audioSourceObjectSfxOn = GameObject.Find("AudioSource_SfxConfirm");
+        audioSourceSfxOn = audioSourceObjectSfxOn.GetComponent<AudioSource>();
+
+        audioSourceObjectSfxOff = GameObject.Find("AudioSource_SfxBack");
+        audioSourceSfxOff = audioSourceObjectSfxOff.GetComponent<AudioSource>();
 
         InitializeGameSettings(); //when game is first opened (sets default settings)
         LoadScreenShakeToggle(); //sets the screenShakeToggle string to whatever the ScreenShake PlayerPref is.
         LoadHitboxDisplayToggle(); //sets the hitboxDisplay Toggle string to whatever the HitboxDisplay PlayerPref is.
+        LoadAimIndicatorToggle(); //sets the aimIndicatorToggle string to whatever the ScreenShake PlayerPref is.
+        LoadRightWallAnimationToggle(); //sets the rightWallAnimationToggle string to whatever the ScreenShake PlayerPref is.
     }
 
     // Update is called once per frame
@@ -43,10 +54,12 @@ public class GameSettingsSaveSystem : MonoBehaviour
         if (PlayerPrefs.GetString("ScreenShake") == "On")
         {
             PlayerPrefs.SetString("ScreenShake", "Off");
+            PlaySfxNegative();
         }
         else if (PlayerPrefs.GetString("ScreenShake") == "Off")
         {
             PlayerPrefs.SetString("ScreenShake", "On");
+            PlaySfxPositive();
         }
 
         PlayerPrefs.Save();
@@ -78,10 +91,12 @@ public class GameSettingsSaveSystem : MonoBehaviour
         if (PlayerPrefs.GetString("HitboxDisplay") == "On")
         {
             PlayerPrefs.SetString("HitboxDisplay", "Off");
+            PlaySfxNegative();
         }
         else if (PlayerPrefs.GetString("HitboxDisplay") == "Off")
         {
             PlayerPrefs.SetString("HitboxDisplay", "On");
+            PlaySfxPositive();
         }
 
         PlayerPrefs.Save();
@@ -112,10 +127,12 @@ public class GameSettingsSaveSystem : MonoBehaviour
         if (PlayerPrefs.GetString("AimIndicator") == "On")
         {
             PlayerPrefs.SetString("AimIndicator", "Off");
+            PlaySfxNegative();
         }
         else if (PlayerPrefs.GetString("AimIndicator") == "Off")
         {
             PlayerPrefs.SetString("AimIndicator", "On");
+            PlaySfxPositive();
         }
 
         PlayerPrefs.Save();
@@ -146,10 +163,12 @@ public class GameSettingsSaveSystem : MonoBehaviour
         if (PlayerPrefs.GetString("RightWallAnimation") == "On")
         {
             PlayerPrefs.SetString("RightWallAnimation", "Off");
+            PlaySfxNegative();
         }
         else if (PlayerPrefs.GetString("RightWallAnimation") == "Off")
         {
             PlayerPrefs.SetString("RightWallAnimation", "On");
+            PlaySfxPositive();
         }
 
         PlayerPrefs.Save();
@@ -164,6 +183,7 @@ public class GameSettingsSaveSystem : MonoBehaviour
 
     public void InitializeGameSettings() //when game is first opened (sets default settings)
     {
+        
         if(PlayerPrefs.GetString("ScreenShake") == "")
         {
             PlayerPrefs.SetString("ScreenShake", "On");
@@ -184,7 +204,7 @@ public class GameSettingsSaveSystem : MonoBehaviour
 
         if (PlayerPrefs.GetString("RightWallAnimation") == "")
         {
-            PlayerPrefs.SetString("RightWallAnimation", "On");
+            PlayerPrefs.SetString("RightWallAnimation", "Off");
             LoadHitboxDisplayToggle();
         }
         PlayerPrefs.Save();
@@ -201,9 +221,20 @@ public class GameSettingsSaveSystem : MonoBehaviour
         PlayerPrefs.SetString("AimIndicator", "On");
         LoadAimIndicatorToggle();
 
-        PlayerPrefs.SetString("RightWallAnimation", "On");
+        PlayerPrefs.SetString("RightWallAnimation", "Off");
         LoadRightWallAnimationToggle();
 
         PlayerPrefs.Save();
+
+    }
+
+    public void PlaySfxPositive()
+    {
+        audioSourceSfxOn.Play();
+    }
+
+    public void PlaySfxNegative()
+    {
+        audioSourceSfxOff.Play();
     }
 }
