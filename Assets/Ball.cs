@@ -8,11 +8,31 @@ public class Ball : MonoBehaviour
     [HideInInspector] public Rigidbody2D rb;
     private CircleCollider2D coll;
 
-    public float initialBallSpeed; //The speed the ball starts out at
+    public string difficulty;
+    
+    public float initialBallSpeedStandard; //The speed the ball starts out at for standard difficulty
+    public float initialBallSpeedEasy; //The speed the ball starts out at for easy difficulty
+    public float initialBallSpeedHard; //The speed the ball starts out at for hard difficulty
+    public float initialBallSpeedExpert; //The speed the ball starts out at for expert difficulty
+
     public float ballBaseSpeed; //The ball's current base speed
     public int ballLevel; //The ball's current level
     public int ballExp; //How much exp the ball currently has (0/10)
-    public float speedCapIncreasePerLevel; //How much the ball's base speed increases by with each level up
+
+    public float speedCapIncreasePerLevelStandard; //How much the ball's base speed increases by with each level up for standard difficulty
+    public float speedCapIncreasePerLevelEasy; //How much the ball's base speed increases by with each level up for easy difficulty
+    public float speedCapIncreasePerLevelHard; //How much the ball's base speed increases by with each level up for hard difficulty
+    public float speedCapIncreasePerLevelExpert; //How much the ball's base speed increases by with each level up for expert difficulty
+
+    public float selectedSpeedCapIncreasePerLevel; //The selected speed increase per level based on the chosen difficulty
+
+    public float baseSpeedCapStandard; //The highest base speed the ball can reach on the standard difficulty
+    public float baseSpeedCapEasy; //The highest base speed the ball can reach on the easy difficulty
+    public float baseSpeedCapHard; //The highest base speed the ball can reach on the hard difficulty
+    public float baseSpeedCapExpert; //The highest base speed the ball can reach on the expert difficulty
+
+    public float selectedBaseSpeedCap; //The selected highest base speed of the ball based on the chosen difficulty
+
     Transform ballTransform;
 
     public float currentBallHitStop;//The amount of hitstop power which the ball has inherited from the swing it collided with
@@ -48,7 +68,8 @@ public class Ball : MonoBehaviour
 
         ballTransform = GetComponent<Transform>();
 
-        ballBaseSpeed = initialBallSpeed;
+        InitializeDifficulty(); //Sets ball speed stats based on the chosen difficulty
+
         ballLevel = 1; //The Ball's current level
         ballExp = 0; //How much experience the ball has, ball levels up once reaching 10 exp and then 10 exp from ballExp is subtracted
 
@@ -124,7 +145,12 @@ public class Ball : MonoBehaviour
 
     public void UpdateBallSpeed()//Increases the ball's base speed
     {
-         ballBaseSpeed = ballBaseSpeed + speedCapIncreasePerLevel;
+         ballBaseSpeed = ballBaseSpeed + selectedSpeedCapIncreasePerLevel;
+
+        if (ballBaseSpeed > selectedBaseSpeedCap)
+        {
+            ballBaseSpeed = selectedBaseSpeedCap;
+        }
     }
 
     public void HitStopProcess()//The GameManager gets info of the ball's current state and calculates the hitstop to be applied
@@ -172,6 +198,37 @@ public class Ball : MonoBehaviour
         else
         {
             ballTrail.SetActive(false);
+        }
+    }
+
+    public void InitializeDifficulty()
+    {
+
+        difficulty = PlayerPrefs.GetString("Difficulty");
+
+        if (difficulty == "Standard")
+        {
+            ballBaseSpeed = initialBallSpeedStandard;
+            selectedSpeedCapIncreasePerLevel = speedCapIncreasePerLevelStandard;
+            selectedBaseSpeedCap = baseSpeedCapStandard;
+        }
+        else if (difficulty == "Easy")
+        {
+            ballBaseSpeed = initialBallSpeedEasy;
+            selectedSpeedCapIncreasePerLevel = speedCapIncreasePerLevelEasy;
+            selectedBaseSpeedCap = baseSpeedCapEasy;
+        }
+        else if (difficulty == "Hard")
+        {
+            ballBaseSpeed = initialBallSpeedHard;
+            selectedSpeedCapIncreasePerLevel = speedCapIncreasePerLevelHard;
+            selectedBaseSpeedCap = baseSpeedCapHard;
+        }
+        else if (difficulty == "Expert")
+        {
+            ballBaseSpeed = initialBallSpeedExpert;
+            selectedSpeedCapIncreasePerLevel = speedCapIncreasePerLevelExpert;
+            selectedBaseSpeedCap = baseSpeedCapExpert;
         }
     }
 }

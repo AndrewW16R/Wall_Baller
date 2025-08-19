@@ -31,9 +31,19 @@ public class DifficultySelectSaveSystem : MonoBehaviour
         PlayerPrefs.SetString("Difficulty", "Standard");
     }
 
+    public void SetDifficultyToEasy() //Sets Difficulty PlayerPref to "Easy"
+    {
+        PlayerPrefs.SetString("Difficulty", "Easy");
+    }
+
     public void SetDifficultyToHard() //Sets Difficulty PlayerPref to "Hard"
     {
         PlayerPrefs.SetString("Difficulty", "Hard");
+    }
+
+    public void SetDifficultyToExpert() //Sets Difficulty PlayerPref to "Standard"
+    {
+        PlayerPrefs.SetString("Difficulty", "Expert");
     }
 
     public void LoadDifficulty() //Sets difficulty String in the timer script to whatever the difficulty PlayerPref is

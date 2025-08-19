@@ -9,8 +9,14 @@ public class Timer : MonoBehaviour
     public float timeCap; //The maximum amount of time the timer can go up to
     public float timeAdded; //The previous amount of added time is stored for the Ui to reference when displaying the time added
 
+    public float intialTimeEasy; //how many seconds the timer starts at, is used if easy dificulty is selected
+    public float timeCapEasy; //The maximum amount of time the timer can go up to, is used if easy dificulty is selected
+
     public float intialTimeHard; //how many seconds the timer starts at, is used if hard dificulty is selected
     public float timeCapHard; //The maximum amount of time the timer can go up to, is used if hard dificulty is selected
+
+    public float intialTimeExpert; //how many seconds the timer starts at, is used if expert dificulty is selected
+    public float timeCapExpert; //The maximum amount of time the timer can go up to, is used if expert dificulty is selected
 
 
     //public bool timerStarted; //Has the timer started counting for the first time within the scene
@@ -22,12 +28,23 @@ public class Timer : MonoBehaviour
     public float timeAdditionFour; // The amount of time added when leveling up to levels 9 and 10
     public float timeAdditionFive; // The amount of time added when leveling up to levels 11 and above
 
+    public float timeAdditionOneEasy;// The amount of time added when leveling up to levels 2 and 3 (is used if easy dificulty is selected)
+    public float timeAdditionTwoEasy; // The amount of time added when leveling up to levels 4 and 5 (is used if easy dificulty is selected)
+    public float timeAdditionThreeEasy; // The amount of time added when leveling up to levels 6, 7, or 8 (is used if easy dificulty is selected)
+    public float timeAdditionFourEasy; // The amount of time added when leveling up to levels 9 and 10 (is used if easy dificulty is selected)
+    public float timeAdditionFiveEasy; // The amount of time added when leveling up to levels 11 and above (is used if easy dificulty is selected)
 
     public float timeAdditionOneHard;// The amount of time added when leveling up to levels 2 and 3 (is used if hard dificulty is selected)
     public float timeAdditionTwoHard; // The amount of time added when leveling up to levels 4 and 5 (is used if hard dificulty is selected)
     public float timeAdditionThreeHard; // The amount of time added when leveling up to levels 6, 7, or 8 (is used if hard dificulty is selected)
     public float timeAdditionFourHard; // The amount of time added when leveling up to levels 9 and 10 (is used if hard dificulty is selected)
     public float timeAdditionFiveHard; // The amount of time added when leveling up to levels 11 and above (is used if hard dificulty is selected)
+
+    public float timeAdditionOneExpert;// The amount of time added when leveling up to levels 2 and 3 (is used if expert dificulty is selected)
+    public float timeAdditionTwoExpert; // The amount of time added when leveling up to levels 4 and 5 (is used if expert dificulty is selected)
+    public float timeAdditionThreeExpert; // The amount of time added when leveling up to levels 6, 7, or 8 (is used if expert dificulty is selected)
+    public float timeAdditionFourExpert; // The amount of time added when leveling up to levels 9 and 10 (is used if expert dificulty is selected)
+    public float timeAdditionFiveExpert; // The amount of time added when leveling up to levels 11 and above (is used if expert dificulty is selected)
 
     public string difficulty; //Game difficulty which determines the timer settings, difficulty is gotten from the difficulty select PlayerPref
 
@@ -56,10 +73,18 @@ public class Timer : MonoBehaviour
         timerOn = false;
         difficultyApplied = false;
 
+        difficulty = PlayerPrefs.GetString("Difficulty");
+
         if (difficulty == "Standard") //Sets the initial/starting time for Standard difficulty
         {
             Debug.Log("Standard chosen");
             currentTime = intialTime;
+            difficultyApplied = true;
+        }
+        else if (difficulty == "Easy") //Sets the initial/starting time for Easy difficulty
+        {
+            Debug.Log("Easy chosen");
+            currentTime = intialTimeEasy;
             difficultyApplied = true;
         }
         else if(difficulty == "Hard") //Sets the initial/starting time for Hard difficulty
@@ -68,14 +93,20 @@ public class Timer : MonoBehaviour
             currentTime = intialTimeHard;
             difficultyApplied = true;
         }
-       /* else
+        else if (difficulty == "Expert") //Sets the initial/starting time for Expert difficulty
         {
-            Debug.Log("Standard chosen (Failsafe)");
-            currentTime = intialTime;
+            Debug.Log("Expert chosen");
+            currentTime = intialTimeExpert;
             difficultyApplied = true;
-            difficulty = "Standard";
-        }*/
-        
+        }
+        /* else
+         {
+             Debug.Log("Standard chosen (Failsafe)");
+             currentTime = intialTime;
+             difficultyApplied = true;
+             difficulty = "Standard";
+         }*/
+
     }
 
     // Update is called once per frame
@@ -157,51 +188,147 @@ public class Timer : MonoBehaviour
                 }
             }
         }
-        else if(difficulty == "Hard")  //Adding time for Hard difficulty, added time is determined from the ball's level and the player's current style rating
+        else if (difficulty == "Easy")  //Adding time for Easy difficulty, added time is determined from the ball's level and the player's current style rating
         {
             if (gameManager.ballLevel >= 1 && gameManager.ballLevel <= 3) //Time added for levels 1-3
             {
-                timeAdded = timeAdditionOne * swingStaleness.staleMultTimer;
-                currentTime = currentTime + (timeAdditionOneHard * swingStaleness.staleMultTimer); //Time for addition for these ball levels, multiplied by the indicated value by the current style rating
-                if (currentTime > timeCap)
+                timeAdded = timeAdditionOneEasy * swingStaleness.staleMultTimer;
+                currentTime = currentTime + (timeAdditionOneEasy * swingStaleness.staleMultTimer); //Time for addition for these ball levels, multiplied by the indicated value by the current style rating
+                if (currentTime > timeCapEasy)
                 {
-                    currentTime = timeCap;
+                    currentTime = timeCapEasy;
+                }
+            }
+            else if (gameManager.ballLevel >= 4 && gameManager.ballLevel <= 5) //Time added for levels 4-5
+            {
+                timeAdded = timeAdditionTwoEasy * swingStaleness.staleMultTimer;
+                currentTime = currentTime + (timeAdditionTwoEasy * swingStaleness.staleMultTimer); //Time for addition for these ball levels, multiplied by the indicated value by the current style rating
+                if (currentTime > timeCapEasy)
+                {
+                    currentTime = timeCapEasy;
+                }
+            }
+            else if (gameManager.ballLevel >= 6 && gameManager.ballLevel <= 8) //Time added for levels 6-8
+            {
+                timeAdded = timeAdditionThreeEasy * swingStaleness.staleMultTimer;
+                currentTime = currentTime + (timeAdditionThreeEasy * swingStaleness.staleMultTimer); //Time for addition for these ball levels, multiplied by the indicated value by the current style rating
+                if (currentTime > timeCapEasy)
+                {
+                    currentTime = timeCapEasy;
+                }
+            }
+            else if (gameManager.ballLevel >= 9 && gameManager.ballLevel <= 10) //Time added for levels 9-10
+            {
+                timeAdded = timeAdditionFourEasy * swingStaleness.staleMultTimer;
+                currentTime = currentTime + (timeAdditionFourEasy * swingStaleness.staleMultTimer); //Time for addition for these ball levels, multiplied by the indicated value by the current style rating
+                if (currentTime > timeCapEasy)
+                {
+                    currentTime = timeCapEasy;
+                }
+            }
+            else if (gameManager.ballLevel >= 11) //Time added for levels 11+
+            {
+                timeAdded = timeAdditionFiveEasy * swingStaleness.staleMultTimer;
+                currentTime = currentTime + (timeAdditionFiveEasy * swingStaleness.staleMultTimer); //Time for addition for these ball levels, multiplied by the indicated value by the current style rating
+                if (currentTime > timeCapEasy)
+                {
+                    currentTime = timeCapEasy;
+                }
+            }
+        }
+        else if (difficulty == "Hard")  //Adding time for Hard difficulty, added time is determined from the ball's level and the player's current style rating
+        {
+            if (gameManager.ballLevel >= 1 && gameManager.ballLevel <= 3) //Time added for levels 1-3
+            {
+                timeAdded = timeAdditionOneHard * swingStaleness.staleMultTimer;
+                currentTime = currentTime + (timeAdditionOneHard * swingStaleness.staleMultTimer); //Time for addition for these ball levels, multiplied by the indicated value by the current style rating
+                if (currentTime > timeCapHard)
+                {
+                    currentTime = timeCapHard;
                 }
             }
             else if (gameManager.ballLevel >= 4 && gameManager.ballLevel <= 5) //Time added for levels 4-5
             {
                 timeAdded = timeAdditionTwoHard * swingStaleness.staleMultTimer;
                 currentTime = currentTime + (timeAdditionTwoHard * swingStaleness.staleMultTimer); //Time for addition for these ball levels, multiplied by the indicated value by the current style rating
-                if (currentTime > timeCap)
+                if (currentTime > timeCapHard)
                 {
-                    currentTime = timeCap;
+                    currentTime = timeCapHard;
                 }
             }
             else if (gameManager.ballLevel >= 6 && gameManager.ballLevel <= 8) //Time added for levels 6-8
             {
                 timeAdded = timeAdditionThreeHard * swingStaleness.staleMultTimer;
                 currentTime = currentTime + (timeAdditionThreeHard * swingStaleness.staleMultTimer); //Time for addition for these ball levels, multiplied by the indicated value by the current style rating
-                if (currentTime > timeCap)
+                if (currentTime > timeCapHard)
                 {
-                    currentTime = timeCap;
+                    currentTime = timeCapHard;
                 }
             }
             else if (gameManager.ballLevel >= 9 && gameManager.ballLevel <= 10) //Time added for levels 9-10
             {
                 timeAdded = timeAdditionFourHard * swingStaleness.staleMultTimer;
                 currentTime = currentTime + (timeAdditionFourHard * swingStaleness.staleMultTimer); //Time for addition for these ball levels, multiplied by the indicated value by the current style rating
-                if (currentTime > timeCap)
+                if (currentTime > timeCapHard)
                 {
-                    currentTime = timeCap;
+                    currentTime = timeCapHard;
                 }
             }
             else if (gameManager.ballLevel >= 11) //Time added for levels 11+
             {
                 timeAdded = timeAdditionFiveHard * swingStaleness.staleMultTimer;
                 currentTime = currentTime + (timeAdditionFiveHard * swingStaleness.staleMultTimer); //Time for addition for these ball levels, multiplied by the indicated value by the current style rating
-                if (currentTime > timeCap)
+                if (currentTime > timeCapHard)
                 {
-                    currentTime = timeCap;
+                    currentTime = timeCapHard;
+                }
+            }
+        }
+        else if (difficulty == "Expert")  //Adding time for Expert difficulty, added time is determined from the ball's level and the player's current style rating
+        {
+            if (gameManager.ballLevel >= 1 && gameManager.ballLevel <= 3) //Time added for levels 1-3
+            {
+                timeAdded = timeAdditionOneExpert * swingStaleness.staleMultTimer;
+                currentTime = currentTime + (timeAdditionOneExpert * swingStaleness.staleMultTimer); //Time for addition for these ball levels, multiplied by the indicated value by the current style rating
+                if (currentTime > timeCapExpert)
+                {
+                    currentTime = timeCapExpert;
+                }
+            }
+            else if (gameManager.ballLevel >= 4 && gameManager.ballLevel <= 5) //Time added for levels 4-5
+            {
+                timeAdded = timeAdditionTwoExpert * swingStaleness.staleMultTimer;
+                currentTime = currentTime + (timeAdditionTwoExpert * swingStaleness.staleMultTimer); //Time for addition for these ball levels, multiplied by the indicated value by the current style rating
+                if (currentTime > timeCapExpert)
+                {
+                    currentTime = timeCapExpert;
+                }
+            }
+            else if (gameManager.ballLevel >= 6 && gameManager.ballLevel <= 8) //Time added for levels 6-8
+            {
+                timeAdded = timeAdditionThreeExpert * swingStaleness.staleMultTimer;
+                currentTime = currentTime + (timeAdditionThreeExpert * swingStaleness.staleMultTimer); //Time for addition for these ball levels, multiplied by the indicated value by the current style rating
+                if (currentTime > timeCapExpert)
+                {
+                    currentTime = timeCapExpert;
+                }
+            }
+            else if (gameManager.ballLevel >= 9 && gameManager.ballLevel <= 10) //Time added for levels 9-10
+            {
+                timeAdded = timeAdditionFourExpert * swingStaleness.staleMultTimer;
+                currentTime = currentTime + (timeAdditionFourExpert * swingStaleness.staleMultTimer); //Time for addition for these ball levels, multiplied by the indicated value by the current style rating
+                if (currentTime > timeCapExpert)
+                {
+                    currentTime = timeCapExpert;
+                }
+            }
+            else if (gameManager.ballLevel >= 11) //Time added for levels 11+
+            {
+                timeAdded = timeAdditionFiveExpert * swingStaleness.staleMultTimer;
+                currentTime = currentTime + (timeAdditionFiveExpert * swingStaleness.staleMultTimer); //Time for addition for these ball levels, multiplied by the indicated value by the current style rating
+                if (currentTime > timeCapExpert)
+                {
+                    currentTime = timeCapExpert;
                 }
             }
         }

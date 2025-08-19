@@ -100,7 +100,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void LoadGameScene()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Level");
     }
 
     public void ButtonsEnabled(bool isEnabled)

@@ -326,6 +326,7 @@ GameObject:
   - component: {fileID: 42648026}
   - component: {fileID: 42648025}
   - component: {fileID: 42648028}
+  - component: {fileID: 42648029}
   m_Layer: 0
   m_Name: Button_BasicTutorial_BallLevel
   m_TagString: Untagged
@@ -432,6 +433,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 42648029}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &42648026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -515,6 +528,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &42648029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42648023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 491322956}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &43601793
 GameObject:
   m_ObjectHideFlags: 0
@@ -871,6 +900,7 @@ GameObject:
   - component: {fileID: 70980267}
   - component: {fileID: 70980266}
   - component: {fileID: 70980269}
+  - component: {fileID: 70980270}
   m_Layer: 0
   m_Name: Button_ResolutionSelect_TMP
   m_TagString: Untagged
@@ -978,6 +1008,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 70980270}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &70980267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1061,6 +1103,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &70980270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 70980264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 541756359}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &71694190
 GameObject:
   m_ObjectHideFlags: 0
@@ -1274,9 +1332,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 241f63d7fbe058843b1c5877e541f7e9, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: aef5adf6e85d3784e8e505eddff3e7c1, type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 21300000, guid: 241f63d7fbe058843b1c5877e541f7e9, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: aef5adf6e85d3784e8e505eddff3e7c1, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -1321,7 +1379,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d382c786d7f253f4ca9b85fa6454eee9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a39432a4dd8277d41b940f64262196fd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2170,6 +2228,7 @@ GameObject:
   - component: {fileID: 92643511}
   - component: {fileID: 92643513}
   - component: {fileID: 92643516}
+  - component: {fileID: 92643517}
   m_Layer: 0
   m_Name: Button_VideoSettings_AudioPage
   m_TagString: Untagged
@@ -2260,6 +2319,18 @@ MonoBehaviour:
       - m_Target: {fileID: 79774867}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 92643517}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2383,6 +2454,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &92643517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92643510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 1457305506}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &99123626
 GameObject:
   m_ObjectHideFlags: 0
@@ -2576,9 +2663,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 100628940}
-        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
-        m_MethodName: JumpToElement
+      - m_Target: {fileID: 79774867}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2588,9 +2675,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 79774867}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
+      - m_Target: {fileID: 100628940}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2651,7 +2738,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventSystem: {fileID: 493344816}
-  elementToSelect: {fileID: 2111672906}
+  elementToSelect: {fileID: 572970083}
   showVisualization: 1
   navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!114 &100628941
@@ -3271,7 +3358,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &134777326
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3350,12 +3437,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 1368023768}
+    m_SelectOnDown: {fileID: 962139250}
+    m_SelectOnLeft: {fileID: 2043822657}
+    m_SelectOnRight: {fileID: 541756359}
   m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -3683,7 +3770,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 1021490249}
     m_SelectOnDown: {fileID: 2023267820}
     m_SelectOnLeft: {fileID: 2023267820}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnRight: {fileID: 1021490249}
   m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -3877,6 +3964,7 @@ GameObject:
   - component: {fileID: 167268247}
   - component: {fileID: 167268246}
   - component: {fileID: 167268249}
+  - component: {fileID: 167268250}
   m_Layer: 0
   m_Name: Button_AdvancedTutorial_JumpCancel
   m_TagString: Untagged
@@ -4019,6 +4107,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 167268250}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &167268247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4102,6 +4202,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &167268250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167268244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 242992610}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!114 &168919761 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2446758901203115540, guid: 9525f82ff3874634f84112eeeb1f4437, type: 3}
@@ -4205,9 +4321,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 6b44cdd86bd0ea44096d22cc45592561, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: aef5adf6e85d3784e8e505eddff3e7c1, type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 21300000, guid: 6b44cdd86bd0ea44096d22cc45592561, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: aef5adf6e85d3784e8e505eddff3e7c1, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -4252,7 +4368,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e3a3930bdd65c8d43b06978667eeca24, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a39432a4dd8277d41b940f64262196fd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4615,6 +4731,7 @@ GameObject:
   - component: {fileID: 189745907}
   - component: {fileID: 189745906}
   - component: {fileID: 189745910}
+  - component: {fileID: 189745911}
   m_Layer: 0
   m_Name: Button_Back_pg02
   m_TagString: Untagged
@@ -4693,6 +4810,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1689621482}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 189745911}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4804,6 +4933,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &189745911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 189745905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 167268246}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &206831230
 GameObject:
   m_ObjectHideFlags: 0
@@ -6048,9 +6193,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 6b44cdd86bd0ea44096d22cc45592561, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: aef5adf6e85d3784e8e505eddff3e7c1, type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 21300000, guid: 6b44cdd86bd0ea44096d22cc45592561, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: aef5adf6e85d3784e8e505eddff3e7c1, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -6095,7 +6240,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e3a3930bdd65c8d43b06978667eeca24, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a39432a4dd8277d41b940f64262196fd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6554,6 +6699,7 @@ GameObject:
   - component: {fileID: 282038747}
   - component: {fileID: 282038746}
   - component: {fileID: 282038749}
+  - component: {fileID: 282038750}
   m_Layer: 5
   m_Name: Button_Settings
   m_TagString: Untagged
@@ -6697,6 +6843,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 282038750}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &282038747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6780,6 +6938,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &282038750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282038744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 2074680414}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &291173682
 GameObject:
   m_ObjectHideFlags: 0
@@ -7006,6 +7180,7 @@ GameObject:
   - component: {fileID: 303215115}
   - component: {fileID: 303215114}
   - component: {fileID: 303215117}
+  - component: {fileID: 303215118}
   m_Layer: 0
   m_Name: Button_Back_pg04
   m_TagString: Untagged
@@ -7112,6 +7287,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 303215118}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &303215115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7195,6 +7382,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &303215118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303215112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 1805519102}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &305871403
 GameObject:
   m_ObjectHideFlags: 0
@@ -7208,6 +7411,7 @@ GameObject:
   - component: {fileID: 305871406}
   - component: {fileID: 305871405}
   - component: {fileID: 305871408}
+  - component: {fileID: 305871409}
   m_Layer: 0
   m_Name: Button_Back
   m_TagString: Untagged
@@ -7314,6 +7518,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 305871409}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &305871406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7397,6 +7613,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &305871409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 305871403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 312972656}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &312972654
 GameObject:
   m_ObjectHideFlags: 0
@@ -7410,6 +7642,7 @@ GameObject:
   - component: {fileID: 312972657}
   - component: {fileID: 312972656}
   - component: {fileID: 312972659}
+  - component: {fileID: 312972660}
   m_Layer: 0
   m_Name: Button_BasicTutorial_Overview
   m_TagString: Untagged
@@ -7516,6 +7749,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 312972660}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &312972657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7599,6 +7844,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &312972660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312972654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 682061363}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &313131815
 GameObject:
   m_ObjectHideFlags: 0
@@ -8082,6 +8343,42 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 552611029}
+        m_TargetAssemblyTypeName: DifficultySelectSaveSystem, Assembly-CSharp
+        m_MethodName: SetDifficultyToStandard
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 552611027}
+        m_TargetAssemblyTypeName: MovementTypeSaveSystem, Assembly-CSharp
+        m_MethodName: SetMovementToSliding
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1181251929}
+        m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+        m_MethodName: LoadGameScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &334744481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8293,6 +8590,7 @@ GameObject:
   - component: {fileID: 343393375}
   - component: {fileID: 343393374}
   - component: {fileID: 343393377}
+  - component: {fileID: 343393378}
   m_Layer: 0
   m_Name: Button_PrevPage_pg02
   m_TagString: Untagged
@@ -8399,6 +8697,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 343393378}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &343393375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8482,6 +8792,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &343393378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343393372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 1016185647}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &348498246
 GameObject:
   m_ObjectHideFlags: 0
@@ -9822,6 +10148,7 @@ GameObject:
   - component: {fileID: 407643987}
   - component: {fileID: 407643986}
   - component: {fileID: 407643989}
+  - component: {fileID: 407643990}
   m_Layer: 0
   m_Name: Button_BasicTutorial_LoseConditions
   m_TagString: Untagged
@@ -9928,6 +10255,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 407643990}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &407643987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10011,6 +10350,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &407643990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407643984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 765094245}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &414438688
 GameObject:
   m_ObjectHideFlags: 0
@@ -10319,6 +10674,7 @@ GameObject:
   - component: {fileID: 439381343}
   - component: {fileID: 439381342}
   - component: {fileID: 439381345}
+  - component: {fileID: 439381346}
   m_Layer: 0
   m_Name: Button_NextPage_pg03
   m_TagString: Untagged
@@ -10425,6 +10781,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 439381346}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &439381343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10508,6 +10876,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &439381346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 439381340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 1495309222}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &440863506
 GameObject:
   m_ObjectHideFlags: 0
@@ -10655,6 +11039,7 @@ GameObject:
   - component: {fileID: 442235951}
   - component: {fileID: 442235950}
   - component: {fileID: 442235953}
+  - component: {fileID: 442235954}
   m_Layer: 0
   m_Name: Button_NextPage_pg01
   m_TagString: Untagged
@@ -10761,6 +11146,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 442235954}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &442235951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10844,6 +11241,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &442235954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442235948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 2036905207}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &442979560
 GameObject:
   m_ObjectHideFlags: 0
@@ -10857,6 +11270,7 @@ GameObject:
   - component: {fileID: 442979563}
   - component: {fileID: 442979562}
   - component: {fileID: 442979565}
+  - component: {fileID: 442979566}
   m_Layer: 0
   m_Name: Button_PrevPage_pg02
   m_TagString: Untagged
@@ -10963,6 +11377,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 442979566}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &442979563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11046,6 +11472,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &442979566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442979560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 945092225}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &444494472
 GameObject:
   m_ObjectHideFlags: 0
@@ -11263,6 +11705,7 @@ GameObject:
   - component: {fileID: 453032563}
   - component: {fileID: 453032562}
   - component: {fileID: 453032566}
+  - component: {fileID: 453032567}
   m_Layer: 0
   m_Name: Button_Back_pg01
   m_TagString: Untagged
@@ -11341,6 +11784,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1689621482}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 453032567}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11452,6 +11907,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &453032567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453032561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 595306992}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &462320128
 GameObject:
   m_ObjectHideFlags: 0
@@ -11725,9 +12196,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: f098619a8c4a5af458259b18dd9b2625, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: aef5adf6e85d3784e8e505eddff3e7c1, type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 21300000, guid: f098619a8c4a5af458259b18dd9b2625, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: aef5adf6e85d3784e8e505eddff3e7c1, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -11772,7 +12243,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 09ea78ecbbedcd9419def0ff1c8949f9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a39432a4dd8277d41b940f64262196fd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -12120,12 +12591,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 868538548}
+    m_SelectOnDown: {fileID: 1259890043}
+    m_SelectOnLeft: {fileID: 1517440079}
+    m_SelectOnRight: {fileID: 983138143}
   m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -12423,6 +12894,7 @@ GameObject:
   - component: {fileID: 490020578}
   - component: {fileID: 490020577}
   - component: {fileID: 490020581}
+  - component: {fileID: 490020582}
   m_Layer: 0
   m_Name: Button_PrevPage_pg03
   m_TagString: Untagged
@@ -12447,7 +12919,7 @@ MonoBehaviour:
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 2142610295}
+    m_SelectOnLeft: {fileID: 1540115695}
     m_SelectOnRight: {fileID: 465564278}
   m_Transition: 2
   m_Colors:
@@ -12501,6 +12973,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1689621482}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 490020582}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12612,6 +13096,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &490020582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490020576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 885148919}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &491322955
 GameObject:
   m_ObjectHideFlags: 0
@@ -12661,9 +13161,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: f098619a8c4a5af458259b18dd9b2625, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: aef5adf6e85d3784e8e505eddff3e7c1, type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 21300000, guid: f098619a8c4a5af458259b18dd9b2625, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: aef5adf6e85d3784e8e505eddff3e7c1, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -12708,7 +13208,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 09ea78ecbbedcd9419def0ff1c8949f9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a39432a4dd8277d41b940f64262196fd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -12963,6 +13463,7 @@ GameObject:
   - component: {fileID: 506012362}
   - component: {fileID: 506012365}
   - component: {fileID: 506012366}
+  - component: {fileID: 506012367}
   m_Layer: 0
   m_Name: Button_GameSettings_VideoPage
   m_TagString: Untagged
@@ -13005,7 +13506,7 @@ MonoBehaviour:
     m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnDown: {fileID: 989266072}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 1457305506}
   m_Transition: 2
@@ -13072,6 +13573,18 @@ MonoBehaviour:
       - m_Target: {fileID: 79774867}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 506012367}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13176,6 +13689,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &506012367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 506012360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 2074680414}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &507186784
 GameObject:
   m_ObjectHideFlags: 0
@@ -13531,12 +14060,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 995996996}
+    m_SelectOnDown: {fileID: 2009180058}
+    m_SelectOnLeft: {fileID: 2038890808}
+    m_SelectOnRight: {fileID: 2043822657}
   m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -14170,6 +14699,7 @@ GameObject:
   - component: {fileID: 572970084}
   - component: {fileID: 572970083}
   - component: {fileID: 572970086}
+  - component: {fileID: 572970087}
   m_Layer: 0
   m_Name: Button_HowToPlay
   m_TagString: Untagged
@@ -14276,6 +14806,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 572970087}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &572970084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14359,6 +14901,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &572970087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572970081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 2111672906}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &592072324
 GameObject:
   m_ObjectHideFlags: 0
@@ -14447,6 +15005,7 @@ GameObject:
   - component: {fileID: 595306993}
   - component: {fileID: 595306992}
   - component: {fileID: 595306995}
+  - component: {fileID: 595306996}
   m_Layer: 0
   m_Name: Button_AdvancedTutorial_Combos
   m_TagString: Untagged
@@ -14589,6 +15148,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 595306996}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &595306993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14672,6 +15243,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &595306996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595306990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 810849380}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &597792038
 GameObject:
   m_ObjectHideFlags: 0
@@ -15719,6 +16306,7 @@ GameObject:
   - component: {fileID: 619937190}
   - component: {fileID: 619937192}
   - component: {fileID: 619937195}
+  - component: {fileID: 619937196}
   m_Layer: 0
   m_Name: Button_GameSettings_AudioPage
   m_TagString: Untagged
@@ -15809,6 +16397,18 @@ MonoBehaviour:
       - m_Target: {fileID: 79774867}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 619937196}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15932,6 +16532,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &619937196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619937189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 2074680414}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &622437464
 GameObject:
   m_ObjectHideFlags: 0
@@ -17313,9 +17929,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: f098619a8c4a5af458259b18dd9b2625, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: aef5adf6e85d3784e8e505eddff3e7c1, type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 21300000, guid: f098619a8c4a5af458259b18dd9b2625, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: aef5adf6e85d3784e8e505eddff3e7c1, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -17360,7 +17976,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 09ea78ecbbedcd9419def0ff1c8949f9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a39432a4dd8277d41b940f64262196fd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -17490,6 +18106,42 @@ MonoBehaviour:
       - m_Target: {fileID: 79774867}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 552611029}
+        m_TargetAssemblyTypeName: DifficultySelectSaveSystem, Assembly-CSharp
+        m_MethodName: SetDifficultyToEasy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 552611027}
+        m_TargetAssemblyTypeName: MovementTypeSaveSystem, Assembly-CSharp
+        m_MethodName: SetMovementToSliding
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1181251929}
+        m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+        m_MethodName: LoadGameScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -18222,6 +18874,7 @@ GameObject:
   - component: {fileID: 718095416}
   - component: {fileID: 718095415}
   - component: {fileID: 718095418}
+  - component: {fileID: 718095419}
   m_Layer: 0
   m_Name: Button_AdvancedTutorials
   m_TagString: Untagged
@@ -18328,6 +18981,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 718095419}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &718095416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18411,6 +19076,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &718095419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718095413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 595306992}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &731573133
 GameObject:
   m_ObjectHideFlags: 0
@@ -18816,6 +19497,7 @@ GameObject:
   - component: {fileID: 756750743}
   - component: {fileID: 756750742}
   - component: {fileID: 756750745}
+  - component: {fileID: 756750746}
   m_Layer: 0
   m_Name: Button_IntermediateTutorials
   m_TagString: Untagged
@@ -18922,6 +19604,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 756750746}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &756750743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19005,6 +19699,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &756750746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756750740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 1704237359}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &765094244
 GameObject:
   m_ObjectHideFlags: 0
@@ -19054,9 +19764,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: f098619a8c4a5af458259b18dd9b2625, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: aef5adf6e85d3784e8e505eddff3e7c1, type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 21300000, guid: f098619a8c4a5af458259b18dd9b2625, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: aef5adf6e85d3784e8e505eddff3e7c1, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -19101,7 +19811,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 09ea78ecbbedcd9419def0ff1c8949f9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a39432a4dd8277d41b940f64262196fd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -19347,6 +20057,7 @@ GameObject:
   - component: {fileID: 783901085}
   - component: {fileID: 783901084}
   - component: {fileID: 783901087}
+  - component: {fileID: 783901088}
   m_Layer: 0
   m_Name: Button_Back
   m_TagString: Untagged
@@ -19389,7 +20100,7 @@ MonoBehaviour:
     m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 1704237359}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnDown: {fileID: 1704237359}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 1644679682}
   m_Transition: 2
@@ -19444,6 +20155,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1689621482}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 783901088}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -19536,6 +20259,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &783901088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783901082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 756750742}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &790784716
 GameObject:
   m_ObjectHideFlags: 0
@@ -19836,6 +20575,7 @@ GameObject:
   - component: {fileID: 805362997}
   - component: {fileID: 805362996}
   - component: {fileID: 805362999}
+  - component: {fileID: 805363000}
   m_Layer: 0
   m_Name: Button_BasicTutorial_GlassWall
   m_TagString: Untagged
@@ -19942,6 +20682,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 805363000}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &805362997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20025,6 +20777,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &805363000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 805362994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 1112186765}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &810849379
 GameObject:
   m_ObjectHideFlags: 0
@@ -20074,9 +20842,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 6b44cdd86bd0ea44096d22cc45592561, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: aef5adf6e85d3784e8e505eddff3e7c1, type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 21300000, guid: 6b44cdd86bd0ea44096d22cc45592561, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: aef5adf6e85d3784e8e505eddff3e7c1, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -20121,7 +20889,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e3a3930bdd65c8d43b06978667eeca24, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a39432a4dd8277d41b940f64262196fd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -20899,7 +21667,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &862503801
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21126,12 +21894,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 2043822657}
+    m_SelectOnDown: {fileID: 478313038}
+    m_SelectOnLeft: {fileID: 2009180058}
+    m_SelectOnRight: {fileID: 962139250}
   m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -21302,6 +22070,7 @@ GameObject:
   - component: {fileID: 873788778}
   - component: {fileID: 873788780}
   - component: {fileID: 873788783}
+  - component: {fileID: 873788784}
   m_Layer: 0
   m_Name: Button_VideoSettings_GamePage
   m_TagString: Untagged
@@ -21461,6 +22230,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 873788784}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &873788779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21575,6 +22356,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &873788784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 873788777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 1457305506}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &885148917
 GameObject:
   m_ObjectHideFlags: 0
@@ -21643,9 +22440,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: f098619a8c4a5af458259b18dd9b2625, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: aef5adf6e85d3784e8e505eddff3e7c1, type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 21300000, guid: f098619a8c4a5af458259b18dd9b2625, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: aef5adf6e85d3784e8e505eddff3e7c1, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -21690,7 +22487,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 09ea78ecbbedcd9419def0ff1c8949f9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a39432a4dd8277d41b940f64262196fd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -21957,6 +22754,7 @@ GameObject:
   - component: {fileID: 896742866}
   - component: {fileID: 896742865}
   - component: {fileID: 896742868}
+  - component: {fileID: 896742869}
   m_Layer: 0
   m_Name: Button_Back
   m_TagString: Untagged
@@ -22063,6 +22861,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 896742869}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &896742866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22146,6 +22956,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &896742869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 896742863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 718095415}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &898032401
 GameObject:
   m_ObjectHideFlags: 0
@@ -22427,6 +23253,7 @@ GameObject:
   - component: {fileID: 904170187}
   - component: {fileID: 904170186}
   - component: {fileID: 904170189}
+  - component: {fileID: 904170190}
   m_Layer: 0
   m_Name: Button_IntermediateTutorial_HighJump
   m_TagString: Untagged
@@ -22533,6 +23360,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 904170190}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &904170187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22616,6 +23455,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &904170190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 904170184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 71711899}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &913199074
 GameObject:
   m_ObjectHideFlags: 0
@@ -23311,9 +24166,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 241f63d7fbe058843b1c5877e541f7e9, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: aef5adf6e85d3784e8e505eddff3e7c1, type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 21300000, guid: 241f63d7fbe058843b1c5877e541f7e9, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: aef5adf6e85d3784e8e505eddff3e7c1, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -23358,7 +24213,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d382c786d7f253f4ca9b85fa6454eee9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a39432a4dd8277d41b940f64262196fd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -23706,12 +24561,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 148454850}
+    m_SelectOnDown: {fileID: 983138143}
+    m_SelectOnLeft: {fileID: 868538548}
+    m_SelectOnRight: {fileID: 2009180058}
   m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -24087,6 +24942,7 @@ GameObject:
   - component: {fileID: 967630849}
   - component: {fileID: 967630848}
   - component: {fileID: 967630852}
+  - component: {fileID: 967630853}
   m_Layer: 0
   m_Name: Button_Back_pg02
   m_TagString: Untagged
@@ -24165,6 +25021,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1689621482}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 967630853}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -24276,6 +25144,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &967630853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967630847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 1644679682}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &974601171
 GameObject:
   m_ObjectHideFlags: 0
@@ -24291,7 +25175,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &974601172
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24569,7 +25453,7 @@ GameObject:
   - component: {fileID: 983138143}
   - component: {fileID: 983138146}
   m_Layer: 0
-  m_Name: Button_Resolution_800x640
+  m_Name: Button_Resolution_800x600
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24607,12 +25491,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 962139250}
+    m_SelectOnDown: {fileID: 1368023768}
+    m_SelectOnLeft: {fileID: 478313038}
+    m_SelectOnRight: {fileID: 1517440079}
   m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -25337,12 +26221,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 1517440079}
+    m_SelectOnDown: {fileID: 2038890808}
+    m_SelectOnLeft: {fileID: 2038890808}
+    m_SelectOnRight: {fileID: 1259890043}
   m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -25743,7 +26627,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1013004736
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25817,9 +26701,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 6b44cdd86bd0ea44096d22cc45592561, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: aef5adf6e85d3784e8e505eddff3e7c1, type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 21300000, guid: 6b44cdd86bd0ea44096d22cc45592561, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: aef5adf6e85d3784e8e505eddff3e7c1, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -25864,7 +26748,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e3a3930bdd65c8d43b06978667eeca24, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a39432a4dd8277d41b940f64262196fd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -26399,6 +27283,7 @@ GameObject:
   - component: {fileID: 1037119642}
   - component: {fileID: 1037119641}
   - component: {fileID: 1037119644}
+  - component: {fileID: 1037119645}
   m_Layer: 0
   m_Name: Button_MainMenu
   m_TagString: Untagged
@@ -26441,9 +27326,9 @@ MonoBehaviour:
     m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 70980266}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnDown: {fileID: 1457305506}
     m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 506012362}
+    m_SelectOnRight: {fileID: 989266072}
   m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -26541,6 +27426,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1037119645}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1037119642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26624,6 +27521,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1037119645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1037119639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 282038746}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &1042097763
 GameObject:
   m_ObjectHideFlags: 0
@@ -26784,6 +27697,7 @@ GameObject:
   - component: {fileID: 1043906133}
   - component: {fileID: 1043906132}
   - component: {fileID: 1043906135}
+  - component: {fileID: 1043906136}
   m_Layer: 0
   m_Name: Button_NextPage_pg01
   m_TagString: Untagged
@@ -26890,6 +27804,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1043906136}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1043906133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26973,6 +27899,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1043906136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043906130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 176526011}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &1045095425
 GameObject:
   m_ObjectHideFlags: 0
@@ -27236,7 +28178,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1057291842
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27285,6 +28227,7 @@ GameObject:
   - component: {fileID: 1068456970}
   - component: {fileID: 1068456969}
   - component: {fileID: 1068456973}
+  - component: {fileID: 1068456974}
   m_Layer: 0
   m_Name: Button_Back
   m_TagString: Untagged
@@ -27363,6 +28306,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1689621482}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1068456974}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -27474,6 +28429,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1068456974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068456968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 904170186}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &1090907418
 GameObject:
   m_ObjectHideFlags: 0
@@ -27742,6 +28713,7 @@ GameObject:
   - component: {fileID: 1102075666}
   - component: {fileID: 1102075665}
   - component: {fileID: 1102075668}
+  - component: {fileID: 1102075669}
   m_Layer: 0
   m_Name: Button_PrevPage_pg02
   m_TagString: Untagged
@@ -27785,7 +28757,7 @@ MonoBehaviour:
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 2142610295}
+    m_SelectOnLeft: {fileID: 1297995434}
     m_SelectOnRight: {fileID: 885148919}
   m_Transition: 2
   m_Colors:
@@ -27839,6 +28811,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1689621482}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1102075669}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -27931,6 +28915,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1102075669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1102075663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 1927280917}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &1108312957
 GameObject:
   m_ObjectHideFlags: 0
@@ -28197,7 +29197,7 @@ MonoBehaviour:
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 2056923172}
+    m_SelectOnLeft: {fileID: 1512250566}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 2
   m_Colors:
@@ -28209,9 +29209,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: f098619a8c4a5af458259b18dd9b2625, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: aef5adf6e85d3784e8e505eddff3e7c1, type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 21300000, guid: f098619a8c4a5af458259b18dd9b2625, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: aef5adf6e85d3784e8e505eddff3e7c1, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -28256,7 +29256,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 09ea78ecbbedcd9419def0ff1c8949f9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a39432a4dd8277d41b940f64262196fd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -28407,6 +29407,7 @@ GameObject:
   - component: {fileID: 1115679065}
   - component: {fileID: 1115679064}
   - component: {fileID: 1115679067}
+  - component: {fileID: 1115679068}
   m_Layer: 0
   m_Name: Button_NextPage_pg01
   m_TagString: Untagged
@@ -28513,6 +29514,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1115679068}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1115679065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28596,6 +29609,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1115679068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115679062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 1872135939}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &1118879979
 GameObject:
   m_ObjectHideFlags: 0
@@ -29708,6 +30737,7 @@ GameObject:
   - component: {fileID: 1173149188}
   - component: {fileID: 1173149187}
   - component: {fileID: 1173149190}
+  - component: {fileID: 1173149191}
   m_Layer: 0
   m_Name: Button_NextPage_pg02
   m_TagString: Untagged
@@ -29814,6 +30844,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1173149191}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1173149188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29897,6 +30939,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1173149191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1173149185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 465564278}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &1181251927
 GameObject:
   m_ObjectHideFlags: 0
@@ -29982,67 +31040,7 @@ MonoBehaviour:
   enableCursorOnStart: 1
   onDisableTrainingModesCanvas:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &1183647583
 GameObject:
   m_ObjectHideFlags: 0
@@ -30286,6 +31284,7 @@ GameObject:
   - component: {fileID: 1194401102}
   - component: {fileID: 1194401101}
   - component: {fileID: 1194401104}
+  - component: {fileID: 1194401105}
   m_Layer: 0
   m_Name: Button_MainMenu
   m_TagString: Untagged
@@ -30440,6 +31439,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1194401105}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1194401102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30523,6 +31534,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1194401105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194401099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 100628937}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &1198588427
 GameObject:
   m_ObjectHideFlags: 0
@@ -30591,9 +31618,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 241f63d7fbe058843b1c5877e541f7e9, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: aef5adf6e85d3784e8e505eddff3e7c1, type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 21300000, guid: 241f63d7fbe058843b1c5877e541f7e9, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: aef5adf6e85d3784e8e505eddff3e7c1, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -30638,7 +31665,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d382c786d7f253f4ca9b85fa6454eee9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a39432a4dd8277d41b940f64262196fd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -31040,6 +32067,7 @@ GameObject:
   - component: {fileID: 1212208200}
   - component: {fileID: 1212208199}
   - component: {fileID: 1212208203}
+  - component: {fileID: 1212208204}
   m_Layer: 0
   m_Name: Button_Back_pg02
   m_TagString: Untagged
@@ -31122,6 +32150,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1212208204}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -31229,6 +32269,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1212208204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1212208198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 1747857339}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &1213065113
 GameObject:
   m_ObjectHideFlags: 0
@@ -31884,6 +32940,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1251548357}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1251548355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31929,14 +32997,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1251548352}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventSystem: {fileID: 0}
-  elementToSelect: {fileID: 0}
-  showVisualization: 0
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 334744480}
+  showVisualization: 1
   navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!114 &1251548358
 MonoBehaviour:
@@ -32275,12 +33343,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 478313038}
+    m_SelectOnDown: {fileID: 2038890808}
+    m_SelectOnLeft: {fileID: 995996996}
+    m_SelectOnRight: {fileID: 1368023768}
   m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -33508,6 +34576,7 @@ GameObject:
   - component: {fileID: 1297995435}
   - component: {fileID: 1297995434}
   - component: {fileID: 1297995437}
+  - component: {fileID: 1297995438}
   m_Layer: 0
   m_Name: Button_Back_pg02
   m_TagString: Untagged
@@ -33614,6 +34683,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1297995438}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1297995435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33697,6 +34778,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1297995438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297995432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 1805519102}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &1304591969
 GameObject:
   m_ObjectHideFlags: 0
@@ -33921,7 +35018,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1323741987
 RectTransform:
   m_ObjectHideFlags: 0
@@ -34431,7 +35528,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1353833593
 Transform:
   m_ObjectHideFlags: 0
@@ -34553,6 +35650,7 @@ GameObject:
   - component: {fileID: 1360301323}
   - component: {fileID: 1360301322}
   - component: {fileID: 1360301325}
+  - component: {fileID: 1360301326}
   m_Layer: 0
   m_Name: Button_NextPage_pg01
   m_TagString: Untagged
@@ -34659,6 +35757,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1360301326}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1360301323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34742,6 +35852,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1360301326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360301320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 885148919}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &1368023766
 GameObject:
   m_ObjectHideFlags: 0
@@ -34794,12 +35920,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 983138143}
+    m_SelectOnDown: {fileID: 2038890808}
+    m_SelectOnLeft: {fileID: 1259890043}
+    m_SelectOnRight: {fileID: 995996996}
   m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -34969,6 +36095,7 @@ GameObject:
   - component: {fileID: 1368998177}
   - component: {fileID: 1368998176}
   - component: {fileID: 1368998179}
+  - component: {fileID: 1368998180}
   m_Layer: 0
   m_Name: Button_MainMenu
   m_TagString: Untagged
@@ -35011,7 +36138,7 @@ MonoBehaviour:
     m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 975594753}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnDown: {fileID: 975594753}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 133126776}
   m_Transition: 2
@@ -35111,6 +36238,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1368998180}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1368998177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35194,6 +36333,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1368998180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368998174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 282038746}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &1382612267
 GameObject:
   m_ObjectHideFlags: 0
@@ -36043,6 +37198,42 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 552611029}
+        m_TargetAssemblyTypeName: DifficultySelectSaveSystem, Assembly-CSharp
+        m_MethodName: SetDifficultyToExpert
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 552611027}
+        m_TargetAssemblyTypeName: MovementTypeSaveSystem, Assembly-CSharp
+        m_MethodName: SetMovementToSliding
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1181251929}
+        m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+        m_MethodName: LoadGameScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1412098298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36719,7 +37910,7 @@ MonoBehaviour:
     m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnDown: {fileID: 989266072}
     m_SelectOnLeft: {fileID: 506012362}
     m_SelectOnRight: {fileID: 1591104662}
   m_Transition: 2
@@ -37280,9 +38471,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: f098619a8c4a5af458259b18dd9b2625, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: aef5adf6e85d3784e8e505eddff3e7c1, type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 21300000, guid: f098619a8c4a5af458259b18dd9b2625, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: aef5adf6e85d3784e8e505eddff3e7c1, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -37327,7 +38518,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 09ea78ecbbedcd9419def0ff1c8949f9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a39432a4dd8277d41b940f64262196fd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -37504,6 +38695,7 @@ GameObject:
   - component: {fileID: 1512250567}
   - component: {fileID: 1512250566}
   - component: {fileID: 1512250569}
+  - component: {fileID: 1512250570}
   m_Layer: 0
   m_Name: Button_Back
   m_TagString: Untagged
@@ -37610,6 +38802,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1512250570}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1512250567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37693,6 +38897,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1512250570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512250564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 805362996}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &1514362675
 GameObject:
   m_ObjectHideFlags: 0
@@ -37706,6 +38926,7 @@ GameObject:
   - component: {fileID: 1514362678}
   - component: {fileID: 1514362677}
   - component: {fileID: 1514362680}
+  - component: {fileID: 1514362681}
   m_Layer: 0
   m_Name: Button_PrevPage_pg02
   m_TagString: Untagged
@@ -37812,6 +39033,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1514362681}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1514362678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37895,6 +39128,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1514362681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1514362675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 242992610}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &1517440077
 GameObject:
   m_ObjectHideFlags: 0
@@ -37947,12 +39196,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 2009180058}
+    m_SelectOnDown: {fileID: 995996996}
+    m_SelectOnLeft: {fileID: 2038890808}
+    m_SelectOnRight: {fileID: 478313038}
   m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -38572,6 +39821,7 @@ GameObject:
   - component: {fileID: 1540115696}
   - component: {fileID: 1540115695}
   - component: {fileID: 1540115698}
+  - component: {fileID: 1540115699}
   m_Layer: 0
   m_Name: Button_Back_pg03
   m_TagString: Untagged
@@ -38678,6 +39928,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1540115699}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1540115696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38761,6 +40023,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1540115699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1540115693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 1805519102}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &1549722065
 GameObject:
   m_ObjectHideFlags: 0
@@ -39171,6 +40449,7 @@ GameObject:
   - component: {fileID: 1570695773}
   - component: {fileID: 1570695772}
   - component: {fileID: 1570695776}
+  - component: {fileID: 1570695777}
   m_Layer: 0
   m_Name: Button_Back
   m_TagString: Untagged
@@ -39249,6 +40528,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1689621482}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1570695777}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -39360,6 +40651,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1570695777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1570695771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 1704237359}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &1572746019
 GameObject:
   m_ObjectHideFlags: 0
@@ -39373,6 +40680,7 @@ GameObject:
   - component: {fileID: 1572746021}
   - component: {fileID: 1572746020}
   - component: {fileID: 1572746024}
+  - component: {fileID: 1572746025}
   m_Layer: 0
   m_Name: Button_Back_pg01
   m_TagString: Untagged
@@ -39451,6 +40759,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1689621482}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1572746025}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -39562,6 +40882,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1572746025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1572746019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 1747857339}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &1581669948
 GameObject:
   m_ObjectHideFlags: 0
@@ -39624,6 +40960,7 @@ GameObject:
   - component: {fileID: 1591104662}
   - component: {fileID: 1591104665}
   - component: {fileID: 1591104666}
+  - component: {fileID: 1591104667}
   m_Layer: 0
   m_Name: Button_AudioSettings_VideoPage
   m_TagString: Untagged
@@ -39666,7 +41003,7 @@ MonoBehaviour:
     m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnDown: {fileID: 989266072}
     m_SelectOnLeft: {fileID: 1457305506}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 2
@@ -39790,6 +41127,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1591104660}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1591104663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39885,6 +41234,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1591104667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1591104660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 975594753}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &1591665071
 GameObject:
   m_ObjectHideFlags: 0
@@ -39898,6 +41263,7 @@ GameObject:
   - component: {fileID: 1591665073}
   - component: {fileID: 1591665072}
   - component: {fileID: 1591665076}
+  - component: {fileID: 1591665077}
   m_Layer: 0
   m_Name: Button_Back_pg01
   m_TagString: Untagged
@@ -39976,6 +41342,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1689621482}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1591665077}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -40087,6 +41465,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1591665077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1591665071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 167268246}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &1594686861
 GameObject:
   m_ObjectHideFlags: 0
@@ -40538,6 +41932,7 @@ GameObject:
   - component: {fileID: 1625504113}
   - component: {fileID: 1625504112}
   - component: {fileID: 1625504115}
+  - component: {fileID: 1625504116}
   m_Layer: 0
   m_Name: Button_NextPage_pg01
   m_TagString: Untagged
@@ -40644,6 +42039,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1625504116}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1625504113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40727,6 +42134,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1625504116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625504110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 1910891351}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &1629024709
 GameObject:
   m_ObjectHideFlags: 0
@@ -40745,7 +42168,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1629024710
 RectTransform:
   m_ObjectHideFlags: 0
@@ -40854,6 +42277,7 @@ GameObject:
   - component: {fileID: 1640027446}
   - component: {fileID: 1640027445}
   - component: {fileID: 1640027448}
+  - component: {fileID: 1640027449}
   m_Layer: 0
   m_Name: Button_Back
   m_TagString: Untagged
@@ -40996,6 +42420,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1640027449}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1640027446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41079,6 +42515,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1640027449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1640027443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 572970083}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &1644679680
 GameObject:
   m_ObjectHideFlags: 0
@@ -41092,6 +42544,7 @@ GameObject:
   - component: {fileID: 1644679683}
   - component: {fileID: 1644679682}
   - component: {fileID: 1644679685}
+  - component: {fileID: 1644679686}
   m_Layer: 0
   m_Name: Button_IntermediateTutorial_StyleRating
   m_TagString: Untagged
@@ -41135,7 +42588,7 @@ MonoBehaviour:
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 904170186}
     m_SelectOnDown: {fileID: 783901084}
-    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnLeft: {fileID: 783901084}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 2
   m_Colors:
@@ -41234,6 +42687,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1644679686}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1644679683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41317,6 +42782,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1644679686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1644679680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 945092225}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &1648344118
 GameObject:
   m_ObjectHideFlags: 0
@@ -41471,6 +42952,7 @@ GameObject:
   - component: {fileID: 1661955839}
   - component: {fileID: 1661955838}
   - component: {fileID: 1661955842}
+  - component: {fileID: 1661955843}
   m_Layer: 0
   m_Name: Button_Back_pg01
   m_TagString: Untagged
@@ -41549,6 +43031,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1689621482}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1661955843}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -41660,6 +43154,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1661955843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1661955837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 1644679682}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &1662661961
 GameObject:
   m_ObjectHideFlags: 0
@@ -42342,6 +43852,7 @@ GameObject:
   - component: {fileID: 1704237360}
   - component: {fileID: 1704237359}
   - component: {fileID: 1704237362}
+  - component: {fileID: 1704237363}
   m_Layer: 0
   m_Name: Button_IntermediateTutorial_Dash
   m_TagString: Untagged
@@ -42448,6 +43959,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1704237363}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1704237360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42531,6 +44054,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1704237363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1704237357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 1198588429}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &1708515302
 GameObject:
   m_ObjectHideFlags: 0
@@ -43050,6 +44589,7 @@ GameObject:
   - component: {fileID: 1747857340}
   - component: {fileID: 1747857339}
   - component: {fileID: 1747857342}
+  - component: {fileID: 1747857343}
   m_Layer: 0
   m_Name: Button_AdvancedTutorial_DashCancel
   m_TagString: Untagged
@@ -43192,6 +44732,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1747857343}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1747857340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43275,6 +44827,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1747857343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1747857337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 1016185647}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &1756769268
 GameObject:
   m_ObjectHideFlags: 0
@@ -43332,7 +44900,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'SWING TYPES - POWER
+  m_text: 'SWING TYPES - AIM
 
 '
   m_isRightToLeft: 0
@@ -43464,6 +45032,7 @@ GameObject:
   - component: {fileID: 1770002296}
   - component: {fileID: 1770002295}
   - component: {fileID: 1770002298}
+  - component: {fileID: 1770002299}
   m_Layer: 0
   m_Name: Button_Back
   m_TagString: Untagged
@@ -43570,6 +45139,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1770002299}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1770002296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43653,6 +45234,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1770002299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1770002293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 2111672906}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &1777601157
 GameObject:
   m_ObjectHideFlags: 0
@@ -43752,6 +45349,7 @@ GameObject:
   - component: {fileID: 1779615229}
   - component: {fileID: 1779615228}
   - component: {fileID: 1779615231}
+  - component: {fileID: 1779615232}
   m_Layer: 0
   m_Name: Back_Button
   m_TagString: Untagged
@@ -43858,6 +45456,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1779615232}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1779615229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43925,6 +45535,38 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - eventID: 9
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 214034767}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &1779615232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779615226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 1251548354}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &1797576740
 GameObject:
   m_ObjectHideFlags: 0
@@ -44140,6 +45782,7 @@ GameObject:
   - component: {fileID: 1805519103}
   - component: {fileID: 1805519102}
   - component: {fileID: 1805519105}
+  - component: {fileID: 1805519106}
   m_Layer: 0
   m_Name: Button_BasicTutorial_SwingTypes
   m_TagString: Untagged
@@ -44306,6 +45949,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1805519106}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1805519103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44389,6 +46044,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1805519106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805519100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 1927280917}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &1808574096
 GameObject:
   m_ObjectHideFlags: 0
@@ -44402,6 +46073,7 @@ GameObject:
   - component: {fileID: 1808574099}
   - component: {fileID: 1808574098}
   - component: {fileID: 1808574101}
+  - component: {fileID: 1808574102}
   m_Layer: 0
   m_Name: Button_PrevPage_pg02
   m_TagString: Untagged
@@ -44508,6 +46180,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1808574102}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1808574099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44591,6 +46275,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1808574102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1808574096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 810849380}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &1810190582
 GameObject:
   m_ObjectHideFlags: 0
@@ -44607,7 +46307,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1810190583
 RectTransform:
   m_ObjectHideFlags: 0
@@ -45145,6 +46845,42 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 552611029}
+        m_TargetAssemblyTypeName: DifficultySelectSaveSystem, Assembly-CSharp
+        m_MethodName: SetDifficultyToHard
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 552611027}
+        m_TargetAssemblyTypeName: MovementTypeSaveSystem, Assembly-CSharp
+        m_MethodName: SetMovementToSliding
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1181251929}
+        m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+        m_MethodName: LoadGameScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1847746763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45666,9 +47402,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 6b44cdd86bd0ea44096d22cc45592561, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: aef5adf6e85d3784e8e505eddff3e7c1, type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 21300000, guid: 6b44cdd86bd0ea44096d22cc45592561, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: aef5adf6e85d3784e8e505eddff3e7c1, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -45713,7 +47449,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e3a3930bdd65c8d43b06978667eeca24, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a39432a4dd8277d41b940f64262196fd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -46038,6 +47774,7 @@ GameObject:
   - component: {fileID: 1893099450}
   - component: {fileID: 1893099449}
   - component: {fileID: 1893099453}
+  - component: {fileID: 1893099454}
   m_Layer: 0
   m_Name: Button_Back_pg02
   m_TagString: Untagged
@@ -46116,6 +47853,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1689621482}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1893099454}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -46227,6 +47976,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1893099454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1893099448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 595306992}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &1898777391
 GameObject:
   m_ObjectHideFlags: 0
@@ -46348,9 +48113,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 6b44cdd86bd0ea44096d22cc45592561, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: aef5adf6e85d3784e8e505eddff3e7c1, type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 21300000, guid: 6b44cdd86bd0ea44096d22cc45592561, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: aef5adf6e85d3784e8e505eddff3e7c1, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -46395,7 +48160,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e3a3930bdd65c8d43b06978667eeca24, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a39432a4dd8277d41b940f64262196fd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -46947,9 +48712,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: f098619a8c4a5af458259b18dd9b2625, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: aef5adf6e85d3784e8e505eddff3e7c1, type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 21300000, guid: f098619a8c4a5af458259b18dd9b2625, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: aef5adf6e85d3784e8e505eddff3e7c1, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -46994,7 +48759,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 09ea78ecbbedcd9419def0ff1c8949f9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a39432a4dd8277d41b940f64262196fd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -47468,7 +49233,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1952979334
 RectTransform:
   m_ObjectHideFlags: 0
@@ -48754,7 +50519,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1997730629
 RectTransform:
   m_ObjectHideFlags: 0
@@ -48831,12 +50596,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 541756359}
+    m_SelectOnDown: {fileID: 1517440079}
+    m_SelectOnLeft: {fileID: 2038890808}
+    m_SelectOnRight: {fileID: 868538548}
   m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -49081,6 +50846,7 @@ GameObject:
   - component: {fileID: 2023267821}
   - component: {fileID: 2023267820}
   - component: {fileID: 2023267823}
+  - component: {fileID: 2023267824}
   m_Layer: 0
   m_Name: Button_MainMenu
   m_TagString: Untagged
@@ -49122,8 +50888,8 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 2074680414}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 161186948}
+    m_SelectOnDown: {fileID: 2074680414}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 161186948}
   m_Transition: 2
@@ -49223,6 +50989,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 2023267824}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &2023267821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49306,6 +51084,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &2023267824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023267818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 282038746}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &2029916069
 GameObject:
   m_ObjectHideFlags: 0
@@ -49596,6 +51390,7 @@ GameObject:
   - component: {fileID: 2031852687}
   - component: {fileID: 2031852686}
   - component: {fileID: 2031852689}
+  - component: {fileID: 2031852690}
   m_Layer: 0
   m_Name: Button_PrevPage_pg04
   m_TagString: Untagged
@@ -49639,7 +51434,7 @@ MonoBehaviour:
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 2142610295}
+    m_SelectOnLeft: {fileID: 303215114}
     m_SelectOnRight: {fileID: 1495309222}
   m_Transition: 2
   m_Colors:
@@ -49693,6 +51488,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1689621482}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2031852690}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -49785,6 +51592,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &2031852690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2031852684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 465564278}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &2032005239
 GameObject:
   m_ObjectHideFlags: 0
@@ -49799,6 +51622,7 @@ GameObject:
   - component: {fileID: 2032005242}
   - component: {fileID: 2032005241}
   - component: {fileID: 2032005245}
+  - component: {fileID: 2032005246}
   m_Layer: 0
   m_Name: Button_AudioSettings_GamePage
   m_TagString: Untagged
@@ -49977,6 +51801,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 2032005246}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &2032005243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50060,6 +51896,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &2032005246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032005239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 975594753}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &2032419992
 GameObject:
   m_ObjectHideFlags: 0
@@ -50228,9 +52080,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 241f63d7fbe058843b1c5877e541f7e9, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: aef5adf6e85d3784e8e505eddff3e7c1, type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 21300000, guid: 241f63d7fbe058843b1c5877e541f7e9, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: aef5adf6e85d3784e8e505eddff3e7c1, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -50275,7 +52127,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d382c786d7f253f4ca9b85fa6454eee9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a39432a4dd8277d41b940f64262196fd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -50370,6 +52222,7 @@ GameObject:
   - component: {fileID: 2038890809}
   - component: {fileID: 2038890808}
   - component: {fileID: 2038890811}
+  - component: {fileID: 2038890812}
   m_Layer: 0
   m_Name: Button_Back
   m_TagString: Untagged
@@ -50411,10 +52264,10 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 70980266}
+    m_SelectOnUp: {fileID: 995996996}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 506012362}
+    m_SelectOnRight: {fileID: 995996996}
   m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -50483,6 +52336,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 2038890812}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -50571,6 +52436,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &2038890812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2038890806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 70980266}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &2043822655
 GameObject:
   m_ObjectHideFlags: 0
@@ -50623,12 +52504,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 1259890043}
+    m_SelectOnDown: {fileID: 868538548}
+    m_SelectOnLeft: {fileID: 541756359}
+    m_SelectOnRight: {fileID: 148454850}
   m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -50884,6 +52765,7 @@ GameObject:
   - component: {fileID: 2056923173}
   - component: {fileID: 2056923172}
   - component: {fileID: 2056923175}
+  - component: {fileID: 2056923176}
   m_Layer: 0
   m_Name: Button_Back
   m_TagString: Untagged
@@ -50990,6 +52872,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2056923176}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2056923173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51073,6 +52967,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &2056923176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2056923170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 407643986}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &2060968601
 GameObject:
   m_ObjectHideFlags: 0
@@ -51395,7 +53305,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2078977342
 RectTransform:
   m_ObjectHideFlags: 0
@@ -51578,6 +53488,7 @@ GameObject:
   - component: {fileID: 2093783053}
   - component: {fileID: 2093783052}
   - component: {fileID: 2093783055}
+  - component: {fileID: 2093783056}
   m_Layer: 0
   m_Name: Button_Back_pg01
   m_TagString: Untagged
@@ -51684,6 +53595,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2093783056}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2093783053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51767,6 +53690,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &2093783056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093783050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 1805519102}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &2093904622
 GameObject:
   m_ObjectHideFlags: 0
@@ -51998,6 +53937,7 @@ GameObject:
   - component: {fileID: 2111672907}
   - component: {fileID: 2111672906}
   - component: {fileID: 2111672909}
+  - component: {fileID: 2111672910}
   m_Layer: 0
   m_Name: Button_BasicsTutorials
   m_TagString: Untagged
@@ -52104,6 +54044,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2111672910}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2111672907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52187,6 +54139,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &2111672910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111672904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 312972656}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &2116073236
 GameObject:
   m_ObjectHideFlags: 0
@@ -52687,6 +54655,7 @@ GameObject:
   - component: {fileID: 2142610296}
   - component: {fileID: 2142610295}
   - component: {fileID: 2142610298}
+  - component: {fileID: 2142610299}
   m_Layer: 0
   m_Name: Button_Back
   m_TagString: Untagged
@@ -52793,6 +54762,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2142610299}
+        m_TargetAssemblyTypeName: SetUiElementToSelectOnInteraction, Assembly-CSharp
+        m_MethodName: JumpToElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2142610296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52876,6 +54857,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &2142610299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142610293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43516da985da5c469137921ff5e0ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 493344816}
+  elementToSelect: {fileID: 42648025}
+  showVisualization: 0
+  navigationColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1001 &8637510784941520059
 PrefabInstance:
   m_ObjectHideFlags: 0
